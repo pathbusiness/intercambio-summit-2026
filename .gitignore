@@ -1,0 +1,22 @@
+# Fontes pesadas ficam fora do repositório — o deploy usa só site/
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.heic
+.DS_Store
+
+# Exceções: os assets otimizados do site e os modelos do pipeline
+!site/assets/**/*.png
+!tools/yunet.onnx
+
+# Caches e folhas de conferência do pipeline
+tools/cutouts/
+tools/*.png
+tools/*.jpg
+tools/countries.geo.json
+
+Finalistas - */
+Avenida Paulista/
+Branding/
+Apoiadores/
