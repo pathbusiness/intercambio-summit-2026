@@ -9,15 +9,22 @@ visitante e atualiza sozinho o selo do topo, os cards de ingresso e o texto do
 formulário. Trocar de lote = não fazer nada. Trocar preço/prazo = editar o
 array `lotes` e fazer deploy.
 
-Campos pendentes de preenchimento em `evento.config.js`:
+Campos já configurados em `evento.config.js`:
 
-- `checkoutUrl` — link da plataforma de venda. Enquanto vazio, os botões
-  "Garantir ingresso" apontam para a seção de ingressos com captura de e-mail.
-- `leadFormAction` — endpoint POST do formulário de e-mail (Formspree,
-  RD Station, etc.). Enquanto vazio, o formulário avisa que falta configurar.
-- `whatsappPatrocinio` — número com DDI para o CTA de media kit.
-- `palestrantes` — preencher nomes; fotos 800x800 WebP em
+- `checkoutUrl` — Zoho Backstage (ingressos).
+- `leadFormAction` — Supabase Edge Function `summit-leads` (projeto Forio);
+  grava na tabela `summit_leads`. Exportar leads: SQL
+  `select email, created_at from summit_leads order by created_at`.
+- `patrocinioUrl` — página de patrocínio no GitHub Pages.
+- `palestrantes` — 4 confirmados; para os demais, foto 800x800 WebP em
   `assets/img/palestrantes/{slug}-800.webp` e marcar `foto: true`.
+
+## Deploy
+
+GitHub Pages, repositório `pathbusiness/intercambio-summit-2026`.
+Push no `main` → GitHub Actions publica `site/` no branch `gh-pages` →
+Pages serve em https://pathbusiness.github.io/intercambio-summit-2026/.
+Fonte do Pages nas Settings: branch `gh-pages`, pasta root.
 
 ## Rodar localmente
 
