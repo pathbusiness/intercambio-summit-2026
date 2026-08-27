@@ -17,9 +17,9 @@ window.EVENTO = {
   // Se esvaziado, o botão de compra volta a apontar para a captura de e-mail.
   checkoutUrl: "https://yourpath.zohobackstage.com/IntercambioSummit2026#/ingressos?lang=pt",
 
-  // Endpoint do formulário de captura de e-mail (ex.: Formspree, RD Station,
-  // Google Forms). Enquanto vazio, o formulário exibe instrução de contato.
-  leadFormAction: "",
+  // Endpoint do formulário de captura de e-mail (Supabase Edge Function,
+  // projeto Forio, função summit-leads — grava na tabela summit_leads).
+  leadFormAction: "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-leads",
 
   // Página de patrocínio (tem prioridade sobre o WhatsApp abaixo)
   patrocinioUrl: "https://pathbusiness.github.io/sponsorship/",

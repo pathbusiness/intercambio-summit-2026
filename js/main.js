@@ -135,13 +135,24 @@
         return;
       }
       if (EV.leadFormAction) {
-        var fd = new FormData();
-        fd.append("email", email.value);
-        fd.append("origem", "site-summit-2026");
-        fetch(EV.leadFormAction, { method: "POST", body: fd, mode: "no-cors" })
-          .then(function () {
-            fb.textContent = "Pronto! Você será avisado em primeira mão.";
-            form.reset();
+        var hp = document.getElementById("lead-site");
+        fetch(EV.leadFormAction, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            email: email.value,
+            origem: "site-summit-2026",
+            site: hp ? hp.value : ""
+          })
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (r) {
+            if (r && r.ok) {
+              fb.textContent = "Pronto! Você será avisado em primeira mão.";
+              form.reset();
+            } else {
+              fb.textContent = "Confira o e-mail digitado.";
+            }
           })
           .catch(function () {
             fb.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
