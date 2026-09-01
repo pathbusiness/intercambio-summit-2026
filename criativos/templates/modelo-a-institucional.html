@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Modelo A — Institucional 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* mensagem principal na banda 30%–55% da altura (405px–743px), à esquerda */
+  .bloco-msg { position: absolute; left: var(--mx); top: 118px; }
+  .data-hero { font-size: 172px; }             /* 11 DE NOVEMBRO */
+  .bloco-msg { top: 400px; }
+  .cidade { margin-top: 6px; font-size: 44px; letter-spacing: .30em; }
+  .meta { margin-top: 40px; font-size: 40px; }
+  .meta .sep { color: rgba(255,255,255,.55); padding: 0 10px; }
+  .bloco-oferta { position: absolute; left: var(--mx); top: 878px; }
+  .bloco-oferta .lote { font-weight: 600; font-size: 32px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--mid-grey); margin-bottom: 16px; }
+  .cta-wrap { position: absolute; left: var(--mx); top: 1042px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="{{FOTO}}" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../../site/assets/img/marca/summit-logo-reverso-240.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="bloco-msg">
+      <div class="titulo-hero data-hero">11 DE<br>NOVEMBRO</div>
+      <div class="eyebrow cidade">São Paulo</div>
+      <div class="linha-suporte meta"><strong>Intercâmbio Summit 2026</strong><span class="sep">·</span>144 lugares</div>
+    </div>
+
+    <div class="bloco-oferta">
+      <div class="lote">Lote Early Bird</div>
+      <div class="pill-preco">R$ 350 <span class="ou">ou 5x de R$ 70</span></div>
+    </div>
+
+    <div class="cta-wrap"><span class="cta">intercambiosummit.com.br</span></div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>

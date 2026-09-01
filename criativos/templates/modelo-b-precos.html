@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Modelo B — Tabela de preços 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas { background: var(--deep-navy); }
+
+  .cabeca { position: absolute; left: var(--mx); top: 208px; }
+  .cabeca .eyebrow { font-size: 26px; color: var(--mid-grey); }
+  .cabeca h1 { font-weight: 700; font-size: 84px; text-transform: uppercase;
+    line-height: .95; margin-top: 12px; }
+  .cabeca .quando { margin-top: 14px; font-weight: 500; font-size: 32px; color: var(--mid-grey); }
+
+  /* escada ascendente: 4 degraus, alturas crescentes, Early Bird em destaque */
+  .escada { position: absolute; left: var(--mx); right: var(--mx); bottom: 384px;
+    display: flex; align-items: flex-end; gap: 18px; }
+  .degrau { flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 24px 20px 22px; background: rgba(255,255,255,.08);
+    border-top: 3px solid rgba(255,255,255,.35); }
+  .degrau .nome { font-weight: 600; font-size: 25px; text-transform: uppercase;
+    letter-spacing: .06em; line-height: 1.12; color: var(--mid-grey); }
+  .degrau .prazo { font-weight: 500; font-size: 24px; color: rgba(255,255,255,.62);
+    margin-top: 4px; }
+  .degrau .valor { font-weight: 700; font-size: 48px; margin-top: 16px; line-height: 1;
+    white-space: nowrap; }
+  .degrau .parc  { font-weight: 500; font-size: 24px; color: rgba(255,255,255,.75);
+    margin-top: 6px; white-space: nowrap; }
+
+  .degrau.d1 { height: 300px; }
+  .degrau.d2 { height: 370px; }
+  .degrau.d3 { height: 435px; }
+  .degrau.d4 { height: 500px; }
+
+  /* Early Bird: degrau branco, tipografia Summit Blue */
+  .degrau.destaque { background: var(--white); border-top: 6px solid var(--white);
+    position: relative; }
+  .degrau.destaque .nome  { color: var(--summit-blue); }
+  .degrau.destaque .prazo { color: var(--charcoal); }
+  .degrau.destaque .valor { color: var(--summit-blue); font-size: 54px; }
+  .degrau.destaque .parc  { color: var(--charcoal); }
+  .degrau.destaque .selo-hoje { position: absolute; top: -56px; left: 0;
+    background: var(--white); color: var(--summit-blue);
+    font-weight: 700; font-size: 22px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 10px 16px 11px; }
+
+  /* valor de porta: contraste alto (charcoal sólido) */
+  .degrau.porta { background: var(--charcoal); border-top: 3px solid rgba(255,255,255,.5); }
+  .degrau.porta .valor { color: var(--white); }
+
+  .fechamento { position: absolute; left: var(--mx); right: var(--mx); top: 1030px;
+    font-weight: 500; font-size: 38px; line-height: 1.25; color: var(--white); }
+  .fechamento strong { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-cenografia"></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../../site/assets/img/marca/summit-logo-reverso-240.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="cabeca">
+      <div class="eyebrow">Ingressos</div>
+      <h1>O preço sobe.<br>O evento é o mesmo.</h1>
+      <div class="quando">Intercâmbio Summit 2026 · 11 de novembro · São Paulo</div>
+    </div>
+
+    <div class="escada">
+      <div class="degrau d1 destaque">
+        <div class="selo-hoje">Lote atual</div>
+        <div class="nome">Lote<br>Early Bird</div>
+        <div class="prazo">até 30/09</div>
+        <div class="valor">R$ 350</div>
+        <div class="parc">ou 5x de R$ 70</div>
+      </div>
+      <div class="degrau d2">
+        <div class="nome">Segundo lote</div>
+        <div class="prazo">até 24/10</div>
+        <div class="valor">R$ 450</div>
+        <div class="parc">ou 5x de R$ 90</div>
+      </div>
+      <div class="degrau d3">
+        <div class="nome">Último lote</div>
+        <div class="prazo">até 10/11</div>
+        <div class="valor">R$ 550</div>
+        <div class="parc">ou 5x de R$ 110</div>
+      </div>
+      <div class="degrau d4 porta">
+        <div class="nome">No dia, 11/11</div>
+        <div class="prazo">na porta</div>
+        <div class="valor">R$ 650</div>
+        <div class="parc">à vista</div>
+      </div>
+    </div>
+
+    <div class="fechamento"><strong>Mesmo preço do ano passado,</strong> para quem decide agora.</div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>
