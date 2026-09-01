@@ -44,6 +44,10 @@ Tamanhos: feed/carrossel 1080x1350 · story 1080x1920 · LinkedIn 1200x627
   textura/mosaico de fundo.
 - `assets/marca/apoio-*-branco.png` — logos dos apoiadores em mono branco,
   equalizados por peso óptico (gerar de novo: `tools/build_criativos_marca.py`).
+- `assets/marca/summit-logo-branco.png` — logo do Summit todo branco com
+  fundo transparente, para uso sobre as fotos tratadas (pedido do Rodrigo,
+  01/09; o manual prevê o mapa pontilhado só em Map Grey na versão para
+  fundo preto — desvio consciente do brand owner).
 - `assets/fonts/` — Rajdhani (OFL) local, para render determinístico.
 - `data/finalistas.json` — os 32 finalistas x 6 categorias (fonte: site).
 

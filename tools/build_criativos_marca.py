@@ -51,6 +51,14 @@ def trim(im):
 
 
 def main():
+    # logo do Summit todo branco (pedido do Rodrigo, 01/09): tinta extraída
+    # do primário (fundo branco) e preenchida de branco, mapa incluído
+    logo = trim(Image.open(os.path.join(SRC, "summit-logo-primario-240.png")).convert("RGBA"))
+    # primário tem fundo branco opaco: derive alfa só da luminância
+    mono = white_mono(logo)
+    mono.save(os.path.join(OUT, "summit-logo-branco.png"))
+    print(f"summit-logo-branco.png {mono.width}x{mono.height}")
+
     for slug, k in OPTICAL.items():
         im = trim(Image.open(os.path.join(SRC, f"apoio-{slug}-box.png")))
         mono = white_mono(im)
