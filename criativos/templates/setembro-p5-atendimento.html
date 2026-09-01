@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>P5 — O primeiro atendimento 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* tipográfica pura: cenografia quase apagada sob véu escuro, sem rosto */
+  .canvas { background: var(--shade-navy); }
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,17,40,.985) 0%, rgba(0,26,63,.94) 55%, rgba(0,26,63,.90) 100%);
+  }
+
+  .statement { top: 470px; font-size: 96px; line-height: 1.08; }
+  .statement .fecho { display: block; margin-top: 44px; color: var(--white); }
+  .statement .abre { color: var(--mid-grey); font-weight: 600; }
+
+  .assina { position: absolute; left: var(--mx); bottom: 150px;
+    font-weight: 600; font-size: 28px; letter-spacing: .10em; text-transform: uppercase;
+    color: rgba(255,255,255,.72); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/painel-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="statement">
+      <span class="abre">O primeiro atendimento do seu aluno já aconteceu.</span>
+      <span class="fecho">E não foi com você.</span>
+    </div>
+
+    <div class="assina">Intercâmbio Summit 2026 · 11 de novembro · São Paulo</div>
+  </div>
+</div>
+</body>
+</html>

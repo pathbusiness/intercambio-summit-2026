@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Prêmio — story de votação 1080x1920</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* 400px inferiores LIVRES para o sticker de link; sem URL escrita */
+  .canvas.story { background: var(--deep-navy); }
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.96) 0%, rgba(0,26,63,.86) 40%, rgba(0,35,92,.78) 100%);
+  }
+
+  .premio-lockup { position: absolute; top: 200px; left: var(--mx); }
+  .premio-lockup .p1 { font-weight: 700; font-size: 44px; text-transform: uppercase;
+    letter-spacing: .06em; line-height: 1.06; }
+  .premio-lockup .p2 { font-weight: 500; font-size: 27px; letter-spacing: .10em;
+    text-transform: uppercase; color: var(--mid-grey); margin-top: 8px; }
+
+  .foto { position: absolute; top: 420px; left: 190px; width: 700px; height: 700px;
+    border: 2px solid rgba(255,255,255,.30); }
+  .foto img { width: 100%; height: 100%; }
+
+  .selo-finalista { position: absolute; top: 384px; left: var(--mx);
+    background: var(--white); color: var(--summit-blue);
+    font-weight: 700; font-size: 34px; letter-spacing: .10em; text-transform: uppercase;
+    padding: 14px 22px 16px; z-index: 7;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%); }
+
+  .bloco-nome { position: absolute; left: var(--mx); right: var(--mx); top: 1180px;
+    text-align: left; }
+  .bloco-nome .nome { font-weight: 700; font-size: 92px; text-transform: uppercase; line-height: .96; }
+  .bloco-nome .categoria { margin-top: 12px; font-weight: 600; font-size: 38px;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--mid-grey); }
+  .bloco-nome .trilha { margin-top: 20px; display: inline-block; color: var(--white);
+    font-weight: 600; font-size: 24px; letter-spacing: .22em; text-transform: uppercase;
+    border: 2px solid rgba(255,255,255,.75); padding: 9px 16px 10px; }
+
+  .bloco-vote { position: absolute; left: var(--mx); top: 1440px;
+    display: flex; align-items: center; gap: 28px; }
+  .selo-vote { font-size: 46px; padding: 18px 44px 20px; }
+  .prazo { font-weight: 600; font-size: 32px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--white); }
+
+  /* zona do sticker: sem NADA abaixo de y=1520 */
+</style>
+</head>
+<body>
+<div class="canvas story">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/painel-2400.webp" alt=""></div>
+  <div class="canto-45 branco"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="premio-lockup">
+      <div class="p1">Prêmio Melhores<br>Profissionais</div>
+      <div class="p2">2026</div>
+    </div>
+
+    <div class="selo-finalista">Finalista 2026</div>
+    <div class="foto"><img src="{{FOTO}}" alt="{{NOME}}"></div>
+
+    <div class="bloco-nome">
+      <div class="nome">{{NOME}}</div>
+      <div class="categoria">{{CATEGORIA}}</div>
+      <div class="trilha">{{TRILHA}}</div>
+    </div>
+
+    <div class="bloco-vote">
+      <span class="selo-vote">Vote</span>
+      <span class="prazo">Votação até 30 de outubro</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

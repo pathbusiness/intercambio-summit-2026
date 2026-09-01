@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Kit co-branded — banner de e-mail 600x200</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* e-mail header: fundo Summit Blue sólido (spec do manual, seção 07) */
+  .canvas.banner { background: var(--summit-blue); }
+  .linha { position: absolute; left: 32px; top: 30px; right: 32px;
+    display: flex; align-items: center; gap: 20px; }
+  .linha img.summit { height: 44px; width: auto; }
+  .linha .divisor { width: 1px; height: 40px; background: rgba(255,255,255,.45); }
+  .linha img.apoiador { height: {{LOGO_H_BANNER}}px; width: auto; }
+
+  .texto { position: absolute; left: 32px; bottom: 48px; right: 32px;
+    font-weight: 600; font-size: 21px; color: var(--white); letter-spacing: .01em; }
+  .texto strong { font-weight: 700; }
+  .sub { position: absolute; left: 32px; bottom: 20px;
+    font-weight: 600; font-size: 15px; letter-spacing: .06em; color: var(--mid-grey);
+    text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="canvas banner">
+  <div class="conteudo">
+    <div class="linha">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <img class="apoiador" src="{{LOGO}}" alt="{{NOME}}">
+    </div>
+    <div class="texto">{{QUEM}} da {{NOME}} têm <strong>R$ 50 de desconto</strong></div>
+    <div class="sub">11 de novembro · São Paulo · intercambiosummit.com.br</div>
+  </div>
+</div>
+</body>
+</html>

@@ -141,6 +141,33 @@ img { display: block; }
 .faixa-apoio img.allyhub { height: 38px; }
 .faixa-apoio img.edvisor { height: 46px; }
 
+/* ---------- variações de formato ---------- */
+.canvas.story  { height: 1920px; }          /* 1080x1920 */
+.canvas.banner { width: 600px; height: 200px; }  /* banner de e-mail */
+
+/* selo VOTE: único uso do Action Green fora de botão — votar É o CTA */
+.selo-vote {
+  display: inline-block;
+  background: var(--action-green); color: var(--charcoal);
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+/* bloco de statement tipográfico (P5, P8, P9-frase) */
+.statement {
+  position: absolute; left: var(--mx); right: var(--mx);
+  font-weight: 700; text-transform: none;
+  color: var(--white); line-height: 1.12;
+}
+.statement .apagado { color: var(--mid-grey); font-weight: 500; }
+
+/* progresso de carrossel (P9b): "3/9" */
+.progresso {
+  position: absolute; top: 72px; right: 72px;
+  font-weight: 600; font-size: 30px; letter-spacing: .12em;
+  color: rgba(255,255,255,.65);
+}
+
 /* guia de depuração da zona livre (nunca renderizar em produção) */
 .debug-safe { position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
   background: rgba(255,0,0,.25); z-index: 99; }

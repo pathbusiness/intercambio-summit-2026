@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>P8 — Produtividade 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* versão tipográfica (não existe a foto do celular fotografando o slide) */
+  .canvas { background: var(--shade-navy); }
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,17,40,.98) 0%, rgba(0,26,63,.94) 55%, rgba(0,26,63,.90) 100%);
+  }
+
+  .pergunta { position: absolute; left: var(--mx); right: var(--mx); top: 250px;
+    font-weight: 500; font-size: 58px; line-height: 1.22; color: var(--mid-grey); }
+  .pergunta strong { color: var(--white); font-weight: 700; }
+
+  .resposta { position: absolute; left: var(--mx); right: var(--mx); top: 796px;
+    font-weight: 700; font-size: 54px; line-height: 1.2; color: var(--white);
+    border-left: 6px solid var(--white); padding-left: 34px; }
+
+  .assina { position: absolute; left: var(--mx); bottom: 150px;
+    font-weight: 600; font-size: 28px; letter-spacing: .10em; text-transform: uppercase;
+    color: rgba(255,255,255,.72); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/painel-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="pergunta">
+      Quanto tempo sua consultora leva para montar um comparativo de
+      <strong>cinco escolas, em três destinos,</strong> com câmbio do dia,
+      taxas, seguro e acomodação?
+    </div>
+
+    <div class="resposta">
+      Se a resposta for mais de dez minutos, esse é o custo de não ter
+      mudado nada ainda.
+    </div>
+
+    <div class="assina">Intercâmbio Summit 2026 · 11 de novembro · São Paulo</div>
+  </div>
+</div>
+</body>
+</html>

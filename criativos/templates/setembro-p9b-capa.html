@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>P9b — Carrossel Myrko: capa 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas { background: var(--deep-navy); }
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.96) 0%, rgba(0,26,63,.86) 45%, rgba(0,35,92,.78) 100%);
+  }
+  .foto { position: absolute; top: 170px; right: 80px; width: 620px; height: 620px;
+    border: 2px solid rgba(255,255,255,.30); }
+  .foto img { width: 100%; height: 100%; }
+
+  .bloco-nome { position: absolute; left: var(--mx); right: var(--mx); top: 860px; }
+  .bloco-nome .nome { font-weight: 700; font-size: 120px; text-transform: uppercase; line-height: .95; }
+  .bloco-nome .no-summit { margin-top: 22px; font-weight: 500; font-size: 44px; color: var(--white); }
+  .arraste { position: absolute; left: var(--mx); top: 1128px;
+    font-weight: 700; font-size: 32px; letter-spacing: .10em; text-transform: uppercase;
+    color: var(--mid-grey); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/painel-2400.webp" alt=""></div>
+  <div class="canto-45 branco"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+    <div class="progresso">1/9</div>
+
+    <div class="foto"><img src="../../site/assets/img/palestrantes/myrko-micali-800.webp" alt="Myrko Micali"></div>
+
+    <div class="bloco-nome">
+      <div class="nome">MYRKO MICALI</div>
+      <div class="no-summit">no Intercâmbio Summit 2026</div>
+    </div>
+
+    <div class="arraste">Arraste &nbsp;&#8594;</div>
+  </div>
+</div>
+</body>
+</html>

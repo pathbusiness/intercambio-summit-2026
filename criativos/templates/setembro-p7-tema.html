@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>P7 — Carrossel de temas: card de tema 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* sem foto de palestrante (regra do briefing) */
+  .canvas { background: var(--shade-navy); }
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,17,40,.98) 0%, rgba(0,26,63,.93) 55%, rgba(0,26,63,.88) 100%);
+  }
+  .numero { position: absolute; left: var(--mx); top: 300px;
+    font-weight: 700; font-size: 60px; color: var(--summit-blue);
+    background: var(--white); padding: 8px 22px 10px; }
+  .tema { position: absolute; left: var(--mx); right: var(--mx); top: 452px;
+    font-weight: 700; font-size: 84px; line-height: 1.06; color: var(--white);
+    text-transform: uppercase; }
+  .quem { position: absolute; left: var(--mx); right: var(--mx); top: 968px;
+    font-weight: 600; font-size: 34px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--mid-grey); }
+  .quando { position: absolute; left: var(--mx); top: 1096px;
+    font-weight: 600; font-size: 28px; letter-spacing: .10em; text-transform: uppercase;
+    color: rgba(255,255,255,.66); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/painel-2400.webp" alt=""></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+    <div class="progresso">{{PROGRESSO}}</div>
+
+    <div class="numero">{{NUM}}</div>
+    <div class="tema">{{TITULO}}</div>
+    <div class="quem">{{QUEM}}</div>
+    <div class="quando">Intercâmbio Summit 2026 · 11 de novembro · São Paulo</div>
+  </div>
+</div>
+</body>
+</html>

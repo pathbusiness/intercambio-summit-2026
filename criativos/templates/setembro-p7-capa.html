@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>P7 — Carrossel de temas: capa 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas { background: var(--deep-navy); }
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.96) 0%, rgba(0,35,92,.80) 45%, rgba(0,35,92,.62) 100%);
+  }
+  .bloco-msg { position: absolute; left: var(--mx); top: 420px; }
+  .bloco-msg .eyebrow { font-size: 30px; color: var(--mid-grey); }
+  .titulo-hero { font-size: 120px; margin-top: 18px; }
+  .quando { margin-top: 30px; font-weight: 500; font-size: 38px; color: var(--white); }
+  .arraste { position: absolute; left: var(--mx); top: 1064px;
+    font-weight: 700; font-size: 34px; letter-spacing: .10em; text-transform: uppercase;
+    color: var(--white); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/palco-telao-2400.webp" alt=""></div>
+  <div class="canto-45 branco"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="bloco-msg">
+      <div class="eyebrow">Intercâmbio Summit 2026</div>
+      <div class="titulo-hero">OS TEMAS<br>DAS SESSÕES</div>
+      <div class="quando">11 de novembro · São Paulo</div>
+    </div>
+
+    <div class="arraste">Arraste &nbsp;&#8594;</div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>

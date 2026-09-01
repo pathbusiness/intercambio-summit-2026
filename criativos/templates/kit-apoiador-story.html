@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Kit co-branded — story 1080x1920</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.story { background: var(--deep-navy); }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.96) 0%, rgba(0,26,63,.86) 40%, rgba(0,35,92,.66) 100%);
+  }
+
+  .topo-duplo { position: absolute; top: 180px; left: var(--mx); right: var(--mx);
+    display: flex; align-items: center; gap: 36px; }
+  .topo-duplo img.summit { height: 84px; width: auto; }
+  .topo-duplo .divisor { width: 2px; height: 72px; background: rgba(255,255,255,.45); }
+  .topo-duplo img.apoiador { height: {{LOGO_H_STORY}}px; width: auto; }
+
+  .bloco-msg { position: absolute; left: var(--mx); top: 640px; }
+  .titulo-hero { font-size: 116px; }
+  .quando { margin-top: 24px; font-weight: 500; font-size: 44px; color: var(--white); }
+
+  .desconto { position: absolute; left: var(--mx); right: var(--mx); top: 1120px; }
+  .desconto .pill-preco { font-size: 38px; text-transform: none; letter-spacing: .01em;
+    display: inline; line-height: 1.9; padding: 14px 26px 16px;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+  .cta-wrap { position: absolute; left: var(--mx); top: 1360px; }
+  /* 400px inferiores livres para sticker de link */
+</style>
+</head>
+<body>
+<div class="canvas story">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-duplo">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <img class="apoiador" src="{{LOGO}}" alt="{{NOME}}">
+    </div>
+
+    <div class="bloco-msg">
+      <div class="titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</div>
+      <div class="quando">11 de novembro · São Paulo</div>
+    </div>
+
+    <div class="desconto">
+      <span class="pill-preco">{{QUEM}} da {{NOME}} têm <strong>R$ 50 de desconto</strong></span>
+    </div>
+
+    <div class="cta-wrap"><span class="cta">intercambiosummit.com.br</span></div>
+  </div>
+</div>
+</body>
+</html>

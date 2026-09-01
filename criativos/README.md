@@ -67,14 +67,30 @@ Tamanhos: feed/carrossel 1080x1350 · story 1080x1920 · LinkedIn 1200x627
    o refino de borda precisa dos ORIGINAIS das fotos, que não estão neste
    repositório (ver `tools/build_images.py`, caminhos locais do Rodrigo).
 
-## Produção após aprovação (seção 8 do briefing)
+## Produção (aprovada em 01/09) — `criativos/out/`
 
-- Setembro P1–P11: cada peça é um template novo sobre `base.css`
-  (P4 = Modelo B; P9/P9b usam `palestrantes/myrko-micali-800.webp`).
-- Prêmio: 32 cards = Modelo C via `data/finalistas.json`; cards de votação
-  (sem faixa de apoiadores, selo VOTE, prazo 30/10) e stories (1080x1920,
-  400px inferiores livres para o sticker) = variantes do mesmo template.
-  Entrega: uma pasta `NomeSobrenome/` por finalista com os 4 arquivos +
-  texto sugerido em `.txt` (o `render.py` ganhará o job `premio`).
-- Kit co-branded: logo do apoiador no topo ao lado do Summit, sem faixa no
-  rodapé; feed + story + banner 600x200.
+- `out/setembro/` — P1 a P11 (26 arquivos: inclui carrossel P7 de 5 cards,
+  P9 em 2 versões, carrossel P9b de 9 cards e P11 em 2 versões de data).
+- `out/premio/capas/` — 6 capas de categoria.
+- `out/premio/finalistas/NomeSobrenome/` — por finalista: card-finalista,
+  card-votacao (sem faixa, selo VOTE), story-votacao (400px inferiores
+  livres p/ sticker, sem URL escrita), story-faltam-N-dias e
+  texto-sugerido.txt. Regerar contagem: `render.py premio DIAS=3`.
+- `out/kit-apoiadores/<id>/` — feed 1080x1350, story 1080x1920 e banner
+  de e-mail 600x200 por apoiador (logo no topo, sem faixa no rodapé).
+
+Volume em JPEG q92; banner de e-mail em PNG. Regerar tudo:
+`python3 criativos/render.py tudo`.
+
+### Pendências para publicar
+1. **Link curto de votação**: os cards usam `intercambiosummit.com.br`
+   (constante `URL_VOTACAO` no `render.py`). Confirmar o endereço final e
+   regerar (`render.py premio`).
+2. **Temas do carrossel P7**: hoje são os 3 confirmados no site
+   (`data/sessoes.json`); acrescentar os demais quando fecharem.
+3. **Kit**: para Ally Hub e Edvisor o texto diz "Clientes da", não
+   "Associados da" (são empresas) — validar redação com os parceiros,
+   junto com o aceite por escrito do co-branding (manual, seção 08).
+4. **Direito de imagem**: os fundos usam fotos de 2025 com pessoas
+   identificáveis (`plateia`, `painel`, `networking`) — pendência já
+   registrada no README do site vale para estas peças.

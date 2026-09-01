@@ -10,9 +10,12 @@
 !site/assets/**/*.png
 !tools/yunet.onnx
 
-# Exceções: ativos gerados dos criativos (logos mono + peças para aprovação)
+# Exceções: ativos gerados dos criativos (logos mono + peças para aprovação
+# + produção renderizada da campanha)
 !criativos/assets/marca/*.png
 !criativos/aprovacao/*.png
+!criativos/out/**/*.jpg
+!criativos/out/**/*.png
 
 # Caches e folhas de conferência do pipeline
 tools/cutouts/
