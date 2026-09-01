@@ -120,11 +120,12 @@ img { display: block; }
 }
 
 /* ---------- faixa de apoiadores ----------
-   Rodapé único, borda inferior a 140px (acima da zona livre de 120px).
+   Rodapé único. Borda inferior a 100px por pedido do Rodrigo (01/09) —
+   entra de leve na zona reservada de 120px, decisão consciente dele.
    Logos mono brancos já equalizados por peso óptico em
    criativos/assets/marca/ (tools/build_criativos_marca.py). */
 .faixa-apoio {
-  position: absolute; left: 0; right: 0; bottom: 140px; z-index: 5;
+  position: absolute; left: 0; right: 0; bottom: 100px; z-index: 5;
   display: flex; align-items: center; justify-content: center;
   gap: 58px;
 }
