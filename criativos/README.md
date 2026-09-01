@@ -37,9 +37,11 @@ Tamanhos: feed/carrossel 1080x1350 · story 1080x1920 · LinkedIn 1200x627
   faixa de apoiadores, CTA verde (uso exclusivo do Action Green).
 - `templates/modelo-*.html` — um template por família de peça; placeholders
   `{{CHAVE}}` substituídos pelo `render.py`.
-- `assets/cenografia.svg` — eco vetorial da cenografia geométrica do
-  auditório, para peças sem foto (P3, P5, Modelo B) e fundo dos cards.
-  Não é o mapa pontilhado do logo (o manual proíbe extraí-lo).
+- Fundos sem foto são lisos (Summit Blue / Deep Navy) com o **dispositivo
+  angular 45°** do manual (seção 06): triângulos nos cantos, sempre em
+  Summit Blue ou branco, nunca sobre conteúdo, máx. 2 por peça
+  (`.canto-45` e `.plano-45` no `base.css`). Decisão de 01/09: sem
+  textura/mosaico de fundo.
 - `assets/marca/apoio-*-branco.png` — logos dos apoiadores em mono branco,
   equalizados por peso óptico (gerar de novo: `tools/build_criativos_marca.py`).
 - `assets/fonts/` — Rajdhani (OFL) local, para render determinístico.
@@ -52,9 +54,11 @@ Tamanhos: feed/carrossel 1080x1350 · story 1080x1920 · LinkedIn 1200x627
    logo oficial, substituir no `modelo-c-finalista.html`.
 2. **Headline do Modelo B** ("O preço sobe. O evento é o mesmo.") é
    proposta de copy — o briefing fixava apenas o fechamento.
-3. **Faixa de apoiadores em mono branco** sobre azul: pedido do briefing;
-   o manual da marca pede logos sem recolorir sobre branco. O manual também
-   pede confirmação por escrito dos parceiros para material co-brandado.
+3. **Faixa de apoiadores em mono branco** sobre azul: pedido do briefing,
+   mas o Brand Guidelines (seção 08) proíbe recolorir/alterar logos de
+   parceiros e exige confirmação POR ESCRITO de cada um antes de publicar
+   material co-brandado. Publicar só com esse aceite (ou trocar a faixa
+   pelos logos coloridos sobre régua branca, que é o formato do manual).
 4. **Guilherme Garcia** (pior caso): halo de recorte visível no contorno —
    o refino de borda precisa dos ORIGINAIS das fotos, que não estão neste
    repositório (ver `tools/build_images.py`, caminhos locais do Rodrigo).

@@ -57,15 +57,11 @@ img { display: block; }
     linear-gradient(105deg, rgba(0,26,63,.55) 0%, rgba(0,26,63,.10) 60%);
 }
 
-/* textura da cenografia (padrão geométrico do auditório), sempre discreta */
-.bg-cenografia {
-  position: absolute; inset: 0;
-  background-image: url("../assets/cenografia.svg");
-  background-size: 540px 540px;
-  opacity: .12;
-}
-
-/* dispositivo angular 45° no canto superior direito (1 por peça) */
+/* Dispositivo angular 45° (Brand Guidelines v1.0, seção 06):
+   SEMPRE Summit Blue ou branco; só cantos/bordas; nunca sobre conteúdo
+   primário; no máximo 1–2 por peça.
+   .canto-45 = triângulo no canto superior direito;
+   .plano-45 = triângulo no canto inferior esquerdo. */
 .canto-45 {
   position: absolute; top: 0; right: 0; z-index: 6;
   width: 132px; height: 132px;
@@ -73,6 +69,14 @@ img { display: block; }
   clip-path: polygon(100% 0, 100% 100%, 0 0);
 }
 .canto-45.branco { background: var(--white); }
+
+.plano-45 {
+  position: absolute; left: 0; bottom: 0; z-index: 1;
+  width: 300px; height: 300px;
+  background: var(--summit-blue);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+.plano-45.branco { background: var(--white); }
 
 /* ---------- camada de conteúdo ---------- */
 .conteudo { position: absolute; inset: 0; z-index: 4; }

@@ -8,20 +8,9 @@
   /* A foto 800x800 já vem assentada no Summit Blue exato (#0044B9) pelo
      pipeline tools/build_images.py — por isso ela funde sem emenda com o
      fundo do card, e os olhos caem sempre no mesmo terço nos 32 cards. */
+  /* fundo liso no Summit Blue exato: a foto 800x800 (já assentada no mesmo
+     azul pelo pipeline) funde sem emenda */
   .canvas { background: var(--summit-blue); }
-
-  /* a textura some gradualmente na área da foto, para não marcar a emenda
-     do quadrado 800x800 (que já vem no mesmo azul) */
-  .bg-cenografia {
-    -webkit-mask-image:
-      linear-gradient(to right, #000 0%, #000 30%, rgba(0,0,0,.4) 44%, rgba(0,0,0,0) 58%),
-      linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,.5) 72%, #000 84%);
-    -webkit-mask-composite: source-over;
-    mask-image:
-      linear-gradient(to right, #000 0%, #000 30%, rgba(0,0,0,.4) 44%, rgba(0,0,0,0) 58%),
-      linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,.5) 72%, #000 84%);
-    mask-composite: add;
-  }
 
   .foto { position: absolute; top: 158px; right: 0; width: 700px; height: 700px; }
   .foto img { width: 100%; height: 100%; }
@@ -63,7 +52,9 @@
 </head>
 <body>
 <div class="canvas">
-  <div class="bg-cenografia"></div>
+  <!-- sobre Summit Blue o dispositivo angular é branco (manual, seção 06) -->
+  <div class="canto-45 branco"></div>
+  <div class="plano-45 branco" style="width:180px;height:180px;"></div>
 
   <div class="conteudo">
     <div class="topo-logo"><img src="../../site/assets/img/marca/summit-logo-reverso-240.png" alt="Intercâmbio Summit 2026"></div>
