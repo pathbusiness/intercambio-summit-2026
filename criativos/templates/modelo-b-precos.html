@@ -7,6 +7,16 @@
 <style>
   .canvas { background: var(--deep-navy); }
 
+  /* foto do evento como fundo, com véu forte e uniforme para a
+     escada de preços permanecer protagonista */
+  .bg-foto::after {
+    background:
+      linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.86) 40%, rgba(0,35,92,.82) 100%);
+  }
+
+  /* degraus mais opacos sobre foto, para os valores não disputarem fundo */
+  .degrau { background: rgba(0, 26, 63, .82); }
+
   .cabeca { position: absolute; left: var(--mx); top: 208px; }
   .cabeca .eyebrow { font-size: 26px; color: var(--mid-grey); }
   .cabeca h1 { font-weight: 700; font-size: 84px; text-transform: uppercase;
@@ -56,6 +66,7 @@
 </head>
 <body>
 <div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/painel-2400.webp" alt=""></div>
   <div class="plano-45"></div>
   <div class="canto-45"></div>
 
