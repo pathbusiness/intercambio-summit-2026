@@ -33,7 +33,7 @@ window.EVENTO = {
     { nome: "Early Bird",    inicio: "2026-09-01", fim: "2026-09-30", avista: 350, parcelado: "5x R$ 70 sem juros" },
     { nome: "Segundo lote",  inicio: "2026-10-01", fim: "2026-10-24", avista: 450, parcelado: "5x R$ 90 sem juros" },
     { nome: "Terceiro lote", inicio: "2026-10-25", fim: "2026-11-10", avista: 550, parcelado: "5x R$ 110 sem juros" },
-    { nome: "Dia do evento", inicio: "2026-11-11", fim: "2026-11-11", avista: 650, parcelado: "" }
+    { nome: "Dia do evento", inicio: "2026-11-11", fim: "2026-11-11", avista: 650, parcelado: "5x R$ 130 sem juros" }
   ],
 
   // Palestrantes 2026 — quando os retratos 800x800 chegarem, salvar em
