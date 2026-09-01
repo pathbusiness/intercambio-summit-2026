@@ -173,8 +173,8 @@ def jobs_setembro():
 
 # ---------------------------------------------------------------- prêmio
 
-# Endereço de votação: PENDENTE de confirmação do link curto oficial.
-# Trocar aqui e rodar `python3 criativos/render.py premio` de novo.
+# Endereço de votação confirmado pelo Rodrigo em 01/09.
+# Se um dia mudar: trocar aqui e rodar `python3 criativos/render.py premio`.
 URL_VOTACAO = "intercambiosummit.com.br"
 
 TEXTO_SUGERIDO = """Estou entre os finalistas do Prêmio Melhores Profissionais 2026, na categoria {categoria} (trilha {trilha}).

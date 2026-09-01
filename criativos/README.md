@@ -83,9 +83,8 @@ Volume em JPEG q92; banner de e-mail em PNG. Regerar tudo:
 `python3 criativos/render.py tudo`.
 
 ### Pendências para publicar
-1. **Link curto de votação**: os cards usam `intercambiosummit.com.br`
-   (constante `URL_VOTACAO` no `render.py`). Confirmar o endereço final e
-   regerar (`render.py premio`).
+1. ~~Link curto de votação~~ — confirmado em 01/09: `intercambiosummit.com.br`
+   (constante `URL_VOTACAO` no `render.py`).
 2. **Temas do carrossel P7**: hoje são os 3 confirmados no site
    (`data/sessoes.json`); acrescentar os demais quando fecharem.
 3. **Kit**: para Ally Hub e Edvisor o texto diz "Clientes da", não
