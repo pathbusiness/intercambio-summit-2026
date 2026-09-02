@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>P11 — Último dia do Early Bird 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* alto contraste, sem estética de varejo: preto-azulado + branco */
+  .canvas { background: var(--shade-navy); }
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,17,40,.985) 0%, rgba(0,26,63,.95) 55%, rgba(0,26,63,.92) 100%);
+  }
+
+  /* 92px comporta as duas versões em uma linha ("TERMINA HOJE, 23H59") */
+  .headline { position: absolute; left: var(--mx); top: 258px;
+    font-weight: 700; font-size: 92px; line-height: .98; text-transform: uppercase;
+    color: var(--white); white-space: nowrap; }
+  .lote { position: absolute; left: var(--mx); top: 400px;
+    font-weight: 600; font-size: 34px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--mid-grey); }
+
+  /* dois preços em confronto */
+  .confronto { position: absolute; left: var(--mx); right: var(--mx); top: 520px;
+    display: flex; gap: 20px; align-items: stretch; }
+  .preco { flex: 1; padding: 40px 36px 36px; }
+  .preco .v { font-weight: 700; font-size: 110px; line-height: 1; }
+  .preco .l { margin-top: 12px; font-weight: 600; font-size: 32px; letter-spacing: .06em;
+    text-transform: uppercase; }
+  .preco.hoje { background: var(--white); }
+  .preco.hoje .v { color: var(--summit-blue); }
+  .preco.hoje .l { color: var(--charcoal); }
+  .preco.porta { background: transparent; border: 3px solid rgba(255,255,255,.55); }
+  .preco.porta .v { color: var(--white); }
+  .preco.porta .l { color: var(--mid-grey); }
+
+  .diferenca { position: absolute; left: var(--mx); right: var(--mx); top: 918px;
+    font-weight: 500; font-size: 44px; line-height: 1.28; color: var(--mid-grey); }
+  .diferenca strong { color: var(--white); font-weight: 700; }
+
+  .cta-wrap { position: absolute; left: var(--mx); top: 1104px; }
+  .cta { font-size: 32px; padding: 16px 34px 18px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="headline">{{HEADLINE}}</div>
+    <div class="lote">Lote Early Bird</div>
+
+    <div class="confronto">
+      <div class="preco hoje">
+        <div class="v">R$ 350</div>
+        <div class="l">hoje</div>
+      </div>
+      <div class="preco porta">
+        <div class="v">R$ 650</div>
+        <div class="l">na porta, dia 11 de novembro</div>
+      </div>
+    </div>
+
+    <div class="diferenca">A diferença é de <strong>R$ 300</strong> por uma decisão
+      que <strong>você já sabe que vai tomar.</strong></div>
+
+    <div class="cta-wrap"><span class="cta">intercambiosummit.com.br</span></div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>

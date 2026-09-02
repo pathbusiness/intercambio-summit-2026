@@ -1,0 +1,8 @@
+{
+  "_nota": "Temas confirmados em site/evento.config.js. Card 2 do carrossel P7 usa o título do briefing. Demais temas: acrescentar aqui e rodar `python3 criativos/render.py setembro` de novo.",
+  "temas": [
+    { "num": "01", "titulo": "IA e Automação: atendimento, marketing e vendas com toque humano", "quem": "Myrko Micali · doubleX · NovaIA" },
+    { "num": "02", "titulo": "Google, marketing digital e IA: a jornada do viajante", "quem": "Lucas Politi Wagner · Google Brasil" },
+    { "num": "03", "titulo": "Painel principal: panorama do mercado de intercâmbio para 2027", "quem": "Roberto Bihari · ABRAPEI — mediação: Rodrigo Collaro · PATH" }
+  ]
+}

@@ -1,0 +1,173 @@
+/* ==========================================================
+   INTERCÂMBIO SUMMIT 2026 — SISTEMA DE CRIATIVOS (mídia social)
+   Brand Guidelines v1.0 (abr/2026):
+   - Summit Blue #0044B9 · Charcoal #231F20 (nunca #000)
+   - Action Green #0ACE00: EXCLUSIVO para CTA
+   - Rajdhani, única família; títulos SEMPRE em caixa alta
+   - Dispositivo angular 45°: máx. 1–2 por peça
+   Regras do briefing de criativos (set/2026):
+   - Composição 4:5 (1080x1350); 120px inferiores livres de
+     informação essencial; mensagem principal entre 30% e 55%
+     da altura, não centralizada; contraste mínimo 4.5:1
+   ========================================================== */
+
+@font-face { font-family: "Rajdhani"; font-weight: 400; src: url("../assets/fonts/rajdhani-400.woff2") format("woff2"); }
+@font-face { font-family: "Rajdhani"; font-weight: 500; src: url("../assets/fonts/rajdhani-500.woff2") format("woff2"); }
+@font-face { font-family: "Rajdhani"; font-weight: 600; src: url("../assets/fonts/rajdhani-600.woff2") format("woff2"); }
+@font-face { font-family: "Rajdhani"; font-weight: 700; src: url("../assets/fonts/rajdhani-700.woff2") format("woff2"); }
+
+:root {
+  --summit-blue: #0044B9;
+  --logo-blue:   #0044BA;
+  --charcoal:    #231F20;
+  --white:       #FFFFFF;
+  --action-green:#0ACE00;
+  --deep-navy:   #00235C;
+  --shade-navy:  #001A3F;   /* tratamento de foto: sombra fria da marca */
+  --cloud:       #F4F6FB;
+  --mid-grey:    #D0D5E8;
+  --font: "Rajdhani", Arial, "Helvetica Neue", sans-serif;
+  --mx: 72px;               /* margem lateral padrão */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); color: var(--white); background: #666; }
+img { display: block; }
+
+/* ---------- prancheta 4:5 ---------- */
+.canvas {
+  position: relative;
+  width: 1080px; height: 1350px;
+  overflow: hidden;
+  background: var(--summit-blue);
+}
+
+/* fundo fotográfico tratado: foto horizontal como FUNDO, nunca protagonista */
+.bg-foto { position: absolute; inset: 0; }
+.bg-foto img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(.62) contrast(1.04) brightness(.92);
+}
+/* véu frio da marca por cima da foto (mesma família do hero do site) */
+.bg-foto::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,35,92,.82) 34%, rgba(0,35,92,.46) 62%, rgba(0,35,92,.34) 100%),
+    linear-gradient(105deg, rgba(0,26,63,.55) 0%, rgba(0,26,63,.10) 60%);
+}
+
+/* Dispositivo angular 45° (Brand Guidelines v1.0, seção 06):
+   SEMPRE Summit Blue ou branco; só cantos/bordas; nunca sobre conteúdo
+   primário; no máximo 1–2 por peça.
+   .canto-45 = triângulo no canto superior direito;
+   .plano-45 = triângulo no canto inferior esquerdo. */
+.canto-45 {
+  position: absolute; top: 0; right: 0; z-index: 6;
+  width: 132px; height: 132px;
+  background: var(--summit-blue);
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+.canto-45.branco { background: var(--white); }
+
+.plano-45 {
+  position: absolute; left: 0; bottom: 0; z-index: 1;
+  width: 300px; height: 300px;
+  background: var(--summit-blue);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+.plano-45.branco { background: var(--white); }
+
+/* ---------- camada de conteúdo ---------- */
+.conteudo { position: absolute; inset: 0; z-index: 4; }
+
+/* logo do Summit no topo */
+.topo-logo { position: absolute; top: 64px; left: var(--mx); }
+.topo-logo img { height: 74px; width: auto; }
+
+/* tipografia */
+.titulo-hero {
+  font-weight: 700; text-transform: uppercase;
+  line-height: .92; letter-spacing: .005em;
+  color: var(--white);
+}
+.eyebrow {
+  font-weight: 600; text-transform: uppercase;
+  letter-spacing: .22em; font-size: 30px; color: var(--white);
+}
+.linha-suporte {
+  font-weight: 500; font-size: 38px; letter-spacing: .02em;
+  color: var(--white);
+}
+.linha-suporte strong { font-weight: 700; }
+
+/* preço em pílula branca (destaque sem usar o verde, que é só CTA) */
+.pill-preco {
+  display: inline-flex; align-items: baseline; gap: 18px;
+  background: var(--white); color: var(--summit-blue);
+  font-weight: 700; text-transform: uppercase;
+  padding: 18px 34px 20px;
+  font-size: 40px; letter-spacing: .02em;
+}
+.pill-preco .ou { font-weight: 500; font-size: 30px; color: var(--charcoal); text-transform: none; }
+
+/* CTA: ÚNICO uso permitido do Action Green */
+.cta {
+  display: inline-block;
+  background: var(--action-green); color: var(--charcoal);
+  font-weight: 700; font-size: 36px; letter-spacing: .04em;
+  padding: 20px 42px 22px;
+}
+
+/* ---------- faixa de apoiadores ----------
+   Rodapé único. Borda inferior a 100px por pedido do Rodrigo (01/09) —
+   entra de leve na zona reservada de 120px, decisão consciente dele.
+   Logos mono brancos já equalizados por peso óptico em
+   criativos/assets/marca/ (tools/build_criativos_marca.py). */
+.faixa-apoio {
+  position: absolute; left: 0; right: 0; bottom: 100px; z-index: 5;
+  display: flex; align-items: center; justify-content: center;
+  gap: 58px;
+}
+.faixa-apoio .rotulo {
+  font-weight: 600; font-size: 20px; letter-spacing: .3em;
+  text-transform: uppercase; color: rgba(255,255,255,.62);
+  margin-right: 6px;
+}
+.faixa-apoio img { opacity: .92; }
+.faixa-apoio img.belta   { height: 42px; }
+.faixa-apoio img.abrapei { height: 50px; }
+.faixa-apoio img.ialc    { height: 52px; }
+.faixa-apoio img.allyhub { height: 38px; }
+.faixa-apoio img.edvisor { height: 46px; }
+
+/* ---------- variações de formato ---------- */
+.canvas.story  { height: 1920px; }          /* 1080x1920 */
+.canvas.banner { width: 600px; height: 200px; }  /* banner de e-mail */
+
+/* selo VOTE: único uso do Action Green fora de botão — votar É o CTA */
+.selo-vote {
+  display: inline-block;
+  background: var(--action-green); color: var(--charcoal);
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+/* bloco de statement tipográfico (P5, P8, P9-frase) */
+.statement {
+  position: absolute; left: var(--mx); right: var(--mx);
+  font-weight: 700; text-transform: none;
+  color: var(--white); line-height: 1.12;
+}
+.statement .apagado { color: var(--mid-grey); font-weight: 500; }
+
+/* progresso de carrossel (P9b): "3/9" */
+.progresso {
+  position: absolute; top: 72px; right: 72px;
+  font-weight: 600; font-size: 30px; letter-spacing: .12em;
+  color: rgba(255,255,255,.65);
+}
+
+/* guia de depuração da zona livre (nunca renderizar em produção) */
+.debug-safe { position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
+  background: rgba(255,0,0,.25); z-index: 99; }

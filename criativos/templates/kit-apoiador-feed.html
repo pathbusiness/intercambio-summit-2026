@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Kit co-branded — feed 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* logo do apoiador no TOPO, ao lado do Summit, proporção equivalente;
+     rodapé SEM a faixa de apoiadores (não duplicar) */
+  .canvas { background: var(--deep-navy); }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.96) 0%, rgba(0,26,63,.84) 42%, rgba(0,35,92,.60) 100%);
+  }
+
+  .topo-duplo { position: absolute; top: 64px; left: var(--mx); right: var(--mx);
+    display: flex; align-items: center; gap: 36px; }
+  .topo-duplo img.summit { height: 74px; width: auto; }
+  .topo-duplo .divisor { width: 2px; height: 64px; background: rgba(255,255,255,.45); }
+  .topo-duplo img.apoiador { height: {{LOGO_H}}px; width: auto; }
+
+  .bloco-msg { position: absolute; left: var(--mx); top: 420px; }
+  .titulo-hero { font-size: 104px; }
+  .quando { margin-top: 22px; font-weight: 500; font-size: 42px; color: var(--white); }
+
+  .desconto { position: absolute; left: var(--mx); right: var(--mx); top: 830px; }
+  .desconto .pill-preco { font-size: 36px; text-transform: none; letter-spacing: .01em; display: inline-block; }
+  .cta-wrap { position: absolute; left: var(--mx); top: 1010px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-duplo">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <img class="apoiador" src="{{LOGO}}" alt="{{NOME}}">
+    </div>
+
+    <div class="bloco-msg">
+      <div class="titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</div>
+      <div class="quando">11 de novembro · São Paulo</div>
+    </div>
+
+    <div class="desconto">
+      <span class="pill-preco">{{QUEM}} da {{NOME}} têm <strong>R$ 50 de desconto</strong></span>
+    </div>
+
+    <div class="cta-wrap"><span class="cta">intercambiosummit.com.br</span></div>
+  </div>
+</div>
+</body>
+</html>

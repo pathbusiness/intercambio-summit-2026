@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Modelo C — Card de finalista 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas { background: var(--deep-navy); }
+
+  /* fundo: cenografia real do auditório (foto 2025) com véu forte;
+     o retrato entra como PAINEL deliberado sobre ela.
+     object-position no topo: a parede geométrica domina e as pessoas da
+     foto ficam sob a zona mais escura do véu, atrás do bloco de nome */
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background:
+      linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.91) 45%, rgba(0,35,92,.85) 100%);
+  }
+
+  /* O retrato 800x800 vem assentado no Summit Blue pelo pipeline
+     (tools/build_images.py), com os olhos sempre no mesmo terço — é isso
+     que mantém os 32 cards em série. */
+  .foto { position: absolute; top: 158px; right: 60px; width: 660px; height: 660px;
+    border: 2px solid rgba(255,255,255,.30); }
+  .foto img { width: 100%; height: 100%; }
+
+  /* lockup tipográfico do Prêmio (não existe arquivo de logo do Prêmio;
+     pendente de aprovação — trocar por arquivo oficial se houver) */
+  .premio-lockup { position: absolute; top: 170px; left: var(--mx); width: 330px; }
+  .premio-lockup .p1 { font-weight: 700; font-size: 40px; text-transform: uppercase;
+    letter-spacing: .06em; line-height: 1.04; }
+  .premio-lockup .p2 { font-weight: 500; font-size: 25px; letter-spacing: .10em;
+    text-transform: uppercase; color: var(--mid-grey); margin-top: 10px; }
+
+  .selo-finalista { position: absolute; top: 400px; left: var(--mx);
+    background: var(--white); color: var(--summit-blue);
+    font-weight: 700; font-size: 40px; letter-spacing: .10em; text-transform: uppercase;
+    padding: 16px 26px 18px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%); }
+
+  .selo-trilha { position: absolute; top: 512px; left: var(--mx);
+    display: inline-block; color: var(--white);
+    font-weight: 600; font-size: 26px; letter-spacing: .22em; text-transform: uppercase;
+    border: 2px solid rgba(255,255,255,.75); padding: 10px 18px 11px; }
+
+  .bloco-nome { position: absolute; left: var(--mx); right: var(--mx); top: 906px; }
+  .bloco-nome .nome { font-weight: 700; font-size: 96px; text-transform: uppercase;
+    line-height: .96; letter-spacing: .005em; }
+  .bloco-nome .categoria { margin-top: 14px; font-weight: 600; font-size: 40px;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--mid-grey); }
+  .bloco-nome .quando { margin-top: 26px; font-weight: 500; font-size: 34px;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--white); }
+  .bloco-nome .quando .sep { color: rgba(255,255,255,.55); padding: 0 12px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/premiados-2400.webp" alt=""></div>
+  <!-- sobre fundo escuro o dispositivo angular é branco (manual, seção 06) -->
+  <div class="canto-45 branco"></div>
+  <div class="plano-45 branco" style="width:180px;height:180px;"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="foto"><img src="{{FOTO}}" alt="{{NOME}}"></div>
+
+    <div class="premio-lockup">
+      <div class="p1">Prêmio<br>Melhores<br>Profissionais</div>
+      <div class="p2">2026</div>
+    </div>
+
+    <div class="selo-finalista">Finalista 2026</div>
+    <div class="selo-trilha">{{TRILHA}}</div>
+
+    <div class="bloco-nome">
+      <div class="nome">{{NOME}}</div>
+      <div class="categoria">{{CATEGORIA}}</div>
+      <div class="quando">11 de novembro<span class="sep">·</span>São Paulo</div>
+    </div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>P10 — O formato mudou 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* networking com café */
+  .bg-foto img { object-position: center 30%; }
+  .bg-foto::after {
+    background:
+      linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.82) 46%, rgba(0,35,92,.44) 78%, rgba(0,35,92,.30) 100%);
+  }
+  .rotulo-foto { position: absolute; top: 72px; right: 72px;
+    font-weight: 600; font-size: 22px; letter-spacing: .16em; text-transform: uppercase;
+    color: rgba(255,255,255,.75); }
+
+  .titulo { position: absolute; left: var(--mx); right: var(--mx); top: 560px;
+    font-weight: 700; font-size: 92px; line-height: 1.04; text-transform: uppercase;
+    color: var(--white); }
+  .apoioTexto { position: absolute; left: var(--mx); right: var(--mx); top: 852px;
+    font-weight: 500; font-size: 44px; line-height: 1.3; color: var(--mid-grey); }
+  .apoioTexto strong { color: var(--white); font-weight: 700; }
+
+  .quando { position: absolute; left: var(--mx); top: 1096px;
+    font-weight: 600; font-size: 28px; letter-spacing: .10em; text-transform: uppercase;
+    color: var(--white); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/networking-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+    <div class="rotulo-foto">Intercâmbio Summit 2025</div>
+
+    <div class="titulo">Menos palestras.<br>Intervalos mais longos.</div>
+    <div class="apoioTexto">O feedback de 2025 foi claro: o conteúdo era excelente,
+      mas <strong>faltava tempo para conversar.</strong></div>
+
+    <div class="quando">Intercâmbio Summit 2026 · 11 de novembro · São Paulo</div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>
