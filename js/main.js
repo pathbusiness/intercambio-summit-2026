@@ -168,6 +168,15 @@
   var TR = EV.tracking || {};
   var emProducao = location.hostname !== "localhost" && location.hostname !== "127.0.0.1";
 
+  if (emProducao && TR.gtmId) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var gtm = document.createElement("script");
+    gtm.async = true;
+    gtm.src = "https://www.googletagmanager.com/gtm.js?id=" + TR.gtmId;
+    document.head.appendChild(gtm);
+  }
+
   if (emProducao && TR.ga4Id) {
     var gs = document.createElement("script");
     gs.async = true;
@@ -196,6 +205,10 @@
   /* eventos de conversão nos dois destinos */
   function rastrear(ga4Evento, metaEvento, metaCustom, dados) {
     if (!emProducao) return;
+    if (TR.gtmId && window.dataLayer) {
+      var evt = Object.assign({ event: ga4Evento }, dados || {});
+      window.dataLayer.push(evt);
+    }
     if (window.gtag && TR.ga4Id) gtag("event", ga4Evento, dados || {});
     if (window.fbq && TR.metaPixelId) {
       fbq(metaCustom ? "trackCustom" : "track", metaEvento, dados || {});
@@ -207,7 +220,7 @@
     var a = e.target.closest && e.target.closest('[data-cta="ingresso"], .lote-cta');
     if (a) rastrear("begin_checkout", "InitiateCheckout", false, { currency: "BRL" });
     var p = e.target.closest && e.target.closest("#patrocinio-cta");
-    if (p) rastrear("select_content", "PatrocinioClick", true, { content_type: "patrocinio" });
+    if (p) rastrear("patrocinio_click", "PatrocinioClick", true, { content_type: "patrocinio" });
   });
 
   /* ---------- movimento ---------- */
