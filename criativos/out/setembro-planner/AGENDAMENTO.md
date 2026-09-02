@@ -6,7 +6,7 @@ Horários são sugestão (público consome no meio do expediente); ajustar à vo
 
 | Data | Hora | Post | Arquivos | Status |
 |---|---|---|---|---|
-| 2026-09-02 | 11h30 | save-the-date | 1 | aguardando agendamento |
+| 2026-09-02 | 11h30 | save-the-date | 1 | ✅ publicado em 01/09 (manual, @intercambiosummit) |
 | 2026-09-04 | 11h30 | pauta-escolhida | 1 | aguardando agendamento |
 | 2026-09-02 | 17h00 | abertura-de-vendas | 1 | aguardando agendamento |
 | 2026-09-08 | 11h30 | tabela-de-precos | 1 | aguardando agendamento |

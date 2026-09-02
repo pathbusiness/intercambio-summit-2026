@@ -18,6 +18,11 @@ DST = os.path.join(ROOT, "out", "setembro-planner")
 
 HASH_BASE = "#intercambiosummit #intercambio"
 
+# Status por slug (o que não estiver aqui fica "aguardando agendamento")
+STATUS = {
+    "save-the-date": "✅ publicado em 01/09 (manual, @intercambiosummit)",
+}
+
 # (data, hora sugerida, slug, [arquivos de origem], legenda)
 POSTS = [
     ("2026-09-02", "11h30", "save-the-date", ["p01-save-the-date.jpg"], """O Intercâmbio Summit 2026 tem data marcada: 11 de novembro, em São Paulo.
@@ -211,7 +216,8 @@ def main():
                          os.path.join(pasta, f"SUMMIT-{compact}-{slug}-{i:02d}.jpg"))
         with open(os.path.join(pasta, "legenda.txt"), "w", encoding="utf-8") as f:
             f.write(legenda.strip() + "\n")
-        linhas.append(f"| {data} | {hora} | {slug} | {len(arquivos)} | aguardando agendamento |")
+        status = STATUS.get(slug, "aguardando agendamento")
+        linhas.append(f"| {data} | {hora} | {slug} | {len(arquivos)} | {status} |")
     linhas += ["",
                "Observações:",
                "- Vendas abertas desde 02/09: P1 (11h30) anuncia e P3 (17h00) converte no mesmo dia.",
