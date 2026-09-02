@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Fixados — panorama 3240x1350 (fatiado em 3 posts)</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Uma arte contínua para os 3 posts fixados. Fundo e geometria atravessam
+     as emendas; os blocos de conteúdo ficam a >=140px das bordas de cada
+     fatia (o grid corta ~35px de cada lado da miniatura).
+     Fatias: esquerda x 0-1080 · centro x 1080-2160 · direita x 2160-3240. */
+  .canvas.pano { width: 3240px; height: 1350px; overflow: hidden;
+    position: relative; background: var(--deep-navy); }
+
+  .bg-foto::after {
+    background:
+      linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.90) 42%, rgba(0,35,92,.70) 100%);
+  }
+
+  /* dispositivos angulares nas pontas do panorama (1 por fatia no máximo) */
+  .canto-45 { width: 150px; height: 150px; }
+  .plano-45 { width: 300px; height: 300px; }
+
+  /* ---- fatia esquerda: o evento ---- */
+  .f1 { position: absolute; left: 140px; width: 800px; top: 330px; }
+  .f1 .titulo { font-weight: 700; font-size: 120px; line-height: .96;
+    text-transform: uppercase; color: var(--white); }
+  .f1 .quando { margin-top: 26px; font-weight: 700; font-size: 46px;
+    text-transform: uppercase; color: var(--white); }
+  .f1 .lugares { margin-top: 8px; font-weight: 500; font-size: 38px; color: var(--mid-grey); }
+  .faixa-apoio { left: 140px; right: 2300px; bottom: 120px; gap: 40px; }
+  .faixa-apoio img.belta   { height: 34px; }
+  .faixa-apoio img.abrapei { height: 40px; }
+  .faixa-apoio img.ialc    { height: 42px; }
+  .faixa-apoio img.allyhub { height: 30px; }
+  .faixa-apoio img.edvisor { height: 37px; }
+
+  /* ---- fatia central: o tema ---- */
+  .f2 { position: absolute; left: 1220px; width: 800px; top: 330px; }
+  .f2 .titulo { font-weight: 700; font-size: 110px; line-height: .98;
+    text-transform: uppercase; color: var(--white); }
+  .f2 .sub { margin-top: 26px; font-weight: 500; font-size: 42px; line-height: 1.28;
+    color: var(--mid-grey); }
+  .f2 .sub strong { color: var(--white); font-weight: 700; }
+  .f2 .palestrante { margin-top: 40px; font-weight: 600; font-size: 32px;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--white); }
+  .f2 .palestrante span { display: block; font-weight: 500; font-size: 28px;
+    letter-spacing: .02em; text-transform: none; color: var(--mid-grey); margin-top: 6px; }
+
+  /* ---- fatia direita: ingressos ---- */
+  .f3 { position: absolute; left: 2300px; width: 800px; top: 330px; }
+  .f3 .titulo { font-weight: 700; font-size: 76px; line-height: 1.0;
+    text-transform: uppercase; color: var(--white); }
+  .f3 .escada { margin-top: 48px; display: flex; align-items: flex-end; gap: 14px; }
+  .f3 .degrau { flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 16px 14px 14px; background: rgba(0,26,63,.82);
+    border-top: 3px solid rgba(255,255,255,.35); }
+  .f3 .degrau .nome { font-weight: 600; font-size: 19px; text-transform: uppercase;
+    letter-spacing: .04em; line-height: 1.12; color: var(--mid-grey); }
+  .f3 .degrau .valor { font-weight: 700; font-size: 34px; margin-top: 8px; line-height: 1;
+    white-space: nowrap; color: var(--white); }
+  .f3 .degrau.d1 { height: 150px; background: var(--white); border-top: 5px solid var(--white); }
+  .f3 .degrau.d1 .nome, .f3 .degrau.d1 .valor { color: var(--summit-blue); }
+  .f3 .degrau.d2 { height: 184px; }
+  .f3 .degrau.d3 { height: 218px; }
+  .f3 .degrau.d4 { height: 252px; background: var(--charcoal); }
+  .f3 .semjuros { margin-top: 30px; font-weight: 600; font-size: 28px;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--mid-grey); }
+  .f3 .semjuros strong { color: var(--white); }
+  .f3 .cta { margin-top: 34px; display: inline-block; font-size: 32px;
+    padding: 18px 36px 20px; }
+
+  /* logo em cada fatia? Não: só na esquerda (o grid lê como uma peça) */
+  .topo-logo { top: 96px; left: 140px; }
+  .topo-logo img { height: 80px; }
+</style>
+</head>
+<body>
+<div class="canvas pano">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="plano-45"></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="f1">
+      <div class="titulo">INTERCÂMBIO<br>SUMMIT 2026</div>
+      <div class="quando">11 de novembro · São Paulo</div>
+      <div class="lugares">Um dia · 144 lugares · feito para quem decide</div>
+    </div>
+
+    <div class="f2">
+      <div class="titulo">IA NA<br>OPERAÇÃO</div>
+      <div class="sub">atendimento, marketing e vendas com <strong>toque humano</strong></div>
+      <div class="palestrante">Palestrante principal: Myrko Micali
+        <span>Fundador da Alfred Delivery · doubleX · NovaIA</span></div>
+    </div>
+
+    <div class="f3">
+      <div class="titulo">Quanto antes,<br>menor o preço.</div>
+      <div class="escada">
+        <div class="degrau d1"><div class="nome">Early Bird<br>até 30/09</div><div class="valor">R$ 350</div></div>
+        <div class="degrau d2"><div class="nome">2º lote<br>até 24/10</div><div class="valor">R$ 450</div></div>
+        <div class="degrau d3"><div class="nome">3º lote<br>até 10/11</div><div class="valor">R$ 550</div></div>
+        <div class="degrau d4"><div class="nome">No dia<br>11/11</div><div class="valor">R$ 650</div></div>
+      </div>
+      <div class="semjuros">Todos os lotes em <strong>5x sem juros</strong></div>
+      <div><span class="cta">intercambiosummit.com.br</span></div>
+    </div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>
