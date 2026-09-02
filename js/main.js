@@ -150,6 +150,7 @@
             if (r && r.ok) {
               fb.textContent = "Pronto! Você será avisado em primeira mão.";
               form.reset();
+              rastrear("generate_lead", "Lead", false, { currency: "BRL" });
             } else {
               fb.textContent = "Confira o e-mail digitado.";
             }
@@ -162,6 +163,52 @@
       }
     });
   }
+
+  /* ---------- rastreamento (GA4 + Meta Pixel) ---------- */
+  var TR = EV.tracking || {};
+  var emProducao = location.hostname !== "localhost" && location.hostname !== "127.0.0.1";
+
+  if (emProducao && TR.ga4Id) {
+    var gs = document.createElement("script");
+    gs.async = true;
+    gs.src = "https://www.googletagmanager.com/gtag/js?id=" + TR.ga4Id;
+    document.head.appendChild(gs);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", TR.ga4Id);
+  }
+
+  if (emProducao && TR.metaPixelId) {
+    /* snippet padrão do Meta Pixel */
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0";
+      n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", TR.metaPixelId);
+    fbq("track", "PageView");
+  }
+
+  /* eventos de conversão nos dois destinos */
+  function rastrear(ga4Evento, metaEvento, metaCustom, dados) {
+    if (!emProducao) return;
+    if (window.gtag && TR.ga4Id) gtag("event", ga4Evento, dados || {});
+    if (window.fbq && TR.metaPixelId) {
+      fbq(metaCustom ? "trackCustom" : "track", metaEvento, dados || {});
+    }
+  }
+
+  /* clique em qualquer botão de ingresso (topo, abertura, card de lote) */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('[data-cta="ingresso"], .lote-cta');
+    if (a) rastrear("begin_checkout", "InitiateCheckout", false, { currency: "BRL" });
+    var p = e.target.closest && e.target.closest("#patrocinio-cta");
+    if (p) rastrear("select_content", "PatrocinioClick", true, { content_type: "patrocinio" });
+  });
 
   /* ---------- movimento ---------- */
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

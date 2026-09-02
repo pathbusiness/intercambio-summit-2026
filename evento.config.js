@@ -57,6 +57,16 @@ window.EVENTO = {
     { nome: "Em breve", cargo: "", empresa: "", slug: "", foto: false }
   ],
 
+  // Rastreamento de visitas e conversões. IDs vazios = desligado.
+  // O rastreamento não roda em localhost (testes não sujam os dados).
+  tracking: {
+    // Meta Pixel do Business Manager da PATH
+    metaPixelId: "949355509723847",
+    // Google Analytics 4: cole o "ID da métrica" (formato G-XXXXXXXXXX) do
+    // fluxo web em Administrador → Fluxos de dados
+    ga4Id: ""
+  },
+
   // Apoiadores: os logotipos oficiais estão fixos no HTML (faixa "Apoio"),
   // arquivos em site/assets/img/marca/apoio-*.png, conforme o manual da marca.
   apoiadores: ["BELTA", "ABRAPEI", "IALC", "ALLY", "Edvisor"]
