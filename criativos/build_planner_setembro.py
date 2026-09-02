@@ -24,13 +24,11 @@ POSTS = [
 
 Um dia inteiro para donos de agências, representantes de instituições e gestores de internacionalização, com o tema que o próprio mercado escolheu: inteligência artificial na operação de quem vende intercâmbio.
 
-São 144 lugares, e as inscrições abrem no dia 8 de setembro.
-
-A lista de prioridade já está aberta, quem entra nela é avisado antes.
+São 144 lugares, e as inscrições já estão abertas: Lote Early Bird por R$ 350, ou 5x de R$ 70 sem juros, até 30 de setembro.
 
 11 de novembro · São Paulo
 
-Lista de prioridade no link da bio.
+Ingressos no link da bio.
 
 """ + HASH_BASE + " #educacaointernacional #studyabroad #agenciadeintercambio #mercadodeintercambio #eventocorporativo #saopaulo #summit2026 #ia #networking #b2b"),
 
@@ -42,11 +40,11 @@ Em 2026, ela deixou de ser uma sessão e virou o evento inteiro: IA aplicada a a
 
 11 de novembro · São Paulo
 
-Inscrições abrem dia 8 de setembro, lista de prioridade no link da bio.
+Lote Early Bird até 30 de setembro, ingressos no link da bio.
 
 """ + HASH_BASE + " #inteligenciaartificial #ia #educacaointernacional #agenciadeintercambio #mercadodeintercambio #studyabroad #eventob2b #saopaulo #summit2026 #inovacao"),
 
-    ("2026-09-08", "09h00", "abertura-de-vendas", ["p03-abertura-de-vendas.jpg"], """Inscrições abertas para o Intercâmbio Summit 2026.
+    ("2026-09-02", "17h00", "abertura-de-vendas", ["p03-abertura-de-vendas.jpg"], """Inscrições abertas para o Intercâmbio Summit 2026.
 
 O encontro do mercado brasileiro de intercâmbio, agora com um dia inteiro dedicado à inteligência artificial na operação: atendimento, marketing e vendas.
 
@@ -60,7 +58,7 @@ Ingressos no link da bio.
 
 """ + HASH_BASE + " #educacaointernacional #agenciadeintercambio #studyabroad #mercadodeintercambio #eventob2b #saopaulo #summit2026 #ia #networking #earlybird"),
 
-    ("2026-09-08", "15h00", "tabela-de-precos", ["p04-tabela-de-precos.jpg"], """O preço sobe. O evento é o mesmo.
+    ("2026-09-08", "11h30", "tabela-de-precos", ["p04-tabela-de-precos.jpg"], """O preço sobe. O evento é o mesmo.
 
 A tabela de lotes do Intercâmbio Summit 2026 é uma escada: quem decide cedo paga R$ 350, quem deixa para a porta paga R$ 650.
 
@@ -216,6 +214,7 @@ def main():
         linhas.append(f"| {data} | {hora} | {slug} | {len(arquivos)} | aguardando agendamento |")
     linhas += ["",
                "Observações:",
+               "- Vendas abertas desde 02/09: P1 (11h30) anuncia e P3 (17h00) converte no mesmo dia.",
                "- 23/09 tem dois posts (anúncio do Myrko e carrossel 9 cards), manhã e fim de tarde.",
                "- O post do Myrko inclui a versão B (card de frase) como arquivo 02, opcional.",
                "- P11 tem versão do dia 29 (Último dia) e do dia 30 (Termina hoje, 23h59)."]
