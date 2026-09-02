@@ -60,10 +60,14 @@ window.EVENTO = {
   // Rastreamento de visitas e conversões. IDs vazios = desligado.
   // O rastreamento não roda em localhost (testes não sujam os dados).
   tracking: {
-    // Meta Pixel do Business Manager da PATH
+    // Google Tag Manager. Os eventos do site (begin_checkout, generate_lead,
+    // patrocinio_click) chegam ao GTM via dataLayer.
+    gtmId: "GTM-PVZLV4NW",
+    // Meta Pixel do Business Manager da PATH (instalado direto no site —
+    // NÃO adicione outra tag do Pixel dentro do GTM, senão dispara em dobro)
     metaPixelId: "949355509723847",
-    // Google Analytics 4: cole o "ID da métrica" (formato G-XXXXXXXXXX) do
-    // fluxo web em Administrador → Fluxos de dados
+    // GA4 direto, SEM passar pelo GTM. Deixe vazio se o GA4 estiver
+    // configurado dentro do GTM (o normal) — preencher os dois duplica dados.
     ga4Id: ""
   },
 
