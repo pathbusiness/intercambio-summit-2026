@@ -19,7 +19,11 @@ window.EVENTO = {
 
   // Endpoint do formulário de captura de e-mail (Supabase Edge Function,
   // projeto Forio, função summit-leads — grava na tabela summit_leads).
-  leadFormAction: "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-leads",
+  // Em produção o envio passa pelo proxy do Vercel (/api/leads → Supabase,
+  // ver vercel.json), o que dispensa liberar cada domínio novo no CORS.
+  // Em localhost o site usa a URL absoluta abaixo.
+  leadFormAction: "/api/leads",
+  leadFormActionLocal: "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-leads",
 
   // Página de patrocínio (tem prioridade sobre o WhatsApp abaixo)
   patrocinioUrl: "https://pathbusiness.github.io/sponsorship/",

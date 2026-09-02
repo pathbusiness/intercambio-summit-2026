@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/leads",
+      "destination": "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-leads"
+    }
+  ]
+}
