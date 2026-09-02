@@ -76,7 +76,7 @@
         '<span class="lote-nome">' + l.nome + "</span>" +
         '<span class="lote-periodo">' + periodo + "</span>" +
         '<span class="lote-preco">' + brl(l.avista) + "</span>" +
-        '<span class="lote-parcelado">ou ' + l.parcelado + "</span>" +
+        '<span class="lote-parcelado">' + (l.parcelado ? "ou " + l.parcelado : "à vista") + "</span>" +
         (loteAtual === l && EV.checkoutUrl
           ? '<a class="btn btn-cta lote-cta" href="' + EV.checkoutUrl + '">Comprar agora</a>' : "");
       grid.appendChild(card);
