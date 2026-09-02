@@ -136,7 +136,9 @@
       }
       if (EV.leadFormAction) {
         var hp = document.getElementById("lead-site");
-        fetch(EV.leadFormAction, {
+        var ehLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+        var destino = ehLocal && EV.leadFormActionLocal ? EV.leadFormActionLocal : EV.leadFormAction;
+        fetch(destino, {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({
