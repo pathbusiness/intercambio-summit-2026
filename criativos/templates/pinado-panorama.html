@@ -35,17 +35,18 @@
   .faixa-apoio img.allyhub { height: 30px; }
   .faixa-apoio img.edvisor { height: 37px; }
 
-  /* ---- fatia central: o tema ---- */
-  .f2 { position: absolute; left: 1220px; width: 800px; top: 330px; }
-  .f2 .titulo { font-weight: 700; font-size: 110px; line-height: .98;
+  /* ---- fatia central: o programa do dia ---- */
+  .f2 { position: absolute; left: 1220px; width: 800px; top: 300px; }
+  .f2 .titulo { font-weight: 700; font-size: 96px; line-height: .98;
     text-transform: uppercase; color: var(--white); }
-  .f2 .sub { margin-top: 26px; font-weight: 500; font-size: 42px; line-height: 1.28;
+  .f2 .programa { margin-top: 44px; }
+  .f2 .item { display: flex; align-items: flex-start; gap: 22px; margin-bottom: 30px; }
+  .f2 .item .tick { flex: none; width: 18px; height: 18px; margin-top: 14px;
+    background: var(--white);
+    clip-path: polygon(0 0, 100% 0, 100% 100%); }
+  .f2 .item .txt { font-weight: 500; font-size: 38px; line-height: 1.22;
     color: var(--mid-grey); }
-  .f2 .sub strong { color: var(--white); font-weight: 700; }
-  .f2 .palestrante { margin-top: 40px; font-weight: 600; font-size: 32px;
-    letter-spacing: .08em; text-transform: uppercase; color: var(--white); }
-  .f2 .palestrante span { display: block; font-weight: 500; font-size: 28px;
-    letter-spacing: .02em; text-transform: none; color: var(--mid-grey); margin-top: 6px; }
+  .f2 .item .txt strong { color: var(--white); font-weight: 700; }
 
   /* ---- fatia direita: ingressos ---- */
   .f3 { position: absolute; left: 2300px; width: 800px; top: 330px; }
@@ -91,10 +92,17 @@
     </div>
 
     <div class="f2">
-      <div class="titulo">IA NA<br>OPERAÇÃO</div>
-      <div class="sub">atendimento, marketing e vendas com <strong>toque humano</strong></div>
-      <div class="palestrante">Palestrante principal: Myrko Micali
-        <span>Fundador da Alfred Delivery · doubleX · NovaIA</span></div>
+      <div class="titulo">O PROGRAMA</div>
+      <div class="programa">
+        <div class="item"><span class="tick"></span>
+          <span class="txt"><strong>Palestras: IA na operação,</strong> com Myrko Micali e mais nomes do mercado</span></div>
+        <div class="item"><span class="tick"></span>
+          <span class="txt"><strong>Painel principal:</strong> panorama do mercado de intercâmbio para 2027</span></div>
+        <div class="item"><span class="tick"></span>
+          <span class="txt"><strong>Prêmio Melhores Profissionais 2026:</strong> 32 finalistas, 6 categorias</span></div>
+        <div class="item"><span class="tick"></span>
+          <span class="txt"><strong>Networking</strong> com intervalos longos, do jeito que vocês pediram</span></div>
+      </div>
     </div>
 
     <div class="f3">
