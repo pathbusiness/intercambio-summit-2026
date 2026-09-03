@@ -21,6 +21,7 @@ HASH_BASE = "#intercambiosummit #intercambio"
 # Status por slug (o que não estiver aqui fica "aguardando agendamento")
 STATUS = {
     "save-the-date": "✅ publicado em 01/09 (manual, @intercambiosummit)",
+    "reel-premio": "⏸ segurar até a votação abrir (data-alvo 01/10, confirmar)",
 }
 
 # (data, hora sugerida, slug, [arquivos de origem], legenda)
@@ -192,6 +193,54 @@ A diferença é de R$ 300 por uma decisão que você já sabe que vai tomar.
 Ingressos no link da bio.
 
 """ + HASH_BASE + " #earlybird #terminahoje #educacaointernacional #agenciadeintercambio #mercadodeintercambio #studyabroad #saopaulo #summit2026 #eventob2b #ultimachamada"),
+
+    # ---- Reels (arquivos .mp4 em out/reels/; publicar como Reel, com trilha
+    # em alta escolhida no app na hora de agendar) ----
+    ("2026-09-09", "17h00", "reel-abertura", ["reels/reel-abertura-modelo.mp4"], """Inscrições abertas para o Intercâmbio Summit 2026.
+
+Um dia inteiro sobre inteligência artificial na operação de quem vende intercâmbio: atendimento, marketing e vendas, com toque humano.
+
+11 de novembro, em São Paulo. São 144 lugares.
+
+Lote Early Bird: R$ 350, ou 5x de R$ 70 sem juros, até 30 de setembro.
+
+Ingressos: intercambiosummit.com.br (link na bio)
+
+""" + HASH_BASE + " #educacaointernacional #agenciadeintercambio #mercadodeintercambio #studyabroad #eventob2b #saopaulo #summit2026 #ia #earlybird #networking"),
+
+    ("2026-09-14", "11h30", "reel-prova-social", ["reels/reel-prova-social.mp4"], """Nota 9,3 de 10, NPS 92 e zero detratores. Foi assim que o mercado avaliou o Summit 2025.
+
+Em 2026, mantivemos o que funcionou e mudamos o que vocês pediram: menos palestras e intervalos mais longos, para o networking acontecer de verdade.
+
+Agora são 144 lugares, em 11 de novembro, em São Paulo.
+
+O Lote Early Bird está aberto: R$ 350, ou 5x de R$ 70 sem juros, até 30 de setembro.
+
+Inscrições: intercambiosummit.com.br (link na bio)
+
+""" + HASH_BASE + " #educacaointernacional #studyabroad #agenciadeintercambio #mercadodeintercambio #eventocorporativo #eventob2b #saopaulo #summit2026 #networking #nps #b2b"),
+
+    ("2026-09-21", "17h00", "reel-tema", ["reels/reel-tema.mp4"], """O tema do Intercâmbio Summit 2026 foi escolhido pelo próprio mercado: IA na operação.
+
+Vamos passar um dia inteiro discutindo como aplicar inteligência artificial no atendimento, no marketing e nas vendas de quem trabalha com intercâmbio, sem perder o toque humano.
+
+No palco principal, Myrko Micali: fundador da Alfred Delivery, hoje à frente da doubleX e da NovaIA.
+
+11 de novembro, em São Paulo. São 144 lugares, e o Lote Early Bird (R$ 350, ou 5x de R$ 70 sem juros) vai até 30 de setembro.
+
+Garanta seu lugar: intercambiosummit.com.br (link na bio)
+
+""" + HASH_BASE + " #inteligenciaartificial #ia #myrkomicali #educacaointernacional #agenciadeintercambio #mercadodeintercambio #eventob2b #saopaulo #summit2026 #inovacao #automacao #networking"),
+
+    ("2026-10-01", "11h30", "reel-premio", ["reels/reel-premio.mp4"], """A votação do Prêmio Melhores Profissionais 2026 está aberta.
+
+São 32 finalistas em 6 categorias, e quem decide é o próprio mercado: a votação vai até 30 de outubro.
+
+A premiação acontece ao vivo no Intercâmbio Summit 2026, em 11 de novembro, em São Paulo.
+
+Vote agora: intercambiosummit.com.br (link na bio)
+
+""" + HASH_BASE + " #premiomelhoresprofissionais #educacaointernacional #agenciadeintercambio #mercadodeintercambio #reconhecimento #saopaulo #summit2026 #votacao #profissionaisdeintercambio #b2b"),
 ]
 
 
@@ -207,13 +256,17 @@ def main():
               "",
               "| Data | Hora | Post | Arquivos | Status |",
               "|---|---|---|---|---|"]
-    for data, hora, slug, arquivos, legenda in POSTS:
+    for data, hora, slug, arquivos, legenda in sorted(POSTS, key=lambda p: (p[0], p[1])):
         pasta = os.path.join(DST, f"{data}-{slug}")
         os.makedirs(pasta)
         compact = data.replace("-", "")
         for i, arq in enumerate(arquivos, 1):
-            shutil.copy2(os.path.join(SRC, arq),
-                         os.path.join(pasta, f"SUMMIT-{compact}-{slug}-{i:02d}.jpg"))
+            # entradas "reels/..." vêm de out/reels/ (mp4); o resto, de out/setembro/
+            origem = (os.path.join(ROOT, "out", arq) if os.sep in arq or "/" in arq
+                      else os.path.join(SRC, arq))
+            ext = os.path.splitext(arq)[1]
+            shutil.copy2(origem,
+                         os.path.join(pasta, f"SUMMIT-{compact}-{slug}-{i:02d}{ext}"))
         with open(os.path.join(pasta, "legenda.txt"), "w", encoding="utf-8") as f:
             f.write(legenda.strip() + "\n")
         status = STATUS.get(slug, "aguardando agendamento")
@@ -223,7 +276,13 @@ def main():
                "- Vendas abertas desde 02/09: P1 (11h30) anuncia e P3 (17h00) converte no mesmo dia.",
                "- 23/09 tem dois posts (anúncio do Myrko e carrossel 9 cards), manhã e fim de tarde.",
                "- O post do Myrko inclui a versão B (card de frase) como arquivo 02, opcional.",
-               "- P11 tem versão do dia 29 (Último dia) e do dia 30 (Termina hoje, 23h59)."]
+               "- P11 tem versão do dia 29 (Último dia) e do dia 30 (Termina hoje, 23h59).",
+               "- Reels (.mp4, 12s, sem áudio): publicar como Reel e escolher trilha em alta",
+               "  no próprio app na hora de agendar. Calendário da série:",
+               "  09/09 reel-abertura (converte na semana da tabela de preços),",
+               "  14/09 reel-prova-social (reforça o P6 de 12/09),",
+               "  21/09 reel-tema (abre a semana do Myrko, 23/09),",
+               "  01/10 reel-premio (SÓ depois de a votação abrir; confirmar a data)."]
     with open(os.path.join(DST, "AGENDAMENTO.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(linhas) + "\n")
     print(f"{len(POSTS)} posts preparados em {os.path.relpath(DST, ROOT)}")
