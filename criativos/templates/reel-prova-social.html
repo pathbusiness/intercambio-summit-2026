@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Reel — Prova social 1080x1920 · 12s</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Série de motion reels: mesma timeline de 12s do modelo aprovado.
+     Números do P6 (edição 2025): 9,3/10 · NPS 92 · 0 detratores. */
+  :root { --dur: 12s; }
+  .canvas.story { background: var(--deep-navy); }
+
+  .bg-foto img { object-position: center top;
+    animation: bgzoom var(--dur) linear both paused; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.93) 40%, rgba(0,35,92,.86) 100%);
+  }
+  @keyframes bgzoom { from { transform: scale(1); } to { transform: scale(1.10); } }
+
+  .topo-logo { top: 170px; left: 84px; }
+  .topo-logo img { height: 88px; }
+  .topo-logo { animation: logoin var(--dur) both paused; }
+  @keyframes logoin {
+    0%, 3.3% { opacity: 0; transform: translateY(18px); }
+    10%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .cena { position: absolute; left: 84px; right: 84px; top: 620px; }
+  .cena .grande { font-weight: 700; font-size: 130px; line-height: .96;
+    text-transform: uppercase; color: var(--white); }
+  .cena .apoio { margin-top: 30px; font-weight: 500; font-size: 52px;
+    color: var(--mid-grey); }
+  .cena .apoio strong { color: var(--white); font-weight: 700; }
+
+  .anim { animation-duration: var(--dur); animation-fill-mode: both;
+    animation-play-state: paused; animation-timing-function: cubic-bezier(.25,.6,.25,1); }
+
+  .s1 { animation-name: s1; }
+  @keyframes s1 {
+    0%, 6.7%  { opacity: 0; transform: translateY(48px); }
+    11.7%, 26.7% { opacity: 1; transform: translateY(0); }
+    31.7%, 100%  { opacity: 0; transform: translateY(-34px); }
+  }
+  .s2 { animation-name: s2; }
+  @keyframes s2 {
+    0%, 31.7% { opacity: 0; transform: translateY(48px); }
+    36.7%, 51.7% { opacity: 1; transform: translateY(0); }
+    56.7%, 100%  { opacity: 0; transform: translateY(-34px); }
+  }
+  .s3 { animation-name: s3; }
+  @keyframes s3 {
+    0%, 56.7% { opacity: 0; transform: translateY(48px); }
+    61.7%, 76.7% { opacity: 1; transform: translateY(0); }
+    81.7%, 100%  { opacity: 0; transform: translateY(-34px); }
+  }
+  .s4 { animation-name: s4; }
+  @keyframes s4 {
+    0%, 81.7% { opacity: 0; transform: translateY(48px); }
+    86.7%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* cena 2: os três números, empilhados */
+  .s2 { top: 500px; }
+  .s2 .num { display: flex; align-items: baseline; gap: 34px; margin-bottom: 44px;
+    border-left: 6px solid var(--summit-blue); padding-left: 34px; }
+  .s2 .num .v { font-weight: 700; font-size: 150px; line-height: .9; color: var(--white); }
+  .s2 .num .l { font-weight: 500; font-size: 46px; color: var(--mid-grey); }
+
+  .s3 .grande { font-size: 148px; }
+
+  .s4 .pill-preco { margin-top: 44px; font-size: 46px; }
+  .s4 .pill-preco .ou { font-size: 34px; }
+  .s4 .prazo { margin-top: 26px; font-weight: 600; font-size: 36px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--mid-grey); }
+  .s4 .cta { font-size: 42px; padding: 24px 46px 26px; }
+
+  .faixa-apoio { bottom: 330px; gap: 64px; }
+  .faixa-apoio { animation-name: s4; animation-duration: var(--dur);
+    animation-fill-mode: both; animation-play-state: paused; }
+  .faixa-apoio img.belta   { height: 48px; }
+  .faixa-apoio img.abrapei { height: 57px; }
+  .faixa-apoio img.ialc    { height: 59px; }
+  .faixa-apoio img.allyhub { height: 43px; }
+  .faixa-apoio img.edvisor { height: 52px; }
+</style>
+</head>
+<body>
+<div class="canvas story">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/networking-2400.webp" alt=""></div>
+  <div class="canto-45 branco"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="cena anim s1">
+      <div class="grande">AVALIADO POR<br>QUEM ESTEVE LÁ</div>
+      <div class="apoio"><strong>Intercâmbio Summit 2025</strong></div>
+    </div>
+
+    <div class="cena anim s2">
+      <div class="num"><div class="v">9,3</div><div class="l">de 10 em satisfação</div></div>
+      <div class="num"><div class="v">92</div><div class="l">NPS</div></div>
+      <div class="num"><div class="v">0</div><div class="l">detratores</div></div>
+    </div>
+
+    <div class="cena anim s3">
+      <div class="grande">EM 2026:<br>144 LUGARES</div>
+      <div class="apoio">menos palestras, intervalos mais longos.<br><strong>Foi o que vocês pediram.</strong></div>
+    </div>
+
+    <div class="cena anim s4">
+      <div class="grande" style="font-size:120px;">LOTE<br>EARLY BIRD</div>
+      <div class="pill-preco">R$ 350 <span class="ou">ou 5x de R$ 70 sem juros</span></div>
+      <div class="prazo">Até 30 de setembro</div>
+      <div style="margin-top:40px;"><span class="cta">intercambiosummit.com.br</span></div>
+    </div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>
