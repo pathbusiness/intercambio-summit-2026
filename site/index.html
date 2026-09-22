@@ -74,7 +74,7 @@
     <div class="hero-copy">
       <p class="hero-kicker" id="earlybird-badge"><!-- preenchido pelo JS conforme o lote --></p>
       <h1>O encontro que move o mercado brasileiro de intercâmbio.</h1>
-      <p class="hero-sub">Um dia de conteúdo, negócios e networking entre agências, instituições internacionais e quem decide no setor — e a noite do <strong>Prêmio Melhores Profissionais</strong>.</p>
+      <p class="hero-sub">Um dia de conteúdo, negócios e networking entre agências, instituições internacionais e quem decide no setor — e a cerimônia do <strong>Prêmio Melhores Profissionais</strong>.</p>
       <p class="hero-meta"><span data-evento="dataExtenso"></span> · <span data-evento="local"></span>, <span data-evento="endereco"></span></p>
       <div class="hero-actions">
         <a class="btn btn-cta" href="#ingressos" data-cta="ingresso">Garantir ingresso</a>
@@ -85,7 +85,21 @@
   </section>
 
   <!-- ============ FAIXA DE APOIO (co-branding Tier 2) ============ -->
-  <div class="apoio" aria-label="Apoio institucional">
+  <div class="apoio" aria-label="Patrocinadores e apoio institucional">
+    <div class="apoio-tier apoio-tier-patrocinio">
+      <p>Patrocínio</p>
+      <ul>
+        <li><img src="assets/img/marca/patrocinio-clida-box.png" alt="CLIDA — Centro Linguistico Italiano Dante Alighieri" width="230" height="84"></li>
+        <li><img src="assets/img/marca/patrocinio-ikon-alg-box.png" alt="Ikon Institute of Australia e Australian Learning Group" width="360" height="84" class="logo-largo"></li>
+      </ul>
+    </div>
+    <div class="apoio-tier apoio-tier-media">
+      <p>Media partner</p>
+      <ul>
+        <li><img src="assets/img/marca/media-thepie-box.png" alt="The PIE" width="170" height="70"></li>
+      </ul>
+    </div>
+    <div class="apoio-tier">
     <p>Apoio</p>
     <ul>
       <li><img src="assets/img/marca/apoio-belta-box.png" alt="BELTA — Brazilian Educational & Language Travel Association" width="170" height="70"></li>
@@ -94,6 +108,7 @@
       <li><img src="assets/img/marca/apoio-allyhub-box.png" alt="ALLY — Your Education Hub" width="170" height="70"></li>
       <li><img src="assets/img/marca/apoio-edvisor-box.png" alt="Edvisor" width="170" height="70"></li>
     </ul>
+    </div>
   </div>
 
   <!-- ============ O QUE É O SUMMIT ============ -->
@@ -149,12 +164,22 @@
       <p class="section-kicker">Programação</p>
       <h2>Um dia inteiro desenhado para quem decide.</h2>
       <ul class="agenda">
-        <li><span class="agenda-time">Manhã</span><div><h3>Cenário e estratégia</h3><p>Onde o mercado brasileiro de intercâmbio está — e para onde vai em 2027.</p></div></li>
-        <li><span class="agenda-time">Tarde</span><div><h3>Painéis com quem opera</h3><p>Vendas, marketing, parcerias e operação, debatidos por quem bate meta.</p></div></li>
-        <li><span class="agenda-time">Noite</span><div><h3>Prêmio Melhores Profissionais</h3><p>A celebração oficial do setor, com as seis categorias de 2026.</p></div></li>
+        <li><span class="agenda-time">Manhã</span><div><h3>Keynotes: IA e dados globais</h3><p>IA aplicada a atendimento e vendas, o caso Google e as tendências mundiais com o The PIE.</p></div></li>
+        <li><span class="agenda-time">Tarde</span><div><h3>Painel principal</h3><p>Panorama 2027 com os presidentes da ABRAPEI e da BELTA e a CEO da e_Consulting.</p></div></li>
+        <li><span class="agenda-time">16h30</span><div><h3>Prêmio Melhores Profissionais</h3><p>A celebração oficial do setor, com as seis categorias de 2026.</p></div></li>
       </ul>
-      <p class="agenda-note">Programação completa e horários serão publicados nesta página.</p>
+      <p class="agenda-note">Grade completa, hora a hora, logo abaixo.</p>
     </div>
+  </section>
+
+  <!-- ============ GRADE OFICIAL (via evento.config.js) ============ -->
+  <section class="section" id="grade">
+    <div class="section-head">
+      <p class="section-kicker">Programação oficial</p>
+      <h2>11 de novembro, quarta-feira</h2>
+      <p class="section-lead">Do credenciamento ao networking de encerramento — confira cada sessão, quem sobe ao palco e onde acontece.</p>
+    </div>
+    <div class="grade" id="grade-lista"><!-- via config --></div>
   </section>
 
   <!-- painel: formato central de 2026 -->
@@ -178,7 +203,7 @@
     <div class="section-head">
       <p class="section-kicker">Palestrantes</p>
       <h2>Quem sobe ao palco em 2026</h2>
-      <p class="section-lead">Line-up em anúncio. Os primeiros nomes confirmados:</p>
+      <p class="section-lead">Sete nomes confirmados — keynotes de IA e dados globais, o caso Google e o painel com os líderes das associações do setor.</p>
     </div>
     <div class="speakers-grid" id="speakers-grid"><!-- via config --></div>
   </section>
@@ -194,7 +219,7 @@
       <div class="premio-hero-copy">
         <p class="section-kicker">Prêmio Melhores Profissionais 2026</p>
         <h2>O reconhecimento que o mercado inteiro vê.</h2>
-        <p>Na noite do Summit, o setor celebra quem fez a diferença no ano. Seis categorias, 32 finalistas, um palco — e a foto que fica na parede da agência.</p>
+        <p>Às 16h30, o setor celebra quem fez a diferença no ano. Seis categorias, 32 finalistas, um palco — e a foto que fica na parede da agência.</p>
       </div>
     </div>
 
@@ -384,7 +409,7 @@
         </a>
         <p class="footer-meta"><span data-evento="dataExtenso"></span> · <span data-evento="local"></span>, <span data-evento="cidade"></span></p>
       </div>
-      <p class="footer-org">Apoio: BELTA · ABRAPEI · IALC · ALLY · Edvisor<br>Uma realização <strong>PATH Business &amp; Marketing Solutions</strong></p>
+      <p class="footer-org">Patrocínio: CLIDA · Ikon Institute of Australia &amp; Australian Learning Group<br>Media partner: The PIE · Apoio: BELTA · ABRAPEI · IALC · ALLY · Edvisor<br>Uma realização <strong>PATH Business &amp; Marketing Solutions</strong></p>
     </div>
   </footer>
 

@@ -27,6 +27,34 @@
     if (EV[k]) el.textContent = EV[k];
   });
 
+  /* ---------- grade oficial da programação ---------- */
+  var grade = document.getElementById("grade-lista");
+  if (grade && EV.programacao) {
+    EV.programacao.forEach(function (s) {
+      var linha = document.createElement("div");
+      if (s.pausa) {
+        linha.className = "grade-pausa";
+        linha.innerHTML =
+          '<span class="grade-hora">' + s.hora + "</span>" +
+          '<div class="grade-pausa-txt"><strong>' + s.titulo + "</strong>" +
+          (s.desc ? " <span>" + s.desc + "</span>" : "") + "</div>" +
+          (s.local ? '<span class="grade-local">' + s.local + "</span>" : "<span></span>");
+      } else {
+        linha.className = "grade-item" + (s.destaque ? " grade-" + s.destaque : "");
+        linha.innerHTML =
+          '<span class="grade-hora">' + s.hora + "</span>" +
+          '<div class="grade-corpo">' +
+            (s.tipo ? '<span class="grade-tipo">' + s.tipo + "</span>" : "") +
+            "<h3>" + s.titulo + "</h3>" +
+            (s.desc ? "<p>" + s.desc + "</p>" : "") +
+            (s.quem ? '<p class="grade-quem">' + s.quem + "</p>" : "") +
+          "</div>" +
+          (s.local ? '<span class="grade-local">' + s.local + "</span>" : "<span></span>");
+      }
+      grade.appendChild(linha);
+    });
+  }
+
   /* ---------- palestrantes ---------- */
   var spg = document.getElementById("speakers-grid");
   if (spg && EV.palestrantes) {

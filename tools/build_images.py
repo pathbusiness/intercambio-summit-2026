@@ -72,10 +72,13 @@ FINALISTAS = {
 # precrop_bottom corta uma fração do rodapé do original antes do recorte de
 # fundo (faixas de borda); erode encolhe a máscara para matar halo de fundo claro
 PALESTRANTES = {
-    "lucas-politi-wagner": ("/Users/rodrigocollaro/Forio Site/Forio Site backup 2026-08-25/Lucas Politi Wagner - Foto 1.jpeg", {"precrop_bottom": 0.04}),
+    "lucas-politi-wagner": ("Palestrantes/Lucas Politi Wagner/Lucas Politi Wagner - Foto 1.jpeg", {"precrop_bottom": 0.04}),
     "myrko-micali":        ("/Users/rodrigocollaro/Forio Site/Forio Site backup 2026-08-25/Myrko Micali - Foto 1.jpeg", {}),
     "roberto-bihari":      ("/Users/rodrigocollaro/Downloads/PATH/Beto Bihari - Foto 2.png", {}),
     "rodrigo-collaro":     ("/Users/rodrigocollaro/Downloads/PATH/Rodrigo Collaro - Photo (PATH).jpeg", {"erode": 3}),
+    "gizelle-rezende":     ("Palestrantes/Gizelle Rezende/Gizelle Rezende", {}),
+    "alexandre-argenta":   ("Palestrantes/Alexandre Argenta/Alexandre Argenta - Foto 1.jpg", {}),
+    "elaine-fuzer":        ("Palestrantes/Elaine Martins Fuzer/Foto_ELAINE_white.jpg", {}),
 }
 
 YUNET = cv2.FaceDetectorYN_create(
