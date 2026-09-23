@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/api/leads",
-      "destination": "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-leads"
+      "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-leads"
     },
     {
       "source": "/api/checkout",
-      "destination": "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-checkout"
+      "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-checkout"
     }
   ]
 }

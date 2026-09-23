@@ -12,7 +12,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const SITE = "https://intercambiosummit.com.br";
 const WEBHOOK_URL =
-  "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-mp-webhook";
+  "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-mp-webhook";
 
 const LOTES = [
   { nome: "Early Bird",    inicio: "2026-09-01", fim: "2026-09-30", avista: 350 },
