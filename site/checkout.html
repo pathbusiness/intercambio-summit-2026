@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garantir ingresso — Intercâmbio Summit 2026</title>
+  <meta name="description" content="Compre seu ingresso para o Intercâmbio Summit 2026 com Pix ou cartão em até 5x. 11 de novembro, Contentix, Av. Paulista, São Paulo.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://intercambiosummit.com.br/checkout.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/marca/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/marca/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/marca/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="checkout-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVZLV4NW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-logo" href="index.html">
+        <img src="assets/img/marca/summit-logo-reverso-120.png"
+             srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+             alt="Intercâmbio Summit 2026" width="112" height="46">
+      </a>
+      <nav class="mainnav" aria-label="Navegação">
+        <a href="index.html">← Voltar ao site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="checkout-wrap">
+    <div class="checkout-grid">
+      <section class="checkout-form-col">
+        <p class="section-kicker">Ingressos</p>
+        <h1 class="checkout-title">Garanta seu lugar</h1>
+        <p class="checkout-lead">Preencha seus dados e finalize com <strong>Pix</strong> ou <strong>cartão em até 5x</strong>. O ingresso oficial chega por e-mail.</p>
+
+        <p class="checkout-alert" id="checkout-alert" hidden></p>
+
+        <form id="checkout-form" novalidate>
+          <div class="checkout-row">
+            <label>Nome <span>*</span>
+              <input type="text" id="ck-nome" name="nome" autocomplete="given-name" required maxlength="80" placeholder="Seu nome">
+            </label>
+            <label>Sobrenome <span>*</span>
+              <input type="text" id="ck-sobrenome" name="sobrenome" autocomplete="family-name" required maxlength="80" placeholder="Seu sobrenome">
+            </label>
+          </div>
+          <div class="checkout-row">
+            <label>E-mail <span>*</span>
+              <input type="email" id="ck-email" name="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="voce@empresa.com.br">
+            </label>
+            <label>Celular / WhatsApp <span>*</span>
+              <input type="tel" id="ck-telefone" name="telefone" autocomplete="tel-national" inputmode="tel" required maxlength="20" placeholder="(11) 99999-9999">
+            </label>
+          </div>
+          <label>Empresa <em>(opcional)</em>
+            <input type="text" id="ck-empresa" name="empresa" autocomplete="organization" maxlength="120" placeholder="Agência ou instituição">
+          </label>
+          <!-- honeypot anti-bot: fica invisível; humanos não preenchem -->
+          <input type="text" id="ck-site" name="site" tabindex="-1" autocomplete="off" aria-hidden="true" class="checkout-hp">
+
+          <button type="submit" class="btn btn-cta checkout-btn" id="checkout-btn">Ir para o pagamento</button>
+          <p class="checkout-feedback" id="checkout-feedback" role="status"></p>
+          <p class="checkout-fineprint">Pagamento processado pelo <strong>Mercado Pago</strong> em ambiente seguro. Seus dados são usados apenas para a emissão do ingresso e comunicação do evento.</p>
+        </form>
+      </section>
+
+      <aside class="checkout-resumo" aria-label="Resumo do pedido">
+        <p class="checkout-resumo-kicker">Resumo do pedido</p>
+        <p class="checkout-resumo-lote" id="resumo-lote">—</p>
+        <p class="checkout-resumo-preco" id="resumo-preco">—</p>
+        <p class="checkout-resumo-parcelado" id="resumo-parcelado"></p>
+        <ul class="checkout-resumo-lista">
+          <li><strong data-evento="dataExtenso"></strong></li>
+          <li><span data-evento="local"></span> — <span data-evento="endereco"></span>, <span data-evento="cidade"></span></li>
+          <li>1 ingresso · acesso a todas as sessões e ao Prêmio Melhores Profissionais</li>
+          <li>Ingresso oficial com QR code enviado por e-mail</li>
+        </ul>
+        <p class="checkout-resumo-nota" id="resumo-virada"></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a class="footer-logo" href="index.html">
+          <img src="assets/img/marca/summit-logo-reverso-120.png"
+               srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+               alt="Intercâmbio Summit 2026" width="137" height="56">
+        </a>
+        <p class="footer-meta"><span data-evento="dataExtenso"></span> · <span data-evento="local"></span>, <span data-evento="cidade"></span></p>
+      </div>
+      <p class="footer-org">Uma realização <strong>PATH Business &amp; Marketing Solutions</strong></p>
+    </div>
+  </footer>
+
+  <script src="evento.config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

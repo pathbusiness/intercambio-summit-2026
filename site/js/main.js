@@ -89,6 +89,9 @@
     if (agora < ini && !proximoLote) proximoLote = l;
   });
 
+  /* destino da compra: checkout próprio do site (vendaNoSite) > Zoho */
+  var urlCompra = EV.vendaNoSite ? "checkout.html" : EV.checkoutUrl;
+
   var grid = document.getElementById("lotes-grid");
   if (grid) {
     lotes.forEach(function (l) {
@@ -105,8 +108,8 @@
         '<span class="lote-periodo">' + periodo + "</span>" +
         '<span class="lote-preco">' + brl(l.avista) + "</span>" +
         '<span class="lote-parcelado">' + (l.parcelado ? "ou " + l.parcelado : "à vista") + "</span>" +
-        (loteAtual === l && EV.checkoutUrl
-          ? '<a class="btn btn-cta lote-cta" href="' + EV.checkoutUrl + '">Comprar agora</a>' : "");
+        (loteAtual === l && urlCompra
+          ? '<a class="btn btn-cta lote-cta" href="' + urlCompra + '">Comprar agora</a>' : "");
       grid.appendChild(card);
     });
   }
@@ -133,10 +136,11 @@
     if (status) status.textContent = "Vendas encerradas para esta edição.";
   }
 
-  /* CTAs de ingresso: checkout se existir, senão âncora nos ingressos */
-  if (EV.checkoutUrl) {
+  /* CTAs de ingresso: checkout próprio do site (vendaNoSite) tem prioridade;
+     senão o checkout externo (Zoho); senão âncora nos ingressos */
+  if (urlCompra) {
     document.querySelectorAll('[data-cta="ingresso"]').forEach(function (a) {
-      a.href = EV.checkoutUrl;
+      a.href = urlCompra;
     });
   }
 
