@@ -61,7 +61,7 @@ window.EVENTO = {
     { nome: "Elaine Martins Fuzer", cargo: "CEO e Fundadora", empresa: "e_Consulting",
       tema: "Painel principal: panorama do mercado de intercâmbio para 2027",
       slug: "elaine-fuzer", foto: true },
-    { nome: "Lucas Montani", cargo: "", empresa: "Ollara Education Hub",
+    { nome: "Lucas Montani", cargo: "Managing Director LATAM", empresa: "Ollara Education Hub",
       tema: "Painel principal: panorama do mercado de intercâmbio para 2027",
       slug: "lucas-montani", foto: true },
     { nome: "Rodrigo Collaro", cargo: "Managing Director", empresa: "PATH",
