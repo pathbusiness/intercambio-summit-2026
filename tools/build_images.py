@@ -79,7 +79,8 @@ PALESTRANTES = {
     "gizelle-rezende":     ("Palestrantes/Gizelle Rezende/Gizelle Rezende", {}),
     "alexandre-argenta":   ("Palestrantes/Alexandre Argenta/Alexandre Argenta - Foto 1.jpg", {}),
     "elaine-fuzer":        ("Palestrantes/Elaine Martins Fuzer/Foto_ELAINE_white.jpg", {}),
-    "lucas-montani":       ("Palestrantes/Lucas Montani/Lucas Montani - Foto 1.jpg", {"erode": 9, "expand": True}),
+    # foto original era P&B; colorizada com o modelo Zhang (cores estimadas)
+    "lucas-montani":       ("Palestrantes/Lucas Montani/Lucas Montani - Foto 1 colorida.png", {"erode": 9, "expand": True}),
 }
 
 YUNET = cv2.FaceDetectorYN_create(
