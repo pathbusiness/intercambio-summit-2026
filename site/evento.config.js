@@ -61,6 +61,9 @@ window.EVENTO = {
     { nome: "Elaine Martins Fuzer", cargo: "CEO e Fundadora", empresa: "e_Consulting",
       tema: "Painel principal: panorama do mercado de intercâmbio para 2027",
       slug: "elaine-fuzer", foto: true },
+    { nome: "Lucas Montani", cargo: "", empresa: "Ollara Education Hub",
+      tema: "Painel principal: panorama do mercado de intercâmbio para 2027",
+      slug: "lucas-montani", foto: true },
     { nome: "Rodrigo Collaro", cargo: "Managing Director", empresa: "PATH",
       tema: "Mediador do painel principal",
       slug: "rodrigo-collaro", foto: true }
@@ -89,7 +92,7 @@ window.EVENTO = {
     { hora: "14h00", tipo: "Painel principal", destaque: "azul",
       titulo: "Panorama do mercado de intercâmbio para 2027 e uso da IA",
       desc: "Cenário do setor no Brasil pós-eleições e as tendências para o próximo ano.",
-      quem: "Mediação: Rodrigo Collaro (PATH) · Debatedores: Roberto Bihari (ABRAPEI), Alexandre Argenta (BELTA) e Elaine Martins Fuzer (e_Consulting)",
+      quem: "Mediação: Rodrigo Collaro (PATH) · Debatedores: Roberto Bihari (ABRAPEI), Alexandre Argenta (BELTA), Elaine Martins Fuzer (e_Consulting) e Lucas Montani (Ollara Education Hub)",
       local: "Auditório" },
     { hora: "16h00", pausa: true, titulo: "Coffee break",
       desc: "Segunda pausa para networking e troca de cartões.", local: "Foyer" },
