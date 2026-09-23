@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="checkout-page">
+<body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVZLV4NW"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -32,30 +32,45 @@
     </div>
   </header>
 
-  <main class="checkout-wrap">
-    <div class="obrigado-card" id="obrigado-aprovado">
-      <span class="obrigado-check" aria-hidden="true"></span>
-      <p class="section-kicker">Pedido confirmado</p>
-      <h1 class="checkout-title">Nos vemos na Paulista!</h1>
-      <p class="checkout-lead">Pagamento confirmado. Seu <strong>ingresso oficial com QR code</strong> chega por e-mail em alguns minutos — confira também a caixa de spam/promoções.</p>
-      <ul class="checkout-resumo-lista obrigado-lista">
-        <li><strong data-evento="dataExtenso"></strong> · credenciamento a partir das 07h30</li>
-        <li><span data-evento="local"></span> — <span data-evento="enderecoCompleto"></span></li>
-        <li>Dúvidas? Responda o e-mail de confirmação ou escreva para a organização.</li>
-      </ul>
-      <p><a class="btn btn-solid" href="index.html#programacao">Ver a programação completa</a></p>
-    </div>
+  <main>
+    <section class="obrigado-hero" id="obrigado-aprovado">
+      <div class="obrigado-hero-media" aria-hidden="true">
+        <img src="assets/img/eventos/networking-1600.webp"
+             srcset="assets/img/eventos/networking-900.webp 900w, assets/img/eventos/networking-1600.webp 1600w, assets/img/eventos/networking-2400.webp 2400w"
+             sizes="100vw" alt="" fetchpriority="high">
+      </div>
+      <div class="obrigado-hero-copy">
+        <span class="obrigado-check" aria-hidden="true"></span>
+        <p class="section-kicker">Pedido confirmado</p>
+        <h1>Nos vemos na Paulista!</h1>
+        <p class="obrigado-lead">Pagamento confirmado. Seu <strong>ingresso oficial com QR code</strong> chega por e-mail em alguns minutos — confira também a caixa de spam/promoções.</p>
+        <ul class="obrigado-lista">
+          <li><strong data-evento="dataExtenso"></strong> · credenciamento a partir das 07h30</li>
+          <li><span data-evento="local"></span> — <span data-evento="enderecoCompleto"></span></li>
+          <li>Dúvidas? Responda o e-mail de confirmação ou escreva para a organização.</li>
+        </ul>
+        <a class="btn btn-cta" href="index.html#programacao">Ver a programação completa</a>
+      </div>
+    </section>
 
-    <div class="obrigado-card" id="obrigado-pendente" hidden>
-      <p class="section-kicker">Pedido recebido</p>
-      <h1 class="checkout-title">Falta pouco.</h1>
-      <p class="checkout-lead">Recebemos seu pedido e estamos <strong>aguardando a confirmação do pagamento</strong>. Assim que ele for aprovado, o ingresso oficial chega automaticamente no seu e-mail.</p>
-      <ul class="checkout-resumo-lista obrigado-lista">
-        <li>Pix costuma confirmar em segundos; boleto pode levar até 2 dias úteis.</li>
-        <li>Não é preciso fazer nada além de aguardar o e-mail.</li>
-      </ul>
-      <p><a class="btn btn-solid" href="index.html">Voltar ao site</a></p>
-    </div>
+    <section class="obrigado-hero" id="obrigado-pendente" hidden>
+      <div class="obrigado-hero-media" aria-hidden="true">
+        <img src="assets/img/eventos/networking-1600.webp"
+             srcset="assets/img/eventos/networking-900.webp 900w, assets/img/eventos/networking-1600.webp 1600w, assets/img/eventos/networking-2400.webp 2400w"
+             sizes="100vw" alt="" fetchpriority="high">
+      </div>
+      <div class="obrigado-hero-copy">
+        <span class="obrigado-check obrigado-check-pendente" aria-hidden="true"></span>
+        <p class="section-kicker">Pedido recebido</p>
+        <h1>Falta pouco.</h1>
+        <p class="obrigado-lead">Recebemos seu pedido e estamos <strong>aguardando a confirmação do pagamento</strong>. Assim que ele for aprovado, o ingresso oficial chega automaticamente no seu e-mail.</p>
+        <ul class="obrigado-lista">
+          <li>Pix costuma confirmar em segundos; boleto pode levar até 2 dias úteis.</li>
+          <li>Não é preciso fazer nada além de aguardar o e-mail.</li>
+        </ul>
+        <a class="btn btn-cta" href="index.html">Voltar ao site</a>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
