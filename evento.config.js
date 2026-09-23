@@ -17,6 +17,17 @@ window.EVENTO = {
   // Se esvaziado, o botão de compra volta a apontar para a captura de e-mail.
   checkoutUrl: "https://yourpath.zohobackstage.com/IntercambioSummit2026#/ingressos?lang=pt",
 
+  // Checkout próprio no site (Pix e cartão via Mercado Pago, com registro
+  // automático no Zoho Backstage). Enquanto vendaNoSite = false, os botões
+  // do site continuam usando o checkoutUrl acima — nada muda para o visitante.
+  // Vire para true SOMENTE depois do teste ponta a ponta.
+  // ATENÇÃO: os preços cobrados vêm da Edge Function summit-checkout
+  // (supabase/functions/summit-checkout) — ao mudar os lotes abaixo,
+  // espelhe lá e reimplante a função.
+  vendaNoSite: false,
+  checkoutApi: "/api/checkout",
+  checkoutApiLocal: "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-checkout",
+
   // Endpoint do formulário de captura de e-mail (Supabase Edge Function,
   // projeto Forio, função summit-leads — grava na tabela summit_leads).
   // Em produção o envio passa pelo proxy do Vercel (/api/leads → Supabase,

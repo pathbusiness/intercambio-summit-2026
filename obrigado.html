@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedido recebido — Intercâmbio Summit 2026</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/marca/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/marca/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/marca/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="checkout-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVZLV4NW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-logo" href="index.html">
+        <img src="assets/img/marca/summit-logo-reverso-120.png"
+             srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+             alt="Intercâmbio Summit 2026" width="112" height="46">
+      </a>
+      <nav class="mainnav" aria-label="Navegação">
+        <a href="index.html">← Voltar ao site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="checkout-wrap">
+    <div class="obrigado-card" id="obrigado-aprovado">
+      <span class="obrigado-check" aria-hidden="true"></span>
+      <p class="section-kicker">Pedido confirmado</p>
+      <h1 class="checkout-title">Nos vemos na Paulista!</h1>
+      <p class="checkout-lead">Pagamento confirmado. Seu <strong>ingresso oficial com QR code</strong> chega por e-mail em alguns minutos — confira também a caixa de spam/promoções.</p>
+      <ul class="checkout-resumo-lista obrigado-lista">
+        <li><strong data-evento="dataExtenso"></strong> · credenciamento a partir das 07h30</li>
+        <li><span data-evento="local"></span> — <span data-evento="enderecoCompleto"></span></li>
+        <li>Dúvidas? Responda o e-mail de confirmação ou escreva para a organização.</li>
+      </ul>
+      <p><a class="btn btn-solid" href="index.html#programacao">Ver a programação completa</a></p>
+    </div>
+
+    <div class="obrigado-card" id="obrigado-pendente" hidden>
+      <p class="section-kicker">Pedido recebido</p>
+      <h1 class="checkout-title">Falta pouco.</h1>
+      <p class="checkout-lead">Recebemos seu pedido e estamos <strong>aguardando a confirmação do pagamento</strong>. Assim que ele for aprovado, o ingresso oficial chega automaticamente no seu e-mail.</p>
+      <ul class="checkout-resumo-lista obrigado-lista">
+        <li>Pix costuma confirmar em segundos; boleto pode levar até 2 dias úteis.</li>
+        <li>Não é preciso fazer nada além de aguardar o e-mail.</li>
+      </ul>
+      <p><a class="btn btn-solid" href="index.html">Voltar ao site</a></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a class="footer-logo" href="index.html">
+          <img src="assets/img/marca/summit-logo-reverso-120.png"
+               srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+               alt="Intercâmbio Summit 2026" width="137" height="56">
+        </a>
+        <p class="footer-meta"><span data-evento="dataExtenso"></span> · <span data-evento="local"></span>, <span data-evento="cidade"></span></p>
+      </div>
+      <p class="footer-org">Uma realização <strong>PATH Business &amp; Marketing Solutions</strong></p>
+    </div>
+  </footer>
+
+  <script src="evento.config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* Estado (aprovado × pendente) e evento de compra para GTM/Pixel.
+       O Mercado Pago devolve status/collection_status na URL de retorno. */
+    (function () {
+      var q = new URLSearchParams(location.search);
+      var status = q.get("status") || q.get("collection_status") || "approved";
+      var aprovado = status === "approved";
+      document.getElementById("obrigado-aprovado").hidden = !aprovado;
+      document.getElementById("obrigado-pendente").hidden = aprovado;
+
+      var emProducao = location.hostname !== "localhost" && location.hostname !== "127.0.0.1";
+      if (!aprovado || !emProducao) return;
+      var pagamento = q.get("payment_id") || q.get("collection_id") || "";
+      var valor = parseFloat(q.get("valor") || "0") || undefined;
+      /* evita duplicar a conversão se a pessoa recarregar a página */
+      var chave = "summit_purchase_" + pagamento;
+      try { if (pagamento && localStorage.getItem(chave)) return; localStorage.setItem(chave, "1"); } catch (e) {}
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "purchase",
+        transaction_id: pagamento || undefined,
+        currency: "BRL",
+        value: valor,
+        item_name: q.get("lote") || "Ingresso Summit 2026"
+      });
+      if (window.fbq) window.fbq("track", "Purchase", { currency: "BRL", value: valor || 0 });
+    })();
+  </script>
+</body>
+</html>
