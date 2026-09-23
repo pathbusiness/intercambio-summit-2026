@@ -161,14 +161,18 @@ a { color: inherit; }
   font-size: .78rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .18em; color: var(--text-grey);
 }
-.apoio-tier-patrocinio > p { color: var(--summit-blue); }
 .apoio ul {
   list-style: none;
   display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
   margin-top: 1.1rem;
 }
-.apoio-tier-patrocinio img { width: auto; height: 84px; }
+.apoio li { flex-shrink: 0; }
+.apoio-tier-patrocinio { flex-basis: 100%; }
+.apoio .apoio-tier-patrocinio img { width: auto; height: 84px; max-width: none; }
 .apoio-tier-media li { border-left: 0; }
+@media (max-width: 760px) {
+  .apoio .apoio-tier-patrocinio img { height: 54px; max-width: 92vw; width: auto; object-fit: contain; }
+}
 .apoio li {
   display: flex; align-items: center; justify-content: center;
   padding: .3rem 1.2rem;
