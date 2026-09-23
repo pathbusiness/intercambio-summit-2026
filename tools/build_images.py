@@ -26,6 +26,7 @@ EVENT_PHOTOS = {
     "Intercambio Summit 5-68.jpg": "palestrante-close", # close ao microfone
     "Intercambio Summit 6-5.jpg":  "painel",            # painel com 4 no palco
     "Intercambio Summit 7-105.jpg": "premiados",        # 9 premiados com troféus
+    "Pictures/Intercambio Summit - 1-147.jpg": "plateia-2",  # plateia, bloco "para quem é"
 }
 
 # finalista -> (arquivo, ajustes)
