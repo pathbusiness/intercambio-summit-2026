@@ -79,7 +79,7 @@ PALESTRANTES = {
     "gizelle-rezende":     ("Palestrantes/Gizelle Rezende/Gizelle Rezende", {}),
     "alexandre-argenta":   ("Palestrantes/Alexandre Argenta/Alexandre Argenta - Foto 1.jpg", {}),
     "elaine-fuzer":        ("Palestrantes/Elaine Martins Fuzer/Foto_ELAINE_white.jpg", {}),
-    "lucas-montani":       ("Palestrantes/Lucas Montani/Lucas Montani - Foto 1.jpg", {}),
+    "lucas-montani":       ("Palestrantes/Lucas Montani/Lucas Montani - Foto 1.jpg", {"erode": 9, "expand": True}),
 }
 
 YUNET = cv2.FaceDetectorYN_create(
@@ -197,8 +197,23 @@ def crop_finalista(slug, path, opts):
     if det:
         cx, eye_y, fh = det
         side = min(round(fh * factor), W, H)
-        top = round(eye_y - side / 3.0)
-        left = round(cx - side / 2.0)
+        # expand: quando o original é pequeno demais para o enquadramento padrão,
+        # amplia o quadro preenchendo com o azul de marca (só faz sentido com
+        # SUMMIT_BG=blue, fundo uniforme). Expande para os lados e para cima;
+        # a borda inferior fica presa à foto para não descolar o tronco.
+        if graded and opts.get("expand") and round(fh * factor) > side:
+            side = round(fh * factor)
+            top = round(eye_y - side / 3.0)
+            top = min(top, H - side)          # prende a base na borda inferior
+            left = round(cx - side / 2.0)
+            canvas = Image.new("RGB", (side, side), BRAND_BLUE)
+            canvas.paste(im, (-left, -top))
+            im = canvas
+            W = H = side
+            left = top = 0
+        else:
+            top = round(eye_y - side / 3.0)
+            left = round(cx - side / 2.0)
     else:
         side = min(W, H)
         left = (W - side) // 2
