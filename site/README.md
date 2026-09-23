@@ -2,6 +2,12 @@
 
 Página estática, sem framework. GSAP + ScrollTrigger + Lenis vendorizados em `js/vendor/`.
 
+## Deploy
+
+Conectado ao GitHub: push na branch `main` → deploy automático na Vercel
+(projeto `intercambio-summit`, time PATH, Root Directory `site`).
+Nada de ZIP: editar, commitar, push — o site atualiza sozinho.
+
 ## Como editar preço, lote, data e links
 
 Tudo em **`evento.config.js`**. O site escolhe o lote vigente pela data do
