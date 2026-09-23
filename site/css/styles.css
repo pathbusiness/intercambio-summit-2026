@@ -571,6 +571,13 @@ a { color: inherit; }
   font-family: var(--font); font-weight: 500; font-size: 1.05rem; color: var(--charcoal);
 }
 #checkout-form input:focus { outline: 2px solid var(--summit-blue); border-color: transparent; }
+.checkout-cupom-row { display: flex; gap: .5rem; margin-top: .35rem; }
+.checkout-cupom-row input { margin-top: 0; text-transform: uppercase; }
+.checkout-cupom-row input::placeholder { text-transform: none; }
+.checkout-cupom-row .btn { margin-top: 0; white-space: nowrap; }
+.checkout-cupom-feedback { min-height: 1.2em; font-size: .88rem; font-weight: 600; }
+.checkout-cupom-feedback.is-ok { color: #0A7A2E; }
+.checkout-cupom-feedback.is-erro { color: #8C2A20; }
 .checkout-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
 .checkout-btn { width: 100%; font-size: 1.05rem; padding: 1em; margin-top: .4rem; }
 .checkout-btn:disabled { opacity: .65; cursor: default; }
@@ -588,6 +595,7 @@ a { color: inherit; }
 }
 .checkout-resumo-lote { margin-top: .8rem; font-weight: 700; font-size: 1.15rem; text-transform: uppercase; }
 .checkout-resumo-preco { font-weight: 700; font-size: 2.4rem; color: var(--white); line-height: 1.1; }
+.checkout-resumo-original { font-size: 1.3rem; font-weight: 500; color: rgba(255,255,255,.55); margin-right: .3rem; }
 .checkout-resumo-parcelado { color: rgba(255,255,255,.8); font-weight: 500; }
 .checkout-resumo-lista {
   list-style: none; margin-top: 1.2rem; padding-top: 1.2rem;
