@@ -63,6 +63,13 @@
           <label>Empresa <em>(opcional)</em>
             <input type="text" id="ck-empresa" name="empresa" autocomplete="organization" maxlength="120" placeholder="Agência ou instituição">
           </label>
+          <label>Código promocional <em>(opcional)</em>
+            <span class="checkout-cupom-row">
+              <input type="text" id="ck-cupom" name="cupom" maxlength="30" placeholder="Ex.: BELTA10" autocapitalize="characters">
+              <button type="button" class="btn btn-solid btn-small" id="cupom-aplicar">Aplicar</button>
+            </span>
+          </label>
+          <p class="checkout-cupom-feedback" id="cupom-feedback" role="status"></p>
           <!-- honeypot anti-bot: fica invisível; humanos não preenchem -->
           <input type="text" id="ck-site" name="site" tabindex="-1" autocomplete="off" aria-hidden="true" class="checkout-hp">
 

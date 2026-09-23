@@ -38,9 +38,18 @@
   var elVirada = document.getElementById("resumo-virada");
   var btn = document.getElementById("checkout-btn");
 
+  function atualizarResumo() {
+    if (!loteAtual) return;
+    if (cupomValidado) {
+      elPreco.innerHTML = '<s class="checkout-resumo-original">' + brl(loteAtual.avista) + "</s> " + brl(cupomValidado.valor);
+    } else {
+      elPreco.textContent = brl(loteAtual.avista);
+    }
+  }
+
   if (loteAtual) {
     elLote.textContent = loteAtual.nome;
-    elPreco.textContent = brl(loteAtual.avista);
+    atualizarResumo();
     if (loteAtual.parcelado) elParc.textContent = "ou " + loteAtual.parcelado;
     if (proximoLote) {
       elVirada.textContent = "Este preço vale até " + fmtDia(loteAtual.fim) +
@@ -51,6 +60,71 @@
     elPreco.textContent = "—";
     btn.disabled = true;
     btn.textContent = "Vendas encerradas";
+  }
+
+  /* ---------- cupom promocional ---------- */
+  var elCupomInput = document.getElementById("ck-cupom");
+  var elCupomBtn = document.getElementById("cupom-aplicar");
+  var elCupomFb = document.getElementById("cupom-feedback");
+  var cupomValidado = null; // { codigo, valor } do último "Aplicar" bem-sucedido
+
+  var CUPOM_MSGS = {
+    "cupom-invalido": "Cupom não encontrado.",
+    "cupom-expirado": "Este cupom não está mais disponível.",
+    "cupom-esgotado": "Este cupom já atingiu o limite de usos.",
+    "cupom-indisponivel": "Não foi possível validar o cupom agora. Tente novamente.",
+    "vendas-encerradas": "As vendas online foram encerradas.",
+  };
+
+  function aplicarCupom() {
+    var codigo = elCupomInput.value.trim().toUpperCase();
+    elCupomFb.className = "checkout-cupom-feedback";
+    if (!codigo) { elCupomFb.textContent = ""; cupomValidado = null; atualizarResumo(); return; }
+    if (!loteAtual) return;
+
+    var ehLocal = !emProducao;
+    var destino = ehLocal && EV.checkoutApiLocal ? EV.checkoutApiLocal : EV.checkoutApi;
+    if (!destino) return;
+
+    elCupomFb.textContent = "Verificando…";
+    elCupomBtn.disabled = true;
+    fetch(destino, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ codigo: codigo, dryRun: true })
+    })
+      .then(function (r) { return r.json().then(function (j) { return { status: r.status, body: j }; }); })
+      .then(function (r) {
+        elCupomBtn.disabled = false;
+        if (r.body && r.body.ok) {
+          cupomValidado = { codigo: r.body.codigo || codigo, valor: r.body.valor };
+          var pct = Math.round((r.body.desconto || 0) * 100);
+          elCupomFb.textContent = "Cupom aplicado: " + pct + "% de desconto.";
+          elCupomFb.className = "checkout-cupom-feedback is-ok";
+        } else {
+          cupomValidado = null;
+          var erro = r.body && r.body.error;
+          elCupomFb.textContent = CUPOM_MSGS[erro] || "Não foi possível aplicar este cupom.";
+          elCupomFb.className = "checkout-cupom-feedback is-erro";
+        }
+        atualizarResumo();
+      })
+      .catch(function () {
+        elCupomBtn.disabled = false;
+        cupomValidado = null;
+        elCupomFb.textContent = "Falha de conexão ao validar o cupom.";
+        elCupomFb.className = "checkout-cupom-feedback is-erro";
+        atualizarResumo();
+      });
+  }
+  if (elCupomBtn) elCupomBtn.addEventListener("click", aplicarCupom);
+  if (elCupomInput) {
+    elCupomInput.addEventListener("input", function () {
+      if (cupomValidado) { cupomValidado = null; elCupomFb.textContent = ""; atualizarResumo(); }
+    });
+    elCupomInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); aplicarCupom(); }
+    });
   }
 
   /* ---------- aviso vindo do retorno do Mercado Pago ---------- */
@@ -76,6 +150,9 @@
     telefone: "Confira o celular digitado (com DDD).",
     "vendas-encerradas": "As vendas online foram encerradas.",
     "pagamento-nao-configurado": "O pagamento online está em manutenção. Tente novamente em instantes.",
+    "cupom-invalido": "Cupom não encontrado.",
+    "cupom-expirado": "Este cupom não está mais disponível.",
+    "cupom-esgotado": "Este cupom já atingiu o limite de usos.",
   };
 
   form.addEventListener("submit", function (e) {
@@ -90,6 +167,9 @@
       empresa: document.getElementById("ck-empresa").value.trim(),
       site: document.getElementById("ck-site").value
     };
+    // só envia o cupom se ele foi validado com sucesso e não foi editado depois
+    var cupomDigitado = elCupomInput ? elCupomInput.value.trim().toUpperCase() : "";
+    if (cupomValidado && cupomValidado.codigo === cupomDigitado) dados.codigo = cupomDigitado;
 
     if (dados.nome.length < 2) { fb.textContent = MSGS.nome; return; }
     if (dados.sobrenome.length < 2) { fb.textContent = MSGS.sobrenome; return; }
@@ -105,7 +185,7 @@
     btn.textContent = "Gerando link de pagamento…";
     rastrear("begin_checkout", {
       currency: "BRL",
-      value: loteAtual ? loteAtual.avista : undefined
+      value: dados.codigo && cupomValidado ? cupomValidado.valor : (loteAtual ? loteAtual.avista : undefined)
     });
 
     fetch(destino, {
