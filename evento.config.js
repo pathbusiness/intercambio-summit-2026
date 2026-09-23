@@ -26,7 +26,7 @@ window.EVENTO = {
   // espelhe lá e reimplante a função.
   vendaNoSite: false,
   checkoutApi: "/api/checkout",
-  checkoutApiLocal: "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-checkout",
+  checkoutApiLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-checkout",
 
   // Endpoint do formulário de captura de e-mail (Supabase Edge Function,
   // projeto Forio, função summit-leads — grava na tabela summit_leads).
@@ -34,7 +34,7 @@ window.EVENTO = {
   // ver vercel.json), o que dispensa liberar cada domínio novo no CORS.
   // Em localhost o site usa a URL absoluta abaixo.
   leadFormAction: "/api/leads",
-  leadFormActionLocal: "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-leads",
+  leadFormActionLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-leads",
 
   // Página de patrocínio (tem prioridade sobre o WhatsApp abaixo)
   patrocinioUrl: "https://pathbusiness.github.io/sponsorship/",
