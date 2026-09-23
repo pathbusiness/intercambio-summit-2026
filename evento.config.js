@@ -18,13 +18,12 @@ window.EVENTO = {
   checkoutUrl: "https://yourpath.zohobackstage.com/IntercambioSummit2026#/ingressos?lang=pt",
 
   // Checkout próprio no site (Pix e cartão via Mercado Pago, com registro
-  // automático no Zoho Backstage). Enquanto vendaNoSite = false, os botões
-  // do site continuam usando o checkoutUrl acima — nada muda para o visitante.
-  // Vire para true SOMENTE depois do teste ponta a ponta.
+  // automático no Zoho Backstage). Com vendaNoSite = true os botões de
+  // ingresso apontam para checkout.html em vez do checkoutUrl acima.
   // ATENÇÃO: os preços cobrados vêm da Edge Function summit-checkout
   // (supabase/functions/summit-checkout) — ao mudar os lotes abaixo,
   // espelhe lá e reimplante a função.
-  vendaNoSite: false,
+  vendaNoSite: true,
   checkoutApi: "/api/checkout",
   checkoutApiLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-checkout",
 
