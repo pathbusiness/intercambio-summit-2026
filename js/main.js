@@ -236,7 +236,24 @@
     fbq("track", "PageView");
   }
 
-  /* eventos de conversão nos dois destinos */
+  if (emProducao && TR.posthogKey) {
+    /* stub próprio: guarda chamadas de capture() feitas antes da lib
+       terminar de carregar (ex.: a de "purchase" em obrigado.html, que
+       roda logo após este arquivo) e as reenvia assim que o init() real
+       estiver pronto — evita perder eventos por causa da corrida do <script async>. */
+    var phFila = [];
+    window.posthog = { _fila: phFila, capture: function () { phFila.push(arguments); } };
+    var ph = document.createElement("script");
+    ph.async = true;
+    ph.src = TR.posthogHost.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js";
+    ph.onload = function () {
+      window.posthog.init(TR.posthogKey, { api_host: TR.posthogHost });
+      phFila.forEach(function (args) { window.posthog.capture.apply(window.posthog, args); });
+    };
+    document.head.appendChild(ph);
+  }
+
+  /* eventos de conversão nos três destinos */
   function rastrear(ga4Evento, metaEvento, metaCustom, dados) {
     if (!emProducao) return;
     if (TR.gtmId && window.dataLayer) {
@@ -246,6 +263,25 @@
     if (window.gtag && TR.ga4Id) gtag("event", ga4Evento, dados || {});
     if (window.fbq && TR.metaPixelId) {
       fbq(metaCustom ? "trackCustom" : "track", metaEvento, dados || {});
+    }
+    if (window.posthog && TR.posthogKey) posthog.capture(ga4Evento, dados || {});
+  }
+
+  /* ---------- qual seção do site cada visitante realmente vê ---------- */
+  /* dispara 1x por seção quando ela cruza o meio da tela — dá, no GA4/GTM,
+     o alcance de cada bloco do site (ex.: "só X% chega em Ingressos"). */
+  if (emProducao && "IntersectionObserver" in window) {
+    var secoes = document.querySelectorAll("section[id]");
+    if (secoes.length) {
+      var ioSecao = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            rastrear("view_section", "ViewContent", true, { content_type: "secao", secao_id: en.target.id });
+            ioSecao.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      secoes.forEach(function (s) { ioSecao.observe(s); });
     }
   }
 

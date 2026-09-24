@@ -127,6 +127,13 @@
     });
   }
 
+  /* cupom vindo por link (ex.: e-mail de parceiro, ?cupom=IALC10) */
+  var cupomNaUrl = new URLSearchParams(location.search).get("cupom");
+  if (cupomNaUrl && elCupomInput) {
+    elCupomInput.value = cupomNaUrl.toUpperCase();
+    aplicarCupom();
+  }
+
   /* ---------- aviso vindo do retorno do Mercado Pago ---------- */
   var alerta = document.getElementById("checkout-alert");
   if (new URLSearchParams(location.search).get("pagamento") === "erro" && alerta) {
@@ -139,6 +146,7 @@
     if (!emProducao) return;
     if (window.dataLayer) window.dataLayer.push(Object.assign({ event: evento }, dados || {}));
     if (window.fbq) window.fbq("track", "InitiateCheckout", dados || {});
+    if (window.posthog) window.posthog.capture(evento, dados || {});
   }
 
   /* ---------- envio ---------- */
