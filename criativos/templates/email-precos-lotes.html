@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>E-mail — faixas de preço + cupom (600x460)</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.precos { background: var(--white); display: flex; flex-direction: column; }
+
+  .cabeca { flex: none; padding: 24px 32px 4px; }
+  .cabeca .eyebrow { font-family: var(--font); font-weight: 700; text-transform: uppercase;
+    font-size: 13px; letter-spacing: .1em; color: var(--summit-blue); margin-bottom: 6px; }
+  .cabeca h2 { font-family: var(--font); font-weight: 700; text-transform: uppercase;
+    font-size: 22px; color: var(--charcoal); line-height: 1.1; }
+
+  .lotes { flex: 1; padding: 14px 32px 0; }
+  .lote { display: flex; align-items: center; gap: 14px; padding: 12px 14px;
+    border-radius: 6px; margin-bottom: 8px; background: var(--cloud); position: relative; }
+  .lote .nome-col { flex: 1; min-width: 0; }
+  .lote .nome { font-family: var(--font); font-weight: 700; font-size: 16px;
+    text-transform: uppercase; color: var(--charcoal); line-height: 1.15; }
+  .lote .prazo { font-family: var(--font); font-weight: 500; font-size: 13px; color: #5A6180; }
+  .lote .valor-col { text-align: right; flex: none; }
+  .lote .valor { font-family: var(--font); font-weight: 700; font-size: 24px; color: var(--summit-blue); line-height: 1; }
+  .lote .parc  { font-family: var(--font); font-weight: 500; font-size: 12px; color: #5A6180; margin-top: 2px; }
+
+  .lote.destaque { background: var(--summit-blue); }
+  .lote.destaque .nome, .lote.destaque .valor { color: var(--white); }
+  .lote.destaque .prazo, .lote.destaque .parc { color: var(--mid-grey); }
+  .lote.destaque .selo { position: absolute; top: -10px; left: 14px;
+    background: var(--action-green); color: var(--charcoal); font-family: var(--font);
+    font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 3px; }
+
+  .lote.porta { background: var(--charcoal); }
+  .lote.porta .nome, .lote.porta .valor { color: var(--white); }
+  .lote.porta .prazo, .lote.porta .parc { color: rgba(255,255,255,.6); }
+
+  .faixa-cupom { flex: none; margin: 16px 32px 22px; padding: 14px 18px; text-align: center;
+    background: var(--deep-navy); border-radius: 6px; }
+  .faixa-cupom p { font-family: var(--font); font-weight: 600; font-size: 14px; color: var(--white); }
+  .faixa-cupom strong { color: var(--action-green); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="canvas precos">
+  <div class="cabeca">
+    <p class="eyebrow">Ingressos</p>
+    <h2>O preço sobe. O evento é o mesmo.</h2>
+  </div>
+
+  <div class="lotes">
+    <div class="lote destaque">
+      <span class="selo">Lote atual · até 30/09</span>
+      <div class="nome-col"><div class="nome" style="margin-top:8px;">Early Bird</div></div>
+      <div class="valor-col"><div class="valor">R$ 350</div><div class="parc">5x de R$ 70 sem juros</div></div>
+    </div>
+    <div class="lote">
+      <div class="nome-col"><div class="nome">Segundo lote</div><div class="prazo">até 24/10</div></div>
+      <div class="valor-col"><div class="valor">R$ 450</div><div class="parc">5x de R$ 90 sem juros</div></div>
+    </div>
+    <div class="lote">
+      <div class="nome-col"><div class="nome">Último lote</div><div class="prazo">até 10/11</div></div>
+      <div class="valor-col"><div class="valor">R$ 550</div><div class="parc">5x de R$ 110 sem juros</div></div>
+    </div>
+    <div class="lote porta">
+      <div class="nome-col"><div class="nome">No dia, 11/11</div><div class="prazo">na porta</div></div>
+      <div class="valor-col"><div class="valor">R$ 650</div><div class="parc">5x de R$ 130 sem juros</div></div>
+    </div>
+  </div>
+
+  <div class="faixa-cupom">
+    <p>Cupom <strong>{{CUPOM}}</strong>: mais 10% OFF sobre o valor do lote vigente</p>
+  </div>
+</div>
+</body>
+</html>

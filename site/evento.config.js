@@ -124,7 +124,11 @@ window.EVENTO = {
     metaPixelId: "949355509723847",
     // GA4 direto, SEM passar pelo GTM. Deixe vazio se o GA4 estiver
     // configurado dentro do GTM (o normal) — preencher os dois duplica dados.
-    ga4Id: ""
+    ga4Id: "",
+    // PostHog: autocapture de cliques/pageviews + session replay + heatmap.
+    // Ferramenta própria, não duplica com GTM/GA4/Meta (produtos diferentes).
+    posthogKey: "phc_xh7GDxZfWq4cJuHhqYig4MLBFXchYtVcCn9ujY4EQtn4",
+    posthogHost: "https://us.i.posthog.com"
   },
 
   // Apoiadores: os logotipos oficiais estão fixos no HTML (faixa "Apoio"),

@@ -115,6 +115,10 @@
         item_name: q.get("lote") || "Ingresso Summit 2026"
       });
       if (window.fbq) window.fbq("track", "Purchase", { currency: "BRL", value: valor || 0 });
+      if (window.posthog) window.posthog.capture("purchase", {
+        transaction_id: pagamento || undefined, currency: "BRL", value: valor,
+        item_name: q.get("lote") || "Ingresso Summit 2026"
+      });
     })();
   </script>
 </body>

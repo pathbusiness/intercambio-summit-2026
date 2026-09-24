@@ -34,7 +34,8 @@ OUT = os.path.join(ROOT, "aprovacao")
 PROD = os.path.join(ROOT, "out")
 
 SIZES = {"feed": (1080, 1350), "story": (1080, 1920), "linkedin": (1200, 627),
-         "banner": (600, 200)}
+         "banner": (600, 200), "hero": (600, 680), "prova": (600, 420),
+         "hero-roadshow": (600, 730), "precos": (600, 470)}
 
 FOTO_FINALISTA = "../../site/assets/img/finalistas/%s-800.webp"
 
@@ -232,11 +233,11 @@ def escreve_textos():
 # QUEM: BELTA/ABRAPEI/IALC são associações; Ally Hub e Edvisor são empresas
 # (confirmar redação com cada parceiro antes de publicar)
 APOIADORES = [
-    {"id": "belta",   "NOME": "BELTA",    "QUEM": "Associados", "LOGO_H": 62, "LOGO_H_STORY": 70, "LOGO_H_BANNER": 38},
-    {"id": "abrapei", "NOME": "ABRAPEI",  "QUEM": "Associados", "LOGO_H": 72, "LOGO_H_STORY": 82, "LOGO_H_BANNER": 44},
-    {"id": "ialc",    "NOME": "IALC",     "QUEM": "Associados", "LOGO_H": 76, "LOGO_H_STORY": 86, "LOGO_H_BANNER": 46},
-    {"id": "allyhub", "NOME": "Ally Hub", "QUEM": "Clientes",   "LOGO_H": 56, "LOGO_H_STORY": 64, "LOGO_H_BANNER": 34},
-    {"id": "edvisor", "NOME": "Edvisor",  "QUEM": "Clientes",   "LOGO_H": 68, "LOGO_H_STORY": 78, "LOGO_H_BANNER": 42},
+    {"id": "belta",   "NOME": "BELTA",    "QUEM": "Associados", "LOGO_H": 62, "LOGO_H_STORY": 70, "LOGO_H_BANNER": 38, "CUPOM": "BELTA10"},
+    {"id": "abrapei", "NOME": "ABRAPEI",  "QUEM": "Associados", "LOGO_H": 72, "LOGO_H_STORY": 82, "LOGO_H_BANNER": 44, "CUPOM": "ABRAPEI10"},
+    {"id": "ialc",    "NOME": "IALC",     "QUEM": "Associados", "LOGO_H": 76, "LOGO_H_STORY": 86, "LOGO_H_BANNER": 46, "CUPOM": "IALC10"},
+    {"id": "allyhub", "NOME": "Ally Hub", "QUEM": "Clientes",   "LOGO_H": 56, "LOGO_H_STORY": 64, "LOGO_H_BANNER": 34, "CUPOM": "ALLY10"},
+    {"id": "edvisor", "NOME": "Edvisor",  "QUEM": "Clientes",   "LOGO_H": 68, "LOGO_H_STORY": 78, "LOGO_H_BANNER": 42, "CUPOM": "EDVISOR10"},
 ]
 
 
@@ -249,7 +250,11 @@ def jobs_kit():
             ("kit-apoiador-feed.html", dados, os.path.join(d, "feed-1080x1350.jpg"), SIZES["feed"]),
             ("kit-apoiador-story.html", dados, os.path.join(d, "story-1080x1920.jpg"), SIZES["story"]),
             ("kit-apoiador-banner.html", dados, os.path.join(d, "banner-email-600x200.png"), SIZES["banner"]),
+            ("kit-apoiador-hero.html", dados, os.path.join(d, "hero-email-600x680.png"), SIZES["hero"]),
         ]
+    # peça única (não varia por apoiador): fotos da edição 2025 para prova social no e-mail
+    jobs.append(("email-prova-social.html", {},
+                  os.path.join(PROD, "kit-apoiadores", "_shared", "prova-social-2025.png"), SIZES["prova"]))
     return jobs
 
 

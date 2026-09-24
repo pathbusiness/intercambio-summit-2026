@@ -144,6 +144,10 @@ img { display: block; }
 /* ---------- variações de formato ---------- */
 .canvas.story  { height: 1920px; }          /* 1080x1920 */
 .canvas.banner { width: 600px; height: 200px; }  /* banner de e-mail */
+.canvas.hero   { width: 600px; height: 680px; }  /* hero de e-mail com highlights */
+.canvas.prova  { width: 600px; height: 420px; }  /* prova social — fotos edição 2025 */
+.canvas.precos { width: 600px; height: 470px; }  /* faixas de preço + cupom, versão e-mail */
+.canvas.hero-rs { width: 600px; height: 730px; } /* hero de e-mail com gancho de Roadshow */
 
 /* selo VOTE: único uso do Action Green fora de botão — votar É o CTA */
 .selo-vote {

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Kit co-branded — hero de e-mail 600x680 (com highlights)</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.hero { background: var(--white); display: flex; flex-direction: column; }
+
+  /* topo: mesmo header do banner, Summit Blue sólido */
+  .topo { position: relative; height: 168px; background: var(--summit-blue); flex: none; }
+  .linha { position: absolute; left: 32px; top: 30px; right: 32px;
+    display: flex; align-items: center; gap: 20px; }
+  .linha img.summit { height: 40px; width: auto; }
+  .linha .divisor { width: 1px; height: 36px; background: rgba(255,255,255,.45); }
+  .linha img.apoiador { height: {{LOGO_H_BANNER}}px; width: auto; }
+  .topo .texto { position: absolute; left: 32px; bottom: 40px; right: 32px;
+    font-weight: 600; font-size: 20px; color: var(--white); letter-spacing: .01em; }
+  .topo .texto strong { font-weight: 700; }
+  .topo .sub { position: absolute; left: 32px; bottom: 14px;
+    font-weight: 600; font-size: 14px; letter-spacing: .06em; color: var(--mid-grey);
+    text-transform: uppercase; }
+  .topo .sub strong { color: var(--white); }
+
+  /* corpo: por que participar */
+  .corpo { flex: 1; padding: 26px 32px 0; }
+  .corpo h2 { font-family: var(--font); font-weight: 700; text-transform: uppercase;
+    font-size: 22px; letter-spacing: .01em; color: var(--charcoal); margin-bottom: 18px; }
+
+  .ponto { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+  .ponto .marca { flex: none; width: 10px; height: 10px; margin-top: 6px;
+    background: var(--action-green); transform: rotate(45deg); }
+  .ponto h3 { font-family: var(--font); font-weight: 700; font-size: 17px;
+    color: var(--summit-blue); line-height: 1.15; margin-bottom: 2px; }
+  .ponto p { font-family: var(--font); font-weight: 500; font-size: 15px;
+    color: var(--charcoal); line-height: 1.28; }
+
+  .rodape { flex: none; padding: 6px 32px 22px; font-family: var(--font);
+    font-weight: 600; font-size: 13px; letter-spacing: .04em; color: #7A8199;
+    text-transform: uppercase; border-top: 1px solid var(--cloud); margin-top: 4px; padding-top: 14px; }
+</style>
+</head>
+<body>
+<div class="canvas hero">
+  <div class="topo">
+    <div class="linha">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <img class="apoiador" src="{{LOGO}}" alt="{{NOME}}">
+    </div>
+    <div class="texto">{{QUEM}} da {{NOME}} têm <strong>10% de desconto</strong></div>
+    <div class="sub">Cupom <strong>{{CUPOM}}</strong> · 11 de novembro · São Paulo</div>
+  </div>
+
+  <div class="corpo">
+    <h2>Por que participar</h2>
+
+    <div class="ponto">
+      <span class="marca"></span>
+      <div><h3>Decisores do trade, na mesma sala</h3>
+        <p>Donos e gestores de agências, instituições internacionais e associações — o único dia do ano em que o setor inteiro está reunido.</p></div>
+    </div>
+
+    <div class="ponto">
+      <span class="marca"></span>
+      <div><h3>Panorama 2027 do mercado</h3>
+        <p>Painel principal com os presidentes da ABRAPEI e da BELTA e as lideranças da e_Consulting e da Ollara.</p></div>
+    </div>
+
+    <div class="ponto">
+      <span class="marca"></span>
+      <div><h3>Capacitação para aplicar na segunda-feira</h3>
+        <p>IA para atendimento e vendas, dados globais com o The PIE e o caso Google — conteúdo prático, direto para a rotina da agência ou instituição.</p></div>
+    </div>
+
+    <div class="ponto">
+      <span class="marca"></span>
+      <div><h3>Prêmio Melhores Profissionais</h3>
+        <p>O reconhecimento oficial do trade de intercâmbio, ao vivo, com as seis categorias de 2026.</p></div>
+    </div>
+  </div>
+
+  <div class="rodape">11 de novembro de 2026 · Contentix, Av. Paulista 967, São Paulo</div>
+</div>
+</body>
+</html>
