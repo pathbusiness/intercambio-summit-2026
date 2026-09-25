@@ -148,6 +148,7 @@ img { display: block; }
 .canvas.prova  { width: 600px; height: 420px; }  /* prova social — fotos edição 2025 */
 .canvas.precos { width: 600px; height: 470px; }  /* faixas de preço + cupom, versão e-mail */
 .canvas.hero-rs { width: 600px; height: 730px; } /* hero de e-mail com gancho de Roadshow */
+.canvas.quadrado { width: 1080px; height: 1080px; } /* quadrado para WhatsApp */
 
 /* selo VOTE: único uso do Action Green fora de botão — votar É o CTA */
 .selo-vote {

@@ -35,7 +35,7 @@ PROD = os.path.join(ROOT, "out")
 
 SIZES = {"feed": (1080, 1350), "story": (1080, 1920), "linkedin": (1200, 627),
          "banner": (600, 200), "hero": (600, 680), "prova": (600, 420),
-         "hero-roadshow": (600, 730), "precos": (600, 470)}
+         "hero-roadshow": (600, 730), "precos": (600, 470), "quadrado": (1080, 1080)}
 
 FOTO_FINALISTA = "../../site/assets/img/finalistas/%s-800.webp"
 

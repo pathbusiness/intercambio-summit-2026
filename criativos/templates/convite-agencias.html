@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Convite agências de intercâmbio — feed/story/quadrado</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Layout em flex (em vez de posição absoluta fixa) para o mesmo template
+     render correto em 1080x1350 (feed), 1080x1920 (story) e 1080x1080
+     (WhatsApp) só trocando o tamanho do canvas. */
+  .canvas.convite { background: var(--deep-navy); display: flex; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,35,92,.88) 38%, rgba(0,35,92,.58) 100%);
+  }
+
+  .conteudo-flex {
+    position: absolute; inset: 0; z-index: 4;
+    display: flex; flex-direction: column;
+    padding: 64px var(--mx) 96px;
+  }
+
+  .topo-conv { display: flex; align-items: center; gap: 22px; flex: none; }
+  .topo-conv img.summit { height: 66px; width: auto; }
+  .topo-conv .divisor { width: 2px; height: 56px; background: rgba(255,255,255,.4); }
+
+  .eyebrow-conv { margin-top: 30px; flex: none; }
+  .titulo-conv { margin-top: 12px; font-size: 78px; flex: none; }
+  .quando-conv { margin-top: 18px; font-weight: 500; font-size: 32px; color: var(--mid-grey); flex: none; }
+
+  .highlights { list-style: none; display: flex; flex-direction: column;
+    gap: 24px; margin: auto 0; padding: 44px 0; }
+  .highlights li { display: flex; align-items: flex-start; gap: 18px; }
+  .highlights li .marca { flex: none; width: 16px; height: 16px; margin-top: 8px;
+    background: var(--action-green); transform: rotate(45deg); }
+  .highlights li span.txt { font-weight: 600; font-size: 34px; line-height: 1.18; color: var(--white); }
+  .highlights li span.txt strong { font-weight: 700; }
+
+  /* zona de 400px inferior livre em stories (reply bar / sticker de link) */
+  .canvas.story .conteudo-flex { padding-bottom: 420px; }
+
+  .rodape-conv { flex: none; display: flex; flex-direction: column; gap: 22px; }
+  .urgencia-conv { font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+    font-size: 28px; color: var(--action-green); }
+  .rodape-conv .pill-preco { align-self: flex-start; }
+  .rodape-conv .cta { align-self: flex-start; }
+</style>
+</head>
+<body>
+<div class="canvas convite {{CLASSE_TAMANHO}}">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo-flex">
+    <div class="topo-conv">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+    </div>
+
+    <p class="eyebrow-conv eyebrow">Convite para agências de intercâmbio</p>
+    <h1 class="titulo-conv titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</h1>
+    <p class="quando-conv">11 de novembro · São Paulo</p>
+
+    <ul class="highlights">
+      <li><span class="marca"></span><span class="txt">IA para atendimento e vendas, direto do dia a dia da agência</span></li>
+      <li><span class="marca"></span><span class="txt">Painel principal com os presidentes da <strong>ABRAPEI</strong> e da <strong>BELTA</strong></span></li>
+      <li><span class="marca"></span><span class="txt">Dados globais do mercado direto do <strong>The PIE</strong></span></li>
+      <li><span class="marca"></span><span class="txt">Cerimônia do Prêmio Melhores Profissionais 2026</span></li>
+    </ul>
+
+    <div class="rodape-conv">
+      <p class="urgencia-conv">Lote Early Bird termina em 30 de setembro</p>
+      <span class="pill-preco">R$ 350 <span class="ou">ou 5x de R$ 70 sem juros</span></span>
+      <span class="cta">intercambiosummit.com.br</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
