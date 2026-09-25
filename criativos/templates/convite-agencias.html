@@ -38,6 +38,14 @@
   /* zona de 400px inferior livre em stories (reply bar / sticker de link) */
   .canvas.story .conteudo-flex { padding-bottom: 420px; }
 
+  /* quadrado (WhatsApp) tem menos altura livre: compacta para caber
+     eyebrows de duas linhas (públicos com nome mais longo) sem cortar o rodapé */
+  .canvas.quadrado .conteudo-flex { padding-top: 48px; padding-bottom: 72px; }
+  .canvas.quadrado .eyebrow-conv { margin-top: 20px; }
+  .canvas.quadrado .titulo-conv { margin-top: 6px; font-size: 68px; }
+  .canvas.quadrado .highlights { gap: 18px; padding: 24px 0; }
+  .canvas.quadrado .highlights li span.txt { font-size: 30px; }
+
   .rodape-conv { flex: none; display: flex; flex-direction: column; gap: 22px; }
   .urgencia-conv { font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
     font-size: 28px; color: var(--action-green); }
@@ -56,12 +64,12 @@
       <span class="divisor"></span>
     </div>
 
-    <p class="eyebrow-conv eyebrow">Convite para agências de intercâmbio</p>
+    <p class="eyebrow-conv eyebrow">{{EYEBROW}}</p>
     <h1 class="titulo-conv titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</h1>
     <p class="quando-conv">11 de novembro · São Paulo</p>
 
     <ul class="highlights">
-      <li><span class="marca"></span><span class="txt">IA para atendimento e vendas, direto do dia a dia da agência</span></li>
+      <li><span class="marca"></span><span class="txt">IA para atendimento e vendas, direto do dia a dia {{DA_AGENCIA}}</span></li>
       <li><span class="marca"></span><span class="txt">Ferramentas e exemplos reais de IA para a gestão de criativos, com o <strong>Google Brasil</strong></span></li>
       <li><span class="marca"></span><span class="txt">Painel principal com líderes do setor de intercâmbio</span></li>
       <li><span class="marca"></span><span class="txt">Dados globais do mercado direto do <strong>The PIE</strong></span></li>
