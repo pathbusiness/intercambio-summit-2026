@@ -32,7 +32,7 @@ const PROMO_CODES: Record<string, { desconto: number; inicio: string; fim: strin
   ABRAPEI10: { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-31", max_usos: 10 },
   ALLY10:    { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-31", max_usos: 10 },
   BELTA10:   { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-31", max_usos: 10 },
-  EARLY10:   { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-01", max_usos: 10 },
+  EARLY10:   { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-01", max_usos: 20 },
   EDVISOR10: { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-31", max_usos: 10 },
   IALC10:    { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-30", max_usos: 10 },
 };
