@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Convite associados ABRAPEI — WhatsApp 1080x1080</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.convite { width: 1080px; height: 1080px; background: var(--deep-navy); display: flex; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,35,92,.88) 38%, rgba(0,35,92,.58) 100%);
+  }
+
+  .conteudo-flex {
+    position: absolute; inset: 0; z-index: 4;
+    display: flex; flex-direction: column;
+    padding: 52px var(--mx) 72px;
+  }
+
+  .topo-conv { display: flex; align-items: center; gap: 22px; flex: none; }
+  .topo-conv img.summit { height: 62px; width: auto; }
+  .topo-conv .divisor { width: 2px; height: 50px; background: rgba(255,255,255,.4); }
+  .topo-conv img.parceiro { height: 42px; width: auto; }
+
+  .eyebrow-conv { margin-top: 22px; flex: none; }
+  .titulo-conv { margin-top: 8px; font-size: 68px; flex: none; }
+  .quando-conv { margin-top: 14px; font-weight: 500; font-size: 30px; color: var(--mid-grey); flex: none; }
+
+  .highlights { list-style: none; display: flex; flex-direction: column;
+    gap: 16px; margin: auto 0; padding: 22px 0; }
+  .highlights li { display: flex; align-items: flex-start; gap: 16px; }
+  .highlights li .marca { flex: none; width: 15px; height: 15px; margin-top: 7px;
+    background: var(--action-green); transform: rotate(45deg); }
+  .highlights li span.txt { font-weight: 600; font-size: 29px; line-height: 1.16; color: var(--white); }
+  .highlights li span.txt strong { font-weight: 700; }
+
+  .rodape-conv { flex: none; display: flex; flex-direction: column; gap: 18px; }
+
+  .caixa-cupom { align-self: flex-start; background: var(--white); border-radius: 6px;
+    padding: 16px 26px 18px; }
+  .caixa-cupom .legenda { display: block; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .05em; font-size: 20px; color: var(--charcoal); margin-bottom: 4px; }
+  .caixa-cupom .codigo { display: block; font-weight: 700; text-transform: uppercase;
+    font-size: 38px; letter-spacing: .02em; color: var(--summit-blue); }
+
+  .rodape-conv .cta { align-self: flex-start; }
+</style>
+</head>
+<body>
+<div class="canvas convite">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo-flex">
+    <div class="topo-conv">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <img class="parceiro" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+    </div>
+
+    <p class="eyebrow-conv eyebrow">Convite exclusivo para associados ABRAPEI</p>
+    <h1 class="titulo-conv titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</h1>
+    <p class="quando-conv">11 de novembro · São Paulo</p>
+
+    <ul class="highlights">
+      <li><span class="marca"></span><span class="txt">IA para atendimento e vendas, direto do dia a dia da agência</span></li>
+      <li><span class="marca"></span><span class="txt">Ferramentas e exemplos reais de IA para a gestão de criativos, com o <strong>Google Brasil</strong></span></li>
+      <li><span class="marca"></span><span class="txt">Painel principal com líderes do setor de intercâmbio</span></li>
+      <li><span class="marca"></span><span class="txt">Dados globais do mercado direto do <strong>The PIE</strong></span></li>
+      <li><span class="marca"></span><span class="txt">Cerimônia do Prêmio Melhores Profissionais 2026</span></li>
+    </ul>
+
+    <div class="rodape-conv">
+      <div class="caixa-cupom">
+        <span class="legenda">Lote Early Bird (R$ 350) · 5x de R$ 70 sem juros · até 30/09</span>
+        <span class="codigo">Cupom ABRAPEI10 · 10% OFF</span>
+      </div>
+      <span class="cta">intercambiosummit.com.br</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
