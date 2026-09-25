@@ -253,7 +253,8 @@ def jobs_kit():
             ("kit-apoiador-hero.html", dados, os.path.join(d, "hero-email-600x680.png"), SIZES["hero"]),
         ]
     # peça única (não varia por apoiador): fotos da edição 2025 para prova social no e-mail
-    jobs.append(("email-prova-social.html", {},
+    jobs.append(("email-prova-social.html",
+                  {"LEGENDA": "O mercado reunido em um dia de conteúdo e negócios. 2026 é maior."},
                   os.path.join(PROD, "kit-apoiadores", "_shared", "prova-social-2025.png"), SIZES["prova"]))
     return jobs
 
