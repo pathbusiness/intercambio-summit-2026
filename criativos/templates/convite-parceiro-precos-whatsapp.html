@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Convite parceiro + faixas de preço + cupom — WhatsApp 1080x1080</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.convite { width: 1080px; height: 1080px; background: var(--deep-navy); display: flex; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,35,92,.9) 30%, rgba(0,35,92,.62) 100%);
+  }
+
+  .conteudo-flex {
+    position: absolute; inset: 0; z-index: 4;
+    display: flex; flex-direction: column;
+    padding: 48px var(--mx) 60px;
+  }
+
+  .topo-conv { display: flex; align-items: center; gap: 22px; flex: none; }
+  .topo-conv img.summit { height: 58px; width: auto; }
+  .topo-conv .divisor { width: 2px; height: 46px; background: rgba(255,255,255,.4); }
+  .topo-conv img.parceiro { height: 52px; width: auto; }
+
+  .eyebrow-conv { margin-top: 20px; flex: none; }
+  .titulo-conv { margin-top: 8px; font-size: 62px; flex: none; }
+  .quando-conv { margin-top: 12px; font-weight: 500; font-size: 28px; color: var(--mid-grey); flex: none; }
+
+  .subtitulo-precos { flex: none; margin-top: 30px; font-weight: 700; text-transform: uppercase;
+    font-size: 24px; letter-spacing: .01em; color: var(--white); }
+
+  .lotes { flex: none; margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .lote { display: flex; align-items: center; gap: 14px; padding: 14px 20px;
+    border-radius: 6px; background: rgba(255,255,255,.10); position: relative; }
+  .lote .nome-col { flex: 1; min-width: 0; }
+  .lote .nome { font-weight: 700; font-size: 22px; text-transform: uppercase; color: var(--white); line-height: 1.1; }
+  .lote .prazo { font-weight: 500; font-size: 17px; color: var(--mid-grey); }
+  .lote .valor-col { text-align: right; flex: none; }
+  .lote .valor { font-weight: 700; font-size: 28px; color: var(--white); line-height: 1; }
+  .lote .parc { font-weight: 500; font-size: 15px; color: var(--mid-grey); margin-top: 2px; }
+
+  .lote.destaque { background: var(--action-green); }
+  .lote.destaque .nome, .lote.destaque .valor { color: var(--charcoal); }
+  .lote.destaque .prazo, .lote.destaque .parc { color: rgba(35,31,32,.72); }
+  .lote.destaque .selo { position: absolute; top: -12px; left: 20px;
+    background: var(--summit-blue); color: var(--white);
+    font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 4px; }
+
+  .rodape-conv { flex: none; margin-top: auto; display: flex; flex-direction: column; gap: 18px; }
+
+  .caixa-cupom { align-self: stretch; background: var(--white); border-radius: 6px;
+    padding: 16px 26px 18px; text-align: center; }
+  .caixa-cupom .legenda { display: block; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .05em; font-size: 19px; color: var(--charcoal); margin-bottom: 4px; }
+  .caixa-cupom .codigo { display: block; font-weight: 700; text-transform: uppercase;
+    font-size: 36px; letter-spacing: .02em; color: var(--summit-blue); }
+
+  .rodape-conv .cta { align-self: center; }
+</style>
+</head>
+<body>
+<div class="canvas convite">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo-flex">
+    <div class="topo-conv">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <img class="parceiro" src="{{LOGO_PARCEIRO}}" alt="{{NOME_PARCEIRO}}">
+    </div>
+
+    <p class="eyebrow-conv eyebrow">Convite exclusivo para associados {{NOME_PARCEIRO}}</p>
+    <h1 class="titulo-conv titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</h1>
+    <p class="quando-conv">11 de novembro · São Paulo</p>
+
+    <p class="subtitulo-precos">O preço sobe. O evento é o mesmo.</p>
+    <div class="lotes">
+      <div class="lote destaque">
+        <span class="selo">Lote atual · até 30/09</span>
+        <div class="nome-col"><div class="nome" style="margin-top:6px;">Early Bird</div></div>
+        <div class="valor-col"><div class="valor">R$ 350</div><div class="parc">5x de R$ 70 sem juros</div></div>
+      </div>
+      <div class="lote">
+        <div class="nome-col"><div class="nome">Segundo lote</div><div class="prazo">até 24/10</div></div>
+        <div class="valor-col"><div class="valor">R$ 450</div><div class="parc">5x de R$ 90 sem juros</div></div>
+      </div>
+      <div class="lote">
+        <div class="nome-col"><div class="nome">Terceiro lote</div><div class="prazo">até 10/11</div></div>
+        <div class="valor-col"><div class="valor">R$ 550</div><div class="parc">5x de R$ 110 sem juros</div></div>
+      </div>
+      <div class="lote">
+        <div class="nome-col"><div class="nome">Dia do evento</div><div class="prazo">11/11, na porta</div></div>
+        <div class="valor-col"><div class="valor">R$ 650</div><div class="parc">5x de R$ 130 sem juros</div></div>
+      </div>
+    </div>
+
+    <div class="rodape-conv">
+      <div class="caixa-cupom">
+        <span class="legenda">Associados {{NOME_PARCEIRO}} têm desconto adicional</span>
+        <span class="codigo">Cupom {{CUPOM}} · 10% OFF</span>
+      </div>
+      <span class="cta">intercambiosummit.com.br</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
