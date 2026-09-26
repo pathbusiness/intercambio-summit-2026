@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Hero de e-mail — parceiro + faixas de preço + cupom (600xN)</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.email-precos { width: 600px; background: var(--white); display: flex; flex-direction: column; overflow: visible; }
+
+  .cab { flex: none; background: var(--deep-navy); padding: 40px 44px 32px; }
+  .cab .topo-logos { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+  .cab .topo-logos img.summit { height: 40px; width: auto; }
+  .cab .topo-logos .divisor { width: 2px; height: 34px; background: rgba(255,255,255,.4); }
+  .cab .topo-logos img.parceiro { height: 34px; width: auto; }
+  .cab .eyebrow { font-family: var(--font); font-weight: 700; text-transform: uppercase;
+    font-size: 15px; letter-spacing: .08em; color: var(--action-green); margin-bottom: 8px; }
+  .cab h1 { font-family: var(--font); font-weight: 700; text-transform: uppercase;
+    font-size: 42px; line-height: .98; color: var(--white); margin-bottom: 10px; }
+  .cab .quando { font-family: var(--font); font-weight: 500; font-size: 19px; color: var(--mid-grey); }
+
+  .foto { flex: none; height: 230px; position: relative; overflow: hidden; }
+  .foto img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%;
+    filter: saturate(.7) contrast(1.03) brightness(.94); }
+
+  .corpo { flex: none; padding: 30px 44px 8px; }
+  .corpo .subtitulo { font-family: var(--font); font-weight: 700; text-transform: uppercase;
+    font-size: 18px; color: var(--charcoal); margin-bottom: 14px; }
+
+  .lote { display: flex; align-items: center; gap: 14px; padding: 13px 18px;
+    border-radius: 6px; margin-bottom: 9px; background: var(--cloud); position: relative; }
+  .lote .nome-col { flex: 1; min-width: 0; }
+  .lote .nome { font-family: var(--font); font-weight: 700; font-size: 16px;
+    text-transform: uppercase; color: var(--charcoal); line-height: 1.15; }
+  .lote .prazo { font-family: var(--font); font-weight: 500; font-size: 13px; color: #5A6180; }
+  .lote .valor-col { text-align: right; flex: none; }
+  .lote .parc { font-family: var(--font); font-weight: 700; font-size: 21px; color: var(--summit-blue); line-height: 1; }
+  .lote .valor { font-family: var(--font); font-weight: 500; font-size: 12px; color: #5A6180; margin-top: 3px; }
+
+  .lote.destaque { background: var(--summit-blue); }
+  .lote.destaque .nome, .lote.destaque .parc { color: var(--white); }
+  .lote.destaque .prazo, .lote.destaque .valor { color: var(--mid-grey); }
+  .lote.destaque .selo { position: absolute; top: -10px; left: 18px;
+    background: var(--action-green); color: var(--charcoal); font-family: var(--font);
+    font-weight: 700; font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 3px; }
+
+  .caixa-cupom { margin: 20px 0 8px; padding: 16px 20px; text-align: center;
+    background: var(--deep-navy); border-radius: 6px; }
+  .caixa-cupom .legenda { display: block; font-family: var(--font); font-weight: 600;
+    font-size: 15px; color: var(--mid-grey); margin-bottom: 4px; }
+  .caixa-cupom .codigo { display: block; font-family: var(--font); font-weight: 700;
+    text-transform: uppercase; font-size: 26px; letter-spacing: .02em; color: var(--action-green); }
+
+  .rodape { flex: none; padding: 14px 44px 40px; text-align: center; }
+  .rodape .cta { display: inline-block; }
+</style>
+</head>
+<body>
+<div class="canvas email-precos">
+  <div class="cab">
+    <div class="topo-logos">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <img class="parceiro" src="{{LOGO_PARCEIRO}}" alt="{{NOME_PARCEIRO}}">
+    </div>
+    <p class="eyebrow">Convite exclusivo para {{PUBLICO}} {{NOME_PARCEIRO}}</p>
+    <h1>INTERCÂMBIO<br>SUMMIT 2026</h1>
+    <p class="quando">11 de novembro · São Paulo</p>
+  </div>
+
+  <div class="foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+
+  <div class="corpo">
+    <p class="subtitulo">O preço sobe. O evento é o mesmo.</p>
+
+    <div class="lote destaque">
+      <span class="selo">Lote atual · até 30/09</span>
+      <div class="nome-col"><div class="nome" style="margin-top:6px;">Early Bird</div></div>
+      <div class="valor-col"><div class="parc">5x de R$ 70 sem juros</div><div class="valor">ou R$ 350 à vista</div></div>
+    </div>
+    <div class="lote">
+      <div class="nome-col"><div class="nome">Segundo lote</div><div class="prazo">até 24/10</div></div>
+      <div class="valor-col"><div class="parc">5x de R$ 90 sem juros</div><div class="valor">ou R$ 450 à vista</div></div>
+    </div>
+    <div class="lote">
+      <div class="nome-col"><div class="nome">Terceiro lote</div><div class="prazo">até 10/11</div></div>
+      <div class="valor-col"><div class="parc">5x de R$ 110 sem juros</div><div class="valor">ou R$ 550 à vista</div></div>
+    </div>
+    <div class="lote">
+      <div class="nome-col"><div class="nome">Dia do evento</div><div class="prazo">11/11, na porta</div></div>
+      <div class="valor-col"><div class="parc">5x de R$ 130 sem juros</div><div class="valor">ou R$ 650 à vista</div></div>
+    </div>
+
+    <div class="caixa-cupom">
+      <span class="legenda">{{LEGENDA_CUPOM}}</span>
+      <span class="codigo">Cupom {{CUPOM}} · 10% OFF</span>
+    </div>
+  </div>
+
+  <div class="rodape">
+    <span class="cta">Garantir ingresso com 10% OFF</span>
+  </div>
+</div>
+</body>
+</html>
