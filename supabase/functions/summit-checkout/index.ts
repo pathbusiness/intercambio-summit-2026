@@ -35,6 +35,7 @@ const PROMO_CODES: Record<string, { desconto: number; inicio: string; fim: strin
   EARLY10:   { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-01", max_usos: 20 },
   EDVISOR10: { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-31", max_usos: 10 },
   IALC10:    { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-30", max_usos: 10 },
+  THEPIE10:  { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-31", max_usos: 10 },
 };
 
 const ALLOWED = [
