@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Convite gestores de instituição — WhatsApp 1080x1080</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.convite { width: 1080px; height: 1080px; background: var(--deep-navy); display: flex; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,35,92,.88) 38%, rgba(0,35,92,.58) 100%);
+  }
+
+  .conteudo-flex {
+    position: absolute; inset: 0; z-index: 4;
+    display: flex; flex-direction: column;
+    padding: 48px var(--mx) 68px;
+  }
+
+  .topo-conv { display: flex; align-items: center; gap: 22px; flex: none; }
+  .topo-conv img.summit { height: 60px; width: auto; }
+  .topo-conv .divisor { width: 2px; height: 50px; background: rgba(255,255,255,.4); }
+
+  .eyebrow-conv { margin-top: 20px; flex: none; }
+  .titulo-conv { margin-top: 8px; font-size: 62px; flex: none; }
+  .quando-conv { margin-top: 14px; font-weight: 500; font-size: 29px; color: var(--mid-grey); flex: none; }
+
+  .highlights { list-style: none; display: flex; flex-direction: column;
+    gap: 17px; margin: auto 0; padding: 24px 0; }
+  .highlights li { display: flex; align-items: flex-start; gap: 16px; }
+  .highlights li .marca { flex: none; width: 15px; height: 15px; margin-top: 7px;
+    background: var(--action-green); transform: rotate(45deg); }
+  .highlights li span.txt { font-weight: 600; font-size: 29px; line-height: 1.18; color: var(--white); }
+  .highlights li span.txt strong { font-weight: 700; }
+
+  .rodape-conv { flex: none; display: flex; flex-direction: column; gap: 20px; }
+  .urgencia-conv { font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+    font-size: 26px; color: var(--action-green); }
+  .rodape-conv .pill-preco { align-self: flex-start; }
+  .rodape-conv .cta { align-self: flex-start; }
+</style>
+</head>
+<body>
+<div class="canvas convite">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo-flex">
+    <div class="topo-conv">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+    </div>
+
+    <p class="eyebrow-conv eyebrow">Convite para gestores de instituição que recrutam no Brasil</p>
+    <h1 class="titulo-conv titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</h1>
+    <p class="quando-conv">11 de novembro · São Paulo</p>
+
+    <ul class="highlights">
+      <li><span class="marca"></span><span class="txt">IA na prática, no atendimento de alunos e agências parceiras no Brasil</span></li>
+      <li><span class="marca"></span><span class="txt">Ferramentas reais de IA para gestão de criativos, com o <strong>Google Brasil</strong></span></li>
+      <li><span class="marca"></span><span class="txt">Os líderes que decidem os rumos do setor de intercâmbio no Brasil</span></li>
+      <li><span class="marca"></span><span class="txt">Dados globais do mercado, direto do <strong>The PIE</strong></span></li>
+      <li><span class="marca"></span><span class="txt">Cerimônia do Prêmio Melhores Profissionais 2026</span></li>
+    </ul>
+
+    <div class="rodape-conv">
+      <p class="urgencia-conv">Lote Early Bird termina em 30 de setembro</p>
+      <span class="pill-preco">R$ 350 <span class="ou">ou 5x de R$ 70 sem juros</span></span>
+      <span class="cta">intercambiosummit.com.br</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
