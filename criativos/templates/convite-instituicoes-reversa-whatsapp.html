@@ -13,30 +13,44 @@
   .conteudo-flex {
     position: absolute; inset: 0; z-index: 4;
     display: flex; flex-direction: column;
-    padding: 48px var(--mx) 68px;
+    padding: 44px var(--mx) 120px;
   }
 
   .topo-conv { display: flex; align-items: center; gap: 22px; flex: none; }
-  .topo-conv img.summit { height: 60px; width: auto; }
-  .topo-conv .divisor { width: 2px; height: 50px; background: rgba(255,255,255,.4); }
+  .topo-conv img.summit { height: 56px; width: auto; }
+  .topo-conv .divisor { width: 2px; height: 46px; background: rgba(255,255,255,.4); }
 
-  .eyebrow-conv { margin-top: 20px; flex: none; }
-  .titulo-conv { margin-top: 8px; font-size: 62px; flex: none; }
-  .quando-conv { margin-top: 14px; font-weight: 500; font-size: 29px; color: var(--mid-grey); flex: none; }
+  .eyebrow-conv { margin-top: 18px; flex: none; }
+  .titulo-conv { margin-top: 6px; font-size: 58px; flex: none; }
+  .quando-conv { margin-top: 12px; font-weight: 500; font-size: 27px; color: var(--mid-grey); flex: none; }
 
   .highlights { list-style: none; display: flex; flex-direction: column;
-    gap: 17px; margin: auto 0; padding: 24px 0; }
+    gap: 15px; margin: auto 0; padding: 20px 0; }
   .highlights li { display: flex; align-items: flex-start; gap: 16px; }
-  .highlights li .marca { flex: none; width: 15px; height: 15px; margin-top: 7px;
+  .highlights li .marca { flex: none; width: 14px; height: 14px; margin-top: 7px;
     background: var(--action-green); transform: rotate(45deg); }
-  .highlights li span.txt { font-weight: 600; font-size: 29px; line-height: 1.18; color: var(--white); }
+  .highlights li span.txt { font-weight: 600; font-size: 27px; line-height: 1.18; color: var(--white); }
   .highlights li span.txt strong { font-weight: 700; }
 
-  .rodape-conv { flex: none; display: flex; flex-direction: column; gap: 20px; }
+  .rodape-conv { flex: none; display: flex; flex-direction: column; gap: 16px; }
   .urgencia-conv { font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
-    font-size: 26px; color: var(--action-green); }
+    font-size: 24px; color: var(--action-green); }
   .rodape-conv .pill-preco { align-self: flex-start; }
   .rodape-conv .cta { align-self: flex-start; }
+
+  .apoio-rodape {
+    position: absolute; left: 0; right: 0; bottom: 30px; z-index: 5;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .apoio-rodape .rotulo { font-weight: 600; font-size: 15px; letter-spacing: .28em;
+    text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .apoio-rodape .logos { display: flex; align-items: center; justify-content: center; gap: 34px; }
+  .apoio-rodape .logos img { opacity: .95; }
+  .apoio-rodape .logos img.belta   { height: 28px; }
+  .apoio-rodape .logos img.abrapei { height: 34px; }
+  .apoio-rodape .logos img.ialc    { height: 36px; }
+  .apoio-rodape .logos img.allyhub { height: 26px; }
+  .apoio-rodape .logos img.edvisor { height: 32px; }
 </style>
 </head>
 <body>
@@ -66,6 +80,17 @@
       <p class="urgencia-conv">Lote Early Bird termina em 30 de setembro</p>
       <span class="pill-preco">R$ 350 <span class="ou">ou 5x de R$ 70 sem juros</span></span>
       <span class="cta">intercambiosummit.com.br</span>
+    </div>
+  </div>
+
+  <div class="apoio-rodape">
+    <span class="rotulo">Apoio</span>
+    <div class="logos">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
     </div>
   </div>
 </div>
