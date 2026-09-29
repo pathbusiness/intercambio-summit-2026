@@ -741,3 +741,11 @@ a { color: inherit; }
 .votacao-sucesso ul { margin: 0 0 1rem 1.2rem; }
 .votacao-sucesso p { margin-bottom: 1rem; }
 @media (max-width: 640px) { .vt-linha { grid-template-columns: 1fr; } .vt-grid { grid-template-columns: repeat(2, 1fr); } .votacao-wrap { padding-top: 6.5rem; } }
+
+/* pós-voto: convite para o ingresso */
+.vt-ingresso { margin-top: 1.6rem; padding: 1.6rem; background: var(--summit-blue); color: var(--white); position: relative; }
+.vt-ingresso .section-kicker { color: var(--mid-grey); margin-bottom: .3rem; }
+.vt-ingresso h3 { font-size: 1.9rem; line-height: 1.05; text-transform: uppercase; margin-bottom: .7rem; }
+.vt-ingresso p { margin-bottom: .9rem; color: rgba(255,255,255,.92); }
+.vt-ingresso-lote { font-size: 1.15rem; color: var(--white) !important; }
+.vt-ingresso .btn { margin-top: .3rem; }

@@ -24,7 +24,7 @@ e-mail) e **voto cruzado**: quem é de agência vota nas categorias de institui�
 - Elegibilidade por trilha conferida no servidor; finalista tem que pertencer à categoria.
 - Um voto por categoria por e-mail (índice único). E-mail normalizado: Gmail sem pontos e sem `+tag`,
   domínios de e-mail descartável bloqueados. Quem já votou não é sobrescrito: vale o primeiro voto.
-- Limite de 25 e-mails distintos por IP por hora (escritórios compartilham IP; só barra automação).
+- Teto de 300 e-mails distintos por IP por hora (atrás do proxy da Vercel o IP pode ser compartilhado; só barra automação pesada, o resto se vê na auditoria por ip_hash).
 - Honeypot, allowlist de origem, sem leitura pública da tabela (RLS ligada, sem políticas).
 - Trilha de auditoria: e-mail original, hash do IP (com sal), user agent e horário de cada voto.
 
@@ -32,14 +32,35 @@ e-mail) e **voto cruzado**: quem é de agência vota nas categorias de institui�
 A defesa é a auditoria depois da votação (regulamento permite invalidar). Se quiser subir a barreira, o
 próximo passo é código de confirmação por e-mail ou links únicos por eleitor.
 
-## Aplicar em produção (ordem)
+## Onde ficam os votos
 
-1. Migração: `supabase/migrations/20261001000000_votacao.sql` (SQL editor ou `supabase db push`).
-2. Deploy da função `summit-votar` (`supabase functions deploy summit-votar`). Variáveis opcionais:
-   `VOTACAO_SALT` (sal do hash de IP), `VOTACAO_INICIO` e `VOTACAO_FIM` (só para testes).
-3. Publicar o site (merge na `main`): página `/votar`, rewrites, botão na seção do Prêmio.
-4. Teste ponta a ponta antes de 01/10 00:00 com `VOTACAO_INICIO` no passado, depois **apagar os votos de teste**:
-   `delete from public.votacao_votos where email like '%@teste.local';`
+**Supabase, projeto "Forio"** (ref `lvchpskxeohfmistppxl`, região us-west-2), tabela **`public.votacao_votos`**.
+
+- Ver: https://supabase.com/dashboard/project/lvchpskxeohfmistppxl/editor → Table Editor → `votacao_votos`.
+- Consultar/exportar: SQL Editor (consultas abaixo); o resultado tem botão para baixar CSV.
+- Cada linha: categoria, finalista (slug), nome, e-mail (normalizado e original), empresa, tipo (agência ou
+  instituição), hash do IP, navegador, data/hora, `status` (`valido` ou `invalidado`) e `motivo`.
+- O site nunca lê essa tabela; só a função `summit-votar` escreve (service role). Anon e authenticated não têm acesso.
+
+Atenção: o projeto Forio também guarda outros sistemas da PATH (contratos, alunos, cotações). Quem tiver acesso ao
+painel vê tudo isso. Para terceiros (conferência, comitê), compartilhe um CSV exportado, não o acesso ao painel.
+
+## Estado em produção
+
+| Item | Situação |
+|---|---|
+| Migração `votacao_premio_2026` (tabela, índices, RLS, view de ranking) | **Aplicada em 29/09** no projeto Forio |
+| Função `summit-votar` (v1, `verify_jwt: false`, teto 300 e-mails/IP/hora) | **Publicada em 29/09** (ativa; responde "janela: antes" até 01/10 00:00 de Brasília) |
+| Site (página `/votar`, rewrites, botão no Prêmio, convite pós-voto) | **Falta publicar** (merge na `main`) |
+
+`site/vercel.json` e `evento.config.js` apontam `/api/votar` para o projeto Forio, onde a função está.
+**Aviso:** as demais rotas do site (`/api/leads`, `/api/checkout`) apontam para outro identificador de projeto
+(`ildxeqtmpbartonjoiwc`), e a função `summit-checkout` publicada no Forio é uma versão anterior à do repositório
+(sem quantidade de ingressos e com o Early Bird ainda até 30/09). Conferir antes de 01/10.
+
+Teste ponta a ponta após publicar o site: votar uma vez com e-mail `@teste.local` e depois apagar:
+`delete from public.votacao_votos where email like '%@teste.local';`
+(o teste com votos reais só é possível a partir de 01/10 00:00; antes disso a função recusa).
 
 ## Acompanhar e auditar (SQL editor, só organização)
 

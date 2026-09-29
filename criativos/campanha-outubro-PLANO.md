@@ -90,10 +90,9 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
 
 ## Precisa da sua decisão antes de publicar
 
-1. **Votação montada, falta publicar.** Página `/votar`, endpoint e banco estão prontos e testados no repositório
-   (ver `supabase/VOTACAO.md`), mas ainda não estão no ar. Precisam ir para produção antes de 01/10 00:00
-   (migração, função `summit-votar` e merge do site). As artes de voto já apontam para
-   `intercambiosummit.com.br/votar`.
+1. **Votação: banco e função no ar, falta o site.** Migração e função `summit-votar` foram aplicadas em 29/09 no
+   projeto Forio (ver `supabase/VOTACAO.md`, seção "Onde ficam os votos"). Falta publicar o site (merge na `main`)
+   antes de 01/10 00:00. As artes de voto já apontam para `intercambiosummit.com.br/votar`.
 2. **Peso do voto público.** Decidido: voto cruzado (agência vota em instituição e vice-versa), cadastro simples.
    Segue em aberto como o voto pesa perante os comitês; o post "Como funciona a votação" fica bloqueado até você
    confirmar esse ponto e a hora de corte em 30/10 (a página fecha às 23:59:59).

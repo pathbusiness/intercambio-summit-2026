@@ -17,7 +17,7 @@ const ALLOWED = [
 // Horário de Brasília (UTC-3). Sobrescrevível por variável de ambiente para testes.
 const INICIO = new Date(Deno.env.get("VOTACAO_INICIO") ?? "2026-10-01T00:00:00-03:00");
 const FIM = new Date(Deno.env.get("VOTACAO_FIM") ?? "2026-10-30T23:59:59-03:00");
-const LIMITE_EMAILS_POR_IP_HORA = 25; // escritórios compartilham IP: limite folgado, só barra automação
+const LIMITE_EMAILS_POR_IP_HORA = 300; // teto alto de propósito: atrás do proxy da Vercel o IP pode ser compartilhado; só barra automação pesada (o resto se vê na auditoria por ip_hash)
 
 function cors(origin: string | null) {
   const o = origin && ALLOWED.includes(origin) ? origin : ALLOWED[0];

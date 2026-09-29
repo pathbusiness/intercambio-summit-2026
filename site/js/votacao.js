@@ -167,6 +167,29 @@
     var f = c && c.finalistas.filter(function (x) { return x.slug === slug; })[0];
     return f ? f.nome : slug;
   }
+  /* lote vigente + dados da pessoa levados ao checkout (só nesta aba, sessionStorage) */
+  function prepararIngresso() {
+    var hoje = new Date(), d0 = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+    function dia(iso) { var p = iso.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    var lote = null;
+    (EV.lotes || []).forEach(function (l) { if (!lote && d0 >= dia(l.inicio) && d0 <= dia(l.fim)) lote = l; });
+    var el = document.getElementById("vt-ingresso-lote");
+    if (lote) {
+      el.innerHTML = "<strong>" + esc(lote.nome) + ":</strong> R$ " + lote.avista.toLocaleString("pt-BR") +
+        (lote.parcelado ? ", ou " + esc(lote.parcelado) : " à vista") +
+        (lote.inicio !== lote.fim ? ". Vale até " + fmtDia(lote.fim) + "." : ".");
+    } else {
+      document.getElementById("vt-ingresso").hidden = true;
+    }
+    try {
+      var partes = form.nome.value.trim().split(/\s+/);
+      sessionStorage.setItem("summit_prefill", JSON.stringify({
+        nome: partes[0] || "", sobrenome: partes.slice(1).join(" "),
+        email: form.email.value.trim(), empresa: form.empresa.value.trim()
+      }));
+    } catch (e) { /* sem storage: o checkout abre em branco */ }
+  }
+
   function mostrarSucesso(j) {
     var sel = selecoes();
     var ul = document.getElementById("vt-sucesso-lista");
@@ -177,6 +200,7 @@
     ja.textContent = (j.ja_votou && j.ja_votou.length)
       ? "Você já tinha votado em " + j.ja_votou.map(nomeCategoria).join(", ") + ". Vale o primeiro voto de cada categoria."
       : "";
+    prepararIngresso();
     form.hidden = true;
     document.querySelector(".votacao-lead").hidden = true;
     document.getElementById("vt-sucesso").hidden = false;
