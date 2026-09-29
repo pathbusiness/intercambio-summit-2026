@@ -40,17 +40,17 @@
   .linha-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
   .linha-cta .cta { flex: none; }
 
-  .apoio-lateral { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
-  .apoio-lateral .rotulo { font-weight: 600; font-size: 13px; letter-spacing: .22em;
+  .apoio-lateral { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .apoio-lateral .rotulo { font-weight: 600; font-size: 14px; letter-spacing: .22em;
     text-transform: uppercase; color: rgba(255,255,255,.55); }
-  .apoio-lateral .logos { display: flex; align-items: center; flex-wrap: wrap;
-    gap: 12px 20px; max-width: 300px; }
+  .apoio-lateral .logos { display: flex; flex-direction: column; gap: 18px; }
+  .apoio-lateral .linha { display: flex; align-items: center; gap: 28px; }
   .apoio-lateral .logos img { opacity: .95; }
-  .apoio-lateral .logos img.belta   { height: 20px; }
-  .apoio-lateral .logos img.abrapei { height: 24px; }
-  .apoio-lateral .logos img.ialc    { height: 26px; }
-  .apoio-lateral .logos img.allyhub { height: 18px; }
-  .apoio-lateral .logos img.edvisor { height: 22px; }
+  .apoio-lateral .logos img.belta   { height: 34px; }
+  .apoio-lateral .logos img.abrapei { height: 40px; }
+  .apoio-lateral .logos img.ialc    { height: 44px; }
+  .apoio-lateral .logos img.allyhub { height: 32px; }
+  .apoio-lateral .logos img.edvisor { height: 38px; }
 </style>
 </head>
 <body>
@@ -84,11 +84,15 @@
         <div class="apoio-lateral">
           <span class="rotulo">Apoio</span>
           <div class="logos">
-            <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
-            <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
-            <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
-            <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
-            <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+            <div class="linha">
+              <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+              <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+            </div>
+            <div class="linha">
+              <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+              <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+              <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+            </div>
           </div>
         </div>
       </div>
