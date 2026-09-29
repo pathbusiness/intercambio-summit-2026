@@ -26,6 +26,7 @@ EVENT_PHOTOS = {
     "Intercambio Summit 5-68.jpg": "palestrante-close", # close ao microfone
     "Intercambio Summit 6-5.jpg":  "painel",            # painel com 4 no palco
     "Intercambio Summit 7-105.jpg": "premiados",        # 9 premiados com troféus
+    "Pictures/Intercambio Summit - 1-147.jpg": "plateia-2",  # plateia, bloco "para quem é"
 }
 
 # finalista -> (arquivo, ajustes)
@@ -72,10 +73,14 @@ FINALISTAS = {
 # precrop_bottom corta uma fração do rodapé do original antes do recorte de
 # fundo (faixas de borda); erode encolhe a máscara para matar halo de fundo claro
 PALESTRANTES = {
-    "lucas-politi-wagner": ("/Users/rodrigocollaro/Forio Site/Forio Site backup 2026-08-25/Lucas Politi Wagner - Foto 1.jpeg", {"precrop_bottom": 0.04}),
+    "lucas-politi-wagner": ("Palestrantes/Lucas Politi Wagner/Lucas Politi Wagner - Foto 1.jpeg", {"precrop_bottom": 0.04}),
     "myrko-micali":        ("/Users/rodrigocollaro/Forio Site/Forio Site backup 2026-08-25/Myrko Micali - Foto 1.jpeg", {}),
     "roberto-bihari":      ("/Users/rodrigocollaro/Downloads/PATH/Beto Bihari - Foto 2.png", {}),
     "rodrigo-collaro":     ("/Users/rodrigocollaro/Downloads/PATH/Rodrigo Collaro - Photo (PATH).jpeg", {"erode": 3}),
+    "gizelle-rezende":     ("Palestrantes/Gizelle Rezende/Gizelle Rezende", {}),
+    "alexandre-argenta":   ("Palestrantes/Alexandre Argenta/Alexandre Argenta - Foto 1.jpg", {}),
+    "elaine-fuzer":        ("Palestrantes/Elaine Martins Fuzer/Foto_ELAINE_white.jpg", {}),
+    "lucas-montani":       ("Palestrantes/Lucas Montani/Lucas Montani - Foto 2 (oficial).jpg", {}),
 }
 
 YUNET = cv2.FaceDetectorYN_create(
@@ -193,8 +198,23 @@ def crop_finalista(slug, path, opts):
     if det:
         cx, eye_y, fh = det
         side = min(round(fh * factor), W, H)
-        top = round(eye_y - side / 3.0)
-        left = round(cx - side / 2.0)
+        # expand: quando o original é pequeno demais para o enquadramento padrão,
+        # amplia o quadro preenchendo com o azul de marca (só faz sentido com
+        # SUMMIT_BG=blue, fundo uniforme). Expande para os lados e para cima;
+        # a borda inferior fica presa à foto para não descolar o tronco.
+        if graded and opts.get("expand") and round(fh * factor) > side:
+            side = round(fh * factor)
+            top = round(eye_y - side / 3.0)
+            top = min(top, H - side)          # prende a base na borda inferior
+            left = round(cx - side / 2.0)
+            canvas = Image.new("RGB", (side, side), BRAND_BLUE)
+            canvas.paste(im, (-left, -top))
+            im = canvas
+            W = H = side
+            left = top = 0
+        else:
+            top = round(eye_y - side / 3.0)
+            left = round(cx - side / 2.0)
     else:
         side = min(W, H)
         left = (W - side) // 2

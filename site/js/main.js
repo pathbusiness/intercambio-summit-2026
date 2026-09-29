@@ -27,6 +27,34 @@
     if (EV[k]) el.textContent = EV[k];
   });
 
+  /* ---------- grade oficial da programação ---------- */
+  var grade = document.getElementById("grade-lista");
+  if (grade && EV.programacao) {
+    EV.programacao.forEach(function (s) {
+      var linha = document.createElement("div");
+      if (s.pausa) {
+        linha.className = "grade-pausa";
+        linha.innerHTML =
+          '<span class="grade-hora">' + s.hora + "</span>" +
+          '<div class="grade-pausa-txt"><strong>' + s.titulo + "</strong>" +
+          (s.desc ? " <span>" + s.desc + "</span>" : "") + "</div>" +
+          (s.local ? '<span class="grade-local">' + s.local + "</span>" : "<span></span>");
+      } else {
+        linha.className = "grade-item" + (s.destaque ? " grade-" + s.destaque : "");
+        linha.innerHTML =
+          '<span class="grade-hora">' + s.hora + "</span>" +
+          '<div class="grade-corpo">' +
+            (s.tipo ? '<span class="grade-tipo">' + s.tipo + "</span>" : "") +
+            "<h3>" + s.titulo + "</h3>" +
+            (s.desc ? "<p>" + s.desc + "</p>" : "") +
+            (s.quem ? '<p class="grade-quem">' + s.quem + "</p>" : "") +
+          "</div>" +
+          (s.local ? '<span class="grade-local">' + s.local + "</span>" : "<span></span>");
+      }
+      grade.appendChild(linha);
+    });
+  }
+
   /* ---------- palestrantes ---------- */
   var spg = document.getElementById("speakers-grid");
   if (spg && EV.palestrantes) {
@@ -61,6 +89,9 @@
     if (agora < ini && !proximoLote) proximoLote = l;
   });
 
+  /* destino da compra: checkout próprio do site (vendaNoSite) > Zoho */
+  var urlCompra = EV.vendaNoSite ? "checkout.html" : EV.checkoutUrl;
+
   var grid = document.getElementById("lotes-grid");
   if (grid) {
     lotes.forEach(function (l) {
@@ -77,8 +108,8 @@
         '<span class="lote-periodo">' + periodo + "</span>" +
         '<span class="lote-preco">' + brl(l.avista) + "</span>" +
         '<span class="lote-parcelado">' + (l.parcelado ? "ou " + l.parcelado : "à vista") + "</span>" +
-        (loteAtual === l && EV.checkoutUrl
-          ? '<a class="btn btn-cta lote-cta" href="' + EV.checkoutUrl + '">Comprar agora</a>' : "");
+        (loteAtual === l && urlCompra
+          ? '<a class="btn btn-cta lote-cta" href="' + urlCompra + '">Comprar agora</a>' : "");
       grid.appendChild(card);
     });
   }
@@ -105,10 +136,11 @@
     if (status) status.textContent = "Vendas encerradas para esta edição.";
   }
 
-  /* CTAs de ingresso: checkout se existir, senão âncora nos ingressos */
-  if (EV.checkoutUrl) {
+  /* CTAs de ingresso: checkout próprio do site (vendaNoSite) tem prioridade;
+     senão o checkout externo (Zoho); senão âncora nos ingressos */
+  if (urlCompra) {
     document.querySelectorAll('[data-cta="ingresso"]').forEach(function (a) {
-      a.href = EV.checkoutUrl;
+      a.href = urlCompra;
     });
   }
 
@@ -136,7 +168,9 @@
       }
       if (EV.leadFormAction) {
         var hp = document.getElementById("lead-site");
-        fetch(EV.leadFormAction, {
+        var ehLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+        var destino = ehLocal && EV.leadFormActionLocal ? EV.leadFormActionLocal : EV.leadFormAction;
+        fetch(destino, {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({
@@ -150,6 +184,7 @@
             if (r && r.ok) {
               fb.textContent = "Pronto! Você será avisado em primeira mão.";
               form.reset();
+              rastrear("generate_lead", "Lead", false, { currency: "BRL" });
             } else {
               fb.textContent = "Confira o e-mail digitado.";
             }
@@ -162,6 +197,101 @@
       }
     });
   }
+
+  /* ---------- rastreamento (GA4 + Meta Pixel) ---------- */
+  var TR = EV.tracking || {};
+  var emProducao = location.hostname !== "localhost" && location.hostname !== "127.0.0.1";
+
+  if (emProducao && TR.gtmId) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var gtm = document.createElement("script");
+    gtm.async = true;
+    gtm.src = "https://www.googletagmanager.com/gtm.js?id=" + TR.gtmId;
+    document.head.appendChild(gtm);
+  }
+
+  if (emProducao && TR.ga4Id) {
+    var gs = document.createElement("script");
+    gs.async = true;
+    gs.src = "https://www.googletagmanager.com/gtag/js?id=" + TR.ga4Id;
+    document.head.appendChild(gs);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", TR.ga4Id);
+  }
+
+  if (emProducao && TR.metaPixelId) {
+    /* snippet padrão do Meta Pixel */
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0";
+      n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", TR.metaPixelId);
+    fbq("track", "PageView");
+  }
+
+  if (emProducao && TR.posthogKey) {
+    /* stub próprio: guarda chamadas de capture() feitas antes da lib
+       terminar de carregar (ex.: a de "purchase" em obrigado.html, que
+       roda logo após este arquivo) e as reenvia assim que o init() real
+       estiver pronto — evita perder eventos por causa da corrida do <script async>. */
+    var phFila = [];
+    window.posthog = { _fila: phFila, capture: function () { phFila.push(arguments); } };
+    var ph = document.createElement("script");
+    ph.async = true;
+    ph.src = TR.posthogHost.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js";
+    ph.onload = function () {
+      window.posthog.init(TR.posthogKey, { api_host: TR.posthogHost });
+      phFila.forEach(function (args) { window.posthog.capture.apply(window.posthog, args); });
+    };
+    document.head.appendChild(ph);
+  }
+
+  /* eventos de conversão nos três destinos */
+  function rastrear(ga4Evento, metaEvento, metaCustom, dados) {
+    if (!emProducao) return;
+    if (TR.gtmId && window.dataLayer) {
+      var evt = Object.assign({ event: ga4Evento }, dados || {});
+      window.dataLayer.push(evt);
+    }
+    if (window.gtag && TR.ga4Id) gtag("event", ga4Evento, dados || {});
+    if (window.fbq && TR.metaPixelId) {
+      fbq(metaCustom ? "trackCustom" : "track", metaEvento, dados || {});
+    }
+    if (window.posthog && TR.posthogKey) posthog.capture(ga4Evento, dados || {});
+  }
+
+  /* ---------- qual seção do site cada visitante realmente vê ---------- */
+  /* dispara 1x por seção quando ela cruza o meio da tela — dá, no GA4/GTM,
+     o alcance de cada bloco do site (ex.: "só X% chega em Ingressos"). */
+  if (emProducao && "IntersectionObserver" in window) {
+    var secoes = document.querySelectorAll("section[id]");
+    if (secoes.length) {
+      var ioSecao = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            rastrear("view_section", "ViewContent", true, { content_type: "secao", secao_id: en.target.id });
+            ioSecao.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      secoes.forEach(function (s) { ioSecao.observe(s); });
+    }
+  }
+
+  /* clique em qualquer botão de ingresso (topo, abertura, card de lote) */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('[data-cta="ingresso"], .lote-cta');
+    if (a) rastrear("begin_checkout", "InitiateCheckout", false, { currency: "BRL" });
+    var p = e.target.closest && e.target.closest("#patrocinio-cta");
+    if (p) rastrear("patrocinio_click", "PatrocinioClick", true, { content_type: "patrocinio" });
+  });
 
   /* ---------- movimento ---------- */
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

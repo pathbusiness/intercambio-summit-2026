@@ -29,3 +29,5 @@ Avenida Paulista/
 Branding/
 Apoiadores/
 __pycache__/
+.vercel
+.env*

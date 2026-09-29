@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Convite gestores de instituição — WhatsApp 1080x1080</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.convite { width: 1080px; height: 1080px; background: var(--deep-navy); display: flex; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,35,92,.88) 38%, rgba(0,35,92,.58) 100%);
+  }
+
+  .conteudo-flex {
+    position: absolute; inset: 0; z-index: 4;
+    display: flex; flex-direction: column;
+    padding: 44px var(--mx) 56px;
+  }
+
+  .topo-conv { display: flex; align-items: center; gap: 22px; flex: none; }
+  .topo-conv img.summit { height: 56px; width: auto; }
+  .topo-conv .divisor { width: 2px; height: 46px; background: rgba(255,255,255,.4); }
+
+  .eyebrow-conv { margin-top: 18px; flex: none; }
+  .titulo-conv { margin-top: 6px; font-size: 58px; flex: none; }
+  .quando-conv { margin-top: 12px; font-weight: 500; font-size: 27px; color: var(--mid-grey); flex: none; }
+
+  .highlights { list-style: none; display: flex; flex-direction: column;
+    gap: 15px; margin: auto 0; padding: 20px 0; }
+  .highlights li { display: flex; align-items: flex-start; gap: 16px; }
+  .highlights li .marca { flex: none; width: 14px; height: 14px; margin-top: 7px;
+    background: var(--action-green); transform: rotate(45deg); }
+  .highlights li span.txt { font-weight: 600; font-size: 27px; line-height: 1.18; color: var(--white); }
+  .highlights li span.txt strong { font-weight: 700; }
+
+  .rodape-conv { flex: none; display: flex; flex-direction: column; gap: 16px; }
+  .urgencia-conv { font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+    font-size: 24px; color: var(--action-green); }
+  .rodape-conv .pill-preco { align-self: flex-start; }
+
+  .linha-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .linha-cta .cta { flex: none; }
+
+  .apoio-lateral { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .apoio-lateral .rotulo { font-weight: 600; font-size: 14px; letter-spacing: .22em;
+    text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .apoio-lateral .logos { display: flex; flex-direction: column; gap: 18px; }
+  .apoio-lateral .linha { display: flex; align-items: center; gap: 28px; }
+  .apoio-lateral .logos img { opacity: .95; }
+  .apoio-lateral .logos img.belta   { height: 34px; }
+  .apoio-lateral .logos img.abrapei { height: 40px; }
+  .apoio-lateral .logos img.ialc    { height: 44px; }
+  .apoio-lateral .logos img.allyhub { height: 32px; }
+  .apoio-lateral .logos img.edvisor { height: 38px; }
+</style>
+</head>
+<body>
+<div class="canvas convite">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo-flex">
+    <div class="topo-conv">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+    </div>
+
+    <p class="eyebrow-conv eyebrow">Convite para gestores</p>
+    <h1 class="titulo-conv titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</h1>
+    <p class="quando-conv">11 de novembro · São Paulo</p>
+
+    <ul class="highlights">
+      <li><span class="marca"></span><span class="txt">IA na prática, no atendimento de alunos e agências parceiras no Brasil</span></li>
+      <li><span class="marca"></span><span class="txt">Ferramentas reais de IA para gestão de criativos, com o <strong>Google Brasil</strong></span></li>
+      <li><span class="marca"></span><span class="txt">Os líderes que decidem os rumos do setor de intercâmbio no Brasil</span></li>
+      <li><span class="marca"></span><span class="txt">Dados globais do mercado, direto do <strong>The PIE</strong></span></li>
+      <li><span class="marca"></span><span class="txt">Cerimônia do Prêmio Melhores Profissionais 2026</span></li>
+    </ul>
+
+    <div class="rodape-conv">
+      <p class="urgencia-conv">Lote Early Bird termina em 30 de setembro</p>
+      <span class="pill-preco">R$ 350 <span class="ou">ou 5x de R$ 70 sem juros</span></span>
+      <div class="linha-cta">
+        <span class="cta">intercambiosummit.com.br</span>
+        <div class="apoio-lateral">
+          <span class="rotulo">Apoio</span>
+          <div class="logos">
+            <div class="linha">
+              <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+              <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+            </div>
+            <div class="linha">
+              <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+              <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+              <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

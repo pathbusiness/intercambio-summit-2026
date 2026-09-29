@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/leads",
+      "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-leads"
+    },
+    {
+      "source": "/api/checkout",
+      "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-checkout"
+    }
+  ]
+}

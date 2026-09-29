@@ -17,9 +17,23 @@ window.EVENTO = {
   // Se esvaziado, o botão de compra volta a apontar para a captura de e-mail.
   checkoutUrl: "https://yourpath.zohobackstage.com/IntercambioSummit2026#/ingressos?lang=pt",
 
+  // Checkout próprio no site (Pix e cartão via Mercado Pago, com registro
+  // automático no Zoho Backstage). Com vendaNoSite = true os botões de
+  // ingresso apontam para checkout.html em vez do checkoutUrl acima.
+  // ATENÇÃO: os preços cobrados vêm da Edge Function summit-checkout
+  // (supabase/functions/summit-checkout) — ao mudar os lotes abaixo,
+  // espelhe lá e reimplante a função.
+  vendaNoSite: true,
+  checkoutApi: "/api/checkout",
+  checkoutApiLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-checkout",
+
   // Endpoint do formulário de captura de e-mail (Supabase Edge Function,
   // projeto Forio, função summit-leads — grava na tabela summit_leads).
-  leadFormAction: "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-leads",
+  // Em produção o envio passa pelo proxy do Vercel (/api/leads → Supabase,
+  // ver vercel.json), o que dispensa liberar cada domínio novo no CORS.
+  // Em localhost o site usa a URL absoluta abaixo.
+  leadFormAction: "/api/leads",
+  leadFormActionLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-leads",
 
   // Página de patrocínio (tem prioridade sobre o WhatsApp abaixo)
   patrocinioUrl: "https://pathbusiness.github.io/sponsorship/",
@@ -43,19 +57,79 @@ window.EVENTO = {
       tema: "IA para atendimento, marketing e vendas com toque humano",
       slug: "myrko-micali", foto: true },
     { nome: "Lucas Politi Wagner", cargo: "Account Executive", empresa: "Google Brasil",
-      tema: "Google, marketing digital e IA: a jornada do viajante",
+      tema: "Google, IA e a gestão criativa na prática",
       slug: "lucas-politi-wagner", foto: true },
+    { nome: "Gizelle Rezende", cargo: "Director of Strategic Partnerships, Americas & APAC", empresa: "The PIE",
+      tema: "Tendências globais do mercado de educação internacional",
+      slug: "gizelle-rezende", foto: true },
     { nome: "Roberto Bihari", cargo: "Presidente", empresa: "ABRAPEI",
       tema: "Painel principal: panorama do mercado de intercâmbio para 2027",
       slug: "roberto-bihari", foto: true },
+    { nome: "Alexandre Argenta", cargo: "Presidente", empresa: "BELTA",
+      tema: "Painel principal: panorama do mercado de intercâmbio para 2027",
+      slug: "alexandre-argenta", foto: true },
+    { nome: "Elaine Martins Fuzer", cargo: "CEO e Fundadora", empresa: "e_Consulting",
+      tema: "Painel principal: panorama do mercado de intercâmbio para 2027",
+      slug: "elaine-fuzer", foto: true },
+    { nome: "Lucas Montani", cargo: "Managing Director LATAM", empresa: "Ollara Education Hub",
+      tema: "Painel principal: panorama do mercado de intercâmbio para 2027",
+      slug: "lucas-montani", foto: true },
     { nome: "Rodrigo Collaro", cargo: "Managing Director", empresa: "PATH",
       tema: "Mediador do painel principal",
-      slug: "rodrigo-collaro", foto: true },
-    { nome: "Em breve", cargo: "", empresa: "", slug: "", foto: false },
-    { nome: "Em breve", cargo: "", empresa: "", slug: "", foto: false },
-    { nome: "Em breve", cargo: "", empresa: "", slug: "", foto: false },
-    { nome: "Em breve", cargo: "", empresa: "", slug: "", foto: false }
+      slug: "rodrigo-collaro", foto: true }
   ],
+
+  // Programação oficial de 11 de novembro (renderizada na seção "Programação").
+  // pausa: true = linha compacta cinza; destaque: "azul" | "navy" = bloco colorido.
+  programacao: [
+    { hora: "07h30", tipo: "Recepção", titulo: "Credenciamento & café de boas-vindas",
+      desc: "Credenciamento oficial e registro dos participantes no foyer.", local: "Foyer" },
+    { hora: "09h00", tipo: "Keynote", titulo: "IA para atendimento, marketing e vendas com toque humano",
+      desc: "A jornada de aquisição do estudante de intercâmbio com uso de IA.",
+      quem: "Myrko Micali · Empreendedor, referência em IA aplicada a negócios", local: "Auditório" },
+    { hora: "09h50", pausa: true, titulo: "Coffee break",
+      desc: "Pausa para networking e café no foyer.", local: "Foyer" },
+    { hora: "10h20", tipo: "Painel", titulo: "Google, IA e a gestão criativa na prática",
+      desc: "Ferramentas e exemplos reais para o dia a dia do mercado de viagens e intercâmbio.",
+      quem: "Lucas Politi Wagner · Account Executive, Google Brasil", local: "Auditório" },
+    { hora: "11h10", pausa: true, titulo: "Pausa técnica",
+      desc: "Breve intervalo entre as sessões da manhã.", local: "Auditório" },
+    { hora: "11h30", tipo: "Keynote", titulo: "Tendências globais do mercado de educação internacional",
+      desc: "Dados globais do The PIE Insights e os deslocamentos entre destinos.",
+      quem: "Gizelle Rezende · Director of Strategic Partnerships, Americas & APAC, The PIE", local: "Auditório" },
+    { hora: "12h20", pausa: true, titulo: "Almoço livre",
+      desc: "Consulte as opções de restaurantes locais (não incluído)." },
+    { hora: "14h00", tipo: "Painel principal", destaque: "azul",
+      titulo: "Panorama do mercado de intercâmbio para 2027 e uso da IA",
+      desc: "Cenário do setor no Brasil pós-eleições e as tendências para o próximo ano.",
+      quem: "Mediação: Rodrigo Collaro (PATH) · Debatedores: Roberto Bihari (ABRAPEI), Alexandre Argenta (BELTA), Elaine Martins Fuzer (e_Consulting) e Lucas Montani (Ollara Education Hub)",
+      local: "Auditório" },
+    { hora: "16h00", pausa: true, titulo: "Coffee break",
+      desc: "Segunda pausa para networking e troca de cartões.", local: "Foyer" },
+    { hora: "16h30", tipo: "Cerimônia", destaque: "navy",
+      titulo: "Prêmio Melhores Profissionais 2026",
+      desc: "Cerimônia oficial de premiação dos melhores do ano no setor.", local: "Auditório" },
+    { hora: "18h40", tipo: "Encerramento", titulo: "Networking final",
+      desc: "Encerramento das atividades e networking de fechamento.", local: "Foyer" }
+  ],
+
+  // Rastreamento de visitas e conversões. IDs vazios = desligado.
+  // O rastreamento não roda em localhost (testes não sujam os dados).
+  tracking: {
+    // Google Tag Manager. Os eventos do site (begin_checkout, generate_lead,
+    // patrocinio_click) chegam ao GTM via dataLayer.
+    gtmId: "GTM-PVZLV4NW",
+    // Meta Pixel do Business Manager da PATH (instalado direto no site —
+    // NÃO adicione outra tag do Pixel dentro do GTM, senão dispara em dobro)
+    metaPixelId: "949355509723847",
+    // GA4 direto, SEM passar pelo GTM. Deixe vazio se o GA4 estiver
+    // configurado dentro do GTM (o normal) — preencher os dois duplica dados.
+    ga4Id: "",
+    // PostHog: autocapture de cliques/pageviews + session replay + heatmap.
+    // Ferramenta própria, não duplica com GTM/GA4/Meta (produtos diferentes).
+    posthogKey: "phc_xh7GDxZfWq4cJuHhqYig4MLBFXchYtVcCn9ujY4EQtn4",
+    posthogHost: "https://us.i.posthog.com"
+  },
 
   // Apoiadores: os logotipos oficiais estão fixos no HTML (faixa "Apoio"),
   // arquivos em site/assets/img/marca/apoio-*.png, conforme o manual da marca.
