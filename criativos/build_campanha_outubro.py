@@ -81,6 +81,11 @@ def slide(**kw):
     return ("campanha-slide.html", dict(SLIDE_DEF, **_bg(kw)), F)
 
 
+def parceiros_slide(progresso=""):
+    """Slide de parceiros (logos oficiais em cor, grandes): último ou penúltimo slide dos carrosséis."""
+    return ("campanha-parceiros.html", dict(PROGRESSO=progresso, CTA=CTA_SITE), F)
+
+
 def speaker_tpl(**kw):
     return ("campanha-speaker.html", dict(POST_DEF, **_bg(kw)), F)
 
@@ -128,9 +133,9 @@ Lote Early Bird: R$ 350, ou 5x de R$ 70 sem juros, até 2 de outubro. Ingressos 
 
 # ------------------------------------------------- CARROSSEL: IA em 3 frentes
 
-TOT = 6
+TOT = 7
 add("2026-10-07", "11h30", "ia-tres-frentes", "carrossel", [
-    slide(N=1, TOTAL=TOT, BG="plateia", CANTO_SHOW="block", FAIXA="flex", RODAPE="",
+    slide(N=1, TOTAL=TOT, BG="plateia", CANTO_SHOW="block", RODAPE="",
           KICKER="IA na operação", TITULO="3 FRENTES.<br>UM TEMA.", TSIZE=124,
           TEXTO="Onde a inteligência artificial entra na rotina de uma agência."),
     slide(N=2, TOTAL=TOT, BG="plateia", KICKER="01 · Atendimento",
@@ -145,7 +150,8 @@ add("2026-10-07", "11h30", "ia-tres-frentes", "carrossel", [
     slide(N=5, TOTAL=TOT, BG="plateia", KICKER="O que não muda",
           TITULO="A IA DEVOLVE<br>TEMPO. O VÍNCULO<br>É SEU.", TSIZE=88,
           TEXTO="Por isso o tema do Summit é IA na operação <strong>com toque humano.</strong>"),
-    slide(N=6, TOTAL=TOT, BG="plateia", CANTO_SHOW="block", FAIXA="flex", RODAPE="",
+    parceiros_slide(f"6/{TOT}"),
+    slide(N=7, TOTAL=TOT, BG="plateia", CANTO_SHOW="block", RODAPE="",
           KICKER="Intercâmbio Summit 2026", TITULO="11 DE<br>NOVEMBRO", TSIZE=124,
           TEXTO="São Paulo · 144 lugares.<br>Segundo lote: <strong>R$ 450</strong> ou 5x de R$ 90 sem juros, até 24/10.",
           CTA=CTA_SITE),
@@ -171,15 +177,15 @@ def carrossel_categoria(key, data, hora):
     copias = [os.path.join(PROD, "premio", "capas", f"capa-{key}.jpg")]
     copias += [os.path.join(PROD, "premio", "finalistas", pasta_finalista(f["nome"]), "card-finalista.jpg")
                for f in fins]
-    total = len(copias) + 1
+    total = len(copias) + 2
     final = slide(N=total, TOTAL=total, BG="trofeus", CANTO="branco", CANTO_SHOW="block",
-                  FAIXA="flex", RODAPE="", KICKER=f"{cat['nome']} · {len(fins)} finalistas",
+                  RODAPE="", KICKER=f"{cat['nome']} · {len(fins)} finalistas",
                   TITULO="VOTE ATÉ<br>30 DE OUTUBRO", TSIZE=112,
                   TEXTO="Prêmio Melhores Profissionais 2026.<br>Anúncio dos vencedores ao vivo em <strong>11 de novembro.</strong>",
                   CTA=CTA_SITE)
     nomes = ", ".join(f["nome"] for f in fins)
     trilha = "Trilha Gestores de Instituições" if cat["trilha"] == "Instituições" else "Trilha Agentes de Intercâmbio"
-    add(data, hora, f"premio-{key}", "carrossel", [final], copias,
+    add(data, hora, f"premio-{key}", "carrossel", [parceiros_slide(), final], copias,
         legenda=f"""{cat['nome']}: conheça os {len(fins)} finalistas.
 
 {cat['descricao']}
@@ -455,12 +461,12 @@ speaker("2026-10-14", "11h30", "speaker-lucas-politi", "lucas-politi-wagner", "L
             "Lucas Politi Wagner é Account Executive do Google Brasil e participa da programação da manhã do Intercâmbio Summit 2026, com IA aplicada a atendimento e vendas.",
             "Se a sua agência já domina o tema, pode pular esta sessão. Se não, ela merece um lugar na sua agenda.", tags=H_IA))
 
-diario("2026-10-15", "11h30", "144-lugares", "Capacidade do evento",
-       "SÃO 144<br>LUGARES.<br>NÃO TEM 145.", tsize=118, bg="painel", pill_html=L2,
-       texto="Quando o lote virar, o preço sobe. Quando a sala encher, <strong>acaba.</strong>",
-       legenda=leg("São 144 lugares. Não tem 145.",
-                   "Quando o lote virar, o preço sobe. Quando a sala encher, as inscrições acabam. É a conta mais simples do Intercâmbio Summit 2026.",
-                   "Segundo lote: R$ 450, ou 5x de R$ 90 sem juros, até 24 de outubro."))
+diario("2026-10-15", "11h30", "144-pessoas", "O tamanho do evento",
+       "144 PESSOAS.<br>DÁ PARA<br>CONVERSAR COM<br>TODAS.", tsize=104, bg="painel", pill_html=L2,
+       texto="Uma sala, um dia e intervalos mais longos para conhecer <strong>quem decide no setor.</strong>",
+       legenda=leg("144 pessoas. Dá para conversar com todas.",
+                   "O Intercâmbio Summit tem 144 lugares: uma sala, um dia e intervalos mais longos para conhecer quem decide no setor, sem multidão e sem correria.",
+                   "Segundo lote: R$ 450, ou 5x de R$ 90 sem juros, até 24 de outubro.", local=False))
 
 diario("2026-10-17", "11h30", "lote2-em-7-dias", "Segundo lote · faltam 7 dias",
        "EM 7 DIAS,<br>R$ 100<br>A MAIS.", tsize=130, bg="plateia-2", story_ok=False,
@@ -647,7 +653,7 @@ def variar():
     for p in sorted(PIECES, key=lambda p: (p["data"], p["hora"], p["slug"])):
         if not p["imgs"]:
             continue
-        bgs = {d.get("BG") for _, d, _ in p["imgs"]}
+        bgs = {d.get("BG") for t, d, _ in p["imgs"] if t != "campanha-parceiros.html"}
         if bgs & {"painel-plateia-2400", "plateia-2400"} and len(bgs) == 1:
             nome, pos = POOL_GERAL[gi % len(POOL_GERAL)]
             gi += 1
@@ -657,11 +663,21 @@ def variar():
         else:
             continue
         suf = "-1600" if nome == "plateia-2" else "-2400"
-        for _, d, _ in p["imgs"]:
-            d["BG"], d["POS"] = nome + suf, pos
+        for t, d, _ in p["imgs"]:
+            if t != "campanha-parceiros.html":
+                d["BG"], d["POS"] = nome + suf, pos
+
+
+def com_parceiros():
+    """Todo post de feed de imagem única ganha o slide de parceiros como 2º slide."""
+    for p in PIECES:
+        if p["formato"] == "feed" and len(p["imgs"]) == 1 and not p["copias"]:
+            p["imgs"].append(parceiros_slide())
+            p["formato"] = "carrossel"
 
 
 def main():
+    com_parceiros()
     variar()
     if os.path.exists(DST):
         shutil.rmtree(DST)

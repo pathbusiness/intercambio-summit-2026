@@ -21,11 +21,12 @@ convence sozinha. Seis técnicas, todas em uso:
 | Autosseleção | "Se você é um destes, venha" (04/10) |
 | Contra-intuitivo | "Não compre o Early Bird." (29/09) · "Pode esperar. O próximo lote é R$ 550." (08/10) |
 | Conta à vista | "Amanhã, R$ 100 a mais." (02/10) · "5x de R$ 110 sem juros. Faça a conta." (26/10) |
-| Escassez real | "São 144 lugares. Não tem 145." (15/10) |
+| Tamanho como benefício | "144 pessoas. Dá para conversar com todas." (15/10) |
 | Franqueza | "O Summit não vai salvar a sua agência." (18/10) · "Não vamos te convencer mais." (07/11) |
 
-**Limite de integridade:** a escassez só usa o que é verdade (144 lugares e as datas dos lotes). Não há
-contagem de vendas inventada ("restam X vagas"). Se você me passar o número real de ingressos vendidos,
+**Limite de integridade:** a urgência só usa o que é verdade: as datas dos lotes e o preço que sobe. Com poucos
+ingressos vendidos, escassez de lugares seria falsa e enfraqueceria a credibilidade; por isso o tamanho do evento
+virou benefício (conversar com todos), não alerta. Não há contagem de vendas inventada ("restam X vagas"). Se você me passar o número real de ingressos vendidos,
 posso usar como prova social.
 
 Degraus de preço usados: Early Bird R$ 350 (até **02/10**, prorrogado) · Segundo lote R$ 450 (**03/10** a 24/10) ·
@@ -33,16 +34,16 @@ Terceiro lote R$ 550 (25/10 a 10/11) · no dia R$ 650 (sujeito à disponibilidad
 
 ## Parceiros nas artes
 
-Todas as peças novas trazem a faixa em três níveis, como no site: **Patrocínio** (Ollara, CLIDA,
-Ikon Institute of Australia + Australian Learning Group), **Media partner** (The PIE) e **Apoio**
-(BELTA, ABRAPEI, IALC, Ally Hub, Edvisor). Está em feeds, carrosséis, palestrantes, stories (exceto os que
-reservam espaço para sticker), nos 5 reels, nas capas das categorias do Prêmio e nos cards de finalista.
+Os logos ficam **dentro de um slide do carrossel**, grandes e na cor oficial, e não mais numa faixa sobre cada
+arte. Assim as artes de mensagem ficam com o espaço todo. Todo post de feed virou carrossel: slide 1 é a mensagem
+e o **último slide (ou o penúltimo, nos carrosséis longos) é "Quem faz o Summit acontecer com a gente"**, com os
+três níveis do site: Patrocínio (Ollara, CLIDA, Ikon Institute of Australia + Australian Learning Group), Media
+partner (The PIE) e Apoio (BELTA, ABRAPEI, IALC, Ally Hub, Edvisor).
 
-Não recebem a faixa, pelo briefing: cards individuais de voto e stories de voto por finalista.
+O slide usa os logos oficiais sem recolorir, sobre fundo branco (respeita o manual de marca, seção 08). Os
+parceiros já assinaram a autorização de co-branding.
 
-Os logos são as versões brancas monocromáticas (`tools/build_criativos_marca.py`), o mesmo tratamento já
-decidido para os apoiadores. **O manual de marca (seção 08) pede confirmação escrita do parceiro antes de
-publicar material co-branded**; os quatro logos novos (Ollara, CLIDA, Ikon/ALG, The PIE) entram nessa lista.
+Stories e reels mantêm a faixa compacta em branco, porque não perdem espaço de mensagem.
 
 ## Variedade de imagens
 
@@ -97,11 +98,10 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
 3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
    venda no dia e como.
 4. **Horários.** A premiação às 16h30 vem do site. Se a votação tiver hora de corte no dia 30/10, me diga.
-5. **Confirmação dos parceiros** para os logos novos (ver acima).
-6. **Peças de setembro já feitas** (P1 a P11, pinados, kit) continuam com a faixa antiga, só de Apoio.
+5. **Peças de setembro já feitas** (P1 a P11, pinados, kit) continuam com a faixa antiga, só de Apoio.
    Se quiser, atualizo todas.
-7. **Ally Hub.** O press release do Drive cita "Apply Hub"; as artes usam Ally Hub.
-8. **Conteúdo de IA.** As "3 frentes" descrevem o tema anunciado de forma geral. Nenhuma estatística
+6. **Ally Hub.** O press release do Drive cita "Apply Hub"; as artes usam Ally Hub.
+7. **Conteúdo de IA.** As "3 frentes" descrevem o tema anunciado de forma geral. Nenhuma estatística
    externa foi usada. Vale conferir com os palestrantes.
 
 ## Como reproduzir
