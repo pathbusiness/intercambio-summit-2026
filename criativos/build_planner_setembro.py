@@ -21,7 +21,6 @@ HASH_BASE = "#intercambiosummit #intercambio"
 # Status por slug (o que não estiver aqui fica "aguardando agendamento")
 STATUS = {
     "save-the-date": "✅ publicado em 01/09 (manual, @intercambiosummit)",
-    "reel-premio": "⏸ segurar até a votação abrir (data-alvo 01/10, confirmar)",
 }
 
 # (data, hora sugerida, slug, [arquivos de origem], legenda)
@@ -231,16 +230,6 @@ No palco principal, Myrko Micali: fundador da Alfred Delivery, hoje à frente da
 Garanta seu lugar: intercambiosummit.com.br (link na bio)
 
 """ + HASH_BASE + " #inteligenciaartificial #ia #myrkomicali #educacaointernacional #agenciadeintercambio #mercadodeintercambio #eventob2b #saopaulo #summit2026 #inovacao #automacao #networking"),
-
-    ("2026-10-01", "11h30", "reel-premio", ["reels/reel-premio.mp4"], """A votação do Prêmio Melhores Profissionais 2026 está aberta.
-
-São 32 finalistas em 6 categorias, e quem decide é o próprio mercado: a votação vai até 30 de outubro.
-
-A premiação acontece ao vivo no Intercâmbio Summit 2026, em 11 de novembro, em São Paulo.
-
-Vote agora: intercambiosummit.com.br (link na bio)
-
-""" + HASH_BASE + " #premiomelhoresprofissionais #educacaointernacional #agenciadeintercambio #mercadodeintercambio #reconhecimento #saopaulo #summit2026 #votacao #profissionaisdeintercambio #b2b"),
 ]
 
 
@@ -282,7 +271,8 @@ def main():
                "  09/09 reel-abertura (converte na semana da tabela de preços),",
                "  14/09 reel-prova-social (reforça o P6 de 12/09),",
                "  21/09 reel-tema (abre a semana do Myrko, 23/09),",
-               "  01/10 reel-premio (SÓ depois de a votação abrir; confirmar a data)."]
+               "  O reel do Prêmio (01/10) agora vive no calendário da campanha de outubro:",
+               "  criativos/out/campanha-outubro/CALENDARIO.md."]
     with open(os.path.join(DST, "AGENDAMENTO.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(linhas) + "\n")
     print(f"{len(POSTS)} posts preparados em {os.path.relpath(DST, ROOT)}")

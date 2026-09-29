@@ -22,7 +22,6 @@ Horários são sugestão (público consome no meio do expediente); ajustar à vo
 | 2026-09-25 | 11h30 | formato-mudou | 1 | aguardando agendamento |
 | 2026-09-29 | 09h00 | ultimo-dia-early-bird | 1 | aguardando agendamento |
 | 2026-09-30 | 08h00 | termina-hoje | 1 | aguardando agendamento |
-| 2026-10-01 | 11h30 | reel-premio | 1 | ⏸ segurar até a votação abrir (data-alvo 01/10, confirmar) |
 
 Observações:
 - Vendas abertas desde 02/09: P1 (11h30) anuncia e P3 (17h00) converte no mesmo dia.
@@ -34,4 +33,5 @@ Observações:
   09/09 reel-abertura (converte na semana da tabela de preços),
   14/09 reel-prova-social (reforça o P6 de 12/09),
   21/09 reel-tema (abre a semana do Myrko, 23/09),
-  01/10 reel-premio (SÓ depois de a votação abrir; confirmar a data).
+  O reel do Prêmio (01/10) agora vive no calendário da campanha de outubro:
+  criativos/out/campanha-outubro/CALENDARIO.md.

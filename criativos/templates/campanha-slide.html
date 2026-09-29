@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Campanha out/26 — slide de carrossel 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Slide de carrossel 4:5. Mensagem principal entre y 405 e 742;
+     {{FAIXA}} liga a faixa de apoio só na capa e no slide final. */
+  .bg-foto::after {
+    background:
+      linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.94) 40%, rgba(0,35,92,.90) 100%);
+  }
+  .progresso { top: 84px; right: 72px; }
+  .bloco { position: absolute; left: var(--mx); right: var(--mx); top: 338px; }
+  .kicker { font-weight: 600; text-transform: uppercase; letter-spacing: .2em;
+    font-size: 30px; color: var(--mid-grey); margin-bottom: 26px; }
+  .texto { margin-top: 34px; font-weight: 500; font-size: 46px; line-height: 1.26;
+    color: var(--mid-grey); max-width: 900px; }
+  .texto strong { color: var(--white); font-weight: 700; }
+  .cta-wrap { margin-top: 44px; }
+  .cta-wrap:empty { display: none; }
+  .rodape { position: absolute; left: var(--mx); right: var(--mx); bottom: 150px;
+    font-weight: 600; font-size: 28px; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(255,255,255,.62); }
+  .faixa-apoio { display: {{FAIXA}}; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/{{BG}}-2400.webp" alt="" style="object-position:{{POS}};"></div>
+  <div class="canto-45 {{CANTO}}" style="display:{{CANTO_SHOW}};"></div>
+  <div class="progresso">{{N}}/{{TOTAL}}</div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="bloco">
+      <div class="kicker">{{KICKER}}</div>
+      <div class="titulo-hero" style="font-size:{{TSIZE}}px;">{{TITULO}}</div>
+      <div class="texto">{{TEXTO}}</div>
+      <div class="cta-wrap">{{CTA}}</div>
+    </div>
+
+    <div class="rodape">{{RODAPE}}</div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>
