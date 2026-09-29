@@ -7,6 +7,17 @@
   var form = document.getElementById("checkout-form");
   if (!form) return;
 
+  // dados vindos da votação (mesma aba): preenche só o que está vazio
+  try {
+    var pf = JSON.parse(sessionStorage.getItem("summit_prefill") || "null");
+    if (pf) {
+      [["ck-nome", "nome"], ["ck-sobrenome", "sobrenome"], ["ck-email", "email"], ["ck-empresa", "empresa"]].forEach(function (p) {
+        var el = document.getElementById(p[0]);
+        if (el && !el.value && pf[p[1]]) el.value = pf[p[1]];
+      });
+    }
+  } catch (e) { /* sem storage: segue em branco */ }
+
   var emProducao = location.hostname !== "localhost" && location.hostname !== "127.0.0.1";
 
   function brl(v) { return "R$ " + v.toLocaleString("pt-BR"); }

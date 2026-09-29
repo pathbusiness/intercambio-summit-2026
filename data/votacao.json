@@ -1,0 +1,276 @@
+{
+ "categorias": [
+  {
+   "id": "conector",
+   "nome": "Conector(a) do Ano",
+   "trilha": "Instituições",
+   "descricao": "Quem constrói as pontes entre agências, instituições e estudantes.",
+   "finalistas": [
+    {
+     "slug": "anderson-bertin",
+     "nome": "Anderson Bertin",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "anderson-pacheco",
+     "nome": "Anderson Pacheco",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "andressa-chantre",
+     "nome": "Andressa Chantre",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "gustavo-gandra",
+     "nome": "Gustavo Gandra",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "murilo-fernandes",
+     "nome": "Murilo Fernandes",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    }
+   ]
+  },
+  {
+   "id": "iniciativa",
+   "nome": "Iniciativa do Ano",
+   "trilha": "Instituições",
+   "descricao": "Quem liderou a ação ou programa de maior impacto no ano.",
+   "finalistas": [
+    {
+     "slug": "camila-viana",
+     "nome": "Camila Viana",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "erica-pereira",
+     "nome": "Erica Pereira",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "fabio-carola",
+     "nome": "Fabio Carola",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "francielly-gnoatto",
+     "nome": "Francielly Gnoatto",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "tatiana-menniti",
+     "nome": "Tatiana Menniti",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    }
+   ]
+  },
+  {
+   "id": "mente",
+   "nome": "Mente Inovadora",
+   "trilha": "Instituições",
+   "descricao": "Quem trouxe soluções novas para problemas antigos do setor.",
+   "finalistas": [
+    {
+     "slug": "eddy-leite",
+     "nome": "Eddy Leite",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "guilherme-garcia",
+     "nome": "Guilherme Garcia",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "gustavo-machado",
+     "nome": "Gustavo Machado",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "igor-marinho",
+     "nome": "Igor Marinho",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "vitor-alvarino",
+     "nome": "Vitor Alvarino",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    }
+   ]
+  },
+  {
+   "id": "transformador",
+   "nome": "Transformador(a) de Vidas",
+   "trilha": "Agências",
+   "descricao": "O profissional cujo trabalho mudou trajetórias de estudantes.",
+   "finalistas": [
+    {
+     "slug": "carla-mussoi",
+     "nome": "Carla Mussoi",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "daniel-lara",
+     "nome": "Daniel Lara",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "diego-paiva",
+     "nome": "Diego Paiva",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "diogo-jansen",
+     "nome": "Diogo Jansen",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "hanna-alves",
+     "nome": "Hanna Alves",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    }
+   ]
+  },
+  {
+   "id": "acelerador",
+   "nome": "Acelerador(a) de Resultados",
+   "trilha": "Agências",
+   "descricao": "Quem elevou resultados comerciais de forma mensurável.",
+   "finalistas": [
+    {
+     "slug": "eduardo-henrique",
+     "nome": "Eduardo Henrique",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "karen-oliveira",
+     "nome": "Karen Oliveira",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "karina-fiore",
+     "nome": "Karina Fiore",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "matheus-campos",
+     "nome": "Matheus Campos",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "rafaela-monteiro",
+     "nome": "Rafaela Monteiro",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "victor-luraschi",
+     "nome": "Victor Luraschi",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    }
+   ]
+  },
+  {
+   "id": "espirito",
+   "nome": "Espírito Inovador",
+   "trilha": "Agências",
+   "descricao": "Quem contagia o mercado com atitude pioneira.",
+   "finalistas": [
+    {
+     "slug": "daniel-cuenca",
+     "nome": "Daniel Cuenca",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "eduardo-frigo",
+     "nome": "Eduardo Frigo",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "fernanda-rocha",
+     "nome": "Fernanda Rocha",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "myllena-pontes",
+     "nome": "Myllena Pontes",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "vitor-cruz",
+     "nome": "Vitor Cruz",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    },
+    {
+     "slug": "vivi-lac",
+     "nome": "Vivi Lac",
+     "empresa": "",
+     "cargo": "",
+     "resumo": ""
+    }
+   ]
+  }
+ ]
+}
