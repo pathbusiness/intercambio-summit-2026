@@ -47,13 +47,13 @@ não é mais usado pelo site.
 
 | Item | Situação |
 |---|---|
-| Projeto PATH (`ildxeq…`): migração `20261001000000_votacao.sql` | **PENDENTE** (não aplicada; ação em produção bloqueada pelo controle de permissões da sessão) |
-| Projeto PATH: função `summit-votar` | **PENDENTE** |
-| Projeto PATH: função `summit-checkout` com Early Bird até 02/10 | **Publicada em 29/09 (v22)**: só as datas mudaram sobre a v21 (Early Bird até 02/10, Segundo lote de 03/10). **Não foi possível reler a v22 para conferir**: conferir no painel (Edge Functions → summit-checkout → versões, comparar v21 e v22). |
+| Projeto PATH (`ildxeq…`): migração `20261001000000_votacao.sql` | **Aplicada em 29/09** (nome `votacao_premio_2026`). RLS ligado; anon e authenticated sem acesso. Testada em transação revertida: índice único (e-mail, categoria) bloqueia duplicado e o ranking ignora voto invalidado. Tabela com 0 votos. |
+| Projeto PATH: função `summit-votar` | **Publicada em 29/09 (v1)**, sem verificação de JWT (a função valida tudo). Código idêntico ao do repositório. Ainda não testada ao vivo: só recebe votos a partir de 01/10 00:00 (horário de Brasília). |
+| Projeto PATH: função `summit-checkout` | **Publicada em 29/09 (v23)**: Early Bird até 02/10, Segundo lote a partir de 03/10 e cupom `EARLY10` até 02/10. Fonte da v22 relida e conferida; a v23 só muda a data do `EARLY10`. |
 | Site (página `/votar`, rewrites, botão no Prêmio, convite pós-voto) | Neste PR |
 | Projeto antigo Forio (`lvchp…`) | Recebeu por engano, em 29/09, a migração, a `summit-votar` e uma correção de datas na `summit-checkout` (v2). Não é usado pelo site. Tabela vazia. **Decisão do Rodrigo: nada do Summit deve ficar no Forio.** Limpeza completa em `supabase/limpeza-forio.md`. |
 
-**Cupom a decidir:** `EARLY10` (10% no Early Bird) vale só até 01/10 em `PROMO_CODES`; com o Early Bird até 02/10, decidir se estende.
+**Cupom `EARLY10`:** vale até 02/10 (mesmo dia do fim do Early Bird). Se o cupom também está cadastrado no Zoho Backstage, espelhar a validade lá.
 
 ### Como aplicar no projeto da PATH
 
