@@ -51,7 +51,7 @@ não é mais usado pelo site.
 | Projeto PATH: função `summit-votar` | **PENDENTE** |
 | Projeto PATH: função `summit-checkout` com Early Bird até 02/10 | **Publicada em 29/09 (v22)**: só as datas mudaram sobre a v21 (Early Bird até 02/10, Segundo lote de 03/10). **Não foi possível reler a v22 para conferir**: conferir no painel (Edge Functions → summit-checkout → versões, comparar v21 e v22). |
 | Site (página `/votar`, rewrites, botão no Prêmio, convite pós-voto) | Neste PR |
-| Projeto antigo Forio (`lvchp…`) | Recebeu por engano, em 29/09, a migração, a `summit-votar` e uma correção de datas na `summit-checkout` (v2). Não é usado pelo site. Tabela vazia. Pode ser limpo. |
+| Projeto antigo Forio (`lvchp…`) | Recebeu por engano, em 29/09, a migração, a `summit-votar` e uma correção de datas na `summit-checkout` (v2). Não é usado pelo site. Tabela vazia. **Decisão do Rodrigo: nada do Summit deve ficar no Forio.** Limpeza completa em `supabase/limpeza-forio.md`. |
 
 **Cupom a decidir:** `EARLY10` (10% no Early Bird) vale só até 01/10 em `PROMO_CODES`; com o Early Bird até 02/10, decidir se estende.
 
