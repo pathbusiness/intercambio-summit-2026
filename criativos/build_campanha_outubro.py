@@ -35,6 +35,8 @@ F, S = SIZES["feed"], SIZES["story"]
 
 SITE = "intercambiosummit.com.br"
 CTA_SITE = f'<span class="cta">{SITE}</span>'
+VOTE = f"{SITE}/votar"  # página de votação (site/votacao.html, rewrite /votar)
+CTA_VOTO = f'<span class="cta">{VOTE}</span>'
 DIAS = ["seg", "ter", "qua", "qui", "sex", "sáb", "dom"]
 
 H_PREMIO = ("#intercambiosummit #intercambio #premiomelhoresprofissionais #educacaointernacional "
@@ -103,12 +105,12 @@ def add(data, hora, slug, formato, imgs=(), copias=(), legenda="", nota=""):
 add("2026-10-01", "09h30", "votacao-aberta", "feed", [feed(
     BG="trofeus", CANTO="branco", KICKER="Prêmio Melhores Profissionais 2026",
     TITULO="VOTAÇÃO<br>ABERTA", TSIZE=140,
-    TEXTO="32 finalistas, 6 categorias. Vote até <strong>30 de outubro.</strong>", CTA=CTA_SITE)],
+    TEXTO="32 finalistas, 6 categorias. Vote até <strong>30 de outubro.</strong>", CTA=CTA_VOTO)],
     legenda=f"""Votação aberta: escolha os melhores profissionais de intercâmbio de 2026.
 
 São 32 finalistas em 6 categorias, e a votação vai até 30 de outubro. O público elegível vota entre os finalistas, e a avaliação final combina esse voto com a análise técnica dos comitês.
 
-Vote em {SITE} (link na bio).
+Vote em {VOTE} (link na bio).
 
 Os vencedores serão anunciados ao vivo no Intercâmbio Summit 2026, em 11 de novembro, em São Paulo.
 
@@ -175,14 +177,16 @@ def carrossel_categoria(key, data, hora):
     cat = d["_categorias"][key]
     fins = sorted((f for f in d["finalistas"] if f["categoria"] == key), key=lambda f: f["nome"])
     copias = [os.path.join(PROD, "premio", "capas", f"capa-{key}.jpg")]
-    copias += [os.path.join(PROD, "premio", "finalistas", pasta_finalista(f["nome"]), "card-finalista.jpg")
-               for f in fins]
+    for f in fins:  # card com destaque do dossiê (autorizado) quando existir; senão o card padrão
+        pasta = os.path.join(PROD, "premio", "finalistas", pasta_finalista(f["nome"]))
+        dossie = os.path.join(pasta, "card-dossie.jpg")
+        copias.append(dossie if os.path.exists(dossie) else os.path.join(pasta, "card-finalista.jpg"))
     total = len(copias) + 2
     final = slide(N=total, TOTAL=total, BG="trofeus", CANTO="branco", CANTO_SHOW="block",
                   RODAPE="", KICKER=f"{cat['nome']} · {len(fins)} finalistas",
                   TITULO="VOTE ATÉ<br>30 DE OUTUBRO", TSIZE=112,
                   TEXTO="Prêmio Melhores Profissionais 2026.<br>Anúncio dos vencedores ao vivo em <strong>11 de novembro.</strong>",
-                  CTA=CTA_SITE)
+                  CTA=CTA_VOTO)
     nomes = ", ".join(f["nome"] for f in fins)
     trilha = "Trilha Gestores de Instituições" if cat["trilha"] == "Instituições" else "Trilha Agentes de Intercâmbio"
     add(data, hora, f"premio-{key}", "carrossel", [parceiros_slide(), final], copias,
@@ -192,7 +196,7 @@ def carrossel_categoria(key, data, hora):
 
 Arraste para ver todos, em ordem alfabética: {nomes}. Cada um foi um dos mais votados pelo mercado na primeira etapa do prêmio ({trilha}).
 
-A votação segue aberta até 30 de outubro, em {SITE} (link na bio).
+A votação segue aberta até 30 de outubro, em {VOTE} (link na bio).
 
 Os vencedores serão anunciados ao vivo no Intercâmbio Summit 2026, em 11 de novembro, em São Paulo.
 
@@ -215,7 +219,7 @@ São 32 finalistas em 6 categorias, e a votação vai até 30 de outubro. O púb
 
 Os vencedores serão anunciados ao vivo no Intercâmbio Summit 2026, em 11 de novembro, em São Paulo.
 
-Vote agora: {SITE} (link na bio)
+Vote agora: {VOTE} (link na bio)
 
 {H_PREMIO}""")
 
@@ -266,7 +270,7 @@ add("2026-10-06", "12h00", "story-caixa-perguntas", "story", [story(
 def contagem_premio(data, grande, texto="32 finalistas. 6 categorias.", hora="12h00", slug=None):
     add(data, hora, slug or f"story-premio-{grande.lower().replace(' ', '-')}", "story", [story(
         BG="trofeus", CANTO="branco", KICKER="Votação até 30 de outubro", TITULO=grande,
-        TSIZE=150, TEXTO=texto, CTA=CTA_SITE, TOP=520)],
+        TSIZE=150, TEXTO=texto, CTA=CTA_VOTO, TOP=520)],
         nota="Opcional: sticker de link. O endereço já está impresso na arte.")
 
 
@@ -444,7 +448,7 @@ diario("2026-10-11", "11h30", "voto-consciente", PREMIO_K,
        legenda=leg("Não vote em quem você não conhece. Vote em quem fez diferença no seu ano.",
                    "São 32 finalistas em 6 categorias, e a votação vai até 30 de outubro. O regulamento não permite compra de votos nem manipulação de resultados.",
                    "Os vencedores serão anunciados ao vivo no Intercâmbio Summit 2026, em 11 de novembro, em São Paulo.",
-                   cta=f"Vote em {SITE} (link na bio).", tags=H_PREMIO, local=False))
+                   cta=f"Vote em {VOTE} (link na bio).", tags=H_PREMIO, local=False), cta=CTA_VOTO)
 
 diario("2026-10-12", "11h30", "ia-nao-fecha-venda", "IA na operação",
        "IA NÃO<br>FECHA VENDA.", tsize=132, bg="networking", pill_html=L2,
@@ -533,7 +537,7 @@ diario("2026-10-27", "11h30", "premio-faltam-3-post", "Votação até 30 de outu
        legenda=leg("Faltam 3 dias para a votação do Prêmio Melhores Profissionais.",
                    "São 32 finalistas em 6 categorias, e a votação vai até 30 de outubro. Não deixe para o último dia.",
                    "Os vencedores serão anunciados ao vivo em 11 de novembro, em São Paulo.",
-                   cta=f"Vote em {SITE} (link na bio).", tags=H_PREMIO, local=False))
+                   cta=f"Vote em {VOTE} (link na bio).", tags=H_PREMIO, local=False), cta=CTA_VOTO)
 
 diario("2026-10-28", "11h30", "o-dia-em-tres-atos", "11 de novembro · Contentix, Av. Paulista",
        "O DIA,<br>EM TRÊS<br>ATOS.", tsize=118, bg="painel", pill_html=L3,
@@ -549,14 +553,14 @@ diario("2026-10-29", "11h30", "premio-amanha-ultimo-post", "Votação até 30 de
        legenda=leg("Amanhã é o último dia para votar no Prêmio Melhores Profissionais.",
                    "São 32 finalistas em 6 categorias. A votação termina em 30 de outubro.",
                    "Os vencedores serão anunciados ao vivo em 11 de novembro, em São Paulo.",
-                   cta=f"Vote em {SITE} (link na bio).", tags=H_PREMIO, local=False))
+                   cta=f"Vote em {VOTE} (link na bio).", tags=H_PREMIO, local=False), cta=CTA_VOTO)
 
 diario("2026-10-30", "11h30", "premio-ultimo-dia-post", "Votação até 30 de outubro",
        "ÚLTIMO DIA<br>PARA VOTAR.", tsize=126, bg="trofeus", canto="branco", story_ok=False,
        texto="Votação até 30 de outubro. Depois, só resta torcer.",
        legenda=leg("Último dia para votar no Prêmio Melhores Profissionais 2026.",
                    "Depois de hoje, só resta torcer. Os vencedores serão anunciados ao vivo no Intercâmbio Summit, em 11 de novembro, em São Paulo.",
-                   cta=f"Vote em {SITE} (link na bio).", tags=H_PREMIO, local=False))
+                   cta=f"Vote em {VOTE} (link na bio).", tags=H_PREMIO, local=False), cta=CTA_VOTO)
 
 diario("2026-10-31", "11h30", "votacao-encerrada-post", PREMIO_K,
        "VOTAÇÃO<br>ENCERRADA.", tsize=126, bg="premiados", canto="branco", story_ok=False, pill_html=L3,

@@ -695,3 +695,49 @@ a { color: inherit; }
   .fin-card:hover, .lote-card:not(.is-past):hover { transform: none; }
   .fin-card:hover img { transform: none; }
 }
+
+/* ---------- votação (Prêmio Melhores Profissionais) ---------- */
+.votacao-wrap { max-width: 980px; margin: 0 auto; padding: 7.5rem 1.25rem 4rem; }
+.votacao-titulo { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.02; text-transform: uppercase; color: var(--summit-blue); margin-bottom: 1rem; }
+.votacao-lead { max-width: 46em; font-size: 1.15rem; color: var(--charcoal); margin-bottom: 1.6rem; }
+.votacao-estado, .votacao-erro { padding: .9rem 1.1rem; margin-bottom: 1.4rem; font-weight: 600; }
+.votacao-estado { background: var(--cloud); border-left: 5px solid var(--summit-blue); }
+.votacao-erro { background: #FFF1F0; border-left: 5px solid #C62828; color: #7A1C1C; }
+
+.vt-identificacao { border: 0; margin-bottom: 2rem; display: grid; gap: 1rem; }
+.vt-identificacao legend, .vt-cat legend { font-weight: 700; font-size: 1.35rem; text-transform: uppercase; letter-spacing: .02em; color: var(--summit-blue); margin-bottom: .8rem; }
+.vt-identificacao label { display: block; font-weight: 600; font-size: .95rem; }
+.vt-identificacao .req { color: #C62828; }
+.vt-identificacao input[type=text], .vt-identificacao input[type=email] { display: block; width: 100%; margin-top: .3rem; padding: .8rem .9rem; font: inherit; font-size: 1.05rem; border: 2px solid var(--mid-grey); background: var(--white); color: var(--charcoal); }
+.vt-identificacao input:focus { outline: none; border-color: var(--summit-blue); }
+.vt-linha { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+.vt-tipo { display: grid; gap: .6rem; }
+.vt-opcao { display: flex !important; gap: .7rem; align-items: flex-start; padding: .9rem 1rem; border: 2px solid var(--mid-grey); cursor: pointer; font-weight: 500 !important; }
+.vt-opcao:has(input:checked) { border-color: var(--summit-blue); background: var(--cloud); }
+.vt-opcao input { margin-top: .3rem; accent-color: var(--summit-blue); }
+.vt-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+.vt-dica { color: var(--text-grey); padding: 1.2rem 0; }
+.vt-cat { border: 0; margin: 0 0 2.4rem; }
+.vt-cat-desc { color: var(--text-grey); margin: -.4rem 0 1rem; }
+.vt-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.vt-card { display: flex; flex-direction: column; background: var(--white); border: 2px solid var(--mid-grey); transition: border-color .15s, box-shadow .15s; }
+.vt-card:has(input:checked) { border-color: var(--summit-blue); box-shadow: 0 0 0 3px rgba(0,68,185,.18); }
+.vt-card label { cursor: pointer; display: block; }
+.vt-card input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+.vt-card img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--summit-blue); }
+.vt-card .vt-nome { display: block; padding: .7rem .8rem .2rem; font-weight: 700; font-size: 1.1rem; line-height: 1.15; text-transform: uppercase; }
+.vt-card .vt-empresa { display: block; padding: 0 .8rem .6rem; font-size: .9rem; color: var(--text-grey); }
+.vt-card:has(input:checked) .vt-nome::after { content: " ✓"; color: var(--summit-blue); }
+.vt-card details { border-top: 1px solid var(--mid-grey); padding: .5rem .8rem .7rem; font-size: .92rem; }
+.vt-card summary { cursor: pointer; font-weight: 600; color: var(--summit-blue); }
+.vt-card details p { margin-top: .5rem; color: var(--charcoal); }
+
+.vt-rodape { margin-top: 1rem; display: grid; gap: 1rem; justify-items: start; }
+.vt-aviso { font-size: .9rem; color: var(--text-grey); max-width: 46em; }
+.vt-contagem { font-weight: 600; color: var(--summit-blue); }
+.votacao-sucesso { padding: 2rem; background: var(--cloud); border-left: 5px solid var(--action-green); }
+.votacao-sucesso h2 { color: var(--summit-blue); text-transform: uppercase; margin-bottom: .8rem; }
+.votacao-sucesso ul { margin: 0 0 1rem 1.2rem; }
+.votacao-sucesso p { margin-bottom: 1rem; }
+@media (max-width: 640px) { .vt-linha { grid-template-columns: 1fr; } .vt-grid { grid-template-columns: repeat(2, 1fr); } .votacao-wrap { padding-top: 6.5rem; } }

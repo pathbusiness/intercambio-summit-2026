@@ -1,0 +1,26 @@
+// Rodar: node --experimental-strip-types --no-warnings supabase/functions/summit-votar/validar.test.ts (ou deno run)
+import { validar, normalizarEmail, janela } from "./validar.ts";
+let falhas = 0;
+const t = (nome: string, cond: boolean) => { console.log((cond ? "ok   " : "FALHA"), nome); if (!cond) falhas++; };
+const base = { nome: "Maria Silva", email: "maria@agencia.com.br", empresa: "Agência X", tipo: "agencia", votos: { conector: "anderson-bertin" } };
+t("agência vota em instituições", validar(base).ok === true);
+t("agência NÃO vota em categoria de agência", (validar({ ...base, votos: { transformador: "carla-mussoi" } }) as any).erro === "elegibilidade");
+t("instituição vota em agências", validar({ ...base, tipo: "instituicao", votos: { transformador: "carla-mussoi" } }).ok === true);
+t("instituição NÃO vota em instituições", (validar({ ...base, tipo: "instituicao" }) as any).erro === "elegibilidade");
+t("finalista de outra categoria é rejeitado", (validar({ ...base, votos: { conector: "carla-mussoi" } }) as any).erro === "voto_invalido");
+t("categoria inexistente", (validar({ ...base, votos: { xyz: "anderson-bertin" } }) as any).erro === "voto_invalido");
+t("sem votos", (validar({ ...base, votos: {} }) as any).erro === "votos");
+t("nome sem sobrenome", (validar({ ...base, nome: "Maria" }) as any).erro === "nome");
+t("email inválido", (validar({ ...base, email: "maria@" }) as any).erro === "email");
+t("email descartável", (validar({ ...base, email: "x@mailinator.com" }) as any).erro === "email");
+t("tipo inválido", (validar({ ...base, tipo: "outro" }) as any).erro === "tipo");
+t("gmail com ponto e +tag = mesmo e-mail", normalizarEmail("Ma.ri.a+summit@Gmail.com") === "maria@gmail.com");
+t("outros domínios mantêm o e-mail", normalizarEmail(" Ana.Souza@Empresa.com ") === "ana.souza@empresa.com");
+const ini = new Date("2026-10-01T00:00:00-03:00"), fim = new Date("2026-10-30T23:59:59-03:00");
+t("antes de 01/10", janela(new Date("2026-09-30T23:59:59-03:00"), ini, fim) === "antes");
+t("01/10 00:00 abre", janela(new Date("2026-10-01T00:00:00-03:00"), ini, fim) === "aberta");
+t("30/10 23:59 ainda aberta", janela(new Date("2026-10-30T23:59:00-03:00"), ini, fim) === "aberta");
+t("31/10 fechada", janela(new Date("2026-10-31T00:00:00-03:00"), ini, fim) === "depois");
+const tres = validar({ ...base, votos: { conector: "anderson-bertin", iniciativa: "camila-viana", mente: "eddy-leite" } });
+t("3 categorias de uma vez", tres.ok === true && (tres as any).dados.votos.length === 3);
+console.log(falhas ? `\n${falhas} FALHA(S)` : "\ntodos passaram"); process.exit(falhas ? 1 : 0);

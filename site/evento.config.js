@@ -41,6 +41,18 @@ window.EVENTO = {
   // WhatsApp comercial para patrocínio (somente dígitos, com DDI)
   whatsappPatrocinio: "",
 
+  // Votação pública do Prêmio Melhores Profissionais (Regulamento, etapa 3).
+  // Datas em horário de Brasília; o servidor (Edge Function summit-votar) confere de novo.
+  // Página: /votar (votacao.html). Endpoint: /api/votar -> summit-votar.
+  // regulamentoUrl: link público do regulamento (vazio = não mostra o link).
+  votacao: {
+    inicio: "2026-10-01",
+    fim: "2026-10-30",
+    api: "/api/votar",
+    apiLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-votar",
+    regulamentoUrl: ""
+  },
+
   // Lotes: o site seleciona o lote vigente automaticamente pela data.
   // parcelado vazio = lote só à vista (o card mostra "à vista")
   lotes: [

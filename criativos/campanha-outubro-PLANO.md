@@ -90,11 +90,13 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
 
 ## Precisa da sua decisão antes de publicar
 
-1. **O site não tem interface de votação.** O `main` só lista os finalistas. Toda peça manda votar em
-   `intercambiosummit.com.br`; isso precisa estar no ar em 01/10.
-2. **Como o voto pesa.** As legendas só dizem que "a avaliação final combina esse voto com a análise técnica
-   dos comitês". O post "Como funciona a votação" segue bloqueado até você confirmar: quem vota em qual
-   trilha, se é um voto por categoria e o peso do voto público nos comitês.
+1. **Votação montada, falta publicar.** Página `/votar`, endpoint e banco estão prontos e testados no repositório
+   (ver `supabase/VOTACAO.md`), mas ainda não estão no ar. Precisam ir para produção antes de 01/10 00:00
+   (migração, função `summit-votar` e merge do site). As artes de voto já apontam para
+   `intercambiosummit.com.br/votar`.
+2. **Peso do voto público.** Decidido: voto cruzado (agência vota em instituição e vice-versa), cadastro simples.
+   Segue em aberto como o voto pesa perante os comitês; o post "Como funciona a votação" fica bloqueado até você
+   confirmar esse ponto e a hora de corte em 30/10 (a página fecha às 23:59:59).
 3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
    venda no dia e como.
 4. **Horários.** A premiação às 16h30 vem do site. Se a votação tiver hora de corte no dia 30/10, me diga.
