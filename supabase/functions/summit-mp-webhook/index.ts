@@ -7,14 +7,24 @@
 //   MP_ACCESS_TOKEN          — Access Token de produção do Mercado Pago
 //   ZOHO_CLIENT_ID           — Self Client no api-console.zoho.com
 //   ZOHO_CLIENT_SECRET
-//   ZOHO_REFRESH_TOKEN       — escopo ZohoBackstage.order.CREATE
-//   BACKSTAGE_TICKETCLASS_ID — classe de ingresso (gratuita/oculta) que o
-//                              site usa para emitir o ingresso no Backstage
+//   ZOHO_REFRESH_TOKEN       — escopo ZohoBackstage.order.CREATE,ZohoBackstage.eventticket.READ
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const BACKSTAGE_PORTAL_ID = Deno.env.get("BACKSTAGE_PORTAL_ID") ?? "888835921";
 const BACKSTAGE_EVENT_ID = Deno.env.get("BACKSTAGE_EVENT_ID") ?? "175925000000749018";
+
+// IDs reais das classes de ingresso no Zoho Backstage (v3 API), obtidos via
+// GET .../ticket_classes — NÃO são os mesmos IDs que aparecem raspando a tela
+// do admin (data-id do DOM), que a API rejeita com "classe não encontrada".
+// Nomes devem bater com o campo `lote` gravado em summit_orders (ver LOTES
+// em summit-checkout/index.ts). Ao criar/alterar um lote lá, atualize aqui.
+const BACKSTAGE_TICKETCLASSES: Record<string, string> = {
+  "Early Bird": "175925000001864020",
+  "Segundo lote": "175925000001864026",
+  "Terceiro lote": "175925000000759345",
+  "Dia do evento": "175925000001795010",
+};
 
 const ok = () =>
   new Response(JSON.stringify({ ok: true }), {
@@ -41,14 +51,22 @@ async function zohoAccessToken(): Promise<string> {
   return j.access_token;
 }
 
-// Cria o pedido no Backstage (classe gratuita ⇒ sem pagamento a conciliar no Zoho)
+// Cria o pedido no Backstage já como pago (Transaction API), na classe paga
+// correspondente ao lote comprado — sem cobrar de novo o participante.
+// Um ingresso por participante (pedido.participantes); pedidos antigos sem
+// essa coluna caem no fallback de 1 ingresso, com os dados do comprador.
 async function criarNoBackstage(pedido: {
   nome: string; sobrenome: string; email: string;
-  telefone: string; empresa: string;
+  telefone: string; empresa: string; lote: string;
+  participantes?: { nome: string; sobrenome: string; email: string }[] | null;
 }): Promise<string> {
   const token = await zohoAccessToken();
-  const ticketClass = Deno.env.get("BACKSTAGE_TICKETCLASS_ID");
-  if (!ticketClass) throw new Error("backstage-ticketclass-nao-configurada");
+  const ticketClass = BACKSTAGE_TICKETCLASSES[pedido.lote];
+  if (!ticketClass) throw new Error(`backstage-ticketclass-nao-mapeada: ${pedido.lote}`);
+
+  const participantes = pedido.participantes?.length
+    ? pedido.participantes
+    : [{ nome: pedido.nome, sobrenome: pedido.sobrenome, email: pedido.email }];
 
   const url = `https://www.zohoapis.com/backstage/v3/portals/${BACKSTAGE_PORTAL_ID}/events/${BACKSTAGE_EVENT_ID}/orders`;
   const payload = {
@@ -59,14 +77,14 @@ async function criarNoBackstage(pedido: {
       purchaser_company: pedido.empresa || undefined,
       purchaser_mobile_no: pedido.telefone || undefined,
     },
-    tickets: [{
+    tickets: participantes.map((p) => ({
       ticketclass_id: ticketClass,
       data: {
-        first_name: pedido.nome,
-        last_name: pedido.sobrenome,
-        email: pedido.email,
+        first_name: p.nome,
+        last_name: p.sobrenome,
+        email: p.email,
       },
-    }],
+    })),
   };
   const r = await fetch(url, {
     method: "POST",
@@ -140,12 +158,17 @@ Deno.serve(async (req) => {
     return ok();
   }
 
-  // Idempotência: o MP reenvia notificações; se já registrou, encerra
-  if (pedido.status === "registrado") return ok();
-
-  await db.from("summit_orders").update({
-    status: "pago", mp_payment_id: String(pag.id), mp_status: pag.status, updated_at: agora,
-  }).eq("id", pedidoId);
+  // Idempotência: o MP reenvia a mesma notificação (às vezes em paralelo).
+  // UPDATE condicional atômico: só quem conseguir a linha (status ainda não
+  // "pago"/"registrado") segue para criar o pedido no Backstage; a segunda
+  // execução concorrente não altera nenhuma linha e apenas retorna.
+  const { data: reivindicado } = await db.from("summit_orders")
+    .update({ status: "pago", mp_payment_id: String(pag.id), mp_status: pag.status, updated_at: agora })
+    .eq("id", pedidoId)
+    .not("status", "in", "(pago,registrado)")
+    .select("id")
+    .maybeSingle();
+  if (!reivindicado) return ok();
 
   try {
     const backstageId = await criarNoBackstage(pedido);

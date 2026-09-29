@@ -36,14 +36,69 @@
   var elPreco = document.getElementById("resumo-preco");
   var elParc = document.getElementById("resumo-parcelado");
   var elVirada = document.getElementById("resumo-virada");
+  var elQtdTexto = document.getElementById("resumo-qtd-texto");
   var btn = document.getElementById("checkout-btn");
+
+  /* ---------- quantidade de ingressos ---------- */
+  var elQtd = document.getElementById("ck-quantidade");
+  var elQtdMenos = document.getElementById("ck-qtd-menos");
+  var elQtdMais = document.getElementById("ck-qtd-mais");
+  var elExtras = document.getElementById("checkout-participantes-extra");
+  var QTD_MAX = 10;
+
+  function quantidadeAtual() {
+    var n = parseInt(elQtd && elQtd.value, 10);
+    if (!n || n < 1) n = 1;
+    if (n > QTD_MAX) n = QTD_MAX;
+    return n;
+  }
+
+  function renderParticipantesExtra() {
+    if (!elExtras) return;
+    var n = quantidadeAtual();
+    // remove blocos além da quantidade atual
+    Array.prototype.slice.call(elExtras.children).forEach(function (bloco) {
+      var idx = parseInt(bloco.getAttribute("data-participante"), 10);
+      if (idx > n) elExtras.removeChild(bloco);
+    });
+    // adiciona blocos que faltam
+    for (var i = 2; i <= n; i++) {
+      if (elExtras.querySelector('[data-participante="' + i + '"]')) continue;
+      var bloco = document.createElement("div");
+      bloco.className = "checkout-participante";
+      bloco.setAttribute("data-participante", String(i));
+      bloco.innerHTML =
+        '<p class="checkout-participante-titulo">Ingresso ' + i + '</p>' +
+        '<div class="checkout-row">' +
+          '<label>Nome <span>*</span><input type="text" id="ck-nome-' + i + '" autocomplete="off" required maxlength="80" placeholder="Nome"></label>' +
+          '<label>Sobrenome <span>*</span><input type="text" id="ck-sobrenome-' + i + '" autocomplete="off" required maxlength="80" placeholder="Sobrenome"></label>' +
+        '</div>' +
+        '<label>E-mail <span>*</span><input type="email" id="ck-email-' + i + '" autocomplete="off" inputmode="email" required maxlength="254" placeholder="participante' + i + '@empresa.com.br"></label>';
+      elExtras.appendChild(bloco);
+    }
+    if (elQtdTexto) elQtdTexto.textContent = n === 1 ? "1 ingresso" : n + " ingressos";
+  }
+  renderParticipantesExtra();
+  if (elQtd) {
+    elQtd.addEventListener("input", function () { renderParticipantesExtra(); atualizarResumo(); });
+    elQtd.addEventListener("blur", function () { elQtd.value = quantidadeAtual(); });
+  }
+  if (elQtdMenos) elQtdMenos.addEventListener("click", function () {
+    elQtd.value = Math.max(1, quantidadeAtual() - 1);
+    renderParticipantesExtra(); atualizarResumo();
+  });
+  if (elQtdMais) elQtdMais.addEventListener("click", function () {
+    elQtd.value = Math.min(QTD_MAX, quantidadeAtual() + 1);
+    renderParticipantesExtra(); atualizarResumo();
+  });
 
   function atualizarResumo() {
     if (!loteAtual) return;
+    var qtd = quantidadeAtual();
     if (cupomValidado) {
-      elPreco.innerHTML = '<s class="checkout-resumo-original">' + brl(loteAtual.avista) + "</s> " + brl(cupomValidado.valor);
+      elPreco.innerHTML = '<s class="checkout-resumo-original">' + brl(loteAtual.avista * qtd) + "</s> " + brl(cupomValidado.valor * qtd);
     } else {
-      elPreco.textContent = brl(loteAtual.avista);
+      elPreco.textContent = brl(loteAtual.avista * qtd);
     }
   }
 
@@ -167,12 +222,14 @@
     e.preventDefault();
     fb.textContent = "";
 
+    var qtd = quantidadeAtual();
     var dados = {
       nome: document.getElementById("ck-nome").value.trim(),
       sobrenome: document.getElementById("ck-sobrenome").value.trim(),
       email: document.getElementById("ck-email").value.trim(),
       telefone: document.getElementById("ck-telefone").value.trim(),
       empresa: document.getElementById("ck-empresa").value.trim(),
+      quantidade: qtd,
       site: document.getElementById("ck-site").value
     };
     // só envia o cupom se ele foi validado com sucesso e não foi editado depois
@@ -183,6 +240,19 @@
     if (dados.sobrenome.length < 2) { fb.textContent = MSGS.sobrenome; return; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(dados.email)) { fb.textContent = MSGS.email; return; }
     if (dados.telefone.replace(/\D/g, "").length < 10) { fb.textContent = MSGS.telefone; return; }
+
+    var participantes = [{ nome: dados.nome, sobrenome: dados.sobrenome, email: dados.email }];
+    for (var i = 2; i <= qtd; i++) {
+      var pNome = (document.getElementById("ck-nome-" + i) || {}).value || "";
+      var pSobrenome = (document.getElementById("ck-sobrenome-" + i) || {}).value || "";
+      var pEmail = (document.getElementById("ck-email-" + i) || {}).value || "";
+      pNome = pNome.trim(); pSobrenome = pSobrenome.trim(); pEmail = pEmail.trim();
+      if (pNome.length < 2) { fb.textContent = "Confira o nome do ingresso " + i + "."; return; }
+      if (pSobrenome.length < 2) { fb.textContent = "Confira o sobrenome do ingresso " + i + "."; return; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(pEmail)) { fb.textContent = "Confira o e-mail do ingresso " + i + "."; return; }
+      participantes.push({ nome: pNome, sobrenome: pSobrenome, email: pEmail });
+    }
+    dados.participantes = participantes;
 
     var ehLocal = !emProducao;
     var destino = ehLocal && EV.checkoutApiLocal ? EV.checkoutApiLocal : EV.checkoutApi;

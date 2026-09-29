@@ -141,6 +141,7 @@ Deno.serve(async (req) => {
   const email = String(body.email ?? "").trim().toLowerCase().slice(0, 254);
   const telefone = String(body.telefone ?? "").replace(/\D/g, "").slice(0, 15);
   const empresa = String(body.empresa ?? "").trim().slice(0, 120);
+  const quantidade = Math.min(10, Math.max(1, Math.trunc(Number(body.quantidade)) || 1));
 
   if (nome.length < 2)
     return new Response(JSON.stringify({ error: "nome" }), { status: 400, headers });
@@ -151,6 +152,25 @@ Deno.serve(async (req) => {
   if (telefone.length < 10)
     return new Response(JSON.stringify({ error: "telefone" }), { status: 400, headers });
 
+  // Um ingresso por participante — cada um com seus próprios dados para o
+  // ingresso oficial (o comprador é sempre o participante 1). Compatibilidade:
+  // se o front não mandar a lista (versão antiga do site ainda em cache/deploy
+  // atrasado), assume 1 ingresso com os dados do próprio comprador.
+  const participantesBrutos = Array.isArray(body.participantes) && body.participantes.length
+    ? body.participantes
+    : [{ nome, sobrenome, email }];
+  if (participantesBrutos.length !== quantidade)
+    return new Response(JSON.stringify({ error: "participantes" }), { status: 400, headers });
+  const participantes: { nome: string; sobrenome: string; email: string }[] = [];
+  for (const p of participantesBrutos) {
+    const pNome = String((p as Record<string, unknown>)?.nome ?? "").trim().slice(0, 80);
+    const pSobrenome = String((p as Record<string, unknown>)?.sobrenome ?? "").trim().slice(0, 80);
+    const pEmail = String((p as Record<string, unknown>)?.email ?? "").trim().toLowerCase().slice(0, 254);
+    if (pNome.length < 2 || pSobrenome.length < 2 || !/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(pEmail))
+      return new Response(JSON.stringify({ error: "participantes" }), { status: 400, headers });
+    participantes.push({ nome: pNome, sobrenome: pSobrenome, email: pEmail });
+  }
+
   const mpToken = Deno.env.get("MP_ACCESS_TOKEN");
   if (!mpToken)
     return new Response(
@@ -158,11 +178,13 @@ Deno.serve(async (req) => {
       { status: 503, headers },
     );
 
+  const precoTotal = Math.round(precoFinal * quantidade * 100) / 100;
+
   const { data: pedido, error: dbErr } = await db
     .from("summit_orders")
     .insert({
       nome, sobrenome, email, telefone, empresa,
-      lote: lote.nome, valor: precoFinal, quantidade: 1,
+      lote: lote.nome, valor: precoTotal, quantidade, participantes,
       promo_code: cupomResultado?.codigo ?? null, desconto_pct: descontoPct,
     })
     .select("id")
@@ -172,7 +194,7 @@ Deno.serve(async (req) => {
 
   // Preferência do Checkout Pro. O comprador escolhe Pix, cartão (até 5x
   // sem juros para ele — custo do parcelamento configurado na conta MP) ou boleto.
-  const sucesso = `${SITE}/obrigado.html?lote=${encodeURIComponent(lote.nome)}&valor=${precoFinal}`;
+  const sucesso = `${SITE}/obrigado.html?lote=${encodeURIComponent(lote.nome)}&valor=${precoTotal}`;
   const tituloCupom = cupomResultado?.codigo ? ` (cupom ${cupomResultado.codigo})` : "";
   const pref = {
     items: [{
@@ -180,7 +202,7 @@ Deno.serve(async (req) => {
       title: `Ingresso Intercâmbio Summit 2026 — ${lote.nome}${tituloCupom}`,
       description: "11 de novembro de 2026 · Contentix, Av. Paulista 967, São Paulo",
       category_id: "tickets",
-      quantity: 1,
+      quantity: quantidade,
       currency_id: "BRL",
       unit_price: precoFinal,
     }],
