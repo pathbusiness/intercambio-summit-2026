@@ -20,8 +20,8 @@ Horários são sugestão (público consome no meio do expediente); ajustar à vo
 | 2026-09-23 | 11h30 | myrko-micali | 2 | aguardando agendamento |
 | 2026-09-23 | 17h00 | carrossel-myrko | 9 | aguardando agendamento |
 | 2026-09-25 | 11h30 | formato-mudou | 1 | aguardando agendamento |
-| 2026-09-29 | 09h00 | ultimo-dia-early-bird | 1 | aguardando agendamento |
-| 2026-09-30 | 08h00 | termina-hoje | 1 | aguardando agendamento |
+| 2026-09-29 | 09h00 | ultimo-dia-early-bird | 1 | ⛔ NÃO publicar: Early Bird prorrogado até 02/10 |
+| 2026-09-30 | 08h00 | termina-hoje | 1 | ⛔ NÃO publicar: Early Bird prorrogado até 02/10 |
 
 Observações:
 - Vendas abertas desde 02/09: P1 (11h30) anuncia e P3 (17h00) converte no mesmo dia.

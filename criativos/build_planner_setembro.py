@@ -21,6 +21,8 @@ HASH_BASE = "#intercambiosummit #intercambio"
 # Status por slug (o que não estiver aqui fica "aguardando agendamento")
 STATUS = {
     "save-the-date": "✅ publicado em 01/09 (manual, @intercambiosummit)",
+    "ultimo-dia-early-bird": "⛔ NÃO publicar: Early Bird prorrogado até 02/10",
+    "termina-hoje": "⛔ NÃO publicar: Early Bird prorrogado até 02/10",
 }
 
 # (data, hora sugerida, slug, [arquivos de origem], legenda)

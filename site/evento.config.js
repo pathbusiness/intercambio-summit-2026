@@ -44,8 +44,8 @@ window.EVENTO = {
   // Lotes: o site seleciona o lote vigente automaticamente pela data.
   // parcelado vazio = lote só à vista (o card mostra "à vista")
   lotes: [
-    { nome: "Early Bird",    inicio: "2026-09-01", fim: "2026-09-30", avista: 350, parcelado: "5x R$ 70 sem juros" },
-    { nome: "Segundo lote",  inicio: "2026-10-01", fim: "2026-10-24", avista: 450, parcelado: "5x R$ 90 sem juros" },
+    { nome: "Early Bird",    inicio: "2026-09-01", fim: "2026-10-02", avista: 350, parcelado: "5x R$ 70 sem juros" },
+    { nome: "Segundo lote",  inicio: "2026-10-03", fim: "2026-10-24", avista: 450, parcelado: "5x R$ 90 sem juros" },
     { nome: "Terceiro lote", inicio: "2026-10-25", fim: "2026-11-10", avista: 550, parcelado: "5x R$ 110 sem juros" },
     { nome: "Dia do evento", inicio: "2026-11-11", fim: "2026-11-11", avista: 650, parcelado: "5x R$ 130 sem juros" }
   ],

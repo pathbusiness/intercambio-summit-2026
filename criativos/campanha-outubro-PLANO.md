@@ -20,7 +20,7 @@ convence sozinha. Seis técnicas, todas em uso:
 | Desqualificar | "Não é para quem já sabe tudo de IA" (03/10) · "Acha que IA é modismo? Venha." (10/10) |
 | Autosseleção | "Se você é um destes, venha" (04/10) |
 | Contra-intuitivo | "Não compre o Early Bird." (29/09) · "Pode esperar. O próximo lote é R$ 550." (08/10) |
-| Conta à vista | "Amanhã, R$ 100 a mais." (30/09) · "5x de R$ 110 sem juros. Faça a conta." (26/10) |
+| Conta à vista | "Amanhã, R$ 100 a mais." (02/10) · "5x de R$ 110 sem juros. Faça a conta." (26/10) |
 | Escassez real | "São 144 lugares. Não tem 145." (15/10) |
 | Franqueza | "O Summit não vai salvar a sua agência." (18/10) · "Não vamos te convencer mais." (07/11) |
 
@@ -28,7 +28,7 @@ convence sozinha. Seis técnicas, todas em uso:
 contagem de vendas inventada ("restam X vagas"). Se você me passar o número real de ingressos vendidos,
 posso usar como prova social.
 
-Degraus de preço usados: Early Bird R$ 350 (até 30/09) · Segundo lote R$ 450 (01/10 a 24/10) ·
+Degraus de preço usados: Early Bird R$ 350 (até **02/10**, prorrogado) · Segundo lote R$ 450 (**03/10** a 24/10) ·
 Terceiro lote R$ 550 (25/10 a 10/11) · no dia R$ 650 (sujeito à disponibilidade).
 
 ## Parceiros nas artes
@@ -55,8 +55,8 @@ no slide), `palestrante-close` (slide com dado de terceiros) e `palestra-telao` 
 
 | Fase | Datas | Foco |
 |---|---|---|
-| 1 | 29/09 a 30/09 | Early Bird em venda reversa, teaser da votação |
-| 2 | 01/10 a 08/10 | Votação abre, Segundo lote, IA entra |
+| 1 | 29/09 a 02/10 | Early Bird em venda reversa, **anúncio da prorrogação em 01/10**, último dia em 02/10, votação abre |
+| 2 | 03/10 a 08/10 | Segundo lote (a partir de 03/10), IA entra |
 | 3 | 09/10 a 24/10 | Uma categoria do Prêmio a cada 3 a 4 dias, palestrantes, painel, Segundo lote fecha |
 | 4 | 25/10 a 31/10 | Terceiro lote, reta final e encerramento da votação |
 | 5 | 01/11 a 11/11 | Contagem regressiva, onde é, programa, último dia do lote, "é hoje" |
@@ -65,6 +65,27 @@ Feed: 43 posts prontos (7 carrosséis); 06/10 é o dia do reel. Os 44 dias de 29
 enquetes). Reels prontos: Prêmio (01/10) e IA em perguntas (06/10), mais os 4 de setembro.
 **Ainda não produzidos:** reels novos para outubro e novembro (sugestões: último dia do Segundo lote 23/10,
 Prêmio última semana 27/10, último dia de votação 30/10, contagem final 09/11).
+
+## Early Bird prorrogado até 02/10 (anúncio em 01/10)
+
+| Data | Peça |
+|---|---|
+| 29/09 e 30/09 | "Não compre o Early Bird" e "Ainda é R$ 350": **sem data final**, só "depois do Early Bird, R$ 100 a mais" |
+| 01/10 | Feed 12h e story 10h: "Early Bird prorrogado até 02/10" |
+| 02/10 | Feed 9h e story 12h30: "Amanhã, R$ 100 a mais" (último dia, 23h59) |
+| 03/10 | Story "Segundo lote" (R$ 450 até 24/10) |
+
+**Não publicar** os dois P11 do pacote de setembro ("último dia" 29/09 e "termina hoje" 30/09): afirmam
+prazo final que deixou de valer. Estão marcados como bloqueados no `AGENDAMENTO.md` de setembro.
+
+**Dependência técnica.** O site troca de lote pela data e a função de checkout cobra pelo mesmo calendário.
+As datas já estão editadas no repositório (`site/evento.config.js` e `supabase/functions/summit-checkout/index.ts`:
+Early Bird até 02/10, Segundo lote a partir de 03/10), mas **nada foi publicado**. Para o preço não virar
+R$ 450 à meia-noite de 30/09, o site e a função precisam estar atualizados antes disso. Se ficarem para
+depois, quem comprar em 01/10 paga R$ 450 enquanto o post diz R$ 350.
+
+**Artes antigas com "até 30/09"** (não regeneradas): panorama e demais posts fixados, capa do P7/P9, convites e
+e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a partir de 03/10.
 
 ## Precisa da sua decisão antes de publicar
 

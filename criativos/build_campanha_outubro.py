@@ -95,7 +95,7 @@ def add(data, hora, slug, formato, imgs=(), copias=(), legenda="", nota=""):
 
 # ------------------------------------------------------------------ FEED
 
-add("2026-10-01", "11h30", "votacao-aberta", "feed", [feed(
+add("2026-10-01", "09h30", "votacao-aberta", "feed", [feed(
     BG="trofeus", CANTO="branco", KICKER="Prêmio Melhores Profissionais 2026",
     TITULO="VOTAÇÃO<br>ABERTA", TSIZE=140,
     TEXTO="32 finalistas, 6 categorias. Vote até <strong>30 de outubro.</strong>", CTA=CTA_SITE)],
@@ -122,7 +122,7 @@ O Intercâmbio Summit 2026 dedica o dia inteiro a esse tema: IA no atendimento, 
 
 11 de novembro · São Paulo · 144 lugares
 
-Segundo lote: R$ 450, ou 5x de R$ 90 sem juros, até 24 de outubro. Ingressos no link da bio.
+Lote Early Bird: R$ 350, ou 5x de R$ 70 sem juros, até 2 de outubro. Ingressos no link da bio.
 
 {H_IA}""")
 
@@ -242,7 +242,7 @@ add("2026-10-01", "09h00", "story-votacao-aberta", "story", [story(
     BG="trofeus", CANTO="branco", KICKER=PREMIO_K, TITULO="VOTAÇÃO<br>ABERTA", TSIZE=150,
     TEXTO="Até <strong>30 de outubro.</strong>", TOP=420, FAIXA="none", ZONA="sticker")],
     nota=SP + " (zona livre y 1000 a 1500).")
-add("2026-10-01", "12h00", "story-segundo-lote", "story", [story(
+add("2026-10-03", "12h00", "story-segundo-lote", "story", [story(
     BG="painel-plateia", KICKER="Intercâmbio Summit 2026", TITULO="SEGUNDO<br>LOTE", TSIZE=150,
     PILL=pill("R$ 450", "ou 5x de R$ 90 sem juros") + prazo("Até 24 de outubro"),
     TOP=420, FAIXA="none", ZONA="sticker")],
@@ -313,15 +313,17 @@ def diario(data, hora, slug, kicker, titulo, texto, legenda, tsize=118, bg="pain
             nota=nota or "Opcional: sticker de link. O endereço já está impresso na arte.")
 
 
-EB = pill("R$ 350", "ou 5x de R$ 70 sem juros") + prazo("Até 30 de setembro")
+EB_PILL = pill("R$ 350", "ou 5x de R$ 70 sem juros")
 
-diario("2026-09-29", "19h00", "eb-nao-compre", "Lote Early Bird · termina amanhã",
-       "NÃO COMPRE<br>O EARLY BIRD.", tsize=124, bg="painel-plateia", pill_html=EB,
-       texto="Se <strong>R$ 100 a mais</strong> não fazem diferença para você, espere. O lote termina amanhã e o Segundo lote custa R$ 450.",
+# Early Bird prorrogado até 02/10 (anúncio em 01/10). Os posts de 29 e 30/09 não citam
+# data final: o prazo vigente ainda é 30/09 na comunicação, mas já está decidido que muda.
+diario("2026-09-29", "19h00", "eb-nao-compre", "Lote Early Bird",
+       "NÃO COMPRE<br>O EARLY BIRD.", tsize=124, bg="painel-plateia", pill_html=EB_PILL,
+       texto="Se <strong>R$ 100 a mais</strong> não fazem diferença para você, espere. Depois do Early Bird, o mesmo ingresso custa R$ 450.",
        story_hora="19h30",
        legenda=f"""Não compre o Lote Early Bird se R$ 100 a mais não fazem diferença para você.
 
-Sério: se o valor não pesa, pode esperar. Mas o lote termina amanhã, 30 de setembro, e a partir de 1º de outubro o ingresso do Intercâmbio Summit 2026 passa a R$ 450. Depois, R$ 550 e, no dia, R$ 650.
+Sério: se o valor não pesa, pode esperar. Mas o lote não dura para sempre: depois dele, o ingresso do Intercâmbio Summit 2026 passa a R$ 450, depois R$ 550 e, no dia, R$ 650.
 
 Hoje: R$ 350, ou 5x de R$ 70 sem juros.
 
@@ -331,23 +333,53 @@ Ingressos no link da bio.
 
 {H_LOTE} #earlybird""")
 
-diario("2026-09-30", "12h00", "eb-amanha-mais-100", "Lote Early Bird · último dia",
-       "AMANHÃ, R$ 100<br>A MAIS.", tsize=124, bg="plateia",
-       pill_html=pill("R$ 350", "ou 5x de R$ 70 sem juros") + prazo("Só até 23h59 de hoje"),
+diario("2026-09-30", "12h00", "eb-ainda-350", "Lote Early Bird",
+       "AINDA É R$ 350.<br>NÃO VAI SER<br>PARA SEMPRE.", tsize=108, bg="plateia", pill_html=EB_PILL,
+       texto="O evento é o mesmo e a sala também. Depois do Early Bird, o ingresso custa <strong>R$ 100 a mais.</strong>",
+       story_hora="18h00", story_ts=108,
+       legenda=f"""Ainda é R$ 350. Mas não vai ser para sempre.
+
+O Lote Early Bird do Intercâmbio Summit 2026 está aberto: R$ 350, ou 5x de R$ 70 sem juros. Depois dele, o Segundo lote custa R$ 450. Mesmo dia, mesma sala, mesmas 144 cadeiras.
+
+Não vamos insistir. Só deixar a conta à vista.
+
+11 de novembro · São Paulo
+
+Ingressos no link da bio.
+
+{H_LOTE} #earlybird""")
+
+diario("2026-10-01", "12h00", "eb-prorrogado", "Lote Early Bird · prorrogado",
+       "EARLY BIRD<br>PRORROGADO<br>ATÉ 02/10.", tsize=104, bg="painel", story_hora="10h00", story_ts=112,
+       pill_html=EB_PILL + prazo("Até sexta-feira, 02/10"),
+       texto="Mais dois dias a <strong>R$ 350.</strong> Depois, o Segundo lote: R$ 450.",
+       legenda=f"""Prorrogamos o Lote Early Bird até sexta-feira, 2 de outubro.
+
+Mais dois dias para garantir o ingresso do Intercâmbio Summit 2026 por R$ 350, ou 5x de R$ 70 sem juros. Depois, o Segundo lote: R$ 450.
+
+O que muda depois? Só o preço. O evento, a sala e as 144 cadeiras são os mesmos.
+
+11 de novembro · São Paulo
+
+Ingressos no link da bio.
+
+{H_LOTE} #earlybird""")
+
+diario("2026-10-02", "09h00", "eb-ultimo-dia", "Lote Early Bird · último dia",
+       "AMANHÃ, R$ 100<br>A MAIS.", tsize=124, bg="plateia", story_hora="12h30", story_ts=124,
+       pill_html=EB_PILL + prazo("Só até 23h59 de hoje"),
        texto="O evento é o mesmo. A sala é a mesma. O ingresso, <strong>não.</strong>",
-       story_hora="18h00", story_ts=124,
        legenda=f"""Amanhã o mesmo ingresso custa R$ 100 a mais. O evento é o mesmo.
 
 Hoje é o último dia do Lote Early Bird do Intercâmbio Summit 2026: R$ 350, ou 5x de R$ 70 sem juros, até 23h59.
 
-A partir de amanhã, Segundo lote: R$ 450. Mesmo dia, mesma sala, mesmas 144 cadeiras. Não vamos insistir, só deixar a conta à vista.
+A partir de amanhã, Segundo lote: R$ 450. Mesmo dia, mesma sala, mesmas 144 cadeiras.
 
 11 de novembro · São Paulo
 
 Ingressos no link da bio.
 
 {H_LOTE} #earlybird #ultimodia""")
-
 
 # --------------------------------------------- SÉRIE DIÁRIA 03/10 a 11/11
 def leg(gancho, *paras, cta="Ingressos no link da bio.", tags=H_LOTE, local=True):

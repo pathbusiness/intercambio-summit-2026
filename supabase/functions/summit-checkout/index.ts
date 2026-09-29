@@ -20,8 +20,8 @@ const WEBHOOK_URL =
   "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-mp-webhook";
 
 const LOTES = [
-  { nome: "Early Bird",    inicio: "2026-09-01", fim: "2026-09-30", avista: 350 },
-  { nome: "Segundo lote",  inicio: "2026-10-01", fim: "2026-10-24", avista: 450 },
+  { nome: "Early Bird",    inicio: "2026-09-01", fim: "2026-10-02", avista: 350 },
+  { nome: "Segundo lote",  inicio: "2026-10-03", fim: "2026-10-24", avista: 450 },
   { nome: "Terceiro lote", inicio: "2026-10-25", fim: "2026-11-10", avista: 550 },
   { nome: "Dia do evento", inicio: "2026-11-11", fim: "2026-11-11", avista: 650 },
 ];
