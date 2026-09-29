@@ -34,33 +34,41 @@ próximo passo é código de confirmação por e-mail ou links únicos por eleit
 
 ## Onde ficam os votos
 
-**Supabase, projeto "Forio"** (ref `lvchpskxeohfmistppxl`, região us-west-2), tabela **`public.votacao_votos`**.
+**Supabase da PATH** (projeto "PATH BUS MKT", ref `ildxeqtmpbartonjoiwc`), tabela **`public.votacao_votos`**: o mesmo
+projeto que o site já usa desde 23/09 para leads e checkout (commit `978e96c`). O projeto antigo (Forio, conta EXP TOUR)
+não é mais usado pelo site.
 
-- Ver: https://supabase.com/dashboard/project/lvchpskxeohfmistppxl/editor → Table Editor → `votacao_votos`.
-- Consultar/exportar: SQL Editor (consultas abaixo); o resultado tem botão para baixar CSV.
-- Cada linha: categoria, finalista (slug), nome, e-mail (normalizado e original), empresa, tipo (agência ou
-  instituição), hash do IP, navegador, data/hora, `status` (`valido` ou `invalidado`) e `motivo`.
-- O site nunca lê essa tabela; só a função `summit-votar` escreve (service role). Anon e authenticated não têm acesso.
+- Ver: Table Editor do projeto → `votacao_votos`. Consultar/exportar: SQL Editor (consultas abaixo; o resultado baixa em CSV).
+- Cada linha: categoria, finalista (slug), nome, e-mail (normalizado e original), empresa, tipo (agência ou instituição),
+  hash do IP, navegador, data/hora, `status` (`valido` ou `invalidado`) e `motivo`.
+- O site nunca lê a tabela; só a função `summit-votar` escreve (service role). Anon e authenticated não têm acesso.
 
-Atenção: o projeto Forio também guarda outros sistemas da PATH (contratos, alunos, cotações). Quem tiver acesso ao
-painel vê tudo isso. Para terceiros (conferência, comitê), compartilhe um CSV exportado, não o acesso ao painel.
-
-## Estado em produção
+## Estado em produção (atualizado em 29/09)
 
 | Item | Situação |
 |---|---|
-| Migração `votacao_premio_2026` (tabela, índices, RLS, view de ranking) | **Aplicada em 29/09** no projeto Forio |
-| Função `summit-votar` (v1, `verify_jwt: false`, teto 300 e-mails/IP/hora) | **Publicada em 29/09** (ativa; responde "janela: antes" até 01/10 00:00 de Brasília) |
-| Site (página `/votar`, rewrites, botão no Prêmio, convite pós-voto) | **Falta publicar** (merge na `main`) |
+| Projeto PATH (`ildxeq…`): migração `20261001000000_votacao.sql` | **PENDENTE** (precisa ser aplicada por quem tem acesso a esse projeto) |
+| Projeto PATH: função `summit-votar` | **PENDENTE** |
+| Projeto PATH: função `summit-checkout` com Early Bird até 02/10 | **PENDENTE, prazo: antes de 01/10 00:00** |
+| Site (página `/votar`, rewrites, botão no Prêmio, convite pós-voto) | Neste PR |
+| Projeto antigo Forio (`lvchp…`) | Recebeu por engano, em 29/09, a migração, a `summit-votar` e uma correção de datas na `summit-checkout` (v2). Não é usado pelo site. Tabela vazia. Pode ser limpo. |
 
-`site/vercel.json` e `evento.config.js` apontam `/api/votar` para o projeto Forio, onde a função está.
-**Aviso:** as demais rotas do site (`/api/leads`, `/api/checkout`) apontam para outro identificador de projeto
-(`ildxeqtmpbartonjoiwc`), e a função `summit-checkout` publicada no Forio é uma versão anterior à do repositório
-(sem quantidade de ingressos e com o Early Bird ainda até 30/09). Conferir antes de 01/10.
+### Como aplicar no projeto da PATH
 
-Teste ponta a ponta após publicar o site: votar uma vez com e-mail `@teste.local` e depois apagar:
-`delete from public.votacao_votos where email like '%@teste.local';`
-(o teste com votos reais só é possível a partir de 01/10 00:00; antes disso a função recusa).
+Com a CLI do Supabase logada na conta da PATH:
+
+```
+supabase link --project-ref ildxeqtmpbartonjoiwc
+supabase db push                                     # ou colar supabase/migrations/20261001000000_votacao.sql no SQL Editor
+supabase functions deploy summit-votar --no-verify-jwt
+supabase functions deploy summit-checkout --no-verify-jwt   # traz Early Bird até 02/10 e Segundo lote a partir de 03/10
+```
+
+Variáveis opcionais da votação: `VOTACAO_SALT` (sal do hash de IP), `VOTACAO_INICIO` e `VOTACAO_FIM` (só para testes).
+O código de `summit-checkout` do repositório já tem as datas novas.
+
+Teste ponta a ponta depois de publicar o site: votar uma vez com e-mail `@teste.local` (só a partir de 01/10 00:00; antes
+disso a função recusa) e apagar: `delete from public.votacao_votos where email like '%@teste.local';`
 
 ## Acompanhar e auditar (SQL editor, só organização)
 

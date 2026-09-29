@@ -49,7 +49,7 @@ window.EVENTO = {
     inicio: "2026-10-01",
     fim: "2026-10-30",
     api: "/api/votar",
-    apiLocal: "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-votar",
+    apiLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-votar",
     regulamentoUrl: ""
   },
 

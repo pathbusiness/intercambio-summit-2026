@@ -10,7 +10,7 @@
     },
     {
       "source": "/api/votar",
-      "destination": "https://lvchpskxeohfmistppxl.supabase.co/functions/v1/summit-votar"
+      "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-votar"
     },
     {
       "source": "/votar",
