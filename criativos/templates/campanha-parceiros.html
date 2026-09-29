@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Campanha — slide de parceiros 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Slide de parceiros: fundo claro (branco da marca) e logos OFICIAIS em cor,
+     grandes. Vai como último slide (ou o penúltimo) dos carrosséis, para as
+     artes de mensagem ficarem livres. Parceiros já assinaram o co-branding. */
+  .canvas { background: var(--white); }
+  .progresso { color: var(--map-grey, #96979B); }
+  .logo-cor { position: absolute; top: 64px; left: var(--mx); }
+  .logo-cor img { height: 92px; width: auto; }
+  .titulo { position: absolute; left: var(--mx); right: var(--mx); top: 196px;
+    font-weight: 700; font-size: 72px; line-height: .98; text-transform: uppercase; color: var(--charcoal); }
+  .titulo span { color: var(--summit-blue); }
+
+  .tier { position: absolute; left: var(--mx); right: var(--mx); }
+  .tier .rotulo { font-weight: 600; font-size: 22px; letter-spacing: .28em; text-transform: uppercase;
+    color: #6B6C70; margin-bottom: 22px; display: flex; align-items: center; gap: 18px; }
+  .tier .rotulo::after { content: ""; flex: 1; height: 2px; background: var(--mid-grey); }
+  .linha { display: flex; align-items: center; gap: 56px; }
+  .linha + .linha { margin-top: 26px; }
+
+  .t1 { top: 388px; }
+  .t2 { top: 700px; }
+  .t3 { top: 872px; }
+  .p-ollara { height: 92px; } .p-clida { height: 98px; } .p-ikon { height: 64px; }
+  .m-pie { height: 66px; }
+  .a-belta { height: 74px; } .a-abrapei { height: 92px; } .a-ialc { height: 100px; }
+  .a-allyhub { height: 58px; } .a-edvisor { height: 84px; }
+  .t3 .linha { gap: 40px; justify-content: space-between; }
+
+  .rodape { position: absolute; left: var(--mx); right: var(--mx); bottom: 136px; display: flex;
+    align-items: center; justify-content: space-between; gap: 24px; }
+  .rodape .info { font-weight: 600; font-size: 26px; letter-spacing: .1em; text-transform: uppercase; color: var(--charcoal); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="canto-45"></div>
+  <div class="progresso">{{PROGRESSO}}</div>
+
+  <div class="logo-cor"><img src="../assets/marca/summit-logo-cor.png" alt="Intercâmbio Summit 2026"></div>
+  <div class="titulo">Quem faz o Summit<br><span>acontecer com a gente</span></div>
+
+  <div class="tier t1">
+    <div class="rotulo">Patrocínio</div>
+    <div class="linha">
+      <img class="p-ollara" src="../assets/marca/cor-patrocinio-ollara.png" alt="Ollara Education Hub">
+      <img class="p-clida"  src="../assets/marca/cor-patrocinio-clida.png" alt="CLIDA Centro Linguistico Italiano Dante Alighieri">
+    </div>
+    <div class="linha">
+      <img class="p-ikon" src="../assets/marca/cor-patrocinio-ikon-alg.png" alt="Ikon Institute of Australia e Australian Learning Group">
+    </div>
+  </div>
+
+  <div class="tier t2">
+    <div class="rotulo">Media partner</div>
+    <div class="linha"><img class="m-pie" src="../assets/marca/cor-media-thepie.png" alt="The PIE"></div>
+  </div>
+
+  <div class="tier t3">
+    <div class="rotulo">Apoio</div>
+    <div class="linha">
+      <img class="a-belta"   src="../assets/marca/cor-apoio-belta.png"   alt="BELTA">
+      <img class="a-abrapei" src="../assets/marca/cor-apoio-abrapei.png" alt="ABRAPEI">
+      <img class="a-ialc"    src="../assets/marca/cor-apoio-ialc.png"    alt="IALC">
+      <img class="a-allyhub" src="../assets/marca/cor-apoio-allyhub.png" alt="Ally Hub">
+      <img class="a-edvisor" src="../assets/marca/cor-apoio-edvisor.png" alt="Edvisor">
+    </div>
+  </div>
+
+  <div class="rodape">
+    <div class="info">11 de novembro · São Paulo</div>
+    <div>{{CTA}}</div>
+  </div>
+</div>
+</body>
+</html>

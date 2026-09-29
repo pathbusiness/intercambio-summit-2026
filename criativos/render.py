@@ -10,6 +10,7 @@ Uso:
     python3 criativos/render.py setembro    # campanha P1-P11
     python3 criativos/render.py premio      # 6 capas + 32 finalistas x 4 + textos
     python3 criativos/render.py premio DIAS=3   # regera stories "faltam X dias"
+    python3 criativos/render.py dossies     # cards com destaque do dossiê (só resumos aprovados)
     python3 criativos/render.py kit         # co-branded dos 5 apoiadores
     python3 criativos/render.py tudo        # setembro + premio + kit
     python3 criativos/render.py <template.html> chave=valor ... out=arquivo.png
@@ -41,6 +42,11 @@ SIZES = {"feed": (1080, 1350), "story": (1080, 1920), "linkedin": (1200, 627),
 FOTO_FINALISTA = "../../site/assets/img/finalistas/%s-800.webp"
 
 
+def _parceiros():
+    """Bloco da faixa de parceiros (templates/_parceiros.html) para {{PARCEIROS}}."""
+    return open(os.path.join(TPL, "_parceiros.html"), encoding="utf-8").read()
+
+
 def _chromium_path():
     base = os.environ.get("PLAYWRIGHT_BROWSERS_PATH", "/opt/pw-browsers")
     if os.path.exists(os.path.join(base, "chromium")):
@@ -61,6 +67,7 @@ def render_jobs(jobs):
             html = open(tpl_path, encoding="utf-8").read()
             for k, v in data.items():
                 html = html.replace("{{%s}}" % k, str(v))
+            html = html.replace("{{PARCEIROS}}", _parceiros())
             tmp = tpl_path.replace(".html", ".__render__.html")
             with open(tmp, "w", encoding="utf-8") as f:
                 f.write(html)
@@ -177,7 +184,7 @@ def jobs_setembro():
 
 # Endereço de votação confirmado pelo Rodrigo em 01/09.
 # Se um dia mudar: trocar aqui e rodar `python3 criativos/render.py premio`.
-URL_VOTACAO = "intercambiosummit.com.br"
+URL_VOTACAO = "intercambiosummit.com.br/votar"
 
 TEXTO_SUGERIDO = """Estou entre os finalistas do Prêmio Melhores Profissionais 2026, na categoria {categoria} (trilha {trilha}).
 
@@ -214,6 +221,31 @@ def jobs_premio(dias="7"):
             ("premio-story-faltam.html", dados,
              os.path.join(pasta, f"story-faltam-{dias}-dias.jpg"), S),
         ]
+    return jobs
+
+
+def jobs_dossies():
+    """Card com o destaque do dossiê, SÓ para quem tem resumo aprovado (autorização do finalista)
+    em criativos/data/dossies-resumos.json: {slug: {empresa, cargo, resumo, aprovado: true}}."""
+    p = os.path.join(ROOT, "data", "dossies-resumos.json")
+    if not os.path.exists(p):
+        print("sem criativos/data/dossies-resumos.json: nada a gerar")
+        return []
+    res = json.load(open(p, encoding="utf-8"))
+    cats, fins = _faixa_dados()
+    jobs = []
+    for f in fins:
+        d = res.get(f["slug"])
+        if not d or d.get("aprovado") is not True:
+            continue
+        if not d.get("resumo") or len(d["resumo"]) > 240:
+            raise SystemExit(f"resumo de {f['nome']} vazio ou acima de 240 caracteres ({len(d.get('resumo',''))})")
+        cat = cats[f["categoria"]]
+        pasta = os.path.join(PROD, "premio", "finalistas", pasta_finalista(f["nome"]))
+        dados = {"NOME": f["nome"], "CATEGORIA": cat["nome"], "TRILHA": cat["trilha"],
+                 "FOTO": FOTO_FINALISTA % f["slug"], "RESUMO": d["resumo"],
+                 "CARGO_EMPRESA": " · ".join(x for x in (d.get("cargo"), d.get("empresa")) if x)}
+        jobs.append(("premio-card-dossie.html", dados, os.path.join(pasta, "card-dossie.jpg"), SIZES["feed"]))
     return jobs
 
 
@@ -274,6 +306,8 @@ def main():
     elif alvo == "premio":
         render_jobs(jobs_premio(dias=extra.get("DIAS", "7")))
         escreve_textos()
+    elif alvo == "dossies":
+        render_jobs(jobs_dossies())
     elif alvo == "kit":
         render_jobs(jobs_kit())
     elif alvo == "tudo":

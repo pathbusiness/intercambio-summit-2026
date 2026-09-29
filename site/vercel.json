@@ -7,6 +7,14 @@
     {
       "source": "/api/checkout",
       "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-checkout"
+    },
+    {
+      "source": "/api/votar",
+      "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-votar"
+    },
+    {
+      "source": "/votar",
+      "destination": "/votacao.html"
     }
   ]
 }

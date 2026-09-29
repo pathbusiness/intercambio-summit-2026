@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Campanha out/26 — post de feed 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Template único do feed da campanha (29/09 a 31/10): kicker, mensagem
+     principal entre 30% e 55% da altura (y 405–742), texto, preço/CTA e
+     faixa de apoio. Todos os campos vêm de build_campanha_outubro.py. */
+  .bg-foto::after {
+    background:
+      linear-gradient(to bottom, rgba(0,26,63,.42) 0px, rgba(0,26,63,.58) 170px, rgba(0,26,63,.94) 310px, rgba(0,26,63,.97) 100%);
+  }
+  .bloco { position: absolute; left: var(--mx); right: var(--mx); top: 338px; }
+  .kicker { font-weight: 600; text-transform: uppercase; letter-spacing: .2em;
+    font-size: 28px; color: var(--mid-grey); margin-bottom: 26px; }
+  .texto { margin-top: 24px; font-weight: 500; font-size: 42px; line-height: 1.24;
+    color: var(--mid-grey); max-width: 900px; }
+  .texto strong { color: var(--white); font-weight: 700; }
+  .pill-wrap { margin-top: 28px; }
+  .pill-wrap:empty, .cta-wrap:empty { display: none; }
+  .cta-wrap { margin-top: 28px; }
+  .pill-preco { font-size: 46px; }
+  .pill-preco .ou { font-size: 32px; }
+  .prazo { margin-top: 14px; font-weight: 600; font-size: 32px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--mid-grey); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/{{BG}}.webp" alt="" style="object-position:{{POS}};"></div>
+  <div class="canto-45 {{CANTO}}"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="bloco">
+      <div class="kicker">{{KICKER}}</div>
+      <div class="titulo-hero" style="font-size:{{TSIZE}}px;">{{TITULO}}</div>
+      <div class="texto">{{TEXTO}}</div>
+      <div class="pill-wrap">{{PILL}}</div>
+      <div class="cta-wrap">{{CTA}}</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

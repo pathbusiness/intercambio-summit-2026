@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Fixado 01 — O Evento 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Trio de posts fixados: mesmo cabeçalho numerado nos três; conteúdo
+     essencial dentro da zona central (y 135–1215) que o grid preserva. */
+  .bg-foto::after {
+    background:
+      linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.84) 40%, rgba(0,35,92,.55) 100%);
+  }
+  .tab-trio { position: absolute; top: 200px; left: var(--mx);
+    background: var(--white); color: var(--summit-blue);
+    font-weight: 700; font-size: 30px; letter-spacing: .12em; text-transform: uppercase;
+    padding: 12px 22px 14px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%); }
+
+  .bloco-msg { position: absolute; left: var(--mx); right: var(--mx); top: 380px; }
+  .titulo-hero { font-size: 130px; }
+  .quando { margin-top: 30px; font-weight: 700; font-size: 54px; color: var(--white);
+    text-transform: uppercase; letter-spacing: .02em; }
+  .lugares { margin-top: 10px; font-weight: 500; font-size: 42px; color: var(--mid-grey); }
+
+  .frase { position: absolute; left: var(--mx); right: var(--mx); top: 900px;
+    font-weight: 500; font-size: 40px; line-height: 1.3; color: var(--mid-grey); }
+  .frase strong { color: var(--white); font-weight: 700; }
+
+  .cta-wrap { position: absolute; left: var(--mx); top: 1078px; }
+  .cta { font-size: 34px; padding: 18px 38px 20px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+    <div class="tab-trio">01 · O evento</div>
+
+    <div class="bloco-msg">
+      <div class="titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</div>
+      <div class="quando">11 de novembro · São Paulo</div>
+      <div class="lugares">Um dia · 144 lugares</div>
+    </div>
+
+    <div class="frase">O encontro do mercado brasileiro de intercâmbio,
+      <strong>feito para quem decide.</strong></div>
+
+    <div class="cta-wrap"><span class="cta">intercambiosummit.com.br</span></div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>
