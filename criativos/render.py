@@ -41,6 +41,11 @@ SIZES = {"feed": (1080, 1350), "story": (1080, 1920), "linkedin": (1200, 627),
 FOTO_FINALISTA = "../../site/assets/img/finalistas/%s-800.webp"
 
 
+def _parceiros():
+    """Bloco da faixa de parceiros (templates/_parceiros.html) para {{PARCEIROS}}."""
+    return open(os.path.join(TPL, "_parceiros.html"), encoding="utf-8").read()
+
+
 def _chromium_path():
     base = os.environ.get("PLAYWRIGHT_BROWSERS_PATH", "/opt/pw-browsers")
     if os.path.exists(os.path.join(base, "chromium")):
@@ -61,6 +66,7 @@ def render_jobs(jobs):
             html = open(tpl_path, encoding="utf-8").read()
             for k, v in data.items():
                 html = html.replace("{{%s}}" % k, str(v))
+            html = html.replace("{{PARCEIROS}}", _parceiros())
             tmp = tpl_path.replace(".html", ".__render__.html")
             with open(tmp, "w", encoding="utf-8") as f:
                 f.write(html)

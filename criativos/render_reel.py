@@ -43,7 +43,12 @@ def render(template, out_mp4, dur=12.0, fps=30, size=(1080, 1920)):
         exe = _chromium_path()
         browser = p.chromium.launch(executable_path=exe) if exe else p.chromium.launch()
         page = browser.new_page(viewport={"width": w, "height": h}, device_scale_factor=1)
-        page.goto("file://" + os.path.join(TPL, template))
+        src = os.path.join(TPL, template)
+        html = open(src, encoding="utf-8").read().replace(
+            "{{PARCEIROS}}", open(os.path.join(TPL, "_parceiros.html"), encoding="utf-8").read())
+        tmp = src.replace(".html", ".__render__.html")
+        open(tmp, "w", encoding="utf-8").write(html)
+        page.goto("file://" + tmp)
         page.evaluate("document.fonts.ready.then(() => true)")
         page.wait_for_timeout(300)
         for i in range(total):
@@ -58,6 +63,7 @@ def render(template, out_mp4, dur=12.0, fps=30, size=(1080, 1920)):
             if i % (fps * 2) == 0:
                 print(f"  frame {i}/{total}")
         browser.close()
+        os.remove(tmp)
 
     os.makedirs(os.path.dirname(out_mp4), exist_ok=True)
     ff = imageio_ffmpeg.get_ffmpeg_exe()

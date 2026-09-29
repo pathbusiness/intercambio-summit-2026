@@ -1,123 +1,96 @@
-# Campanha Instagram · 29/09 a 31/10/2026
+# Campanha Instagram · 29/09 a 11/11/2026
 
-Objetivo: despertar interesse em participar do Intercâmbio Summit (11/11, São Paulo, 144 lugares) e
-converter em ingresso, intercalando com a votação do Prêmio Melhores Profissionais (30/10).
+Objetivo: encher as 144 cadeiras do Intercâmbio Summit (11/11, São Paulo) e sustentar a votação do
+Prêmio Melhores Profissionais (01/10 a 30/10). **Um post de feed por dia, todos os dias**, mais reels
+e stories.
 
 Regra da casa: nada é publicado sem aprovação explícita, com arte e legenda exatas mostradas antes.
 A publicação é manual (o conector do Instagram segue sem a permissão de publicar).
 
-## Fatos que a campanha usa (fonte)
+Calendário completo, com uma pasta por publicação (arte + `legenda.txt` ou `nota.txt`):
+`criativos/out/campanha-outubro/CALENDARIO.md`
 
-| Fato | Fonte |
+## Venda reversa: como os posts vendem
+
+Em vez de empurrar o ingresso, o post qualifica, desafia ou deixa a conta à vista, e a pessoa se
+convence sozinha. Seis técnicas, todas em uso:
+
+| Técnica | Exemplo no calendário |
 |---|---|
-| Votação pública entre os finalistas: 01/10 a 30/10 | Regulamento Oficial, etapa 3 e calendário (Drive) |
-| Vencedores anunciados ao vivo em 11/11 (16h30 no site) | Regulamento, seção 13; site |
-| 32 finalistas, 6 categorias, duas trilhas | site e `data/finalistas.json` |
-| Segundo lote R$ 450 (5x R$ 90 sem juros) de 01/10 a 24/10 | `site/evento.config.js` |
-| Terceiro lote R$ 550 (5x R$ 110 sem juros) de 25/10 a 10/11 | `site/evento.config.js` |
-| Local: Contentix, Av. Paulista, 967, 9º andar | `site/evento.config.js` |
-| Tema: IA na operação (atendimento, marketing e vendas com toque humano) | briefing e site |
+| Desqualificar | "Não é para quem já sabe tudo de IA" (03/10) · "Acha que IA é modismo? Venha." (10/10) |
+| Autosseleção | "Se você é um destes, venha" (04/10) |
+| Contra-intuitivo | "Não compre o Early Bird." (29/09) · "Pode esperar. O próximo lote é R$ 550." (08/10) |
+| Conta à vista | "Amanhã, R$ 100 a mais." (30/09) · "5x de R$ 110 sem juros. Faça a conta." (26/10) |
+| Escassez real | "São 144 lugares. Não tem 145." (15/10) |
+| Franqueza | "O Summit não vai salvar a sua agência." (18/10) · "Não vamos te convencer mais." (07/11) |
 
-Nenhuma estatística externa sobre IA foi usada. O pilar de IA trabalha com perguntas e cenários da
-rotina de agência. Se quiser números de mercado, precisamos de fonte citável antes.
+**Limite de integridade:** a escassez só usa o que é verdade (144 lugares e as datas dos lotes). Não há
+contagem de vendas inventada ("restam X vagas"). Se você me passar o número real de ingressos vendidos,
+posso usar como prova social.
 
-## Pilares e proporção
+Degraus de preço usados: Early Bird R$ 350 (até 30/09) · Segundo lote R$ 450 (01/10 a 24/10) ·
+Terceiro lote R$ 550 (25/10 a 10/11) · no dia R$ 650 (sujeito à disponibilidade).
 
-| Pilar | Papel | Peso |
+## Parceiros nas artes
+
+Todas as peças novas trazem a faixa em três níveis, como no site: **Patrocínio** (Ollara, CLIDA,
+Ikon Institute of Australia + Australian Learning Group), **Media partner** (The PIE) e **Apoio**
+(BELTA, ABRAPEI, IALC, Ally Hub, Edvisor). Está em feeds, carrosséis, palestrantes, stories (exceto os que
+reservam espaço para sticker), nos 5 reels, nas capas das categorias do Prêmio e nos cards de finalista.
+
+Não recebem a faixa, pelo briefing: cards individuais de voto e stories de voto por finalista.
+
+Os logos são as versões brancas monocromáticas (`tools/build_criativos_marca.py`), o mesmo tratamento já
+decidido para os apoiadores. **O manual de marca (seção 08) pede confirmação escrita do parceiro antes de
+publicar material co-branded**; os quatro logos novos (Ollara, CLIDA, Ikon/ALG, The PIE) entram nessa lista.
+
+## Variedade de imagens
+
+Rotação de 9 fotos de evento (painel, painel-plateia, plateia, plateia-2, networking, palco-telão,
+troféus, premiados). A foto aparece com clareza na faixa superior de cada peça, onde só há o logo, e o
+véu escuro protege a zona do texto. Fora de uso por risco: `palestra-plateia` (o @ da palestrante aparece
+no slide), `palestrante-close` (slide com dado de terceiros) e `palestra-telao` (slide legível).
+
+## Ritmo por fase
+
+| Fase | Datas | Foco |
 |---|---|---|
-| IA na operação | Desperta interesse e justifica o ingresso | ~45% |
-| Prêmio (votação) | Engajamento, alcance via finalistas | ~35% |
-| Ingressos (lotes) | Conversão e urgência | ~20% |
+| 1 | 29/09 a 30/09 | Early Bird em venda reversa, teaser da votação |
+| 2 | 01/10 a 08/10 | Votação abre, Segundo lote, IA entra |
+| 3 | 09/10 a 24/10 | Uma categoria do Prêmio a cada 3 a 4 dias, palestrantes, painel, Segundo lote fecha |
+| 4 | 25/10 a 31/10 | Terceiro lote, reta final e encerramento da votação |
+| 5 | 01/11 a 11/11 | Contagem regressiva, onde é, programa, último dia do lote, "é hoje" |
 
-Ritmo semanal: feed 4 a 5, reels 2, stories todos os dias.
-
-## Calendário
-
-Legenda: **PRONTO** = arte e legenda em `out/campanha-outubro/` · **W2** = a produzir após a sua aprovação da direção.
-
-### Semana 0 (29 a 30/09) · fecha o Early Bird, teaser do Prêmio
-| Data | Peça | Status |
-|---|---|---|
-| ter 29/09 09h | Feed: P11 "Último dia do Early Bird" (pacote de setembro) | PRONTO |
-| ter 29/09 17h | Feed: teaser "A votação abre dia 1º" | PRONTO |
-| ter 29/09 | Story: teaser "Dia 1º abre a votação" | PRONTO |
-| qua 30/09 08h | Feed: P11 "Termina hoje" (pacote de setembro) | PRONTO |
-| qua 30/09 | Stories: "Early Bird termina hoje" e "Amanhã abre a votação" | PRONTO |
-
-### Semana 1 (01 a 08/10) · votação abre, Segundo lote, IA entra
-| Data | Peça | Status |
-|---|---|---|
-| qui 01/10 | Story 09h "Votação aberta" · Feed 11h30 "Votação aberta" · Story 12h "Segundo lote" · Reel 17h Prêmio | PRONTO |
-| sex 02/10 | Feed IA "Quem responde o lead às 23h?" · Story enquete IA | PRONTO |
-| seg 05/10 | Carrossel categoria Transformador(a) de Vidas | PRONTO |
-| ter 06/10 | Reel IA em 3 perguntas · Story caixa de perguntas | PRONTO |
-| qua 07/10 | Carrossel IA "3 frentes" · Story "Faltam 23 dias" | PRONTO |
-| qui 08/10 | Feed "Segundo lote" | PRONTO |
-
-### Semana 2 (09 a 15/10)
-| Data | Peça | Status |
-|---|---|---|
-| sex 09/10 | Carrossel categoria Conector(a) do Ano | PRONTO |
-| seg 12/10 | Feed IA "IA não fecha venda. Quem fecha é a sua equipe." | W2 |
-| ter 13/10 | Carrossel categoria Acelerador(a) de Resultados · Reel: painel principal 2027 | PRONTO · W2 |
-| qua 14/10 | Feed speaker: Lucas Politi Wagner (Google) | W2 |
-
-### Semana 3 (16 a 22/10)
-| Data | Peça | Status |
-|---|---|---|
-| sex 16/10 | Carrossel categoria Iniciativa do Ano · Story "Faltam 14 dias" | PRONTO |
-| sáb 17/10 | Story "Segundo lote: faltam 7 dias" | PRONTO |
-| seg 19/10 | Feed: painel principal (Roberto Bihari, Alexandre Argenta, Elaine Fuzer, Lucas Montani; mediação Rodrigo Collaro) | W2 |
-| ter 20/10 | Carrossel categoria Espírito Inovador · Reel speaker Lucas Politi | PRONTO · W2 |
-| qua 21/10 | Feed speaker: Gizelle Rezende (The PIE) · Story "Segundo lote: faltam 3 dias" | W2 · PRONTO |
-
-### Semana 4 (23 a 28/10) · troca de lote e reta final
-| Data | Peça | Status |
-|---|---|---|
-| sex 23/10 | Carrossel categoria Mente Inovadora · Story "Faltam 7 dias" · Reel "Último dia do Segundo lote" | PRONTO · W2 |
-| sáb 24/10 | Story "Último dia do Segundo lote" | PRONTO |
-| dom 25/10 | Story "Terceiro lote" (R$ 550) | PRONTO |
-| seg 26/10 | Feed IA "O que você leva do Summit" | W2 |
-| ter 27/10 | Story "Faltam 3 dias" · Reel Prêmio "última semana" | PRONTO · W2 |
-| qua 28/10 | Feed "Terceiro lote" · Story "Faltam 2 dias" | W2 · PRONTO |
-
-### Semana 5 (29 a 31/10) · encerramento da votação
-| Data | Peça | Status |
-|---|---|---|
-| qui 29/10 | Story "Amanhã é o último dia" · Feed "Amanhã encerra a votação" | PRONTO · W2 |
-| sex 30/10 | Story "Último dia para votar" · Feed + Reel "Último dia" | PRONTO · W2 |
-| sáb 31/10 | Story "Votação encerrada" | PRONTO |
+Feed: 43 posts prontos (7 carrosséis); 06/10 é o dia do reel. Os 44 dias de 29/09 a 11/11 estão cobertos. Stories: 41 peças (versões dos posts diários, contagens e
+enquetes). Reels prontos: Prêmio (01/10) e IA em perguntas (06/10), mais os 4 de setembro.
+**Ainda não produzidos:** reels novos para outubro e novembro (sugestões: último dia do Segundo lote 23/10,
+Prêmio última semana 27/10, último dia de votação 30/10, contagem final 09/11).
 
 ## Precisa da sua decisão antes de publicar
 
-1. **O site não tem interface de votação.** O `main` só lista os finalistas; não há botão nem formulário de voto.
-   Toda peça manda votar em `intercambiosummit.com.br`. Isso precisa estar no ar até 01/10. Se a votação
-   ficar em outra página, troco o endereço nas artes (é uma constante).
-2. **Como o voto pesa.** O regulamento diz que o público elegível vota "apenas entre os finalistas" e que
-   "cada vencedor contará como um voto dentro dos comitês avaliadores". As legendas só afirmam que
-   "a avaliação final combina esse voto com a análise técnica dos comitês". O post "Como funciona a votação"
-   (que eu recomendo fazer) fica bloqueado até você confirmar: quem pode votar em qual trilha (a regra da
-   1ª etapa era cruzada: agência vota em instituição e vice-versa), se é um voto por categoria, e o peso
-   do voto público nos comitês.
-3. **Prazo de 30/10.** O regulamento e você dizem 30/10; um documento antigo do Drive dizia 31/10. Usei 30/10.
-   As artes dizem "último dia" sem horário. Se houver hora de corte (23h59?), me diga.
-4. **Legenda antiga do reel do Prêmio.** O pacote de setembro dizia "quem decide é o próprio mercado". O
-   regulamento não sustenta isso (comitês avaliam). Já corrigi e movi o reel para este calendário.
-5. **Conteúdo do pilar de IA.** As "3 frentes" (atendimento, marketing, vendas) descrevem o tema anunciado de
-   forma geral. Vale conferir se refletem o que os palestrantes de fato vão abordar.
-6. **Neutralidade com finalistas.** Os carrosséis por categoria mostram todos em ordem alfabética, com o mesmo
-   peso. Os cards individuais (`out/premio/finalistas/`) ficam para os próprios finalistas compartilharem.
-7. **Ally Hub.** O press release do Drive cita "Apply Hub"; as artes usam Ally Hub (logo oficial). Confirmar antes
-   de o release circular.
-8. **Referência da Indústria.** O regulamento prevê esse prêmio (escolha dos organizadores). Não aparece na
-   campanha porque não é votado; posso criar uma peça de teaser se quiser.
+1. **O site não tem interface de votação.** O `main` só lista os finalistas. Toda peça manda votar em
+   `intercambiosummit.com.br`; isso precisa estar no ar em 01/10.
+2. **Como o voto pesa.** As legendas só dizem que "a avaliação final combina esse voto com a análise técnica
+   dos comitês". O post "Como funciona a votação" segue bloqueado até você confirmar: quem vota em qual
+   trilha, se é um voto por categoria e o peso do voto público nos comitês.
+3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
+   venda no dia e como.
+4. **Horários.** A premiação às 16h30 vem do site. Se a votação tiver hora de corte no dia 30/10, me diga.
+5. **Confirmação dos parceiros** para os logos novos (ver acima).
+6. **Peças de setembro já feitas** (P1 a P11, pinados, kit) continuam com a faixa antiga, só de Apoio.
+   Se quiser, atualizo todas.
+7. **Ally Hub.** O press release do Drive cita "Apply Hub"; as artes usam Ally Hub.
+8. **Conteúdo de IA.** As "3 frentes" descrevem o tema anunciado de forma geral. Nenhuma estatística
+   externa foi usada. Vale conferir com os palestrantes.
 
 ## Como reproduzir
 
 ```
 python3 criativos/build_campanha_outubro.py        # artes + legendas + CALENDARIO.md
+python3 criativos/render.py premio                 # capas e cards de finalista
 python3 criativos/render_reel.py reel-ia-perguntas.html out=criativos/out/reels/reel-ia-perguntas.mp4
 ```
 
-Templates: `campanha-post.html` (feed), `campanha-slide.html` (carrossel), `campanha-story.html`, `reel-ia-perguntas.html`.
-Para trocar texto, data ou hora, edite `PIECES` em `build_campanha_outubro.py` e rode de novo.
+Templates: `campanha-post.html`, `campanha-speaker.html`, `campanha-slide.html`, `campanha-story.html`.
+A faixa de parceiros é um bloco único (`templates/_parceiros.html`, tag `{{PARCEIROS}}`): mudar lá muda em tudo.
+Para trocar texto, data ou hora, edite `PIECES` e as chamadas `diario(...)` em `build_campanha_outubro.py`.

@@ -11,7 +11,7 @@
   .canvas.story { background: var(--deep-navy); }
   .bg-foto::after {
     background:
-      linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.94) 40%, rgba(0,35,92,.90) 100%);
+      linear-gradient(to bottom, rgba(0,26,63,.42) 0px, rgba(0,26,63,.58) calc({{TOP}}px - 250px), rgba(0,26,63,.94) calc({{TOP}}px - 60px), rgba(0,26,63,.97) 100%);
   }
   .topo-logo { top: 170px; left: 84px; }
   .topo-logo img { height: 88px; }
@@ -29,19 +29,13 @@
   .pill-preco .ou { font-size: 36px; }
   .cta { font-size: 44px; padding: 24px 50px 26px; }
   .prazo { margin-top: 26px; font-weight: 600; font-size: 38px; letter-spacing: .14em;
-    text-transform: uppercase; color: var(--mid-grey); }
-
-  .faixa-apoio { bottom: 330px; gap: 64px; display: {{FAIXA}}; }
-  .faixa-apoio img.belta   { height: 48px; }
-  .faixa-apoio img.abrapei { height: 57px; }
-  .faixa-apoio img.ialc    { height: 59px; }
-  .faixa-apoio img.allyhub { height: 43px; }
-  .faixa-apoio img.edvisor { height: 52px; }
+    text-transform: uppercase; color: var(--mid-grey); }}; }
+  .parceiros { bottom: 320px; --s: 1.06; }
 </style>
 </head>
 <body>
 <div class="canvas story" data-zona="{{ZONA}}">
-  <div class="bg-foto"><img src="../../site/assets/img/eventos/{{BG}}-2400.webp" alt="" style="object-position:{{POS}};"></div>
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/{{BG}}.webp" alt="" style="object-position:{{POS}};"></div>
   <div class="canto-45 {{CANTO}}"></div>
 
   <div class="conteudo">
@@ -55,13 +49,7 @@
       <div class="cta-wrap">{{CTA}}</div>
     </div>
 
-    <div class="faixa-apoio">
-      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
-      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
-      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
-      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
-      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
-    </div>
+    <div style="display:{{FAIXA}};">{{PARCEIROS}}</div>
   </div>
 </div>
 </body>

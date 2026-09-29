@@ -13,7 +13,7 @@
   .bg-foto img { object-position: center top;
     animation: bgzoom var(--dur) linear both paused; }
   .bg-foto::after {
-    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.93) 40%, rgba(0,35,92,.86) 100%);
+    background: linear-gradient(to bottom, rgba(0,26,63,.42) 0px, rgba(0,26,63,.58) 330px, rgba(0,26,63,.94) 560px, rgba(0,26,63,.97) 100%);
   }
   @keyframes bgzoom { from { transform: scale(1); } to { transform: scale(1.10); } }
 
@@ -73,15 +73,10 @@
   .s4 .prazo { margin-top: 26px; font-weight: 600; font-size: 36px;
     letter-spacing: .14em; text-transform: uppercase; color: var(--mid-grey); }
   .s4 .cta { font-size: 42px; padding: 24px 46px 26px; }
-
-  .faixa-apoio { bottom: 330px; gap: 64px; }
-  .faixa-apoio { animation-name: s4; animation-duration: var(--dur);
-    animation-fill-mode: both; animation-play-state: paused; }
-  .faixa-apoio img.belta   { height: 48px; }
-  .faixa-apoio img.abrapei { height: 57px; }
-  .faixa-apoio img.ialc    { height: 59px; }
-  .faixa-apoio img.allyhub { height: 43px; }
-  .faixa-apoio img.edvisor { height: 52px; }
+  /* faixa de parceiros entra junto com a última cena */
+  .parceiros-anim { position: absolute; inset: 0; z-index: 5; animation-name: s4;
+    animation-duration: var(--dur); animation-fill-mode: both; animation-play-state: paused; }
+  .parceiros-anim .parceiros { bottom: 300px; --s: 1.08; }
 </style>
 </head>
 <body>
@@ -115,13 +110,7 @@
       <div style="margin-top:40px;"><span class="cta">intercambiosummit.com.br</span></div>
     </div>
 
-    <div class="faixa-apoio">
-      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
-      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
-      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
-      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
-      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
-    </div>
+    <div class="parceiros-anim">{{PARCEIROS}}</div>
   </div>
 </div>
 </body>
