@@ -92,20 +92,28 @@
     renderParticipantesExtra(); atualizarResumo();
   });
 
+  function parcelaTexto(precoUnitario, qtd) {
+    if (!loteAtual.parcelado) return "";
+    var n = parseInt(/^(\d+)x/.exec(loteAtual.parcelado)[1], 10);
+    var totalParcela = Math.round((precoUnitario * qtd / n) * 100) / 100;
+    return "ou " + n + "x " + brl(totalParcela) + " sem juros";
+  }
+
   function atualizarResumo() {
     if (!loteAtual) return;
     var qtd = quantidadeAtual();
+    var precoUnitario = cupomValidado ? cupomValidado.valor : loteAtual.avista;
     if (cupomValidado) {
       elPreco.innerHTML = '<s class="checkout-resumo-original">' + brl(loteAtual.avista * qtd) + "</s> " + brl(cupomValidado.valor * qtd);
     } else {
       elPreco.textContent = brl(loteAtual.avista * qtd);
     }
+    elParc.textContent = parcelaTexto(precoUnitario, qtd);
   }
 
   if (loteAtual) {
     elLote.textContent = loteAtual.nome;
     atualizarResumo();
-    if (loteAtual.parcelado) elParc.textContent = "ou " + loteAtual.parcelado;
     if (proximoLote) {
       elVirada.textContent = "Este preço vale até " + fmtDia(loteAtual.fim) +
         ". Depois, " + proximoLote.nome.toLowerCase() + " por " + brl(proximoLote.avista) + ".";
