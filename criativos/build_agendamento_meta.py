@@ -79,8 +79,7 @@ def como_publicar(r):
     return "Business Suite (Feed agendado)"
 
 
-def main():
-    dados = linhas()
+def monta_xlsx(dados, caminho):
     wb = Workbook()
     ws = wb.active
     ws.title = "Agenda"
@@ -148,10 +147,31 @@ def main():
         if row[0].value and not str(row[0].value).startswith((" ", "1", "2", "3", "4")) and row[0].value.strip():
             row[0].font = Font(bold=True)
 
+    wb.save(caminho)
+
+
+def main():
+    dados = linhas()
     saida = sys.argv[1] if len(sys.argv) > 1 else SRC
     os.makedirs(saida, exist_ok=True)
     xlsx = os.path.join(SRC, "AGENDAMENTO-META.xlsx")
-    wb.save(xlsx)
+    monta_xlsx(dados, xlsx)
+
+    # período avulso: python3 ... <saida> AAAA-MM-DD AAAA-MM-DD
+    if len(sys.argv) > 3:
+        de, ate = sys.argv[2], sys.argv[3]
+        rs = [r for r in dados if de <= r["data"] <= ate]
+        rot = f"{de[8:]}-{de[5:7]}-a-{ate[8:]}-{ate[5:7]}"
+        monta_xlsx(rs, os.path.join(saida, f"AGENDAMENTO-META-{rot}.xlsx"))
+        caminho = os.path.join(saida, f"Meta-{rot}.zip")
+        with zipfile.ZipFile(caminho, "w", zipfile.ZIP_STORED) as z:
+            for r in rs:
+                for f in sorted(os.listdir(os.path.join(SRC, r["pasta"]))):
+                    z.write(os.path.join(SRC, r["pasta"], f), f"{r['pasta']}/{f}")
+        print(f"período {de} a {ate}: {len(rs)} publicações, {os.path.getsize(caminho) / 1e6:.1f} MB")
+        for r in rs:
+            print(f"  {r['data']} {r['hora']} {r['formato']:9} {r['slug']} ({len(r['arqs'])} arq.)")
+        return
 
     # um zip por semana (segunda a domingo; a 1ª semana começa em 29/09)
     def semana(dstr):
