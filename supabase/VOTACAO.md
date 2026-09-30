@@ -73,6 +73,13 @@ O código de `summit-checkout` do repositório já tem as datas novas.
 Teste ponta a ponta depois de publicar o site: votar uma vez com e-mail `@teste.local` (só a partir de 01/10 00:00; antes
 disso a função recusa) e apagar: `delete from public.votacao_votos where email like '%@teste.local';`
 
+## Como a votação pública entra no resultado
+
+Regra definida pelo Rodrigo (30/09), por categoria: **o público inteiro vale 1 voto** e **cada um dos 5 membros do comitê
+vale 1 voto** (6 votos no total). O ranking do painel é só a contagem do público: o finalista mais votado ali recebe o
+voto do público. Os votos do comitê não passam pelo site nem pelo banco; são somados fora, na apuração.
+Pendente: desempate (3 a 3) e empate na votação pública.
+
 ## Painel de acompanhamento (`/painel-votos`)
 
 Página interna, sem link no site e com `noindex`: `intercambiosummit.com.br/painel-votos`. Pede uma senha e mostra

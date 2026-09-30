@@ -95,8 +95,11 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
    **fazer o merge do PR do site** (página `/votar`, rewrites) antes de 01/10 00:00. As artes de voto já apontam para
    `intercambiosummit.com.br/votar`. O teste com voto real só é possível depois da abertura (01/10).
 2. **Peso do voto público.** Decidido: voto cruzado (agência vota em instituição e vice-versa), cadastro simples.
-   Segue em aberto como o voto pesa perante os comitês; o post "Como funciona a votação" fica bloqueado até você
-   confirmar esse ponto e a hora de corte em 30/10 (a página fecha às 23:59:59).
+   Regra de apuração (definida pelo Rodrigo em 30/09): em cada categoria, **o público inteiro vale 1 voto** (vai para o
+   finalista mais votado pelo público) e **cada um dos 5 membros do comitê vale 1 voto**. São 6 votos por categoria.
+   Em aberto: desempate (3 a 3 é possível com 6 votos), e o que fazer se dois finalistas empatarem na votação pública.
+   Falta também a hora de corte em 30/10 (a página fecha às 23:59:59). O post "Como funciona a votação" pode ser escrito
+   com a regra acima, mas espera a aprovação do texto e do desempate.
 3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
    venda no dia e como.
 4. **Horários.** A premiação às 16h30 vem do site. Se a votação tiver hora de corte no dia 30/10, me diga.
