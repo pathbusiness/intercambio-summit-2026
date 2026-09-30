@@ -182,7 +182,7 @@
     var hoje = new Date(), d0 = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
     function dia(iso) { var p = iso.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
     var lote = null;
-    (EV.lotes || []).forEach(function (l) { if (!lote && d0 >= dia(l.inicio) && d0 <= dia(l.fim)) lote = l; });
+    (EV.lotesVigentes ? EV.lotesVigentes() : (EV.lotes || [])).forEach(function (l) { if (!lote && d0 >= dia(l.inicio) && d0 <= dia(l.fim)) lote = l; });
     var el = document.getElementById("vt-ingresso-lote");
     if (lote) {
       el.innerHTML = "<strong>" + esc(lote.nome) + ":</strong> R$ " + lote.avista.toLocaleString("pt-BR") +

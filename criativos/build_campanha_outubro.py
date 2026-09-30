@@ -379,13 +379,14 @@ Ingressos no link da bio.
 
 {H_LOTE} #earlybird""")
 
-diario("2026-09-30", "12h00", "eb-ainda-350", "Lote Early Bird",
-       "AINDA É R$ 350.<br>NÃO VAI SER<br>PARA SEMPRE.", tsize=108, bg="plateia", pill_html=EB_PILL,
-       texto="O evento é o mesmo e a sala também. Depois do Early Bird, o ingresso custa <strong>R$ 100 a mais.</strong>",
-       story_hora="18h00", story_ts=108,
-       legenda=f"""Ainda é R$ 350. Mas não vai ser para sempre.
+diario("2026-09-30", "12h00", "eb-ainda-350", "Lote Early Bird · último dia",
+       "ÚLTIMO DIA<br>DO EARLY BIRD.", tsize=112, bg="plateia",
+       pill_html=EB_PILL + prazo("Só até 23h59 de hoje"),
+       texto="O evento é o mesmo e a sala também. Amanhã, o ingresso custa <strong>R$ 100 a mais.</strong>",
+       story_hora="18h00", story_ts=112,
+       legenda=f"""Hoje é o último dia do Lote Early Bird do Intercâmbio Summit 2026.
 
-O Lote Early Bird do Intercâmbio Summit 2026 está aberto: R$ 350, ou 5x de R$ 70 sem juros. Depois dele, o Segundo lote custa R$ 450. Mesmo dia, mesma sala, mesmas 144 cadeiras.
+R$ 350, ou 5x de R$ 70 sem juros, até 23h59 de hoje. A partir de amanhã, o Segundo lote custa R$ 450. Mesmo dia, mesma sala, mesmas 144 cadeiras.
 
 Não vamos insistir. Só deixar a conta à vista.
 
@@ -393,7 +394,7 @@ Não vamos insistir. Só deixar a conta à vista.
 
 Ingressos no link da bio.
 
-{H_LOTE} #earlybird""")
+{H_LOTE} #earlybird #ultimodia""")
 
 diario("2026-10-01", "12h00", "eb-prorrogado", "Lote Early Bird · prorrogado",
        "EARLY BIRD<br>PRORROGADO<br>ATÉ 02/10.", tsize=104, bg="painel", story_hora="10h00", story_ts=112,

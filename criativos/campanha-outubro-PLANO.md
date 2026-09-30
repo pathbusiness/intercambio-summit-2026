@@ -71,19 +71,24 @@ Prêmio última semana 27/10, último dia de votação 30/10, contagem final 09/
 
 | Data | Peça |
 |---|---|
-| 29/09 e 30/09 | "Não compre o Early Bird" e "Ainda é R$ 350": **sem data final**, só "depois do Early Bird, R$ 100 a mais" |
+| 29/09 | "Não compre o Early Bird": **sem data final**, só "depois do Early Bird, R$ 100 a mais" |
+| 30/09 | **Último dia do Early Bird** (decisão do Rodrigo): feed 12h e story 18h "Só até 23h59 de hoje"; o P11 "termina hoje" do pacote de setembro (08h) também está liberado |
 | 01/10 | Feed 12h e story 10h: "Early Bird prorrogado até 02/10" |
 | 02/10 | Feed 9h e story 12h30: "Amanhã, R$ 100 a mais" (último dia, 23h59) |
 | 03/10 | Story "Segundo lote" (R$ 450 até 24/10) |
 
-**Não publicar** os dois P11 do pacote de setembro ("último dia" 29/09 e "termina hoje" 30/09): afirmam
-prazo final que deixou de valer. Estão marcados como bloqueados no `AGENDAMENTO.md` de setembro.
+**Não publicar** o P11 "último dia" de 29/09 do pacote de setembro: o Early Bird termina em 30/09 na comunicação. Continua
+marcado como bloqueado no `AGENDAMENTO.md` de setembro. O P11 "termina hoje" (30/09) foi liberado.
 
-**Dependência técnica.** O site troca de lote pela data e a função de checkout cobra pelo mesmo calendário.
-As datas já estão editadas no repositório (`site/evento.config.js` e `supabase/functions/summit-checkout/index.ts`:
-Early Bird até 02/10, Segundo lote a partir de 03/10), mas **nada foi publicado**. Para o preço não virar
-R$ 450 à meia-noite de 30/09, o site e a função precisam estar atualizados antes disso. Se ficarem para
-depois, quem comprar em 01/10 paga R$ 450 enquanto o post diz R$ 350.
+**Ponto de atenção (Rodrigo decidiu manter):** dizer "último dia" em 30/09 e prorrogar em 01/10 pode ser lido como urgência
+falsa. O texto do dia 30 diz só o que vale no dia (preço e prazo do lote), e o de 01/10 assume a prorrogação sem justificar
+com escassez.
+
+**Dependência técnica (atualizado em 30/09).** O site mostra o Early Bird **até 30/09** e, a partir de 01/10 (00:00, horário do
+visitante), passa sozinho a mostrar **"Early Bird prorrogado: R$ 350 até 2 de outubro"** e o Segundo lote a partir de 3 de outubro.
+Isso vem de `prorrogacoes` e `lotesVigentes()` em `site/evento.config.js`: não precisa de deploy no dia 1º. O checkout
+(`summit-checkout` v23, PATH) já cobra pelo calendário prorrogado (Early Bird até 02/10, Segundo lote de 03/10), então quem
+compra em 01/10 ou 02/10 paga R$ 350. Só o site publicado na `main` precisa ter essa versão antes de 01/10.
 
 **Artes antigas com "até 30/09"** (não regeneradas): panorama e demais posts fixados, capa do P7/P9, convites e
 e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a partir de 03/10.
@@ -103,8 +108,8 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
 3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
    venda no dia e como.
 4. **Horários.** A premiação às 16h30 vem do site. Se a votação tiver hora de corte no dia 30/10, me diga.
-5. **Peças de setembro já feitas** (P1 a P11, pinados, kit) continuam com a faixa antiga, só de Apoio.
-   Se quiser, atualizo todas.
+5. **Peças de setembro já feitas** (P1 a P11, pinados, kit, convites) ficam como estão, com a faixa antiga (só de Apoio) e o
+   nome antigo do prêmio (decisão do Rodrigo em 30/09: só as artes de 30/09 em diante usam o nome oficial e a faixa nova).
 6. **Ally Hub.** O press release do Drive cita "Apply Hub"; as artes usam Ally Hub.
 7. **Conteúdo de IA.** As "3 frentes" descrevem o tema anunciado de forma geral. Nenhuma estatística
    externa foi usada. Vale conferir com os palestrantes.
