@@ -38,7 +38,7 @@
     return new Date(n.getFullYear(), n.getMonth(), n.getDate());
   })();
   var loteAtual = null, proximoLote = null;
-  (EV.lotes || []).forEach(function (l) {
+  (EV.lotesVigentes ? EV.lotesVigentes() : (EV.lotes || [])).forEach(function (l) {
     if (hoje >= parseDia(l.inicio) && hoje <= parseDia(l.fim) && !loteAtual) loteAtual = l;
     if (hoje < parseDia(l.inicio) && !proximoLote) proximoLote = l;
   });
@@ -126,7 +126,7 @@
     elLote.textContent = loteAtual.nome;
     atualizarResumo();
     if (proximoLote) {
-      elVirada.textContent = "Este preço vale até " + fmtDia(loteAtual.fim) +
+      elVirada.textContent = (loteAtual.prorrogado ? "Prorrogado: este preço vale até " : "Este preço vale até ") + fmtDia(loteAtual.fim) +
         ". Depois, " + proximoLote.nome.toLowerCase() + " por " + brl(proximoLote.avista) + ".";
     }
   } else {
