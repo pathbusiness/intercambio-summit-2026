@@ -136,6 +136,11 @@ a { color: inherit; }
   text-transform: uppercase; letter-spacing: .04em; color: var(--white);
 }
 .hero-actions { display: flex; gap: .9rem; margin-top: 1.6rem; flex-wrap: wrap; }
+/* No mobile o menu (.mainnav) some — sem ele, some o único link pro Prêmio
+   (e o CTA de votação lá dentro). Este botão cobre esse buraco só no mobile;
+   no desktop o nav já resolve. */
+.hero-cta-votar { display: none; }
+@media (max-width: 900px) { .hero-cta-votar { display: inline-block; } }
 .hero-scrollhint {
   position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); z-index: 2;
   width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.5); border-radius: 14px;
