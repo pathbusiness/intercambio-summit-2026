@@ -98,8 +98,9 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
    Regra de apuração (definida pelo Rodrigo em 30/09): em cada categoria, **o público inteiro vale 1 voto** (vai para o
    finalista mais votado pelo público) e **cada um dos 5 membros do comitê vale 1 voto**. São 6 votos por categoria.
    **Desempate (Rodrigo, 30/09):** se houver empate no topo (por exemplo, 3 a 3), vence o finalista que o público escolheu.
-   Em aberto: (a) empate entre dois finalistas na votação pública; (b) empate no topo em que o finalista do público não
-   está entre os empatados.
+   **Empate entre dois no público (Rodrigo, 30/09):** o comitê decide.
+   Em aberto: empate no topo em que o finalista do público não está entre os empatados (ex.: comitê 2 a 2 entre A e B,
+   público em C).
    Falta também a hora de corte em 30/10 (a página fecha às 23:59:59). O post "Como funciona a votação" pode ser escrito
    com a regra acima, mas espera a aprovação do texto e do desempate.
 3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
