@@ -78,7 +78,8 @@ disso a função recusa) e apagar: `delete from public.votacao_votos where email
 Regra definida pelo Rodrigo (30/09), por categoria: **o público inteiro vale 1 voto** e **cada um dos 5 membros do comitê
 vale 1 voto** (6 votos no total). O ranking do painel é só a contagem do público: o finalista mais votado ali recebe o
 voto do público. Os votos do comitê não passam pelo site nem pelo banco; são somados fora, na apuração.
-Pendente: desempate (3 a 3) e empate na votação pública.
+Desempate: se houver empate no topo (por exemplo, 3 a 3), vence o finalista que o público escolheu.
+Pendente: empate entre dois finalistas na votação pública e empate no topo em que o finalista do público não está entre os empatados.
 
 ## Painel de acompanhamento (`/painel-votos`)
 
