@@ -103,8 +103,10 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
 3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
    venda no dia e como.
 4. **Horários.** A premiação às 16h30 vem do site. Se a votação tiver hora de corte no dia 30/10, me diga.
-5. **Peças de setembro já feitas** (P1 a P11, pinados, kit) continuam com a faixa antiga, só de Apoio.
-   Se quiser, atualizo todas.
+5. **Peças de setembro já feitas** (P1 a P11, pinados, kit) continuam com a faixa antiga, só de Apoio. As que citavam o prêmio
+   (painel dos pinados, convites de agências e instituições, convites ABRAPEI e instituições reversa, hero do roadshow IALC e
+   hero do kit dos apoiadores) foram refeitas em 30/09 com o nome oficial. Os convites ainda dizem "Early Bird termina em
+   30 de setembro": desatualizado desde a prorrogação para 02/10.
 6. **Ally Hub.** O press release do Drive cita "Apply Hub"; as artes usam Ally Hub.
 7. **Conteúdo de IA.** As "3 frentes" descrevem o tema anunciado de forma geral. Nenhuma estatística
    externa foi usada. Vale conferir com os palestrantes.
