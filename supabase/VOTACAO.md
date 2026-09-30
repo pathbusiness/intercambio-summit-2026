@@ -80,7 +80,8 @@ vale 1 voto** (6 votos no total). O ranking do painel é só a contagem do públ
 voto do público. Os votos do comitê não passam pelo site nem pelo banco; são somados fora, na apuração.
 Desempate: se houver empate no topo (por exemplo, 3 a 3), vence o finalista que o público escolheu.
 Empate entre dois finalistas na votação pública: o comitê decide.
-Pendente: empate no topo em que o finalista do público não está entre os empatados.
+Empate no topo sem o finalista do público entre os empatados: prevalece o voto da organização.
+Corte da votação: 30/10 às 23:59:59, horário de Brasília (igual ao configurado na página e na função).
 
 ## Painel de acompanhamento (`/painel-votos`)
 

@@ -99,10 +99,10 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
    finalista mais votado pelo público) e **cada um dos 5 membros do comitê vale 1 voto**. São 6 votos por categoria.
    **Desempate (Rodrigo, 30/09):** se houver empate no topo (por exemplo, 3 a 3), vence o finalista que o público escolheu.
    **Empate entre dois no público (Rodrigo, 30/09):** o comitê decide.
-   Em aberto: empate no topo em que o finalista do público não está entre os empatados (ex.: comitê 2 a 2 entre A e B,
-   público em C).
-   Falta também a hora de corte em 30/10 (a página fecha às 23:59:59). O post "Como funciona a votação" pode ser escrito
-   com a regra acima, mas espera a aprovação do texto e do desempate.
+   **Empate no topo sem o finalista do público entre os empatados (Rodrigo, 30/09):** prevalece o voto da organização.
+   **Corte:** 30/10 às 23:59:59, horário de Brasília (é o que a página e a função já aplicam).
+   Regras definidas por você em conversa; conferir se o Regulamento oficial diz o mesmo antes de detalhar desempates em post.
+   O post "Como funciona a votação" está liberado para redação; espera a sua aprovação do texto.
 3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
    venda no dia e como.
 4. **Horários.** A premiação às 16h30 vem do site. Se a votação tiver hora de corte no dia 30/10, me diga.
