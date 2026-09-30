@@ -749,3 +749,55 @@ a { color: inherit; }
 .vt-ingresso p { margin-bottom: .9rem; color: rgba(255,255,255,.92); }
 .vt-ingresso-lote { font-size: 1.15rem; color: var(--white) !important; }
 .vt-ingresso .btn { margin-top: .3rem; }
+
+/* ---------- painel de acompanhamento da votação (uso interno) ---------- */
+.painel-votos { background: var(--cloud); min-height: 100vh; }
+.pv-tag { color: var(--white); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: .9rem; opacity: .85; }
+.pv-wrap { max-width: var(--max); margin: 0 auto; padding: 32px 24px 72px; }
+.pv-h1 { font-size: clamp(1.6rem, 3vw, 2.3rem); color: var(--summit-blue); text-transform: uppercase; }
+.pv-h2 { font-size: 1.5rem; color: var(--summit-blue); text-transform: uppercase; margin: 44px 0 6px; }
+.pv-sub, .pv-nota { color: var(--text-grey); font-size: 1.05rem; margin: 6px 0 14px; }
+.pv-nota.pv-rodape { margin-top: 44px; }
+.pv-login { max-width: 460px; margin: 48px auto; background: var(--white); padding: 32px; border-left: 6px solid var(--summit-blue); }
+.pv-login label { display: block; font-weight: 700; margin: 20px 0 6px; }
+.pv-login input { width: 100%; font: inherit; font-size: 1.1rem; padding: 12px 14px; border: 2px solid var(--mid-grey); background: var(--white); }
+.pv-login input:focus { outline: none; border-color: var(--summit-blue); }
+.pv-login .btn { margin-top: 18px; }
+.pv-erro { color: #B00020; font-weight: 600; margin: 10px 0 0; }
+.pv-barra { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between; }
+.pv-acoes { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.pv-quando { color: var(--text-grey); font-weight: 600; }
+.pv-sair { background: none; border: 0; font: inherit; font-weight: 600; color: var(--summit-blue); text-decoration: underline; cursor: pointer; padding: 8px; }
+.pv-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 22px; }
+.pv-kpi { background: var(--white); padding: 18px 20px; border-top: 4px solid var(--summit-blue); display: flex; flex-direction: column; }
+.pv-kpi-n { font-size: 2.4rem; font-weight: 700; color: var(--summit-blue); line-height: 1; }
+.pv-kpi-l { color: var(--text-grey); font-weight: 600; margin-top: 6px; }
+.pv-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+.pv-cat { background: var(--white); padding: 20px 22px; }
+.pv-cat h3 { font-size: 1.3rem; color: var(--charcoal); text-transform: uppercase; }
+.pv-cat-sub { color: var(--text-grey); margin: 2px 0 14px; font-weight: 600; }
+.pv-cat ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pv-cat li { display: grid; grid-template-columns: minmax(110px, 1.1fr) 1.4fr auto; gap: 10px; align-items: center; }
+.pv-nome { font-weight: 600; }
+.pv-barra-v { background: var(--cloud); height: 14px; display: block; }
+.pv-barra-v i { display: block; height: 100%; background: var(--map-grey); }
+.pv-cat li.lider .pv-barra-v i { background: var(--summit-blue); }
+.pv-cat li.lider .pv-nome { color: var(--summit-blue); }
+.pv-v { font-weight: 700; text-align: right; min-width: 64px; }
+.pv-v small { color: var(--text-grey); font-weight: 600; margin-left: 6px; }
+.pv-colunas { display: flex; gap: 8px; align-items: flex-end; height: 220px; background: var(--white); padding: 18px 18px 8px; overflow-x: auto; }
+.pv-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; min-width: 34px; flex: 1; }
+.pv-col-b { display: block; width: 100%; background: var(--summit-blue); }
+.pv-col-v { font-size: .85rem; font-weight: 700; margin-bottom: 4px; }
+.pv-col-d { font-size: .8rem; color: var(--text-grey); margin-top: 6px; white-space: nowrap; }
+.pv-tabela-wrap { overflow-x: auto; background: var(--white); }
+.pv-tabela { width: 100%; border-collapse: collapse; font-size: .98rem; }
+.pv-tabela th { text-align: left; background: var(--summit-blue); color: var(--white); padding: 10px 12px; text-transform: uppercase; letter-spacing: .04em; font-size: .85rem; white-space: nowrap; }
+.pv-tabela td { padding: 9px 12px; border-bottom: 1px solid var(--cloud); vertical-align: top; }
+.pv-tabela tr.inval td { color: var(--text-grey); text-decoration: line-through; }
+.pv-vazio { color: var(--text-grey); background: var(--white); padding: 18px 20px; margin: 0; }
+@media (max-width: 640px) {
+  .pv-cats { grid-template-columns: 1fr; }
+  .pv-cat li { grid-template-columns: 1fr auto; }
+  .pv-cat li .pv-barra-v { grid-column: 1 / -1; grid-row: 2; }
+}

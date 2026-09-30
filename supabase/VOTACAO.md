@@ -50,6 +50,7 @@ não é mais usado pelo site.
 | Projeto PATH (`ildxeq…`): migração `20261001000000_votacao.sql` | **Aplicada em 29/09** (nome `votacao_premio_2026`). RLS ligado; anon e authenticated sem acesso. Testada em transação revertida: índice único (e-mail, categoria) bloqueia duplicado e o ranking ignora voto invalidado. Tabela com 0 votos. |
 | Projeto PATH: função `summit-votar` | **Publicada em 29/09 (v1)**, sem verificação de JWT (a função valida tudo). Código idêntico ao do repositório. Ainda não testada ao vivo: só recebe votos a partir de 01/10 00:00 (horário de Brasília). |
 | Projeto PATH: função `summit-checkout` | **Publicada em 29/09 (v23)**: Early Bird até 02/10, Segundo lote a partir de 03/10 e cupom `EARLY10` até 02/10. Fonte da v22 relida e conferida; a v23 só muda a data do `EARLY10`. |
+| Projeto PATH: função `summit-votos-admin` (painel) | **Publicada em 30/09 (v1)**. A página `/painel-votos` entra no site com o merge do PR que a traz. |
 | Site (página `/votar`, rewrites, botão no Prêmio, convite pós-voto) | Neste PR |
 | Projeto antigo Forio (`lvchp…`) | Recebeu por engano, em 29/09, a migração, a `summit-votar` e uma correção de datas na `summit-checkout` (v2). Não é usado pelo site. Tabela vazia. **Decisão do Rodrigo: nada do Summit deve ficar no Forio.** Limpeza completa em `supabase/limpeza-forio.md`. |
 
@@ -71,6 +72,18 @@ O código de `summit-checkout` do repositório já tem as datas novas.
 
 Teste ponta a ponta depois de publicar o site: votar uma vez com e-mail `@teste.local` (só a partir de 01/10 00:00; antes
 disso a função recusa) e apagar: `delete from public.votacao_votos where email like '%@teste.local';`
+
+## Painel de acompanhamento (`/painel-votos`)
+
+Página interna, sem link no site e com `noindex`: `intercambiosummit.com.br/painel-votos`. Pede uma senha e mostra
+totais, ranking por categoria, votos por dia, conexões com 5 ou mais e-mails e os últimos 50 votos; "Baixar CSV" exporta
+todos os votos (abre no Excel BR). Só lê; para invalidar use o SQL abaixo. Atualiza sozinha a cada minuto.
+
+- Função `summit-votos-admin` (PATH, v1): confere a senha pelo hash SHA-256 (`summit-votos-2026:<senha>`), com comparação
+  em tempo constante e espera de 0,6 s a cada erro. Sem a senha, nenhum dado sai. A senha não está no repositório, só o hash.
+- Trocar a senha: `printf '%s' 'summit-votos-2026:NOVA_SENHA' | sha256sum`, e definir o resultado no segredo
+  `VOTOS_ADMIN_HASH` (Supabase → Edge Functions → Secrets); ele vale no lugar do hash do código.
+- Testes das agregações: `node --experimental-strip-types --no-warnings supabase/functions/summit-votos-admin/agregar.test.ts`.
 
 ## Acompanhar e auditar (SQL editor, só organização)
 
