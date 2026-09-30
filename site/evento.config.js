@@ -41,7 +41,7 @@ window.EVENTO = {
   // WhatsApp comercial para patrocínio (somente dígitos, com DDI)
   whatsappPatrocinio: "",
 
-  // Votação pública do Prêmio Melhores Profissionais (Regulamento, etapa 3).
+  // Votação pública do Prêmio dos Melhores Profissionais de Intercâmbio (Regulamento, etapa 3).
   // Datas em horário de Brasília; o servidor (Edge Function summit-votar) confere de novo.
   // Página: /votar (votacao.html). Endpoint: /api/votar -> summit-votar.
   // regulamentoUrl: link público do regulamento (vazio = não mostra o link).
@@ -119,7 +119,7 @@ window.EVENTO = {
     { hora: "16h00", pausa: true, titulo: "Coffee break",
       desc: "Segunda pausa para networking e troca de cartões.", local: "Foyer" },
     { hora: "16h30", tipo: "Cerimônia", destaque: "navy",
-      titulo: "Prêmio Melhores Profissionais 2026",
+      titulo: "Prêmio dos Melhores Profissionais de Intercâmbio 2026",
       desc: "Cerimônia oficial de premiação dos melhores do ano no setor.", local: "Auditório" },
     { hora: "18h40", tipo: "Encerramento", titulo: "Networking final",
       desc: "Encerramento das atividades e networking de fechamento.", local: "Foyer" }

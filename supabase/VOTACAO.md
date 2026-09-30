@@ -1,4 +1,4 @@
-# Votação do Prêmio Melhores Profissionais 2026
+# Votação do Prêmio dos Melhores Profissionais de Intercâmbio 2026
 
 Regras (Regulamento Oficial, etapa 3): votação pública **entre os finalistas**, de **01/10 a 30/10/2026**,
 um voto por categoria por pessoa, votos duplicados ou suspeitos podem ser invalidados (seção 9).
@@ -81,6 +81,7 @@ voto do público. Os votos do comitê não passam pelo site nem pelo banco; são
 Desempate: se houver empate no topo (por exemplo, 3 a 3), vence o finalista que o público escolheu.
 Empate entre dois finalistas na votação pública: o comitê decide.
 Empate no topo sem o finalista do público entre os empatados: prevalece o voto da organização.
+Texto oficial proposto: `regulamento/ADENDO-ETAPA-3.md`.
 Corte da votação: 30/10 às 23:59:59, horário de Brasília (igual ao configurado na página e na função).
 
 ## Painel de acompanhamento (`/painel-votos`)

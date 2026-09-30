@@ -53,8 +53,8 @@ Tamanhos: feed/carrossel 1080x1350 · story 1080x1920 · LinkedIn 1200x627
 
 ## Decisões que dependem de aprovação
 
-1. **Lockup do Prêmio**: não existe arquivo de logo do "Prêmio Melhores
-   Profissionais"; o card usa lockup tipográfico em Rajdhani. Se houver
+1. **Lockup do Prêmio**: não existe arquivo de logo do "Prêmio dos Melhores
+   Profissionais de Intercâmbio"; o card usa lockup tipográfico em Rajdhani. Se houver
    logo oficial, substituir no `modelo-c-finalista.html`.
 2. **Headline do Modelo B** ("O preço sobe. O evento é o mesmo.") é
    proposta de copy — o briefing fixava apenas o fechamento.

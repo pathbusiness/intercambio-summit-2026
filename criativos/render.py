@@ -186,7 +186,7 @@ def jobs_setembro():
 # Se um dia mudar: trocar aqui e rodar `python3 criativos/render.py premio`.
 URL_VOTACAO = "intercambiosummit.com.br/votar"
 
-TEXTO_SUGERIDO = """Estou entre os finalistas do Prêmio Melhores Profissionais 2026, na categoria {categoria} (trilha {trilha}).
+TEXTO_SUGERIDO = """Estou entre os finalistas do Prêmio dos Melhores Profissionais de Intercâmbio 2026, na categoria {categoria} (trilha {trilha}).
 
 O prêmio reconhece os profissionais que fizeram a diferença no mercado de intercâmbio no último ano, e a votação está aberta até 30 de outubro.
 
