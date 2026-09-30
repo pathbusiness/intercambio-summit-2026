@@ -801,3 +801,7 @@ a { color: inherit; }
   .pv-cat li { grid-template-columns: 1fr auto; }
   .pv-cat li .pv-barra-v { grid-column: 1 / -1; grid-row: 2; }
 }
+
+/* votação fechada (antes de 01/10 ou depois de 30/10): botão cinza, sem parecer clicável */
+#vt-enviar:disabled { background: var(--mid-grey); color: var(--text-grey); cursor: not-allowed; }
+#vt-enviar:disabled:hover { background: var(--mid-grey); }

@@ -47,12 +47,20 @@
 
   /* ---------- estado da votação ---------- */
   var estado = janela();
+  var ROTULO_ENVIAR = "Enviar meus votos";
+  var avisoFechada = "";
   if (estado !== "aberta") {
-    elEstado.hidden = false;
-    elEstado.textContent = estado === "antes"
+    avisoFechada = estado === "antes"
       ? "A votação abre em " + fmtDia(CFG.inicio || "2026-10-01") + ". Volte nesse dia para votar."
       : "A votação foi encerrada em " + fmtDia(CFG.fim || "2026-10-30") + ". Obrigado a quem votou! Os vencedores serão anunciados em 11 de novembro.";
-    // fora da janela: mostra os finalistas, mas não deixa enviar
+    elEstado.hidden = false;
+    elEstado.textContent = avisoFechada;
+    // fora da janela: mostra os finalistas, mas não deixa enviar. O botão diz o motivo
+    // (quem rola até o fim da página não vê o aviso do topo).
+    ROTULO_ENVIAR = estado === "antes"
+      ? "Votação abre em " + fmtDia(CFG.inicio || "2026-10-01")
+      : "Votação encerrada";
+    btn.textContent = ROTULO_ENVIAR;
   }
   if (CFG.regulamentoUrl) {
     document.getElementById("vt-reg").innerHTML = 'Leia o <a href="' + esc(CFG.regulamentoUrl) + '" target="_blank" rel="noopener">regulamento</a>.';
@@ -105,7 +113,8 @@
   function atualizaContagem() {
     var total = elCats.querySelectorAll(".vt-cat").length;
     var n = Object.keys(selecoes()).length;
-    elContagem.textContent = total ? n + " de " + total + " categorias escolhidas" : "";
+    elContagem.textContent = total
+      ? (avisoFechada ? avisoFechada : n + " de " + total + " categorias escolhidas") : "";
   }
 
   form.addEventListener("change", function (e) {
@@ -129,7 +138,8 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (enviando || estado !== "aberta") return;
+    if (enviando) return;
+    if (estado !== "aberta") return erro(avisoFechada);
     erro("");
     var payload = {
       nome: form.nome.value, email: form.email.value, empresa: form.empresa.value,
@@ -155,7 +165,7 @@
         mostrarSucesso(res.j);
       })
       .catch(function () { erro("Sem conexão. Verifique sua internet e tente de novo."); })
-      .then(function () { enviando = false; btn.disabled = false; btn.textContent = "Enviar meus votos"; });
+      .then(function () { enviando = false; btn.disabled = false; btn.textContent = ROTULO_ENVIAR; });
   });
 
   function nomeCategoria(id) {
