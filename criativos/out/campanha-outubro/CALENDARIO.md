@@ -26,6 +26,7 @@ Feed, carrossel e reel: colar `legenda.txt`. Story: seguir o `nota.txt` (sticker
 | 2026-10-04 | dom | 11h30 | carrossel | quem-deve-estar | 2 | aguardando aprovação |
 | 2026-10-04 | dom | 12h00 | story | story-quem-deve-estar | 1 | aguardando aprovação |
 | 2026-10-05 | seg | 11h30 | carrossel | premio-transformador | 8 | aguardando aprovação |
+| 2026-10-06 | ter | 11h30 | carrossel | premio-como-funciona | 6 | aguardando aprovação |
 | 2026-10-06 | ter | 12h00 | story | story-caixa-perguntas | 1 | aguardando aprovação |
 | 2026-10-06 | ter | 17h00 | reel | reel-ia-perguntas | 1 | aguardando aprovação |
 | 2026-10-07 | qua | 11h30 | carrossel | ia-tres-frentes | 7 | aguardando aprovação |

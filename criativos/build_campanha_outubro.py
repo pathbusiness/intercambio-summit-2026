@@ -12,7 +12,8 @@ calendário CALENDARIO.md.
 
 Fatos do Prêmio (Regulamento Oficial, Drive): votação pública entre os
 finalistas de 01/10 a 30/10; vencedores em 11/11. Nenhuma peça afirma
-como o voto pesa na decisão final além do que o regulamento diz.
+como o voto pesa na decisão final além do que o regulamento diz, EXCETO o post
+"Como funciona a votação" (06/10), que usa a regra definida pelo Rodrigo em 30/09.
 
 Regra da casa: NADA é publicado sem aprovação explícita do Rodrigo, com
 arte e legenda exatas mostradas antes.
@@ -209,6 +210,41 @@ carrossel_categoria("acelerador",    "2026-10-13", "11h30")
 carrossel_categoria("iniciativa",    "2026-10-16", "11h30")
 carrossel_categoria("espirito",      "2026-10-20", "11h30")
 carrossel_categoria("mente",         "2026-10-23", "11h30")
+
+# ------------------------- CARROSSEL: como funciona a votação (regra do Rodrigo, 30/09)
+# Público inteiro = 1 voto por categoria; cada um dos 5 membros do comitê = 1 voto; empate no
+# topo: vence o finalista escolhido pelo público. Os demais desempates (empate no público,
+# empate sem o escolhido do público) não vão para o post: conferir com o Regulamento antes.
+TOT_CF = 6
+add("2026-10-06", "11h30", "premio-como-funciona", "carrossel", [
+    slide(N=1, TOTAL=TOT_CF, BG="trofeus", CANTO="branco", CANTO_SHOW="block", RODAPE="",
+          KICKER="Prêmio Melhores Profissionais 2026", TITULO="COMO O<br>VENCEDOR É<br>ESCOLHIDO", TSIZE=112,
+          TEXTO="Em cada categoria, o seu voto entra na conta."),
+    slide(N=2, TOTAL=TOT_CF, BG="trofeus", KICKER="O público",
+          TITULO="O PÚBLICO<br>INTEIRO VALE<br>1 VOTO", TSIZE=104,
+          TEXTO="O finalista mais votado no site recebe esse voto. <strong>Um voto por pessoa, por categoria.</strong>"),
+    slide(N=3, TOTAL=TOT_CF, BG="trofeus", KICKER="O comitê",
+          TITULO="CADA MEMBRO<br>DO COMITÊ<br>VALE 1 VOTO", TSIZE=104,
+          TEXTO="São <strong>5 membros</strong>, cada um com o seu voto."),
+    slide(N=4, TOTAL=TOT_CF, BG="trofeus", KICKER="Na soma",
+          TITULO="6 VOTOS<br>POR CATEGORIA", TSIZE=112,
+          TEXTO="1 do público e 5 do comitê. Se houver empate, <strong>o voto do público desempata.</strong>"),
+    parceiros_slide(f"5/{TOT_CF}"),
+    slide(N=6, TOTAL=TOT_CF, BG="trofeus", CANTO="branco", CANTO_SHOW="block", RODAPE="",
+          KICKER="32 finalistas · 6 categorias", TITULO="VOTE ATÉ<br>30 DE OUTUBRO", TSIZE=112,
+          TEXTO="Até <strong>23h59</strong> (horário de Brasília). Anúncio dos vencedores ao vivo em <strong>11 de novembro.</strong>",
+          CTA=CTA_VOTO),
+], legenda=f"""Como o vencedor de cada categoria é escolhido no Prêmio Melhores Profissionais 2026?
+
+O público inteiro vale 1 voto por categoria, para o finalista mais votado no site. Cada um dos 5 membros do comitê vale 1 voto. São 6 votos por categoria, e, se houver empate, o voto do público desempata.
+
+Ou seja: o seu voto entra na conta. Um voto por pessoa, por categoria, até 30 de outubro, às 23h59 (horário de Brasília).
+
+Vote em {VOTE} (link na bio).
+
+Os vencedores serão anunciados ao vivo no Intercâmbio Summit 2026, em 11 de novembro, em São Paulo.
+
+{H_PREMIO}""")
 
 # ------------------------------------------------------------------ REELS
 
