@@ -80,7 +80,7 @@
   }
 
   /* ---------- lotes ---------- */
-  var lotes = EV.lotes || [];
+  var lotes = EV.lotesVigentes ? EV.lotesVigentes() : (EV.lotes || []);
   var agora = hoje();
   var loteAtual = null, proximoLote = null;
   lotes.forEach(function (l) {
@@ -100,7 +100,7 @@
       if (loteAtual === l) estado = " is-current";
       else if (agora > parseDia(l.fim)) estado = " is-past";
       card.className = "lote-card" + estado;
-      var flag = loteAtual === l ? '<span class="lote-flag">Lote atual</span>' :
+      var flag = loteAtual === l ? '<span class="lote-flag">' + (l.prorrogado ? "Prorrogado" : "Lote atual") + "</span>" :
                  (proximoLote === l ? '<span class="lote-flag lote-flag-prox">Próximo</span>' : "");
       var periodo = l.inicio === l.fim ? fmtDia(l.inicio) : fmtDia(l.inicio) + " a " + fmtDia(l.fim);
       card.innerHTML = flag +
@@ -120,7 +120,9 @@
   var formTitle = document.getElementById("lead-form-title");
   var diasSemana = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
   if (loteAtual) {
-    var txtAtual = loteAtual.nome + " aberto: " + brl(loteAtual.avista) + " até " + fmtDia(loteAtual.fim);
+    var txtAtual = loteAtual.prorrogado
+      ? loteAtual.nome + " prorrogado: " + brl(loteAtual.avista) + " até " + fmtDia(loteAtual.fim)
+      : loteAtual.nome + " aberto: " + brl(loteAtual.avista) + " até " + fmtDia(loteAtual.fim);
     if (badge) badge.textContent = txtAtual;
     if (status) status.textContent = "Vendas abertas no lote " + loteAtual.nome + ". O próximo lote custa mais.";
     if (formTitle) formTitle.textContent = "Receba avisos de virada de lote";

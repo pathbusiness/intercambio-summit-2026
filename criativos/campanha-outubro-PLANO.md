@@ -79,11 +79,11 @@ Prêmio última semana 27/10, último dia de votação 30/10, contagem final 09/
 **Não publicar** os dois P11 do pacote de setembro ("último dia" 29/09 e "termina hoje" 30/09): afirmam
 prazo final que deixou de valer. Estão marcados como bloqueados no `AGENDAMENTO.md` de setembro.
 
-**Dependência técnica.** O site troca de lote pela data e a função de checkout cobra pelo mesmo calendário.
-As datas já estão editadas no repositório (`site/evento.config.js` e `supabase/functions/summit-checkout/index.ts`:
-Early Bird até 02/10, Segundo lote a partir de 03/10), mas **nada foi publicado**. Para o preço não virar
-R$ 450 à meia-noite de 30/09, o site e a função precisam estar atualizados antes disso. Se ficarem para
-depois, quem comprar em 01/10 paga R$ 450 enquanto o post diz R$ 350.
+**Dependência técnica (atualizado em 30/09).** O site mostra o Early Bird **até 30/09** e, a partir de 01/10 (00:00, horário do
+visitante), passa sozinho a mostrar **"Early Bird prorrogado: R$ 350 até 2 de outubro"** e o Segundo lote a partir de 3 de outubro.
+Isso vem de `prorrogacoes` e `lotesVigentes()` em `site/evento.config.js`: não precisa de deploy no dia 1º. O checkout
+(`summit-checkout` v23, PATH) já cobra pelo calendário prorrogado (Early Bird até 02/10, Segundo lote de 03/10), então quem
+compra em 01/10 ou 02/10 paga R$ 350. Só o site publicado na `main` precisa ter essa versão antes de 01/10.
 
 **Artes antigas com "até 30/09"** (não regeneradas): panorama e demais posts fixados, capa do P7/P9, convites e
 e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a partir de 03/10.
