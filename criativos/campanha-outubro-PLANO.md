@@ -71,13 +71,18 @@ Prêmio última semana 27/10, último dia de votação 30/10, contagem final 09/
 
 | Data | Peça |
 |---|---|
-| 29/09 e 30/09 | "Não compre o Early Bird" e "Ainda é R$ 350": **sem data final**, só "depois do Early Bird, R$ 100 a mais" |
+| 29/09 | "Não compre o Early Bird": **sem data final**, só "depois do Early Bird, R$ 100 a mais" |
+| 30/09 | **Último dia do Early Bird** (decisão do Rodrigo): feed 12h e story 18h "Só até 23h59 de hoje"; o P11 "termina hoje" do pacote de setembro (08h) também está liberado |
 | 01/10 | Feed 12h e story 10h: "Early Bird prorrogado até 02/10" |
 | 02/10 | Feed 9h e story 12h30: "Amanhã, R$ 100 a mais" (último dia, 23h59) |
 | 03/10 | Story "Segundo lote" (R$ 450 até 24/10) |
 
-**Não publicar** os dois P11 do pacote de setembro ("último dia" 29/09 e "termina hoje" 30/09): afirmam
-prazo final que deixou de valer. Estão marcados como bloqueados no `AGENDAMENTO.md` de setembro.
+**Não publicar** o P11 "último dia" de 29/09 do pacote de setembro: o Early Bird termina em 30/09 na comunicação. Continua
+marcado como bloqueado no `AGENDAMENTO.md` de setembro. O P11 "termina hoje" (30/09) foi liberado.
+
+**Ponto de atenção (Rodrigo decidiu manter):** dizer "último dia" em 30/09 e prorrogar em 01/10 pode ser lido como urgência
+falsa. O texto do dia 30 diz só o que vale no dia (preço e prazo do lote), e o de 01/10 assume a prorrogação sem justificar
+com escassez.
 
 **Dependência técnica (atualizado em 30/09).** O site mostra o Early Bird **até 30/09** e, a partir de 01/10 (00:00, horário do
 visitante), passa sozinho a mostrar **"Early Bird prorrogado: R$ 350 até 2 de outubro"** e o Segundo lote a partir de 3 de outubro.
