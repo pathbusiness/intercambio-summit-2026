@@ -696,7 +696,7 @@ a { color: inherit; }
   .fin-card:hover img { transform: none; }
 }
 
-/* ---------- votação (Prêmio Melhores Profissionais) ---------- */
+/* ---------- votação (Prêmio dos Melhores Profissionais de Intercâmbio) ---------- */
 .votacao-wrap { max-width: 980px; margin: 0 auto; padding: 7.5rem 1.25rem 4rem; }
 .votacao-titulo { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.02; text-transform: uppercase; color: var(--summit-blue); margin-bottom: 1rem; }
 .votacao-lead { max-width: 46em; font-size: 1.15rem; color: var(--charcoal); margin-bottom: 1.6rem; }
@@ -805,3 +805,6 @@ a { color: inherit; }
 /* votação fechada (antes de 01/10 ou depois de 30/10): botão cinza, sem parecer clicável */
 #vt-enviar:disabled { background: var(--mid-grey); color: var(--text-grey); cursor: not-allowed; }
 #vt-enviar:disabled:hover { background: var(--mid-grey); }
+.vt-regras { background: var(--cloud); padding: .9rem 1.1rem; margin-bottom: 1.4rem; }
+.vt-regras summary { cursor: pointer; font-weight: 700; color: var(--summit-blue); }
+.vt-regras p { margin: .7rem 0 0; }

@@ -1,7 +1,7 @@
 # Campanha Instagram · 29/09 a 11/11/2026
 
 Objetivo: encher as 144 cadeiras do Intercâmbio Summit (11/11, São Paulo) e sustentar a votação do
-Prêmio Melhores Profissionais (01/10 a 30/10). **Um post de feed por dia, todos os dias**, mais reels
+Prêmio dos Melhores Profissionais de Intercâmbio (01/10 a 30/10). **Um post de feed por dia, todos os dias**, mais reels
 e stories.
 
 Regra da casa: nada é publicado sem aprovação explícita, com arte e legenda exatas mostradas antes.
@@ -94,9 +94,12 @@ e-mails de parceiros, reels de abertura e prova social. Ficam desatualizadas a p
    (`ildxeq…`) desde 29/09, e a `summit-checkout` (v23) já cobra Early Bird até 02/10, com `EARLY10` até 02/10. Falta
    **fazer o merge do PR do site** (página `/votar`, rewrites) antes de 01/10 00:00. As artes de voto já apontam para
    `intercambiosummit.com.br/votar`. O teste com voto real só é possível depois da abertura (01/10).
-2. **Peso do voto público.** Decidido: voto cruzado (agência vota em instituição e vice-versa), cadastro simples.
-   Segue em aberto como o voto pesa perante os comitês; o post "Como funciona a votação" fica bloqueado até você
-   confirmar esse ponto e a hora de corte em 30/10 (a página fecha às 23:59:59).
+2. **Regras do Prêmio: fechadas em 30/09.** Voto cruzado também na Etapa 3; nome oficial **Prêmio dos Melhores Profissionais de
+   Intercâmbio 2026**; 6 finalistas em Acelerador de Resultados e Espírito Inovador (o Regulamento previa 5). Por categoria são 6 votos:
+   o público inteiro vale 1 (finalista mais votado) e cada um dos 5 avaliadores do comitê vale 1. Empate no topo: vence o escolhido
+   pelo público. Empate no público: o comitê decide. Empate sem o escolhido do público entre os empatados: prevalece o voto da
+   organização. Corte: 30/10 às 23:59:59 (Brasília). O Regulamento não diz isso; a minuta de adendo está em
+   `regulamento/ADENDO-ETAPA-3.md`. **Publicar o carrossel de 06/10 junto com o adendo** (ou antes).
 3. **Venda no dia.** Os posts de 09/11 a 11/11 dizem "R$ 650, sujeito à disponibilidade". Confirme se haverá
    venda no dia e como.
 4. **Horários.** A premiação às 16h30 vem do site. Se a votação tiver hora de corte no dia 30/10, me diga.
