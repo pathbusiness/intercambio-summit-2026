@@ -41,13 +41,34 @@ window.EVENTO = {
   // WhatsApp comercial para patrocínio (somente dígitos, com DDI)
   whatsappPatrocinio: "",
 
+  // Votação pública do Prêmio dos Melhores Profissionais de Intercâmbio (Regulamento, etapa 3).
+  // Datas em horário de Brasília; o servidor (Edge Function summit-votar) confere de novo.
+  // Página: /votar (votacao.html). Endpoint: /api/votar -> summit-votar.
+  // regulamentoUrl: link público do regulamento (vazio = não mostra o link).
+  votacao: {
+    inicio: "2026-10-01",
+    fim: "2026-10-30",
+    api: "/api/votar",
+    apiLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-votar",
+    regulamentoUrl: ""
+  },
+
   // Lotes: o site seleciona o lote vigente automaticamente pela data.
   // parcelado vazio = lote só à vista (o card mostra "à vista")
+  // Datas como foram ANUNCIADAS (Early Bird até 30/09). A prorrogação abaixo entra sozinha
+  // no dia do anúncio, sem novo deploy: ver `prorrogacoes` e `lotesVigentes()`.
   lotes: [
     { nome: "Early Bird",    inicio: "2026-09-01", fim: "2026-09-30", avista: 350, parcelado: "5x R$ 70 sem juros" },
     { nome: "Segundo lote",  inicio: "2026-10-01", fim: "2026-10-24", avista: 450, parcelado: "5x R$ 90 sem juros" },
     { nome: "Terceiro lote", inicio: "2026-10-25", fim: "2026-11-10", avista: 550, parcelado: "5x R$ 110 sem juros" },
     { nome: "Dia do evento", inicio: "2026-11-11", fim: "2026-11-11", avista: 650, parcelado: "5x R$ 130 sem juros" }
+  ],
+
+  // Prorrogações: a partir do dia `anuncio` (horário local do visitante), o lote `lote` vai até `fim`
+  // e o lote seguinte começa no dia depois. Até esse dia o site mostra as datas anunciadas.
+  // ATENÇÃO: a função summit-checkout já cobra pelo calendário PRORROGADO (Early Bird até 02/10).
+  prorrogacoes: [
+    { lote: "Early Bird", anuncio: "2026-10-01", fim: "2026-10-02" }
   ],
 
   // Palestrantes 2026 — quando os retratos 800x800 chegarem, salvar em
@@ -107,7 +128,7 @@ window.EVENTO = {
     { hora: "16h00", pausa: true, titulo: "Coffee break",
       desc: "Segunda pausa para networking e troca de cartões.", local: "Foyer" },
     { hora: "16h30", tipo: "Cerimônia", destaque: "navy",
-      titulo: "Prêmio Melhores Profissionais 2026",
+      titulo: "Prêmio dos Melhores Profissionais de Intercâmbio 2026",
       desc: "Cerimônia oficial de premiação dos melhores do ano no setor.", local: "Auditório" },
     { hora: "18h40", tipo: "Encerramento", titulo: "Networking final",
       desc: "Encerramento das atividades e networking de fechamento.", local: "Foyer" }
@@ -134,4 +155,28 @@ window.EVENTO = {
   // Apoiadores: os logotipos oficiais estão fixos no HTML (faixa "Apoio"),
   // arquivos em site/assets/img/marca/apoio-*.png, conforme o manual da marca.
   apoiadores: ["BELTA", "ABRAPEI", "IALC", "ALLY", "Edvisor"]
+};
+
+/* Lotes já com as prorrogações aplicadas para o dia `hoje` (Date; padrão: agora).
+   Devolve cópias: o lote prorrogado ganha prorrogado:true e fimAnunciado. */
+window.EVENTO.lotesVigentes = function (hoje) {
+  function dia(iso) { var p = iso.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function iso(d) {
+    return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+  }
+  var n = hoje || new Date(), d0 = new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  var lotes = this.lotes.map(function (l) { return Object.assign({}, l); });
+  (this.prorrogacoes || []).forEach(function (p) {
+    if (d0 < dia(p.anuncio)) return;
+    var i = lotes.findIndex(function (l) { return l.nome === p.lote; });
+    if (i < 0) return;
+    lotes[i].fimAnunciado = lotes[i].fim;
+    lotes[i].fim = p.fim;
+    lotes[i].prorrogado = true;
+    var seguinte = new Date(dia(p.fim).getTime()); seguinte.setDate(seguinte.getDate() + 1);
+    for (var j = i + 1; j < lotes.length; j++) {
+      if (dia(lotes[j].inicio) <= dia(p.fim)) lotes[j].inicio = iso(seguinte);
+    }
+  });
+  return lotes;
 };

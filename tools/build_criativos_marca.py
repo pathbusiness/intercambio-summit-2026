@@ -68,6 +68,16 @@ def main():
         mono.save(os.path.join(OUT, f"apoio-{slug}-branco.png"))
         print(f"apoio-{slug}-branco.png {w}x{h}")
 
+    # patrocínio e media partner (mesma conversão mono branca; a altura final
+    # é definida no CSS da faixa, então exporta no tamanho nativo aparado)
+    for arq, dst in [("patrocinio-ollara-box.png", "patrocinio-ollara-branco.png"),
+                     ("patrocinio-clida-box.png", "patrocinio-clida-branco.png"),
+                     ("patrocinio-ikon-alg-box.png", "patrocinio-ikon-alg-branco.png"),
+                     ("media-thepie-box.png", "media-thepie-branco.png")]:
+        mono = white_mono(trim(Image.open(os.path.join(SRC, arq))))
+        mono.save(os.path.join(OUT, dst))
+        print(f"{dst} {mono.width}x{mono.height}")
+
     # tira de conferência sobre Summit Blue
     logos = [Image.open(os.path.join(OUT, f"apoio-{s}-branco.png")) for s in OPTICAL]
     gap, pad = 56, 40

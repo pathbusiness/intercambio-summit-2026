@@ -176,3 +176,30 @@ img { display: block; }
 /* guia de depuração da zona livre (nunca renderizar em produção) */
 .debug-safe { position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
   background: rgba(255,0,0,.25); z-index: 99; }
+
+/* ---------- faixa de parceiros em 3 níveis (espelha o site) ----------
+   Patrocínio (Ollara, CLIDA, Ikon + ALG) · Media partner (The PIE) · Apoio
+   (BELTA, ABRAPEI, IALC, Ally Hub, Edvisor). Logos mono brancos gerados por
+   tools/build_criativos_marca.py. --s escala tudo (reels/stories usam 1.08).
+   Bloco vem de templates/_parceiros.html via {{PARCEIROS}}. */
+.parceiros {
+  --s: 1;
+  position: absolute; left: 0; right: 0; bottom: 100px; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; gap: calc(14px * var(--s));
+}
+.parceiros .linha { display: flex; align-items: center; justify-content: center; gap: calc(26px * var(--s)); }
+.parceiros .rotulo {
+  font-weight: 600; font-size: calc(16px * var(--s)); letter-spacing: .26em;
+  text-transform: uppercase; color: rgba(255,255,255,.66); white-space: nowrap;
+}
+.parceiros .sep { width: 1px; height: calc(30px * var(--s)); background: rgba(255,255,255,.30); }
+.parceiros img { opacity: .93; width: auto; }
+.parceiros .p-ollara  { height: calc(38px * var(--s)); }
+.parceiros .p-clida   { height: calc(40px * var(--s)); }
+.parceiros .p-ikon    { height: calc(28px * var(--s)); }
+.parceiros .m-pie     { height: calc(26px * var(--s)); }
+.parceiros .a-belta   { height: calc(32px * var(--s)); }
+.parceiros .a-abrapei { height: calc(38px * var(--s)); }
+.parceiros .a-ialc    { height: calc(40px * var(--s)); }
+.parceiros .a-allyhub { height: calc(29px * var(--s)); }
+.parceiros .a-edvisor { height: calc(35px * var(--s)); }

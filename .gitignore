@@ -16,6 +16,7 @@
 !criativos/aprovacao/*.png
 !criativos/out/**/*.jpg
 !criativos/out/**/*.png
+!criativos/out/reels/*.mp4
 
 # Caches e folhas de conferência do pipeline
 tools/cutouts/

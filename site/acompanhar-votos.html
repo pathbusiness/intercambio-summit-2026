@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Acompanhamento da votação — Intercâmbio Summit 2026</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/marca/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="painel-votos">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span class="brand-logo">
+        <img src="assets/img/marca/summit-logo-reverso-120.png"
+             srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+             alt="Intercâmbio Summit 2026" width="112" height="46">
+      </span>
+      <span class="pv-tag">Acompanhamento da votação · uso interno</span>
+    </div>
+  </header>
+
+  <main class="pv-wrap">
+    <section id="pv-login" class="pv-login">
+      <h1 class="pv-h1">Painel da votação</h1>
+      <p class="pv-sub">Acesso restrito à organização. Os dados incluem nome e e-mail de quem votou.</p>
+      <form id="pv-form" novalidate>
+        <label for="pv-senha">Senha do painel</label>
+        <input type="password" id="pv-senha" autocomplete="current-password" required>
+        <p class="pv-erro" id="pv-erro" role="alert" hidden></p>
+        <button type="submit" class="btn btn-solid" id="pv-entrar">Entrar</button>
+      </form>
+    </section>
+
+    <section id="pv-painel" hidden>
+      <div class="pv-barra">
+        <h1 class="pv-h1">Votação do Prêmio dos Melhores Profissionais de Intercâmbio</h1>
+        <div class="pv-acoes">
+          <span class="pv-quando" id="pv-quando"></span>
+          <button type="button" class="btn btn-solid" id="pv-atualizar">Atualizar</button>
+          <button type="button" class="btn btn-solid" id="pv-csv">Baixar CSV</button>
+          <button type="button" class="pv-sair" id="pv-sair">Sair</button>
+        </div>
+      </div>
+      <p class="pv-erro" id="pv-erro2" role="alert" hidden></p>
+
+      <div class="pv-kpis" id="pv-kpis"></div>
+
+      <h2 class="pv-h2">Ranking por categoria</h2>
+      <p class="pv-nota">Só votos válidos, contagem do público. Na apuração final, o público inteiro vale 1 voto por categoria (o finalista mais votado aqui) e cada um dos 5 membros do comitê vale 1 voto.</p>
+      <div class="pv-cats" id="pv-cats"></div>
+
+      <h2 class="pv-h2">Votos por dia</h2>
+      <div class="pv-dias" id="pv-dias"></div>
+
+      <h2 class="pv-h2">Conexões para conferir</h2>
+      <p class="pv-nota">Conexões (IP) com 5 ou mais e-mails diferentes. Pode ser um escritório inteiro ou uma feira; confira os votos antes de invalidar.</p>
+      <div id="pv-suspeitos"></div>
+
+      <h2 class="pv-h2">Últimos 50 votos</h2>
+      <div class="pv-tabela-wrap" id="pv-recentes"></div>
+
+      <p class="pv-nota pv-rodape">Para invalidar um voto, use o SQL Editor do Supabase (consulta em <code>supabase/VOTACAO.md</code>). Esta página só lê.</p>
+    </section>
+  </main>
+
+  <script src="js/acompanhar-votos.js"></script>
+</body>
+</html>

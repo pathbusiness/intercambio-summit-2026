@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Fixado 03 — Ingressos 1080x1350</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas { background: var(--deep-navy); }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.88) 42%, rgba(0,35,92,.80) 100%);
+  }
+  .tab-trio { position: absolute; top: 200px; left: var(--mx);
+    background: var(--white); color: var(--summit-blue);
+    font-weight: 700; font-size: 30px; letter-spacing: .12em; text-transform: uppercase;
+    padding: 12px 22px 14px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%); }
+
+  .titulo { position: absolute; left: var(--mx); top: 372px;
+    font-weight: 700; font-size: 96px; line-height: .98; text-transform: uppercase;
+    color: var(--white); }
+
+  /* escada compacta, dentro da zona central do grid */
+  .escada { position: absolute; left: var(--mx); right: var(--mx); top: 600px;
+    display: flex; align-items: flex-end; gap: 16px; }
+  .degrau { flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 20px 16px 18px; background: rgba(0,26,63,.82);
+    border-top: 3px solid rgba(255,255,255,.35); }
+  .degrau .nome { font-weight: 600; font-size: 22px; text-transform: uppercase;
+    letter-spacing: .05em; line-height: 1.12; color: var(--mid-grey); }
+  .degrau .valor { font-weight: 700; font-size: 42px; margin-top: 12px; line-height: 1;
+    white-space: nowrap; color: var(--white); }
+  .degrau.d1 { height: 210px; background: var(--white); border-top: 5px solid var(--white); }
+  .degrau.d1 .nome { color: var(--summit-blue); }
+  .degrau.d1 .valor { color: var(--summit-blue); }
+  .degrau.d2 { height: 258px; }
+  .degrau.d3 { height: 306px; }
+  .degrau.d4 { height: 354px; background: var(--charcoal); }
+
+  .semjuros { position: absolute; left: var(--mx); top: 1000px;
+    font-weight: 600; font-size: 34px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--mid-grey); }
+  .semjuros strong { color: var(--white); }
+
+  .cta-wrap { position: absolute; left: var(--mx); top: 1078px; }
+  .cta { font-size: 34px; padding: 18px 38px 20px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/painel-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+    <div class="tab-trio">03 · Ingressos</div>
+
+    <div class="titulo">Quanto antes,<br>menor o preço.</div>
+
+    <div class="escada">
+      <div class="degrau d1"><div class="nome">Early Bird<br>até 30/09</div><div class="valor">R$ 350</div></div>
+      <div class="degrau d2"><div class="nome">2º lote<br>até 24/10</div><div class="valor">R$ 450</div></div>
+      <div class="degrau d3"><div class="nome">3º lote<br>até 10/11</div><div class="valor">R$ 550</div></div>
+      <div class="degrau d4"><div class="nome">No dia<br>11/11</div><div class="valor">R$ 650</div></div>
+    </div>
+
+    <div class="semjuros">Todos os lotes em <strong>5x sem juros</strong></div>
+
+    <div class="cta-wrap"><span class="cta">intercambiosummit.com.br</span></div>
+
+    <div class="faixa-apoio">
+      <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+      <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+      <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+      <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+      <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+    </div>
+  </div>
+</div>
+</body>
+</html>

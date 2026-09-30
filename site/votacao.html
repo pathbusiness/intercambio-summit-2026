@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votação — Prêmio dos Melhores Profissionais de Intercâmbio 2026</title>
+  <meta name="description" content="Vote nos finalistas do Prêmio dos Melhores Profissionais de Intercâmbio 2026, do Intercâmbio Summit. Votação até 30 de outubro.">
+  <link rel="canonical" href="https://intercambiosummit.com.br/votar">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/marca/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/marca/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/marca/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="votacao-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVZLV4NW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-logo" href="index.html">
+        <img src="assets/img/marca/summit-logo-reverso-120.png"
+             srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+             alt="Intercâmbio Summit 2026" width="112" height="46">
+      </a>
+      <nav class="mainnav" aria-label="Navegação">
+        <a href="index.html#premio">← Voltar ao site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="votacao-wrap">
+    <p class="section-kicker">Prêmio dos Melhores Profissionais de Intercâmbio 2026</p>
+    <h1 class="votacao-titulo">Vote nos melhores profissionais do ano</h1>
+    <p class="votacao-lead">São 32 finalistas em 6 categorias. Profissionais de <strong>agências</strong> votam nas categorias de <strong>instituições</strong>, e profissionais de <strong>instituições</strong> votam nas categorias de <strong>agências</strong>. Um voto por categoria, até <strong>30 de outubro</strong>.</p>
+
+    <details class="vt-regras">
+      <summary>Como o vencedor é escolhido</summary>
+      <p>Em cada categoria são 6 votos: o <strong>público inteiro vale 1 voto</strong>, para o finalista mais votado aqui, e <strong>cada um dos 5 avaliadores do comitê vale 1 voto</strong>. Vence quem somar mais votos. Se houver empate, vence o finalista escolhido pelo público.</p>
+    </details>
+
+    <p class="votacao-estado" id="vt-estado" hidden></p>
+    <p class="votacao-erro" id="vt-erro" role="alert" hidden></p>
+
+    <form id="votacao-form" novalidate>
+      <fieldset class="vt-identificacao">
+        <legend>1. Quem é você</legend>
+        <div class="vt-linha">
+          <label>Nome e sobrenome <span class="req">*</span>
+            <input type="text" id="vt-nome" name="nome" autocomplete="name" required maxlength="80" placeholder="Seu nome completo">
+          </label>
+          <label>E-mail profissional <span class="req">*</span>
+            <input type="email" id="vt-email" name="email" autocomplete="email" required maxlength="254" placeholder="voce@empresa.com.br">
+          </label>
+        </div>
+        <label>Empresa ou instituição <span class="req">*</span>
+          <input type="text" id="vt-empresa" name="empresa" autocomplete="organization" required maxlength="100" placeholder="Onde você trabalha">
+        </label>
+        <div class="vt-tipo" role="radiogroup" aria-label="Tipo de empresa">
+          <label class="vt-opcao"><input type="radio" name="tipo" value="agencia"> <span>Trabalho em uma <strong>agência de intercâmbio</strong></span></label>
+          <label class="vt-opcao"><input type="radio" name="tipo" value="instituicao"> <span>Trabalho em uma <strong>instituição educacional</strong> (escola, college, universidade, high school)</span></label>
+        </div>
+        <input type="text" name="site" class="vt-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      </fieldset>
+
+      <div id="vt-categorias" aria-live="polite">
+        <p class="vt-dica">Escolha acima onde você trabalha para ver as categorias em que pode votar.</p>
+      </div>
+
+      <div class="vt-rodape" id="vt-rodape" hidden>
+        <p class="vt-aviso">Seu nome, e-mail e empresa servem só para validar a votação e evitar votos duplicados. Os organizadores podem invalidar votos suspeitos. <span id="vt-reg"></span></p>
+        <button type="submit" class="btn btn-cta" id="vt-enviar">Enviar meus votos</button>
+        <p class="vt-contagem" id="vt-contagem"></p>
+      </div>
+    </form>
+
+    <section class="votacao-sucesso" id="vt-sucesso" hidden>
+      <h2>Voto registrado. Obrigado!</h2>
+      <ul id="vt-sucesso-lista"></ul>
+      <p id="vt-sucesso-ja"></p>
+      <p>Os vencedores serão anunciados ao vivo em 11 de novembro, às 16h30, no Intercâmbio Summit, em São Paulo.</p>
+
+      <div class="vt-ingresso" id="vt-ingresso">
+        <p class="section-kicker">Agora falta você</p>
+        <h3>Garanta o seu lugar no Summit</h3>
+        <p>Um dia de IA na operação, painel sobre o mercado em 2027 e a premiação que você acabou de votar. <strong>11 de novembro, Contentix, Av. Paulista, São Paulo.</strong></p>
+        <p class="vt-ingresso-lote" id="vt-ingresso-lote"></p>
+        <a class="btn btn-cta" id="vt-ingresso-cta" href="checkout.html" data-cta="ingresso-pos-voto">Garantir meu ingresso</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a class="footer-logo" href="index.html">
+          <img src="assets/img/marca/summit-logo-reverso-120.png"
+               srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+               alt="Intercâmbio Summit 2026" width="137" height="56">
+        </a>
+        <p class="footer-meta"><span data-evento="dataExtenso"></span> · <span data-evento="local"></span>, <span data-evento="cidade"></span></p>
+      </div>
+      <p class="footer-org">Uma realização <strong>PATH Business &amp; Marketing Solutions</strong></p>
+    </div>
+  </footer>
+
+  <script src="evento.config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/votacao.js"></script>
+</body>
+</html>
