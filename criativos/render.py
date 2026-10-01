@@ -217,6 +217,7 @@ def jobs_premio(dias="7"):
         jobs += [
             ("modelo-c-finalista.html", dados, os.path.join(pasta, "card-finalista.jpg"), F),
             ("premio-vote-card.html", dados, os.path.join(pasta, "card-votacao.jpg"), F),
+            ("premio-vote-whatsapp.html", dados, os.path.join(pasta, "voto-whatsapp-1080x1080.jpg"), SIZES["quadrado"]),
             ("premio-story-votacao.html", dados, os.path.join(pasta, "story-votacao.jpg"), S),
             ("premio-story-faltam.html", dados,
              os.path.join(pasta, f"story-faltam-{dias}-dias.jpg"), S),
