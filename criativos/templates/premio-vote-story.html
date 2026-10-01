@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Prêmio — story de voto 1080x1920, com barra branca para o link</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.story { width: 1080px; background: var(--deep-navy); display: flex; }
+
+  /* troféus como pano de fundo da peça inteira */
+  .bg-foto img { object-position: center 24%;
+    filter: saturate(.55) contrast(1.08) brightness(.68); }
+  .bg-foto::after {
+    background:
+      linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.88) 36%, rgba(0,35,92,.50) 66%, rgba(0,35,92,.30) 100%),
+      linear-gradient(200deg, rgba(0,26,63,.1) 0%, rgba(0,26,63,.5) 100%);
+  }
+
+  /* retrato do finalista integrado à cena: sem moldura, bordas esmaecidas */
+  .retrato { position: absolute; left: 0; right: 0; top: 0; height: 1260px; z-index: 2;
+    -webkit-mask-image: radial-gradient(ellipse 60% 62% at 50% 34%, black 48%, transparent 88%);
+    mask-image: radial-gradient(ellipse 60% 62% at 50% 34%, black 48%, transparent 88%); }
+  .retrato img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%;
+    filter: saturate(.62) contrast(1.05) brightness(.92); }
+
+  .conteudo-flex {
+    position: absolute; inset: 0; z-index: 4;
+    display: flex; flex-direction: column;
+    padding: 64px var(--mx) 0;
+  }
+
+  .topo-conv { display: flex; align-items: center; gap: 24px; flex: none; }
+  .topo-conv img.summit { height: 72px; width: auto; }
+  .topo-conv .divisor { width: 2px; height: 58px; background: rgba(255,255,255,.4); }
+  .topo-conv .premio-nome { font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+    font-size: 27px; line-height: 1.18; color: var(--white); }
+
+  .selos { flex: none; margin-top: 760px; display: flex; align-items: center; gap: 16px; }
+  .selo-finalista { display: inline-block; background: var(--white); color: var(--summit-blue);
+    font-weight: 700; font-size: 26px; letter-spacing: .08em; text-transform: uppercase; padding: 12px 20px 13px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%); }
+  .selo-trilha { display: inline-block; color: var(--white); font-weight: 600; font-size: 18px;
+    letter-spacing: .16em; text-transform: uppercase; border: 2px solid rgba(255,255,255,.75); padding: 8px 16px 9px; }
+
+  .bloco-nome { flex: none; margin-top: 22px; }
+  .bloco-nome .nome { font-weight: 700; font-size: 74px; text-transform: uppercase; line-height: .98; }
+  .bloco-nome .categoria { margin-top: 10px; font-weight: 600; font-size: 31px; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--mid-grey); }
+
+  .bloco-vote { flex: none; margin-top: 28px; display: flex; align-items: center; gap: 24px; }
+  .bloco-vote .selo-vote { font-size: 36px; padding: 16px 32px 17px; }
+  .vote-info .prazo { font-weight: 600; font-size: 20px; letter-spacing: .06em; text-transform: uppercase; color: var(--mid-grey); }
+
+  .vencedores { flex: none; margin-top: 16px; font-weight: 500; font-size: 20px;
+    line-height: 1.4; color: var(--mid-grey); max-width: 820px; }
+  .vencedores strong { font-weight: 700; color: var(--white); }
+
+  /* card branco com o link de votação: cada finalista decide se cola
+     o sticker de link do Instagram por cima ou deixa como está */
+  .barra-link { flex: none; margin-top: 36px; align-self: stretch;
+    background: var(--white); border-radius: 10px;
+    padding: 30px; text-align: center; }
+  .barra-link .url { font-weight: 700; font-size: 30px; color: var(--summit-blue); }
+</style>
+</head>
+<body>
+<div class="canvas story">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/trofeus-900.webp" alt="Troféus do Prêmio Melhores Profissionais"></div>
+  <div class="retrato"><img src="{{FOTO}}" alt="{{NOME}}"></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo-flex">
+    <div class="topo-conv">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <span class="premio-nome">Prêmio Melhores<br>Profissionais 2026</span>
+    </div>
+
+    <div class="selos">
+      <span class="selo-finalista">Finalista 2026</span>
+      <span class="selo-trilha">{{TRILHA}}</span>
+    </div>
+
+    <div class="bloco-nome">
+      <div class="nome">{{NOME}}</div>
+      <div class="categoria">{{CATEGORIA}}</div>
+    </div>
+
+    <div class="bloco-vote">
+      <span class="selo-vote">Vote</span>
+      <div class="vote-info">
+        <div class="prazo">Votação até 30 de outubro</div>
+      </div>
+    </div>
+
+    <p class="vencedores">Os vencedores serão revelados em <strong>11 de novembro</strong>, no Intercâmbio Summit, em São Paulo.</p>
+
+    <div class="barra-link">
+      <div class="url">intercambiosummit.com.br/votar</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
