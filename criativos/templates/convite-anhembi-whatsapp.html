@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Convite alunos Anhembi Morumbi — WhatsApp 1080x1080</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .canvas.convite { width: 1080px; height: 1080px; background: var(--deep-navy); display: flex; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,35,92,.9) 30%, rgba(0,35,92,.62) 100%);
+  }
+
+  .conteudo-flex {
+    position: absolute; inset: 0; z-index: 4;
+    display: flex; flex-direction: column;
+    padding: 46px var(--mx) 52px;
+  }
+
+  .topo-conv { display: flex; align-items: center; gap: 22px; flex: none; }
+  .topo-conv img.summit { height: 56px; width: auto; }
+  .topo-conv .divisor { width: 2px; height: 44px; background: rgba(255,255,255,.4); }
+  .topo-conv .parceiro-nome { font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+    font-size: 26px; color: var(--white); line-height: 1.1; }
+
+  .eyebrow-conv { margin-top: 18px; flex: none; }
+  .titulo-conv { margin-top: 8px; font-size: 58px; flex: none; }
+  .quando-conv { margin-top: 12px; font-weight: 500; font-size: 27px; color: var(--mid-grey); flex: none; }
+
+  .subtitulo-precos { flex: none; margin-top: 24px; font-weight: 700; text-transform: uppercase;
+    font-size: 22px; letter-spacing: .01em; color: var(--white); }
+
+  .lotes { flex: none; margin-top: 14px; display: flex; flex-direction: column; gap: 9px; }
+  .lote { display: flex; align-items: center; gap: 14px; padding: 12px 18px;
+    border-radius: 6px; background: rgba(255,255,255,.10); position: relative; }
+  .lote .nome-col { flex: 1; min-width: 0; }
+  .lote .nome { font-weight: 700; font-size: 20px; text-transform: uppercase; color: var(--white); line-height: 1.1; }
+  .lote .prazo { font-weight: 500; font-size: 15px; color: var(--mid-grey); }
+  .lote .valor-col { text-align: right; flex: none; }
+  .lote .parc { font-weight: 700; font-size: 25px; color: var(--white); line-height: 1; }
+  .lote .valor { font-weight: 500; font-size: 14px; color: var(--mid-grey); margin-top: 2px; }
+
+  .lote.destaque { background: var(--action-green); }
+  .lote.destaque .nome, .lote.destaque .parc { color: var(--charcoal); }
+  .lote.destaque .prazo, .lote.destaque .valor { color: rgba(35,31,32,.72); }
+  .lote.destaque .selo { position: absolute; top: -11px; left: 18px;
+    background: var(--summit-blue); color: var(--white);
+    font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 11px; border-radius: 4px; }
+
+  .rodape-conv { flex: none; margin-top: auto; display: flex; flex-direction: column; gap: 16px; }
+
+  .caixa-cupom { align-self: stretch; background: var(--white); border-radius: 6px;
+    padding: 14px 26px 16px; text-align: center; }
+  .caixa-cupom .legenda { display: block; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .05em; font-size: 17px; color: var(--charcoal); margin-bottom: 4px; }
+  .caixa-cupom .codigo { display: block; font-weight: 700; text-transform: uppercase;
+    font-size: 32px; letter-spacing: .02em; color: var(--summit-blue); }
+
+  .linha-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .linha-cta .cta { flex: none; }
+
+  .apoio-lateral { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .apoio-lateral .rotulo { font-weight: 600; font-size: 14px; letter-spacing: .22em;
+    text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .apoio-lateral .logos { display: flex; flex-direction: column; gap: 18px; }
+  .apoio-lateral .linha { display: flex; align-items: center; gap: 26px; }
+  .apoio-lateral .logos img { opacity: .95; }
+  .apoio-lateral .logos img.belta   { height: 40px; }
+  .apoio-lateral .logos img.abrapei { height: 48px; }
+  .apoio-lateral .logos img.ialc    { height: 52px; }
+  .apoio-lateral .logos img.allyhub { height: 38px; }
+  .apoio-lateral .logos img.edvisor { height: 46px; }
+</style>
+</head>
+<body>
+<div class="canvas convite">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/plateia-2400.webp" alt=""></div>
+  <div class="canto-45"></div>
+
+  <div class="conteudo-flex">
+    <div class="topo-conv">
+      <img class="summit" src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026">
+      <span class="divisor"></span>
+      <span class="parceiro-nome">Anhembi<br>Morumbi</span>
+    </div>
+
+    <p class="eyebrow-conv eyebrow">Convite exclusivo para alunos da Anhembi Morumbi</p>
+    <h1 class="titulo-conv titulo-hero">INTERCÂMBIO<br>SUMMIT 2026</h1>
+    <p class="quando-conv">11 de novembro · São Paulo</p>
+
+    <p class="subtitulo-precos">O preço sobe. O evento é o mesmo.</p>
+    <div class="lotes">
+      <div class="lote destaque">
+        <span class="selo">Lote atual · até 02/10</span>
+        <div class="nome-col"><div class="nome" style="margin-top:6px;">Early Bird</div></div>
+        <div class="valor-col"><div class="parc">5x de R$ 70 sem juros</div><div class="valor">ou R$ 350 à vista</div></div>
+      </div>
+      <div class="lote">
+        <div class="nome-col"><div class="nome">Segundo lote</div><div class="prazo">até 24/10</div></div>
+        <div class="valor-col"><div class="parc">5x de R$ 90 sem juros</div><div class="valor">ou R$ 450 à vista</div></div>
+      </div>
+      <div class="lote">
+        <div class="nome-col"><div class="nome">Terceiro lote</div><div class="prazo">até 10/11</div></div>
+        <div class="valor-col"><div class="parc">5x de R$ 110 sem juros</div><div class="valor">ou R$ 550 à vista</div></div>
+      </div>
+      <div class="lote">
+        <div class="nome-col"><div class="nome">Dia do evento</div><div class="prazo">11/11, na porta</div></div>
+        <div class="valor-col"><div class="parc">5x de R$ 130 sem juros</div><div class="valor">ou R$ 650 à vista</div></div>
+      </div>
+    </div>
+
+    <div class="rodape-conv">
+      <div class="caixa-cupom">
+        <span class="legenda">Cupom exclusivo alunos Anhembi Morumbi</span>
+        <span class="codigo">Cupom ANHEMBI10 · 10% OFF</span>
+      </div>
+      <div class="linha-cta">
+        <span class="cta">intercambiosummit.com.br</span>
+        <div class="apoio-lateral">
+          <span class="rotulo">Apoio</span>
+          <div class="logos">
+            <div class="linha">
+              <img class="belta"   src="../assets/marca/apoio-belta-branco.png"   alt="BELTA">
+              <img class="abrapei" src="../assets/marca/apoio-abrapei-branco.png" alt="ABRAPEI">
+            </div>
+            <div class="linha">
+              <img class="ialc"    src="../assets/marca/apoio-ialc-branco.png"    alt="IALC">
+              <img class="allyhub" src="../assets/marca/apoio-allyhub-branco.png" alt="Ally Hub">
+              <img class="edvisor" src="../assets/marca/apoio-edvisor-branco.png" alt="Edvisor">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
