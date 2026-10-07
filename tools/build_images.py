@@ -60,7 +60,6 @@ FINALISTAS = {
     "fernanda-rocha":     ("Finalistas - Agentes de Intercambio/Fernanda Rocha.jpeg", {}),
     "hanna-alves":        ("Finalistas - Agentes de Intercambio/Hannah Alves.jpeg", {}),
     "karen-oliveira":     ("Finalistas - Agentes de Intercambio/Karen Oliveira .jpeg", {}),
-    "karina-fiore":       ("Finalistas - Agentes de Intercambio/Karina Fiore.jpeg", {}),
     "matheus-campos":     ("Finalistas - Agentes de Intercambio/Matheus Campos.jpeg", {}),
     "myllena-pontes":     ("Finalistas - Agentes de Intercambio/Myllena Pontes.jpeg", {}),
     "rafaela-monteiro":   ("Finalistas - Agentes de Intercambio/Rafaela Monteiro.jpeg", {}),

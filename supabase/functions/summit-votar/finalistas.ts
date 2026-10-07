@@ -32,7 +32,6 @@ export const FINALISTAS: Record<string, string> = {
   "hanna-alves": "transformador",
   "eduardo-henrique": "acelerador",
   "karen-oliveira": "acelerador",
-  "karina-fiore": "acelerador",
   "matheus-campos": "acelerador",
   "rafaela-monteiro": "acelerador",
   "victor-luraschi": "acelerador",

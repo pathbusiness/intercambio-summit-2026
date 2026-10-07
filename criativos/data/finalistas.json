@@ -31,7 +31,6 @@
     { "slug": "hanna-alves",        "nome": "Hanna Alves",        "categoria": "transformador" },
     { "slug": "eduardo-henrique",   "nome": "Eduardo Henrique",   "categoria": "acelerador" },
     { "slug": "karen-oliveira",     "nome": "Karen Oliveira",     "categoria": "acelerador" },
-    { "slug": "karina-fiore",       "nome": "Karina Fiore",       "categoria": "acelerador" },
     { "slug": "matheus-campos",     "nome": "Matheus Campos",     "categoria": "acelerador" },
     { "slug": "rafaela-monteiro",   "nome": "Rafaela Monteiro",   "categoria": "acelerador" },
     { "slug": "victor-luraschi",    "nome": "Victor Luraschi",    "categoria": "acelerador" },
