@@ -127,6 +127,7 @@
     nome: "Informe seu nome e sobrenome.",
     empresa: "Informe a empresa ou instituição onde você trabalha.",
     email: "Confira o e-mail. Use um e-mail profissional válido.",
+    email_pessoal: "Para votar, use seu e-mail profissional. Não aceitamos Gmail, Hotmail, Outlook, Live nem Yahoo.",
     tipo: "Informe se você trabalha em agência ou em instituição.",
     votos: "Escolha ao menos um finalista.",
     voto_invalido: "Um dos finalistas escolhidos não é válido. Recarregue a página e tente de novo.",

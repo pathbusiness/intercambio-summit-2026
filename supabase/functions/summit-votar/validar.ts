@@ -18,6 +18,12 @@ const DESCARTAVEIS = new Set([
   "maildrop.cc", "throwawaymail.com", "fakeinbox.com",
 ]);
 
+// Provedores de e-mail pessoal: a votação pede e-mail profissional.
+const PESSOAIS = new Set([
+  "gmail.com", "googlemail.com", "hotmail.com", "hotmail.com.br", "outlook.com", "outlook.com.br",
+  "live.com", "yahoo.com", "yahoo.com.br",
+]);
+
 export function normalizarEmail(bruto: string): string {
   const e = bruto.trim().toLowerCase();
   const [local, dominio] = e.split("@");
@@ -48,6 +54,8 @@ export function validar(body: Record<string, unknown>): Ok | Erro {
   const email = normalizarEmail(emailOrig);
   if (DESCARTAVEIS.has(email.split("@")[1]))
     return { ok: false, status: 400, erro: "email", detalhe: "Use um e-mail profissional." };
+  if (PESSOAIS.has(email.split("@")[1]))
+    return { ok: false, status: 400, erro: "email_pessoal", detalhe: "Use seu e-mail profissional." };
   if (tipo !== "agencia" && tipo !== "instituicao")
     return { ok: false, status: 400, erro: "tipo", detalhe: "Informe se você é de agência ou instituição." };
 

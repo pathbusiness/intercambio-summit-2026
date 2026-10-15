@@ -14,6 +14,11 @@ t("nome sem sobrenome", (validar({ ...base, nome: "Maria" }) as any).erro === "n
 t("email inválido", (validar({ ...base, email: "maria@" }) as any).erro === "email");
 t("email descartável", (validar({ ...base, email: "x@mailinator.com" }) as any).erro === "email");
 t("tipo inválido", (validar({ ...base, tipo: "outro" }) as any).erro === "tipo");
+for (const d of ["gmail.com", "Gmail.com", "hotmail.com", "hotmail.com.br", "outlook.com", "live.com", "yahoo.com", "yahoo.com.br"])
+  t("e-mail pessoal bloqueado: " + d, (validar({ ...base, email: "maria@" + d }) as any).erro === "email_pessoal");
+t("gmail com +tag também é bloqueado", (validar({ ...base, email: "ma.ria+x@gmail.com" }) as any).erro === "email_pessoal");
+t("domínio corporativo com 'live' no nome passa", validar({ ...base, email: "maria@live.agencia.com.br" }).ok === true);
+t("domínio corporativo parecido passa", validar({ ...base, email: "maria@gmailagencia.com.br" }).ok === true);
 t("gmail com ponto e +tag = mesmo e-mail", normalizarEmail("Ma.ri.a+summit@Gmail.com") === "maria@gmail.com");
 t("outros domínios mantêm o e-mail", normalizarEmail(" Ana.Souza@Empresa.com ") === "ana.souza@empresa.com");
 const ini = new Date("2026-10-01T00:00:00-03:00"), fim = new Date("2026-10-30T23:59:59-03:00");
