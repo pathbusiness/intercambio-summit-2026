@@ -1,0 +1,140 @@
+/* ==========================================================
+   INTERCÂMBIO SUMMIT 2026 — TOTEM ELÍPTICO 60x193cm
+   Gabarito Loja do Porta Banner: corte 600x1930mm, dobras
+   horizontais a cada 482,5mm (4 seções iguais). Escala do
+   template: 1px = 0,5mm (canvas 1200x3860), render a 3x
+   (3600x11580 px ≈ 152 dpi no tamanho final).
+   Dobras em y=965, 1930, 2895 (a palavra vertical cruza as
+   dobras por decisão de 19/10 — lona contínua, curva suave).
+   Tokens do Brand Guidelines v1.0 (ver templates/base.css).
+   Revisão 19/10: sem lockup de texto "Intercâmbio Summit 2026"
+   e sem data/local; mapa-múndi pontilhado como fundo no azul;
+   sinalização com palavra na vertical; PATH como realizadora
+   em todos os totens.
+   ========================================================== */
+
+@font-face { font-family: "Rajdhani"; font-weight: 400; src: url("../assets/fonts/rajdhani-400.woff2") format("woff2"); }
+@font-face { font-family: "Rajdhani"; font-weight: 500; src: url("../assets/fonts/rajdhani-500.woff2") format("woff2"); }
+@font-face { font-family: "Rajdhani"; font-weight: 600; src: url("../assets/fonts/rajdhani-600.woff2") format("woff2"); }
+@font-face { font-family: "Rajdhani"; font-weight: 700; src: url("../assets/fonts/rajdhani-700.woff2") format("woff2"); }
+
+:root {
+  --summit-blue: #0044B9;
+  --charcoal:    #231F20;
+  --white:       #FFFFFF;
+  --deep-navy:   #00235C;
+  --cloud:       #F4F6FB;
+  --mid-grey:    #D0D5E8;
+  --font: "Rajdhani", Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); color: var(--white); background: #666; }
+img { display: block; }
+
+.canvas {
+  position: relative;
+  width: 1200px; height: 3860px;
+  overflow: hidden;
+  background: var(--summit-blue);
+}
+
+/* Dispositivo angular 45° (manual, seção 06): só Summit Blue ou branco */
+.canto-45 {
+  position: absolute; top: 0; right: 0; z-index: 6;
+  width: 240px; height: 240px;
+  background: var(--white);
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+.plano-45 {
+  position: absolute; left: 0; bottom: 0; z-index: 6;
+  width: 260px; height: 260px;
+  background: var(--white);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+/* mapa-múndi pontilhado de fundo (branco, baixa opacidade sobre o azul) */
+.mapa-bg {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  z-index: 0; opacity: .14; pointer-events: none;
+}
+
+/* topo: logo do Summit (seção 1: 0–965) */
+.topo-logo { position: absolute; top: 160px; left: 0; right: 0; display: flex; justify-content: center; z-index: 4; }
+.topo-logo img { width: 950px; height: auto; }
+
+/* ---------- totem de patrocinador ---------- */
+
+/* régua branca do patrocinador (dentro da seção 2: 965–1930) */
+.painel-logo {
+  position: absolute; top: 1040px; left: 0; right: 0; height: 820px;
+  background: var(--white); z-index: 3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 70px;
+}
+.painel-logo .rotulo {
+  font-weight: 600; font-size: 44px; letter-spacing: .34em;
+  text-transform: uppercase; color: var(--summit-blue);
+}
+.painel-logo img, .painel-logo svg { width: auto; }
+
+/* mapa no bloco azul inferior do totem de patrocinador */
+.mapa-patrocinador { top: 2000px; width: 3100px; }
+
+/* rodapé (seção 4: 2895–3860) */
+.rodape {
+  position: absolute; bottom: 300px; left: 0; right: 0;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; z-index: 4;
+}
+.rodape .url { font-weight: 700; font-size: 66px; letter-spacing: .05em; }
+.rodape .real-rotulo {
+  margin-top: 130px; font-weight: 600; font-size: 34px;
+  letter-spacing: .34em; text-transform: uppercase; color: var(--mid-grey);
+}
+.rodape .path-logo { margin-top: 48px; width: 400px; height: auto; }
+
+/* ---------- totem de sinalização ---------- */
+
+/* mensagem de apoio logo abaixo do logo do Summit */
+.suporte-topo {
+  position: absolute; top: 760px; left: 60px; right: 60px;
+  text-align: center; z-index: 4;
+  font-weight: 500; font-size: 52px; letter-spacing: .04em;
+  color: var(--cloud); line-height: 1.5;
+}
+.suporte-topo strong { font-weight: 700; color: var(--white); }
+
+/* mapa atrás da palavra vertical */
+.mapa-sinal { top: 1450px; width: 3100px; }
+
+/* palavra principal na vertical (lê de baixo para cima) */
+.palavra-vertical {
+  position: absolute; left: 50%; top: 2130px;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap; z-index: 4;
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: .03em; line-height: 1; color: var(--white);
+}
+
+/* faixa branca no pé: patrocínio + realização */
+.faixa-patrocinio {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 460px;
+  background: var(--white); z-index: 5;
+  display: flex; align-items: center; justify-content: center;
+  gap: 40px; padding: 0 30px;
+}
+.faixa-patrocinio .bloco {
+  display: flex; flex-direction: column; align-items: center; gap: 40px;
+}
+.faixa-patrocinio .rotulo {
+  font-weight: 600; font-size: 30px; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--summit-blue);
+}
+.faixa-patrocinio .divisor { width: 3px; height: 200px; background: var(--mid-grey); }
+.faixa-patrocinio .logos { display: flex; align-items: center; gap: 30px; }
+.faixa-patrocinio img { width: auto; }
+.faixa-patrocinio .p-ollara { height: 58px; }
+.faixa-patrocinio .p-clida  { height: 64px; }
+.faixa-patrocinio .p-ikon   { height: 30px; }
+.faixa-patrocinio .p-path   { height: 120px; }

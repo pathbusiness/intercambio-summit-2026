@@ -14,6 +14,7 @@
 # + produção renderizada da campanha)
 !criativos/assets/marca/*.png
 !criativos/aprovacao/*.png
+!criativos/totens/assets/*.png
 !criativos/out/**/*.jpg
 !criativos/out/**/*.png
 !criativos/out/reels/*.mp4
