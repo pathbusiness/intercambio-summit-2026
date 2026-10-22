@@ -82,6 +82,20 @@ Tamanhos: feed/carrossel 1080x1350 · story 1080x1920 · LinkedIn 1200x627
 Volume em JPEG q92; banner de e-mail em PNG. Regerar tudo:
 `python3 criativos/render.py tudo`.
 
+## Totens 60x193cm (out/19) — `criativos/totens/`
+
+Totens elípticos para o dia do evento, no gabarito da Loja do Porta Banner
+(corte 600x1930mm, frente = verso, dobras horizontais a cada 482,5mm —
+conteúdo crítico posicionado fora das dobras). 3 de patrocinador (Ollara,
+CLIDA, Ikon + ALG) + 2 de sinalização (Credenciamento, Auditório, com
+faixa de patrocínio no pé). Logos rasterizados dos VETORES originais
+(`totens/assets/`, ~6400px): Ollara do LOGOS.pdf, CLIDA do
+LOGO-CLIDANTE-ORIZ-CMYK.pdf, Ikon+ALG do `EDU_LOCKUP - wCodes.svg`
+(lockup oficial com códigos TEQSA/CRICOS, barra divisória à esquerda
+removida). Saída em `out/totens/`: PNG 3600x11580 (~152 dpi no formato
+final) + PDF 600x1930mm com 2 páginas (frente/verso). Regerar:
+`python3 criativos/totens/render_totens.py`.
+
 ### Pendências para publicar
 1. ~~Link curto de votação~~ — confirmado em 01/09: `intercambiosummit.com.br`
    (constante `URL_VOTACAO` no `render.py`).
