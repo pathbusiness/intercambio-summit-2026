@@ -172,8 +172,12 @@
         elCupomBtn.disabled = false;
         if (r.body && r.body.ok) {
           cupomValidado = { codigo: r.body.codigo || codigo, valor: r.body.valor };
-          var pct = Math.round((r.body.desconto || 0) * 100);
-          elCupomFb.textContent = "Cupom aplicado: " + pct + "% de desconto.";
+          if (r.body.descontoValor) {
+            elCupomFb.textContent = "Cupom aplicado: R$ " + Math.round(r.body.descontoValor) + " de desconto.";
+          } else {
+            var pct = Math.round((r.body.desconto || 0) * 100);
+            elCupomFb.textContent = "Cupom aplicado: " + pct + "% de desconto.";
+          }
           elCupomFb.className = "checkout-cupom-feedback is-ok";
         } else {
           cupomValidado = null;
