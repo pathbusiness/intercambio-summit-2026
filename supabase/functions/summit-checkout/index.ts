@@ -27,8 +27,11 @@ const LOTES = [
 ];
 
 // Mesmos cupons do Zoho Backstage (Registros → Códigos promocionais).
-// desconto: fração (0.10 = 10%). max_usos: mesmo limite de resgates de lá.
-const PROMO_CODES: Record<string, { desconto: number; inicio: string; fim: string; max_usos: number }> = {
+// desconto: fração (0.10 = 10%) OU valor_off: desconto fixo em R$.
+// max_usos: mesmo limite de resgates de lá.
+const PROMO_CODES: Record<string, { desconto?: number; valor_off?: number; inicio: string; fim: string; max_usos: number }> = {
+  // Indicação dos já inscritos (campanha WhatsApp do 2º lote): R$ 60 fixos.
+  INDICA60:  { valor_off: 60, inicio: "2026-10-22", fim: "2026-10-24", max_usos: 50 },
   ABRAPEI10: { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-31", max_usos: 10 },
   ANHEMBI10: { desconto: 0.10, inicio: "2026-10-01", fim: "2026-10-31", max_usos: 30 },
   ALLY10:    { desconto: 0.10, inicio: "2026-09-23", fim: "2026-10-31", max_usos: 10 },
@@ -75,7 +78,7 @@ function loteVigente() {
 async function validarCupom(
   db: ReturnType<typeof createClient>,
   codigoBruto: unknown,
-): Promise<{ erro: string } | { codigo: string; desconto: number } | null> {
+): Promise<{ erro: string } | { codigo: string; desconto: number; valorOff: number } | null> {
   const codigo = String(codigoBruto ?? "").trim().toUpperCase();
   if (!codigo) return null; // sem cupom informado
 
@@ -93,7 +96,7 @@ async function validarCupom(
   if (error) return { erro: "cupom-indisponivel" };
   if ((count ?? 0) >= regra.max_usos) return { erro: "cupom-esgotado" };
 
-  return { codigo, desconto: regra.desconto };
+  return { codigo, desconto: regra.desconto ?? 0, valorOff: regra.valor_off ?? 0 };
 }
 
 Deno.serve(async (req) => {
@@ -126,8 +129,12 @@ Deno.serve(async (req) => {
   if (cupomResultado && "erro" in cupomResultado)
     return new Response(JSON.stringify({ error: cupomResultado.erro }), { status: 400, headers });
 
-  const descontoPct = cupomResultado?.desconto ?? 0;
-  const precoFinal = Math.round(lote.avista * (1 - descontoPct) * 100) / 100;
+  const valorOff = cupomResultado?.valorOff ?? 0;
+  const precoFinal = valorOff > 0
+    ? Math.max(0, Math.round((lote.avista - valorOff) * 100) / 100)
+    : Math.round(lote.avista * (1 - (cupomResultado?.desconto ?? 0)) * 100) / 100;
+  // Fração efetiva, para o registro no pedido (nos cupons fixos, derivada do lote).
+  const descontoPct = Math.round((1 - precoFinal / lote.avista) * 10000) / 10000;
 
   // Prévia: só valida o cupom e devolve o preço, sem criar pedido nem cobrar.
   // Usado pelo botão "Aplicar" do cupom no checkout, antes de ir para o pagamento.
@@ -135,6 +142,7 @@ Deno.serve(async (req) => {
     return new Response(JSON.stringify({
       ok: true, lote: lote.nome, valor: precoFinal,
       valorOriginal: lote.avista, desconto: descontoPct,
+      descontoValor: valorOff > 0 ? valorOff : null,
       codigo: cupomResultado?.codigo ?? null,
     }), { status: 200, headers });
   }
