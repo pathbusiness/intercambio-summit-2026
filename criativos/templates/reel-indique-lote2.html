@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Reel — Indique um colega (2º lote até 24/10) 1080x1920 · 15s</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Timeline única de 15s (mesma mecânica do reel-abertura.html): cada
+     camada tem UMA animação com keyframes percentuais; o render_reel.py
+     pausa e posiciona currentTime por frame.
+     Peça para WhatsApp direto aos JÁ INSCRITOS: convite para trazer um
+     colega com o cupom {{CUPOM}} (R$ 60 OFF, valor fixo — decisão do
+     Rodrigo em 22/10) antes da virada do 2º lote (sábado 24/10).
+     Zonas seguras de Reels: conteúdo entre y≈300 e y≈1550. */
+  :root { --dur: 15s; }
+  .canvas.story { background: var(--deep-navy); }
+
+  .bg-foto img { object-position: center top;
+    animation: bgzoom var(--dur) linear both paused; }
+  .bg-foto::after {
+    background: linear-gradient(to bottom, rgba(0,26,63,.42) 0px, rgba(0,26,63,.58) 330px, rgba(0,26,63,.94) 560px, rgba(0,26,63,.97) 100%);
+  }
+  @keyframes bgzoom { from { transform: scale(1); } to { transform: scale(1.10); } }
+
+  .topo-logo { top: 170px; left: 84px; }
+  .topo-logo img { height: 88px; }
+  .topo-logo { animation: logoin var(--dur) both paused; }
+  @keyframes logoin {
+    0%, 2.6% { opacity: 0; transform: translateY(18px); }
+    8%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .cena { position: absolute; left: 84px; right: 84px; top: 620px; }
+  .cena .grande { font-weight: 700; font-size: 136px; line-height: .96;
+    text-transform: uppercase; color: var(--white); }
+  .cena .apoio { margin-top: 30px; font-weight: 500; font-size: 50px;
+    color: var(--mid-grey); }
+  .cena .apoio strong { color: var(--white); font-weight: 700; }
+
+  .anim { animation-duration: var(--dur); animation-fill-mode: both;
+    animation-play-state: paused; animation-timing-function: cubic-bezier(.25,.6,.25,1); }
+
+  /* 4 cenas em 15s: 1s ≈ 6,67% */
+  .s1 { animation-name: s1; }
+  @keyframes s1 {
+    0%       { opacity: 0; transform: translateY(48px); }
+    4.5%, 19% { opacity: 1; transform: translateY(0); }
+    22%, 100% { opacity: 0; transform: translateY(-34px); }
+  }
+  .s2 { animation-name: s2; }
+  @keyframes s2 {
+    0%, 22%   { opacity: 0; transform: translateY(48px); }
+    26.5%, 41% { opacity: 1; transform: translateY(0); }
+    44%, 100%  { opacity: 0; transform: translateY(-34px); }
+  }
+  .s3 { animation-name: s3; }
+  @keyframes s3 {
+    0%, 44%   { opacity: 0; transform: translateY(48px); }
+    48.5%, 68% { opacity: 1; transform: translateY(0); }
+    71%, 100%  { opacity: 0; transform: translateY(-34px); }
+  }
+  .s4 { animation-name: s4; }
+  @keyframes s4 {
+    0%, 71%    { opacity: 0; transform: translateY(48px); }
+    75.5%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .s1 .check { display: inline-block; margin-left: 10px; color: var(--white); }
+
+  /* cupom em pílula branca, com entrada própria levemente atrasada */
+  .s3 .rotulo-cupom { font-weight: 600; font-size: 44px; letter-spacing: .20em;
+    text-transform: uppercase; color: var(--mid-grey); }
+  .s3 .pill-cupom { display: inline-block; margin-top: 22px;
+    background: var(--white); color: var(--summit-blue);
+    font-weight: 700; font-size: 128px; line-height: 1;
+    letter-spacing: .04em; padding: 26px 54px 34px;
+    animation: cupomin var(--dur) both paused cubic-bezier(.25,.6,.25,1); }
+  @keyframes cupomin {
+    0%, 47%    { opacity: 0; transform: scale(.88); }
+    52.5%, 68% { opacity: 1; transform: scale(1); }
+    71%, 100%  { opacity: 0; transform: scale(1); }
+  }
+  .s3 .conta { margin-top: 34px; font-weight: 500; font-size: 50px; color: var(--mid-grey); }
+  .s3 .conta strong { color: var(--white); font-weight: 700; }
+  .s3 .conta .de { text-decoration: line-through; text-decoration-thickness: 4px; }
+
+  .s4 .prazo { margin-top: 30px; font-weight: 600; font-size: 40px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--mid-grey); }
+  .s4 .cta { font-size: 46px; padding: 26px 52px 28px; margin-top: 44px; }
+
+  /* faixa de parceiros entra junto com a última cena */
+  .parceiros-anim { position: absolute; inset: 0; z-index: 5; animation-name: s4;
+    animation-duration: var(--dur); animation-fill-mode: both; animation-play-state: paused; }
+  .parceiros-anim .parceiros { bottom: 300px; --s: 1.08; }
+</style>
+</head>
+<body>
+<div class="canvas story">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/networking-2400.webp" alt=""></div>
+  <div class="canto-45 branco"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="cena anim s1">
+      <div class="grande" style="font-size:118px;">SEU LUGAR JÁ<br>ESTÁ GARANTIDO<span class="check">✓</span></div>
+      <div class="apoio"><strong>Intercâmbio Summit</strong> · 11 de novembro · São Paulo</div>
+    </div>
+
+    <div class="cena anim s2">
+      <div class="grande" style="font-size:118px;">AGORA TRAGA<br>ALGUÉM<br>COM VOCÊ</div>
+      <div class="apoio">Para viver junto <strong>todo o conteúdo e a experiência</strong> do Summit.</div>
+    </div>
+
+    <div class="cena anim s3">
+      <div class="rotulo-cupom">Cupom para o seu convidado</div>
+      <div><span class="pill-cupom">{{CUPOM}}</span></div>
+      <div class="conta"><strong>R$ 60 OFF</strong> no 2º lote: <span class="de">R$ 450</span> <strong>R$ 390</strong></div>
+      <div class="conta" style="margin-top:14px;">ou <strong>5x de R$ 78</strong> sem juros</div>
+    </div>
+
+    <div class="cena anim s4">
+      <div class="grande" style="font-size:104px;">MANDE ESTE VÍDEO<br>PARA ALGUÉM</div>
+      <div class="apoio">que você gostaria de ter <strong>ao seu lado no Summit</strong>.</div>
+      <div class="prazo">Cupom {{CUPOM}} · só até sábado 24/10</div>
+      <div style="margin-top:40px;"><span class="cta">intercambiosummit.com.br</span></div>
+    </div>
+
+    <div class="parceiros-anim">{{PARCEIROS}}</div>
+  </div>
+</div>
+</body>
+</html>

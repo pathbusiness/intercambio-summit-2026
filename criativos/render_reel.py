@@ -35,7 +35,7 @@ def _chromium_path():
     return hits[0] if hits else None
 
 
-def render(template, out_mp4, dur=12.0, fps=30, size=(1080, 1920)):
+def render(template, out_mp4, dur=12.0, fps=30, size=(1080, 1920), vars=None):
     frames_dir = tempfile.mkdtemp(prefix="reel-frames-")
     total = int(dur * fps)
     w, h = size
@@ -46,6 +46,8 @@ def render(template, out_mp4, dur=12.0, fps=30, size=(1080, 1920)):
         src = os.path.join(TPL, template)
         html = open(src, encoding="utf-8").read().replace(
             "{{PARCEIROS}}", open(os.path.join(TPL, "_parceiros.html"), encoding="utf-8").read())
+        for k, v in (vars or {}).items():
+            html = html.replace("{{%s}}" % k, v)
         tmp = src.replace(".html", ".__render__.html")
         open(tmp, "w", encoding="utf-8").write(html)
         page.goto("file://" + tmp)
@@ -87,7 +89,8 @@ def main():
     render(sys.argv[1],
            kw.get("out", "/tmp/reel.mp4"),
            dur=float(kw.get("dur", 12)),
-           fps=int(kw.get("fps", 30)))
+           fps=int(kw.get("fps", 30)),
+           vars={k: v for k, v in kw.items() if k.isupper()})
 
 
 if __name__ == "__main__":
