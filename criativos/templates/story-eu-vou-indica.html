@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Story "Eu vou" — indicação com cupom 1080x1920</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Story para o JÁ INSCRITO repostar: anuncia que vai e convida os
+     seguidores com o cupom {{CUPOM}} (R$ 60 OFF até sábado 24/10).
+     400px inferiores mais livres para sticker de link do repost. */
+  .canvas.story { background: var(--deep-navy); }
+  .bg-foto img { object-position: center top; }
+  .bg-foto::after {
+    background: linear-gradient(to top, rgba(0,26,63,.97) 0%, rgba(0,26,63,.88) 42%, rgba(0,35,92,.60) 78%, rgba(0,26,63,.46) 100%);
+  }
+
+  .topo-logo { top: 180px; left: var(--mx); }
+  .topo-logo img { height: 84px; }
+
+  .bloco-msg { position: absolute; left: var(--mx); right: var(--mx); top: 470px; }
+  .bloco-msg .eyebrow { font-size: 34px; letter-spacing: .20em; color: var(--mid-grey); }
+  .bloco-msg .euvou { margin-top: 18px; font-weight: 700; font-size: 250px;
+    line-height: .92; text-transform: uppercase; color: var(--white); }
+  .bloco-msg .vem { margin-top: 26px; font-weight: 500; font-size: 56px; color: var(--white); }
+  .bloco-msg .vem strong { font-weight: 700; }
+
+  .cupom-card { position: absolute; left: var(--mx); right: var(--mx); top: 1030px; }
+  .cupom-card .rotulo { font-weight: 600; font-size: 34px; letter-spacing: .20em;
+    text-transform: uppercase; color: var(--mid-grey); }
+  .cupom-card .pill-cupom { display: inline-block; margin-top: 18px;
+    background: var(--white); color: var(--summit-blue);
+    font-weight: 700; font-size: 110px; line-height: 1;
+    letter-spacing: .04em; padding: 22px 46px 30px; }
+  .cupom-card .conta { margin-top: 26px; font-weight: 500; font-size: 44px; color: var(--mid-grey); }
+  .cupom-card .conta strong { color: var(--white); font-weight: 700; }
+  .cupom-card .conta .de { text-decoration: line-through; text-decoration-thickness: 3px; }
+  .cupom-card .prazo { margin-top: 14px; font-weight: 600; font-size: 34px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--white); }
+
+  .cta-wrap { position: absolute; left: var(--mx); top: 1440px; }
+  .cta-wrap .cta { font-size: 40px; }
+  /* 400px inferiores mais livres para sticker de link */
+</style>
+</head>
+<body>
+<div class="canvas story">
+  <div class="bg-foto"><img src="../../site/assets/img/eventos/networking-2400.webp" alt=""></div>
+  <div class="canto-45 branco"></div>
+
+  <div class="conteudo">
+    <div class="topo-logo"><img src="../assets/marca/summit-logo-branco.png" alt="Intercâmbio Summit 2026"></div>
+
+    <div class="bloco-msg">
+      <div class="eyebrow">11 de novembro · São Paulo</div>
+      <div class="euvou">EU VOU!</div>
+      <div class="vem">E você, <strong>vem comigo?</strong></div>
+    </div>
+
+    <div class="cupom-card">
+      <div class="rotulo">Use meu cupom</div>
+      <div><span class="pill-cupom">{{CUPOM}}</span></div>
+      <div class="conta"><strong>R$ 60 OFF</strong>: <span class="de">R$ 450</span> <strong>R$ 390</strong> · ou 5x de R$ 78</div>
+      <div class="prazo">Só até sábado 24/10</div>
+    </div>
+
+    <div class="cta-wrap"><span class="cta">intercambiosummit.com.br</span></div>
+  </div>
+</div>
+</body>
+</html>
