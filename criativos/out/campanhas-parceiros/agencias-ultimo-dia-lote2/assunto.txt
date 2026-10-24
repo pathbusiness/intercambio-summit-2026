@@ -1,0 +1,4 @@
+Assunto: Hoje é o último dia do Segundo lote do Summit
+Alternativa: Último dia: ingresso do Summit a R$ 450
+Alternativa 2: Seu ingresso do Summit sobe R$ 100 amanhã
+Preheader: Último dia: ingresso a R$ 450 (5x de R$ 90 sem juros). A partir de amanhã, R$ 550.
