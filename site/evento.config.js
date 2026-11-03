@@ -74,6 +74,9 @@ window.EVENTO = {
   // Palestrantes 2026 — quando os retratos 800x800 chegarem, salvar em
   // site/assets/img/palestrantes/{slug}-800.webp e preencher foto: true
   palestrantes: [
+    { nome: "Raphael Cavaco", cargo: "Jornalista, Estrategista de Conteúdo Digital e Editor de Conteúdo de IA", empresa: "",
+      tema: "Mídias Sociais e Democratização de Conteúdos por IA",
+      slug: "raphael-cavaco", foto: true },
     { nome: "Myrko Micali", cargo: "Empreendedor, referência em IA aplicada a negócios", empresa: "",
       tema: "IA para atendimento, marketing e vendas com toque humano",
       slug: "myrko-micali", foto: true },
@@ -105,6 +108,9 @@ window.EVENTO = {
   programacao: [
     { hora: "07h30", tipo: "Recepção", titulo: "Credenciamento & café de boas-vindas",
       desc: "Credenciamento oficial e registro dos participantes no foyer.", local: "Foyer" },
+    { hora: "08h00", tipo: "Palestra", titulo: "Mídias Sociais e Democratização de Conteúdos por IA",
+      desc: "Como as mídias sociais e a inteligência artificial estão democratizando a criação e a distribuição de conteúdo.",
+      quem: "Raphael Cavaco · Jornalista, Estrategista de Conteúdo Digital e Editor de Conteúdo de IA", local: "Auditório" },
     { hora: "09h00", tipo: "Keynote", titulo: "IA para atendimento, marketing e vendas com toque humano",
       desc: "A jornada de aquisição do estudante de intercâmbio com uso de IA.",
       quem: "Myrko Micali · Empreendedor, referência em IA aplicada a negócios", local: "Auditório" },
