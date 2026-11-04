@@ -10,14 +10,14 @@
 - **A/B no E01:** A: "Você viu o começo. O Summit 2026 é o próximo." | B: "O feedback de 2025 virou o programa de 2026"
 
 ## Riscos ou inconsistências (confirmar antes de enviar)
-1. **Local:** o contexto cita Contentix. Antes você pediu para não citar o nome, só "Avenida Paulista, São Paulo"; mantive assim.
-2. **Vagas:** contexto diz 80 lugares; materiais do site e o Backstage indicam capacidade maior (144 a 150). Deixei [80 vagas: confirmar] e [NÚMERO].
-3. **Preço:** contexto diz R$ 350 a R$ 600; o site tem Terceiro lote R$ 550 até 10/11 e R$ 650 na porta. Não citei valores, só 5x sem juros; há placeholder no E03.
-4. **Palestrante do Google:** contexto diz Lucas Wagner; há arte anterior no repositório com "Lucas Politi". Confirmar o nome.
-5. **Sessão da Gizelle Rezende (The PIE):** tema em aberto, não citada nos e-mails.
-6. **Exemplos concretos do E02:** só usei o que está no contexto; os dois exemplos específicos ficaram como placeholders.
+1. **Local:** o site cita o prédio pelo nome (Contentix), mas você pediu para não citar; usei só o endereço: Avenida Paulista, 967, 9º andar, Bela Vista (dado do site).
+2. **Vagas:** o contexto diz 80 lugares; todas as peças já publicadas dizem 144. Nenhum e-mail cita número total, só "lugares limitados". O E03 mantém [NÚMERO] de vagas restantes: consultar o Backstage no dia do envio.
+3. **Preço no E03 (10/11):** pelo site, 10/11 é o último dia do Terceiro lote (R$ 550, 5x de R$ 110) e o dia do evento custa R$ 650. O contexto dizia R$ 350 a R$ 600; usei os valores do site.
+4. **Palestrante do Google:** o site traz "Lucas Politi Wagner"; usei o nome completo.
+5. **Gizelle Rezende (The PIE):** o site traz o tema "Tendências globais do mercado de educação internacional" (keynote 11h30); incluída no E02.
+6. **Exemplos do E02:** vêm da descrição das sessões no site (jornada de aquisição do estudante com IA; ferramentas e exemplos reais do Google), não de exemplos específicos dos palestrantes.
 7. **E03 sai em 10/11, mesmo dia do pré-evento/Roadshow IALC:** conferir se o público 2025 já está sendo tocado por outro envio.
-8. **Mensagem a quem já comprou:** reexcluir inscritos antes de cada envio.
+8. **Exclusão de inscritos:** reexcluir os inscritos de 2026 antes de cada envio (a lista usada é de 29/10).
 
 ## E-mail 01: Reconexão
 - **Envio:** 04/11/2026 (quarta), 10h
@@ -37,9 +37,11 @@ O feedback também foi claro: o conteúdo precisava ser mais prático. A ediçã
 Em 11 de novembro, na Avenida Paulista, em São Paulo, você vai encontrar:
 
 - Myrko Micali (doubleX, NovaIA): IA e automação aplicadas a atendimento, marketing e vendas.
-- Lucas Wagner (Google Brasil): ferramentas práticas de IA para criativos, para equipes enxutas.
-- Raphael Cavaco (RCOM): mídias sociais e democratização de conteúdos por IA.
-- Painel sobre o mercado em 2027, moderado por mim, com representantes institucionais do setor.
+- Lucas Politi Wagner (Google Brasil): ferramentas práticas de IA para criativos, para equipes enxutas.
+- Raphael Cavaco (RCOM): mídias sociais e democratização de conteúdos por IA (sessão às 8h).
+
+Com Gizelle Rezende (The PIE): dados globais do mercado de educação internacional e os deslocamentos entre destinos (keynote às 11h30).
+- Painel sobre o mercado em 2027, moderado por mim, com Roberto Bihari (ABRAPEI), Alexandre Argenta (BELTA), Elaine Martins Fuzer (e_Consulting) e Lucas Montani (Ollara).
 - Prêmio Melhores Profissionais de Intercâmbio, com entrega no palco.
 
 O que era tendência em 2025 virou rotina em 2026. Quem esteve no ano passado já começou, e isso é uma vantagem. Conhecimento aplicado é a vantagem competitiva mais barata que existe hoje.
@@ -71,16 +73,16 @@ Em 2025, a sessão de inteligência artificial foi a mais citada como a mais val
 Com Myrko Micali (doubleX, NovaIA, fundador do Alfred Delivery):
 
 - Aplicar IA e automação no atendimento, no marketing e nas vendas.
-- [EXEMPLO CONCRETO DA SESSÃO DO MYRKO: confirmar com o palestrante]
+- Percorrer a jornada de aquisição do estudante de intercâmbio com IA e toque humano (keynote às 9h).
 
-Com Lucas Wagner (Google Brasil):
+Com Lucas Politi Wagner (Google Brasil):
 
 - Produzir vídeo, peças visuais e conteúdo social com ferramentas de IA, mesmo com equipe enxuta e sem grande orçamento de marketing.
-- [EXEMPLO CONCRETO DA SESSÃO DO LUCAS: confirmar com o palestrante]
+- Ver ferramentas e exemplos reais, no dia a dia do mercado de viagens e intercâmbio (sessão às 10h20).
 
 Com Raphael Cavaco (RCOM): mídias sociais e democratização de conteúdos por IA.
 
-Tudo isso em um dia só, em formato íntimo: o auditório tem [80 vagas: confirmar]. Quando acabarem, acabaram.
+Tudo isso em um dia só, em formato íntimo e com lugares limitados. Quando acabarem, acabaram.
 
 Quem aplica IA com método hoje trabalha melhor amanhã. Quem espera vai competir com quem já aprendeu. Garanta o seu lugar.
 
@@ -106,12 +108,12 @@ Olá, $[FNAME|você]$,
 
 O Intercâmbio Summit 2026 é amanhã. Esta é a última chamada.
 
-- Quando: quarta-feira, 11 de novembro. [HORÁRIO DE ABERTURA: confirmar]
-- Onde: Avenida Paulista, São Paulo. [ENDEREÇO COMPLETO: confirmar]
+- Quando: quarta-feira, 11 de novembro. Credenciamento a partir das 7h30 e abertura às 8h.
+- Onde: Avenida Paulista, 967, 9º andar, Bela Vista, São Paulo.
 - Vagas restantes: [NÚMERO]
-- Pagamento: até 5x sem juros. [VALOR DO INGRESSO VIGENTE: confirmar]
+- Pagamento: hoje é o último dia do Terceiro lote: R$ 550, ou 5x de R$ 110 sem juros. No dia do evento, R$ 650.
 
-Você esteve em 2025 e viu o começo. Amanhã, o dia é todo prático: IA aplicada a atendimento, marketing, vendas e criativos, com Myrko Micali, Lucas Wagner e Raphael Cavaco, um painel sobre o mercado em 2027 e a entrega do Prêmio Melhores Profissionais de Intercâmbio, no palco. O formato continua o mesmo que você conheceu: um dia só, íntimo e direto, com conteúdo pensado para ser aplicado depois.
+Você esteve em 2025 e viu o começo. Amanhã, o dia é todo prático: IA aplicada a atendimento, marketing, vendas e criativos, com Myrko Micali, Lucas Politi Wagner e Raphael Cavaco, um painel sobre o mercado em 2027 e a entrega do Prêmio Melhores Profissionais de Intercâmbio, no palco. O formato continua o mesmo que você conheceu: um dia só, íntimo e direto, com conteúdo pensado para ser aplicado depois.
 
 A inteligência artificial já está em todas as áreas do intercâmbio. Quem entender e aplicar isso agora trabalha melhor. Quem não entender vai competir com quem entendeu.
 
