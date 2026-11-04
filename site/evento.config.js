@@ -35,6 +35,13 @@ window.EVENTO = {
   leadFormAction: "/api/leads",
   leadFormActionLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-leads",
 
+  // RSVP do happy hour pós-Summit (bar Eu, Tu, Eles). Página: /happyhour (happyhour.html).
+  // Endpoint: /api/happyhour -> Edge Function summit-happyhour (tabela summit_happyhour_rsvp).
+  happyhour: {
+    api: "/api/happyhour",
+    apiLocal: "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-happyhour"
+  },
+
   // Página de patrocínio (tem prioridade sobre o WhatsApp abaixo)
   patrocinioUrl: "https://pathbusiness.github.io/sponsorship/",
 
