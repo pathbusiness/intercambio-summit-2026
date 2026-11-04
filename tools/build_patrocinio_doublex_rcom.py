@@ -3,13 +3,14 @@
 
 Saídas:
   site/assets/img/marca/patrocinio-doublex-box.png   faixa de patrocínio do site (fundo branco)
-  site/assets/img/marca/patrocinio-rcom-box.png      idem; o logo da RCOM é para fundo escuro, então vai em tile escuro
+  site/assets/img/marca/patrocinio-rcom-box.png      idem (RCOM sem fundo; frase e ondas em cinza-escuro)
+  criativos/assets/marca/cor-patrocinio-rcom.png     logo da RCOM para fundos claros
   criativos/assets/marca/cor-patrocinio-doublex.png  logo colorido, recortado (fundos claros)
   criativos/assets/marca/patrocinio-rcom-branco.png  logo da RCOM sem o fundo (fundos escuros/azul)
 """
 import os
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site", "assets", "img", "marca")
@@ -47,15 +48,19 @@ rgba = np.dstack([cor, alfa * 255]).astype("uint8")
 sem_fundo = trim_alpha(Image.fromarray(rgba))
 sem_fundo.save(os.path.join(CRIA, "patrocinio-rcom-branco.png"))
 
-# 2) tile escuro, recorte justo com respiro, cantos arredondados (para a faixa branca do site)
-ys, xs = np.where(mx > 60)
-x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
-pad = round(0.14 * (y1 - y0))
-crop = src.crop((max(0, x0 - pad), max(0, y0 - pad), min(src.width, x1 + pad), min(src.height, y1 + pad)))
+# 2) versão para fundo claro (faixa branca do site): sem fundo, e as partes claras (frase e ondas)
+#    passam para cinza-escuro; o laranja é mantido
+sat = a.max(axis=2) - a.min(axis=2)
+neutro = sat < 28
+alfa_n = np.clip((mx - 40) / (217 - 40), 0, 1)
+alfa2 = np.where(neutro, alfa_n, alfa)
+cor2 = np.where(neutro[..., None], np.array([42.0, 42.0, 42.0]), cor)
+rgba2 = np.dstack([cor2, alfa2 * 255]).astype("uint8")
+claro = trim_alpha(Image.fromarray(rgba2))
+claro.save(os.path.join(CRIA, "cor-patrocinio-rcom.png"))
+pad = round(0.06 * claro.height)
+canvas = Image.new("RGBA", (claro.width + 2 * pad, claro.height + 2 * pad), (0, 0, 0, 0))
+canvas.paste(claro, (pad, pad), claro)
 H = 360
-tile = crop.resize((round(crop.width * H / crop.height), H), Image.LANCZOS).convert("RGBA")
-m = Image.new("L", tile.size, 0)
-ImageDraw.Draw(m).rounded_rectangle((0, 0, tile.width - 1, tile.height - 1), radius=26, fill=255)
-tile.putalpha(m)
-tile.save(os.path.join(SITE, "patrocinio-rcom-box.png"))
-print("ok", dx.size, sem_fundo.size, tile.size)
+canvas.resize((round(canvas.width * H / canvas.height), H), Image.LANCZOS).save(os.path.join(SITE, "patrocinio-rcom-box.png"))
+print("ok", dx.size, sem_fundo.size, canvas.size)
