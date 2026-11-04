@@ -21,6 +21,14 @@
       "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-happyhour"
     },
     {
+      "source": "/api/happyhour-admin",
+      "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-happyhour-admin"
+    },
+    {
+      "source": "/painel-happyhour",
+      "destination": "/painel-happyhour.html"
+    },
+    {
       "source": "/happyhour",
       "destination": "/happyhour.html"
     },
