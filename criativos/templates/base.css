@@ -187,7 +187,7 @@ img { display: block; }
   position: absolute; left: 0; right: 0; bottom: 100px; z-index: 5;
   display: flex; flex-direction: column; align-items: center; gap: calc(14px * var(--s));
 }
-.parceiros .linha { display: flex; align-items: center; justify-content: center; gap: calc(26px * var(--s)); }
+.parceiros .linha { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: calc(14px * var(--s)) calc(26px * var(--s)); }
 .parceiros .rotulo {
   font-weight: 600; font-size: calc(16px * var(--s)); letter-spacing: .26em;
   text-transform: uppercase; color: rgba(255,255,255,.66); white-space: nowrap;
@@ -197,6 +197,8 @@ img { display: block; }
 .parceiros .p-ollara  { height: calc(38px * var(--s)); }
 .parceiros .p-clida   { height: calc(40px * var(--s)); }
 .parceiros .p-ikon    { height: calc(28px * var(--s)); }
+.parceiros .p-doublex { height: calc(22px * var(--s)); }
+.parceiros .p-rcom    { height: calc(38px * var(--s)); }
 .parceiros .m-pie     { height: calc(26px * var(--s)); }
 .parceiros .a-belta   { height: calc(32px * var(--s)); }
 .parceiros .a-abrapei { height: calc(38px * var(--s)); }

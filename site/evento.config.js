@@ -111,6 +111,8 @@ window.EVENTO = {
     { hora: "08h00", tipo: "Palestra", titulo: "Mídias Sociais e Democratização de Conteúdos por IA",
       desc: "Como as mídias sociais e a inteligência artificial estão democratizando a criação e a distribuição de conteúdo.",
       quem: "Raphael Cavaco · Jornalista, Estrategista de Conteúdo Digital e Editor de Conteúdo de IA", local: "Auditório" },
+    { hora: "08h50", pausa: true, titulo: "Pausa técnica",
+      desc: "Breve intervalo antes da keynote das 9h.", local: "Auditório" },
     { hora: "09h00", tipo: "Keynote", titulo: "IA para atendimento, marketing e vendas com toque humano",
       desc: "A jornada de aquisição do estudante de intercâmbio com uso de IA.",
       quem: "Myrko Micali · Empreendedor, referência em IA aplicada a negócios", local: "Auditório" },
