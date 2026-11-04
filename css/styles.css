@@ -174,9 +174,12 @@ a { color: inherit; }
 .apoio li { flex-shrink: 0; }
 .apoio-tier-patrocinio { flex-basis: 100%; }
 .apoio .apoio-tier-patrocinio img { width: auto; height: 84px; max-width: none; }
+/* logo da RCOM é quase quadrado (arte para fundo escuro, vai em tile): precisa de mais altura pra ficar legível */
+.apoio .apoio-tier-patrocinio img.logo-alto { height: 120px; }
 .apoio-tier-media li { border-left: 0; }
 @media (max-width: 760px) {
   .apoio .apoio-tier-patrocinio img { height: 54px; max-width: 92vw; width: auto; object-fit: contain; }
+  .apoio .apoio-tier-patrocinio img.logo-alto { height: 84px; }
 }
 .apoio li {
   display: flex; align-items: center; justify-content: center;
