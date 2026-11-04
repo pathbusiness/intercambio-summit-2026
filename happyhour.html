@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy hour pós-Summit — Intercâmbio Summit 2026</title>
+  <meta name="description" content="Confirme sua presença no happy hour depois do Intercâmbio Summit, 11 de novembro, no bar Eu, Tu, Eles.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://intercambiosummit.com.br/happyhour">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/marca/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/marca/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/marca/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="votacao-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVZLV4NW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-logo" href="index.html">
+        <img src="assets/img/marca/summit-logo-reverso-120.png"
+             srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+             alt="Intercâmbio Summit 2026" width="112" height="46">
+      </a>
+      <nav class="mainnav" aria-label="Navegação">
+        <a href="index.html">← Voltar ao site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="votacao-wrap">
+    <p class="section-kicker">Depois do Summit · 11 de novembro</p>
+    <h1 class="votacao-titulo">Happy hour no Eu, Tu, Eles</h1>
+    <p class="votacao-lead">Quando o Summit terminar, a conversa continua. O bar fica a <strong>250 metros</strong> do evento: <strong>Alameda Joaquim Eugênio de Lima, 612</strong>, São Paulo. Cada um paga o próprio consumo. Responda abaixo para a gente saber quantos vamos ser.</p>
+
+    <p class="votacao-erro" id="hh-erro" role="alert" hidden></p>
+
+    <form id="hh-form" novalidate>
+      <fieldset class="vt-identificacao">
+        <legend>Você vai?</legend>
+        <div class="vt-tipo" role="radiogroup" aria-label="Sua resposta">
+          <label class="vt-opcao"><input type="radio" name="resposta" value="sim"> <span><strong>Eu vou.</strong> Conte comigo no happy hour.</span></label>
+          <label class="vt-opcao"><input type="radio" name="resposta" value="nao"> <span><strong>Não vou.</strong> Dessa vez não consigo.</span></label>
+        </div>
+        <div class="vt-linha">
+          <label>Nome e sobrenome <span class="req">*</span>
+            <input type="text" id="hh-nome" name="nome" autocomplete="name" required maxlength="80" placeholder="Seu nome completo">
+          </label>
+          <label>E-mail <span class="req">*</span>
+            <input type="email" id="hh-email" name="email" autocomplete="email" required maxlength="254" placeholder="voce@empresa.com.br">
+          </label>
+        </div>
+        <label>Empresa ou instituição
+          <input type="text" id="hh-empresa" name="empresa" autocomplete="organization" maxlength="100" placeholder="Onde você trabalha">
+        </label>
+        <input type="text" name="site" class="vt-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      </fieldset>
+
+      <div class="vt-rodape">
+        <p class="vt-aviso">Seus dados servem só para organizar o happy hour. Mudou de ideia? Basta responder de novo com o mesmo e-mail: vale a última resposta.</p>
+        <button type="submit" class="btn btn-cta" id="hh-enviar">Enviar minha resposta</button>
+      </div>
+    </form>
+
+    <section class="votacao-sucesso" id="hh-sucesso" hidden>
+      <h2 id="hh-sucesso-titulo"></h2>
+      <p id="hh-sucesso-texto"></p>
+      <a class="btn btn-cta" href="index.html#programacao">Ver a programação do Summit</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a class="footer-logo" href="index.html">
+          <img src="assets/img/marca/summit-logo-reverso-120.png"
+               srcset="assets/img/marca/summit-logo-reverso-120.png 1x, assets/img/marca/summit-logo-reverso-240.png 2x"
+               alt="Intercâmbio Summit 2026" width="137" height="56">
+        </a>
+        <p class="footer-meta"><span data-evento="dataExtenso"></span> · <span data-evento="local"></span>, <span data-evento="cidade"></span></p>
+      </div>
+      <p class="footer-org">Uma realização <strong>PATH Business &amp; Marketing Solutions</strong></p>
+    </div>
+  </footer>
+
+  <script src="evento.config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/happyhour.js"></script>
+</body>
+</html>

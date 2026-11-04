@@ -17,6 +17,14 @@
       "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-votos-admin"
     },
     {
+      "source": "/api/happyhour",
+      "destination": "https://ildxeqtmpbartonjoiwc.supabase.co/functions/v1/summit-happyhour"
+    },
+    {
+      "source": "/happyhour",
+      "destination": "/happyhour.html"
+    },
+    {
       "source": "/votar",
       "destination": "/votacao.html"
     },
