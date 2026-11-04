@@ -1,11 +1,11 @@
-# Campanha 02: inscritos no IALC Roadshow São Paulo (9 e 10/11) que ainda não compraram o Summit
+# Campanha 02: inscritos no IALC Roadshow São Paulo (10/11) que ainda não compraram o Summit
 
 ## Configuração
 - **Nome no Zoho:** Summit 2026 | C02 Roadshow IALC | E01 / E02 / E03
 - **Lista/segmento:** [inscritos no Roadshow IALC São Paulo MENOS inscritos e compradores do Summit 2026; origem da lista a confirmar]
 - **Remetente:** Rodrigo Collaro, rodrigo@yourpath.com.br
 - **Merge tag de primeiro nome:** `$[FNAME|você]$` | **Descadastro:** `$[LI:UNSUBSCRIBE]$`
-- **Envios (Brasília):** E01 04/11 (qua) 11h | E02 08/11 (dom) 18h | E03 10/11 (ter) 12h
+- **Envios (Brasília):** E01 04/11 (qua) 11h | E02 09/11 (seg) 18h | E03 10/11 (ter) 12h
 - **UTM:** utm_campaign=roadshowialc, utm_content=email01/02/03
 - Rodapé: Patrocínio, Media partner e Apoio (IALC aparece só como apoiadora). Texto legal: "A IALC é apoiadora do Intercâmbio Summit; este envio é da organização do Summit."
 
@@ -19,9 +19,12 @@
 7. **Exemplo do E02:** vem da descrição da keynote do Myrko Micali no site (jornada de aquisição do estudante com IA).
 8. **Sobreposição:** inscritos no Roadshow que também estão na Campanha 01 receberiam as duas; remover da C01 ou da C02.
 
+## Nota
+O Roadshow IALC acontece só no dia 10/11. O E02 sai na véspera (09/11, 18h) para que "amanhã no Roadshow" esteja correto.
+
 ## Textos
 - **E01 (04/11 11h)** assunto: Você já vai estar em São Paulo. Fique mais um dia. | preheader: O Roadshow traz o produto. O Summit traz o método. 11/11, Av. Paulista. | CTA: Garantir minha vaga
-- **E02 (08/11 18h)** assunto: Nos vemos amanhã no Roadshow | preheader: A equipe da PATH estará lá. Vamos conversar sobre o Summit. | CTA: Comprar meu ingresso
+- **E02 (09/11 18h)** assunto: Nos vemos amanhã no Roadshow | preheader: A equipe da PATH estará lá. Vamos conversar sobre o Summit. | CTA: Comprar meu ingresso
 - **E03 (10/11 12h)** assunto: O Summit é amanhã, na Paulista | preheader: Quarta, 11/11, Av. Paulista. Último dia do Terceiro lote. | CTA: Comprar agora
 
 Corpo: ver `email-01.html`, `email-02.html`, `email-03.html`.
