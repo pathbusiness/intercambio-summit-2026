@@ -9,6 +9,8 @@
 - **Envios (horário de Brasília):** E01 04/11 10h | E02 07/11 9h | E03 10/11 8h
 - **A/B no E01:** A: "Você viu o começo. O Summit 2026 é o próximo." | B: "O feedback de 2025 virou o programa de 2026"
 
+> Rodapé de cada e-mail: Patrocínio (RCOM, Double X, Ollara, CLIDA, Ikon/ALG), Media partner (The PIE) e Apoio (BELTA, ABRAPEI, IALC, Ally Hub, Edvisor).
+
 ## Riscos ou inconsistências (confirmar antes de enviar)
 1. **Local:** o site cita o prédio pelo nome (Contentix), mas você pediu para não citar; usei só o endereço: Avenida Paulista, 967, 9º andar, Bela Vista (dado do site).
 2. **Vagas (sem número na comunicação, por decisão do Rodrigo):** o contexto diz 80 lugares; todas as peças já publicadas dizem 144. Nenhum e-mail cita quantidade de lugares ou vagas restantes; só o E02 diz "lugares limitados".
@@ -28,7 +30,7 @@
 
 **Texto:**
 
-Olá, $[FNAME|você]$,
+Olá $[FNAME|você]$,
 
 Você viu o começo.
 
@@ -66,7 +68,7 @@ intercambiosummit.com.br
 
 **Texto:**
 
-Olá, $[FNAME|você]$,
+Olá $[FNAME|você]$,
 
 Em 2026, a IA não é uma sessão. É o dia inteiro.
 
@@ -102,7 +104,7 @@ intercambiosummit.com.br
 
 **Texto:**
 
-Olá, $[FNAME|você]$,
+Olá $[FNAME|você]$,
 
 É amanhã.
 
