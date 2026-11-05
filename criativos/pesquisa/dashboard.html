@@ -1,0 +1,140 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Resultados Summit 2026</title>
+<style>
+/* dashboard escuro on-brand (tema único por escolha) */
+:root{
+  --bg:#00112B; --bg2:#001A3F; --card:#07285a; --card2:#05224e; --line:rgba(140,163,214,.22);
+  --blue:#0044B9; --green:#0ACE00; --amber:#ffb020; --red:#ff5a5a;
+  --paper:#EAF0FF; --dim:#8CA3D6; --white:#fff;
+  --disp:'Rajdhani',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);color:var(--paper);
+  background:radial-gradient(130% 120% at 15% 0%,#073a9e 0%,#00235C 32%,#001A3F 60%,#00112B 100%) fixed;
+  padding-block:28px;min-height:100vh}
+.wrap{width:100%;max-width:1180px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:22px}
+.htitle{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:1}
+.htitle .k{font-size:13px;letter-spacing:.28em;color:var(--green);font-weight:600}
+.htitle h1{font-size:34px;letter-spacing:.01em;margin-top:4px}
+.upd{font-size:12.5px;color:var(--dim);text-align:right;line-height:1.5}
+.upd b{color:var(--paper);font-weight:600}
+.grid{display:grid;gap:14px}
+.kpis{grid-template-columns:repeat(4,1fr)}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:16px;padding:18px}
+.kpi .lab{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600}
+.kpi .val{font-family:var(--disp);font-weight:700;font-size:46px;line-height:1;margin-top:8px}
+.kpi .val.g{color:var(--green)} .kpi .sub{font-size:12px;color:var(--dim);margin-top:6px}
+.sec{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:20px;margin:26px 0 12px;color:var(--white)}
+.two{grid-template-columns:1fr 1fr}
+h3{font-family:var(--disp);font-weight:600;font-size:17px;letter-spacing:.02em;color:var(--paper);margin-bottom:14px}
+.barline{display:grid;grid-template-columns:150px 1fr 46px;align-items:center;gap:12px;margin:9px 0}
+.barline .nm{font-size:13.5px;color:var(--dim)}
+.track{height:12px;border-radius:6px;background:rgba(0,10,30,.5);overflow:hidden}
+.fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--green))}
+.barline .n{font-family:var(--disp);font-weight:700;font-size:16px;text-align:right;font-variant-numeric:tabular-nums}
+.nps{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.nps .big{font-family:var(--disp);font-weight:700;font-size:72px;line-height:.9}
+.nps .big.pos{color:var(--green)} .nps .big.neu{color:var(--amber)} .nps .big.neg{color:var(--red)}
+.npsbar{display:flex;height:16px;border-radius:8px;overflow:hidden;flex:1;min-width:200px;background:rgba(0,10,30,.5)}
+.npsbar i{display:block;height:100%}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(0,20,54,.6);border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-size:13.5px}
+.chip b{font-family:var(--disp);font-weight:700;color:var(--green);margin-left:6px;font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line)}
+th{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:600}
+td .score{font-family:var(--disp);font-weight:700;font-variant-numeric:tabular-nums}
+.quotes{display:flex;flex-direction:column;gap:10px}
+.quote{background:rgba(0,20,54,.5);border-left:3px solid var(--green);border-radius:8px;padding:11px 14px;font-size:14.5px;color:#dfe9ff}
+.quote .src{display:block;font-size:11.5px;color:var(--dim);margin-top:5px;letter-spacing:.04em}
+.empty{color:var(--dim);font-size:13.5px;font-style:italic;padding:8px 0}
+.foot{margin-top:26px;color:var(--dim);font-size:12px;text-align:center;line-height:1.6}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.barline{grid-template-columns:120px 1fr 40px}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<div class="wrap">
+  <header>
+    <div class="htitle"><div class="k">INTERCÂMBIO SUMMIT 2026 · PESQUISA</div><h1>Resultados do evento</h1></div>
+    <div class="upd" id="upd"></div>
+  </header>
+  <div id="app"></div>
+  <div class="foot">Painel de resultados · dados anônimos · Intercâmbio Summit 2026<br>Atualizado sob demanda a partir das respostas coletadas.</div>
+</div>
+<script>
+const DATA = {"atualizado": "05/11/2026 · aguardando o evento", "geral": {"total": 0, "nps": null, "prom": 0, "neu": 0, "det": 0, "medias": {"geral": null, "conteudo": null, "organizacao": null, "networking": null, "divulgacao": null}, "expectativas": {}, "proxima": {}}, "palestras": [], "depoimentos": [], "melhorias": [], "coment_palestras": []};
+const NOMES = {"raphael-cavaco":"Raphael Cavaco","myrko-micali":"Myrko Micali","lucas-politi-wagner":"Lucas Politi Wagner","gizelle-rezende":"Gizelle Rezende","painel":"Painel"};
+const el=document.getElementById('app');
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+document.getElementById('upd').innerHTML='Atualizado em <b>'+DATA.atualizado+'</b>';
+
+function bar(nm,v,max){const pct=v==null?0:Math.round(v/max*100);
+  return `<div class="barline"><span class="nm">${nm}</span><div class="track"><div class="fill" style="width:${pct}%"></div></div><span class="n">${v==null?'—':v.toFixed(2)}</span></div>`;}
+function dist(obj,order){const ks=order.filter(k=>obj&&obj[k]!=null);const tot=ks.reduce((a,k)=>a+obj[k],0)||0;
+  if(!ks.length) return '<div class="empty">Sem respostas ainda.</div>';
+  return `<div class="chips">`+ks.map(k=>`<span class="chip">${esc(k)}<b>${obj[k]}</b></span>`).join('')+`</div>`;}
+
+const g=DATA.geral||{total:0,medias:{}};
+const npsCls = g.nps==null?'' : g.nps>=50?'pos':g.nps>=0?'neu':'neg';
+const totP=(g.prom||0)+(g.neu||0)+(g.det||0)||1;
+
+let html='';
+// KPIs
+html+=`<div class="grid kpis">
+  <div class="card kpi"><div class="lab">Respostas · geral</div><div class="val">${g.total||0}</div><div class="sub">pesquisa de encerramento</div></div>
+  <div class="card kpi"><div class="lab">NPS</div><div class="val g">${g.nps==null?'—':g.nps}</div><div class="sub">${g.prom||0} promot. · ${g.neu||0} neutros · ${g.det||0} detrat.</div></div>
+  <div class="card kpi"><div class="lab">Satisfação geral</div><div class="val">${g.medias&&g.medias.geral!=null?Number(g.medias.geral).toFixed(2):'—'}<span style="font-size:20px;color:var(--dim)"> /5</span></div><div class="sub">média das notas</div></div>
+  <div class="card kpi"><div class="lab">Respostas · palestras</div><div class="val">${(DATA.palestras||[]).reduce((a,p)=>a+(p.total||0),0)}</div><div class="sub">${(DATA.palestras||[]).length} palestra(s) avaliada(s)</div></div>
+</div>`;
+
+// NPS + medias
+html+=`<div class="sec">Visão geral</div><div class="grid two">
+  <div class="card"><h3>NPS — recomendação (0 a 10)</h3>
+    <div class="nps"><div class="big ${npsCls}">${g.nps==null?'—':g.nps}</div>
+      <div style="flex:1;min-width:200px"><div class="npsbar">
+        <i style="width:${Math.round((g.det||0)/totP*100)}%;background:var(--red)"></i>
+        <i style="width:${Math.round((g.neu||0)/totP*100)}%;background:var(--amber)"></i>
+        <i style="width:${Math.round((g.prom||0)/totP*100)}%;background:var(--green)"></i>
+      </div><div class="sub" style="font-size:12px;color:var(--dim);margin-top:8px">Detratores (0–6) · Neutros (7–8) · Promotores (9–10)</div></div>
+    </div></div>
+  <div class="card"><h3>Médias por dimensão (1 a 5)</h3>
+    ${bar('Satisfação geral',num(g.medias.geral),5)}
+    ${bar('Conteúdo',num(g.medias.conteudo),5)}
+    ${bar('Organização',num(g.medias.organizacao),5)}
+    ${bar('Networking',num(g.medias.networking),5)}
+    ${bar('Divulgação',num(g.medias.divulgacao),5)}
+  </div></div>`;
+
+// expectativas + proxima
+html+=`<div class="grid two">
+  <div class="card"><h3>Expectativas</h3>${dist(g.expectativas,['Ficou abaixo','Atendeu','Superou'])}</div>
+  <div class="card"><h3>Pretende voltar em 2027</h3>${dist(g.proxima,['Com certeza','Provavelmente','Talvez','Não'])}</div>
+</div>`;
+
+// ranking palestras
+html+=`<div class="sec">Ranking das palestras</div><div class="card">`;
+if((DATA.palestras||[]).length){
+  html+=`<table><thead><tr><th>Palestra</th><th>Respostas</th><th>Nota</th><th>Aplicabilidade</th><th>Didática</th></tr></thead><tbody>`;
+  html+=DATA.palestras.map(p=>`<tr><td>${esc(NOMES[p.palestra]||p.palestra||'—')}</td><td>${p.total}</td><td><span class="score">${num(p.nota)?.toFixed(2)??'—'}</span></td><td>${num(p.aplicar)?.toFixed(2)??'—'}</td><td>${num(p.didatica)?.toFixed(2)??'—'}</td></tr>`).join('');
+  html+=`</tbody></table>`;
+} else { html+=`<div class="empty">Ainda sem avaliações de palestra. Os números aparecem aqui conforme o público responde após cada apresentação.</div>`; }
+html+=`</div>`;
+
+// depoimentos / melhorias
+html+=`<div class="sec">Na voz do público</div><div class="grid two">
+  <div class="card"><h3>O que levam do evento</h3><div class="quotes">${quotes(DATA.depoimentos)}</div></div>
+  <div class="card"><h3>O que podemos melhorar</h3><div class="quotes">${quotes(DATA.melhorias)}</div></div>
+</div>`;
+if((DATA.coment_palestras||[]).length){
+  html+=`<div class="card" style="margin-top:14px"><h3>Comentários por palestra</h3><div class="quotes">`+
+    DATA.coment_palestras.map(c=>`<div class="quote">${esc(c.c)}<span class="src">${esc(NOMES[c.palestra]||c.palestra||'')}</span></div>`).join('')+`</div></div>`;
+}
+
+el.innerHTML=html;
+function num(x){return x==null?null:Number(x);}
+function quotes(arr){arr=arr||[];if(!arr.length)return '<div class="empty">Sem comentários ainda.</div>';
+  return arr.map(q=>`<div class="quote">${esc(q)}</div>`).join('');}
+</script>
