@@ -33,6 +33,13 @@ html,body{background:#06070d;height:100%;overflow:hidden;font-family:Rajdhani,sa
 .tema{font-weight:600;font-size:38px;color:var(--white);line-height:1.18;max-width:20ch;animation:up .8s .4s both}
 .spk{font-weight:600;font-size:28px;color:#cfe0ff;margin-top:10px;animation:up .8s .55s both}
 .spk b{color:var(--green)}
+.pausa{display:inline-flex;align-items:stretch;margin-top:26px;border-radius:13px;overflow:hidden;
+  border:1.5px solid rgba(140,163,214,.45);animation:up .8s .7s both}
+.pausa .pt{display:flex;align-items:center;gap:10px;background:rgba(0,20,54,.65);padding:13px 22px;
+  font-weight:600;font-size:27px;color:var(--paper);letter-spacing:.01em}
+.pausa .ret{display:flex;align-items:center;background:var(--green);color:#04210a;padding:13px 24px;
+  font-weight:600;font-size:27px}
+.pausa .ret b{font-weight:700;margin-left:8px}
 .card{flex:0 0 auto;width:380px;background:#fff;border-radius:28px;padding:26px 26px 18px;display:flex;flex-direction:column;align-items:center;gap:12px;
   box-shadow:0 24px 70px rgba(0,0,0,.5);animation:pop .9s .25s both, cardglow 2.6s 1.4s ease-in-out infinite}
 .card img{width:328px;height:328px;display:block}
@@ -58,14 +65,23 @@ const PALESTRAS={
   "gizelle-rezende":{nome:"Gizelle Rezende",tema:"Tendências globais do mercado de educação internacional"},
   "painel":{nome:"Bihari · Argenta · Elaine Fuzer · Montani · Rodrigo Collaro",tema:"Panorama do mercado de intercâmbio para 2027 e uso da IA"}
 };
+const PAUSA={
+  "raphael-cavaco":{tipo:"Pausa técnica",ic:"⏸",retorno:"09h00"},
+  "myrko-micali":{tipo:"Coffee break",ic:"☕",retorno:"10h20"},
+  "lucas-politi-wagner":{tipo:"Pausa técnica",ic:"⏸",retorno:"11h30"},
+  "gizelle-rezende":{tipo:"Almoço livre",ic:"🍴",retorno:"14h00"},
+  "painel":{tipo:"Coffee break",ic:"☕",retorno:"16h30"}
+};
 const slug=(location.hash||'#raphael-cavaco').slice(1);
 const P=PALESTRAS[slug]||PALESTRAS['raphael-cavaco'];
+const PA=PAUSA[slug]||PAUSA['raphael-cavaco'];
 document.getElementById('scene').innerHTML=`<div class="scene">
   <div class="txt">
     <div class="ey">AVALIE ESTA PALESTRA · 30 SEGUNDOS</div>
     <div class="big">O que você<br><span class="g">achou?</span></div>
     <div class="tema">${P.tema}</div>
     <div class="spk">com <b>${P.nome}</b></div>
+    <div class="pausa"><span class="pt">${PA.ic} ${PA.tipo}</span><span class="ret">Voltamos às <b>${PA.retorno}</b></span></div>
   </div>
   <div class="card"><img src="${QRS[slug]}"><div class="cap">APONTE A CÂMERA</div></div>
 </div>`;
