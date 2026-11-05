@@ -88,17 +88,22 @@ html,body{background:#06070d;height:100%;overflow:hidden;font-family:Rajdhani,sa
   for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);if(d<175){const o=(1-d/175)*.22;ctx.strokeStyle='rgba(140,163,214,'+o+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
   for(const p of pts){ctx.fillStyle='rgba(180,208,255,.5)';ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.3);ctx.fill();}requestAnimationFrame(step);}step();})();
 const QR="data:image/png;base64,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";
-const V={x:540,y:226};
+const V={x:700,y:170};
 const SPOTS=[
-  {x:1130,y:96,nm:"Shopping Cidade de São Paulo",ty:"Outback · Japonês"},
-  {x:214,y:104,nm:"Arabek",ty:"Árabe · ao lado da saída"},
-  {x:236,y:364,nm:"Rascal",ty:"rua do lado"},
-  {x:1150,y:366,nm:"América",ty:"rua de trás"}
+  {x:402,y:86,nm:"Arabek",ty:"Árabe · ao lado da saída"},
+  {x:232,y:252,nm:"Shopping Cidade de São Paulo",ty:"Outback · Japonês"},
+  {x:1086,y:252,nm:"Rascal",ty:"rua do lado"},
+  {x:700,y:374,nm:"América",ty:"rua de trás"}
 ];
 const lines=SPOTS.map(s=>`<line x1="${V.x}" y1="${V.y}" x2="${s.x}" y2="${s.y}" stroke="rgba(10,206,0,.55)" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round"/>`).join('');
 const svg=`<svg viewBox="0 0 1430 452" preserveAspectRatio="none">
-  <line x1="30" y1="${V.y}" x2="1280" y2="${V.y}" stroke="rgba(140,163,214,.4)" stroke-width="11" stroke-linecap="round"/>
-  <text x="980" y="${V.y-16}" fill="rgba(180,200,240,.75)" font-family="Rajdhani" font-weight="700" font-size="22" letter-spacing="6">AV. PAULISTA</text>
+  <line x1="330" y1="110" x2="330" y2="412" stroke="rgba(140,163,214,.2)" stroke-width="5"/>
+  <line x1="700" y1="110" x2="700" y2="412" stroke="rgba(140,163,214,.2)" stroke-width="5"/>
+  <line x1="1070" y1="110" x2="1070" y2="412" stroke="rgba(140,163,214,.2)" stroke-width="5"/>
+  <line x1="30" y1="${V.y}" x2="1400" y2="${V.y}" stroke="rgba(140,163,214,.42)" stroke-width="12" stroke-linecap="round"/>
+  <text x="1120" y="${V.y-16}" fill="rgba(180,200,240,.8)" font-family="Rajdhani" font-weight="700" font-size="22" letter-spacing="6">AV. PAULISTA</text>
+  <line x1="210" y1="360" x2="1180" y2="360" stroke="rgba(140,163,214,.3)" stroke-width="7" stroke-linecap="round"/>
+  <text x="880" y="343" fill="rgba(180,200,240,.6)" font-family="Rajdhani" font-weight="600" font-size="17" letter-spacing="4">RUA DE TRÁS</text>
   ${lines}
 </svg>`;
 const spotsHtml=SPOTS.map(s=>`<div class="spot" style="left:${s.x}px;top:${s.y}px"><div class="dot"></div><div class="card2"><div class="nm">${s.nm}</div><div class="ty">${s.ty}</div></div></div>`).join('');
