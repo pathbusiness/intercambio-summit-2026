@@ -1,0 +1,19 @@
+INTERCAMBIO SUMMIT 2026 - LOOPS DE PAUSA (v2) - SUBSTITUEM OS ANTERIORES
+========================================================================
+
+Estes 5 arquivos "_v2" SUBSTITUEM os loops de pausa do pacote anterior
+(04, 06, 08, 10 e 12). Mesma funcao: tocar em REPETICAO durante as pausas.
+
+O QUE MUDOU: alem de PATH, VanWest, Connect e Global Village, cada loop
+agora inclui tambem IKON INSTITUTE OF AUSTRALIA e AUSTRALIAN LEARNING GROUP,
+na mesma rotacao (cada escola aparece 1x por volta), com um card de
+avaliacao (QR) antes de cada uma, no mesmo padrao ja existente.
+
+ARQUIVOS (2304x576):
+  04_0850_pausa-tecnica_LOOP-avaliacao-raphael-e-parceiros_v2.mp4      (~8:44)
+  06_0950_coffee-break_LOOP-avaliacao-myrko-e-parceiros_v2.mp4         (~8:44)
+  08_1110_pausa-tecnica_LOOP-avaliacao-lucas-e-parceiros_v2.mp4        (~8:44)
+  10_1220_almoco_LOOP-mapa-avaliacao-gizelle-qa-painel-e-parceiros_v2.mp4 (~9:27)
+  12_1600_coffee-break_LOOP-avaliacao-painel-e-parceiros_v2.mp4        (~8:44)
+
+Obs.: Ikon e ALG tocam com a narracao original em ingles.
