@@ -58,8 +58,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("csv", nargs="?")
     ap.add_argument("--amostra")
+    ap.add_argument("--saida", default="saida")
     a = ap.parse_args()
-    saida = AQUI / "saida"; saida.mkdir(exist_ok=True)
+    saida = AQUI / a.saida; saida.mkdir(exist_ok=True)
     if a.amostra:
         pdf(a.amostra, codigo("amostra@exemplo.test"), saida / "amostra.pdf"); print("saida/amostra.pdf"); return
     if not a.csv:
@@ -84,7 +85,7 @@ def main():
         links.append([nome, mail, cod, f"{BASE_URL}/{cod}.pdf"])
         print("ok", nome)
     with open(saida / "links.csv", "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.writer(f); w.writerow(["nome", "email", "codigo", "link_certificado"]); w.writerows(links)
+        w = csv.writer(f, lineterminator="\n"); w.writerow(["nome", "email", "codigo", "link_certificado"]); w.writerows(links)
     print(f"{len(links)} certificados em {saida}")
 
 main()
