@@ -13,6 +13,14 @@ from pathlib import Path
 AQUI = Path(__file__).resolve().parent
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 BASE_URL = "https://intercambiosummit.com.br/certificados"
+EVENTO = ('<b>Intercâmbio Summit 2026</b>, encontro B2B do mercado brasileiro de intercâmbio, '
+          'realizado em <b>11 de novembro de 2026</b>, em São Paulo.')
+TEXTOS = {
+    "participante": "participou do " + EVENTO,
+    "palestrante": "participou como <b>palestrante</b> do " + EVENTO,
+    "patrocinador": "participou, como representante de <b>patrocinador</b>, do " + EVENTO,
+    "staff": "atuou na <b>equipe de organização</b> do " + EVENTO,
+}
 
 def segredo() -> bytes:
     f = AQUI / ".segredo"
@@ -27,11 +35,13 @@ def titulo(nome: str) -> str:
     # "MARIA da SILVA" -> "Maria da Silva", preservando partículas
     mini = {"da", "de", "do", "das", "dos", "e"}
     partes = nome.strip().split()
-    return " ".join(p.lower() if i and p.lower() in mini else p[:1].upper() + p[1:].lower() for i, p in enumerate(partes))
+    # siglas com ponto (C.C.) ficam como vieram; partículas (da, de...) em minúsculas
+    return " ".join(p if ("." in p and p.upper() == p) else (p.lower() if i and p.lower() in mini else p[:1].upper() + p[1:].lower()) for i, p in enumerate(partes))
 
-def pdf(nome: str, cod: str, destino: Path):
+def pdf(nome: str, cod: str, destino: Path, papel: str = "participante"):
     modelo = (AQUI / "modelo.html").read_text(encoding="utf-8")
-    pagina = modelo.replace("{{NOME}}", html.escape(nome)).replace("{{CODIGO}}", cod.upper())
+    pagina = (modelo.replace("{{NOME}}", html.escape(nome)).replace("{{CODIGO}}", cod.upper())
+              .replace("{{TEXTO}}", TEXTOS[papel]))
     tmp = AQUI / f"_tmp_{cod}.html"
     tmp.write_text(pagina, encoding="utf-8")
     perfil = tempfile.mkdtemp(prefix="cert-chrome-")  # perfil próprio: não briga com o Chrome aberto
@@ -70,6 +80,7 @@ def main():
         dialeto = csv.Sniffer().sniff(amostra, delimiters=",;\t")
         linhas = list(csv.reader(f, dialeto))
     cab, dados = linhas[0], linhas[1:]
+    i_papel = achar(cab, "papel")
     i_nome, i_sob, i_mail = achar(cab, "primeiro nome", "first name", "nome"), achar(cab, "sobrenome", "last name"), achar(cab, "email", "e-mail")
     if i_mail is None or i_nome is None:
         sys.exit(f"Não achei nome/e-mail no cabeçalho: {cab}")
@@ -81,11 +92,14 @@ def main():
         vistos.add(mail)
         nome = titulo(f"{l[i_nome]} {l[i_sob] if i_sob is not None else ''}".strip())
         cod = codigo(mail)
-        pdf(nome, cod, saida / f"{cod}.pdf")
-        links.append([nome, mail, cod, f"{BASE_URL}/{cod}.pdf"])
+        papel = (l[i_papel].strip().lower() if i_papel is not None and l[i_papel].strip() else "participante")
+        if papel not in TEXTOS:
+            sys.exit(f"Papel desconhecido: {papel}")
+        pdf(nome, cod, saida / f"{cod}.pdf", papel)
+        links.append([nome, mail, cod, f"{BASE_URL}/{cod}.pdf", papel])
         print("ok", nome)
     with open(saida / "links.csv", "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.writer(f, lineterminator="\n"); w.writerow(["nome", "email", "codigo", "link_certificado"]); w.writerows(links)
+        w = csv.writer(f, lineterminator="\n"); w.writerow(["nome", "email", "codigo", "link_certificado", "papel"]); w.writerows(links)
     print(f"{len(links)} certificados em {saida}")
 
 main()
