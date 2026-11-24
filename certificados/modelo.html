@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Certificado de participação — Intercâmbio Summit 2026</title>
+<style>
+  @font-face { font-family: Rajdhani; font-weight: 400; src: url("fonts/Rajdhani-Regular.ttf"); }
+  @font-face { font-family: Rajdhani; font-weight: 500; src: url("fonts/Rajdhani-Medium.ttf"); }
+  @font-face { font-family: Rajdhani; font-weight: 600; src: url("fonts/Rajdhani-SemiBold.ttf"); }
+  @font-face { font-family: Rajdhani; font-weight: 700; src: url("fonts/Rajdhani-Bold.ttf"); }
+  @page { size: 297mm 210mm; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 297mm; height: 210mm; }
+  body { font-family: Rajdhani, Arial, sans-serif; color: #231F20; background: #fff; position: relative; overflow: hidden; }
+  .faixa { position: absolute; left: 0; top: 0; width: 297mm; height: 46mm; background: #0044B9; }
+  .faixa img { position: absolute; left: 20mm; top: 9mm; height: 28mm; }
+  .faixa .data { position: absolute; right: 20mm; top: 15mm; text-align: right; color: #D0D5E8; font-size: 15pt; font-weight: 500; line-height: 1.35; letter-spacing: .02em; }
+  .faixa .data b { color: #0ACE00; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 12pt; display: block; }
+  .verde { position: absolute; left: 0; top: 46mm; width: 297mm; height: 2.2mm; background: #0ACE00; }
+  .miolo { position: absolute; left: 20mm; right: 20mm; top: 62mm; text-align: center; }
+  .titulo { font-size: 34pt; font-weight: 700; color: #0044B9; text-transform: uppercase; letter-spacing: .08em; line-height: 1; }
+  .certifica { margin-top: 12mm; font-size: 15pt; font-weight: 500; color: #555; letter-spacing: .04em; }
+  .nome { margin: 4mm auto 0; font-size: 40pt; font-weight: 700; color: #231F20; line-height: 1.1; max-width: 250mm; padding-bottom: 3mm; border-bottom: 1.2pt solid #0ACE00; display: inline-block; min-width: 150mm; }
+  .texto { margin: 9mm auto 0; max-width: 218mm; font-size: 16.5pt; line-height: 1.45; font-weight: 500; color: #231F20; }
+  .texto b { font-weight: 700; color: #0044B9; }
+  .assinaturas { position: absolute; left: 40mm; right: 40mm; top: 150mm; display: flex; justify-content: space-around; }
+  .ass { width: 88mm; text-align: center; }
+  .ass .tinta { height: 17mm; display: flex; align-items: flex-end; justify-content: center; }
+  .ass .tinta img { max-height: 15mm; max-width: 62mm; }
+  .ass .linha { border-top: .8pt solid #231F20; margin-top: 1.5mm; padding-top: 2mm; }
+  .ass .nome-ass { font-size: 14.5pt; font-weight: 700; }
+  .ass .cargo { font-size: 11.5pt; font-weight: 500; color: #555; line-height: 1.25; }
+  .rodape { position: absolute; left: 20mm; right: 20mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 10pt; color: #8A8F9E; font-weight: 500; }
+  .rodape b { color: #0044B9; }
+</style>
+</head>
+<body>
+  <div class="faixa">
+    <img src="img/summit-logo-reverso-240.png" alt="Intercâmbio Summit 2026">
+    <div class="data"><b>11 de novembro de 2026</b>São Paulo</div>
+  </div>
+  <div class="verde"></div>
+
+  <div class="miolo">
+    <div class="titulo">Certificado de participação</div>
+    <div class="certifica">Certificamos que</div>
+    <div class="nome">{{NOME}}</div>
+    <p class="texto">participou do <b>Intercâmbio Summit 2026</b>, encontro B2B do mercado brasileiro de intercâmbio, realizado em <b>11 de novembro de 2026</b>, em São Paulo.</p>
+  </div>
+
+  <div class="assinaturas">
+    <div class="ass">
+      <div class="tinta"><img src="assinaturas/rodrigo-collaro.png" alt=""></div>
+      <div class="linha"><div class="nome-ass">Rodrigo Collaro</div><div class="cargo">Co-Founder<br>PATH Business &amp; Marketing Solutions</div></div>
+    </div>
+    <div class="ass">
+      <div class="tinta"><img src="assinaturas/roberto-bihari.png" alt=""></div>
+      <div class="linha"><div class="nome-ass">Roberto Franca Bihari</div><div class="cargo">Co-Founder<br>PATH Business &amp; Marketing Solutions</div></div>
+    </div>
+  </div>
+
+  <div class="rodape"><span>Uma realização <b>PATH Business &amp; Marketing Solutions</b></span><span>Certificado nº {{CODIGO}}</span></div>
+</body>
+</html>
